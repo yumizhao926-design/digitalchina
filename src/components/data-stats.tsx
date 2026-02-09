@@ -1,41 +1,32 @@
 'use client';
 
-import { TrendingUp, Award, Globe, Building2, Zap, Users } from 'lucide-react';
-
 interface StatItem {
-  icon: React.ReactNode;
   value: string;
   label: string;
 }
 
 const stats: StatItem[] = [
   {
-    icon: <TrendingUp className="w-5 h-5" />,
     value: '182',
     label: '《财富》中国500强',
   },
   {
-    icon: <Award className="w-5 h-5" />,
     value: '43',
     label: '《财富》最受赞赏中国公司',
   },
   {
-    icon: <Globe className="w-5 h-5" />,
     value: '29',
     label: '《福布斯》中国数字经济100强',
   },
   {
-    icon: <Building2 className="w-5 h-5" />,
     value: '72',
     label: '中国民营企业500强',
   },
   {
-    icon: <Zap className="w-5 h-5" />,
     value: '26',
     label: '数实融合企业TOP100',
   },
   {
-    icon: <Users className="w-5 h-5" />,
     value: '300+',
     label: '技术生态伙伴',
   },
@@ -51,14 +42,9 @@ export default function DataStats() {
               key={index}
               className="flex flex-col items-center justify-center text-center px-3 sm:px-4"
             >
-              {/* 图标 */}
-              <div className="mb-1.5 opacity-80">
-                <span className="w-4 h-4" style={{ color: '#666666' }}>{stat.icon}</span>
-              </div>
-
               {/* 数字 - 渐变效果 */}
               <div
-                className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-none mb-1.5 tracking-wide"
+                className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-none mb-2 tracking-wide"
                 style={{
                   background: 'linear-gradient(135deg, #333333 0%, #666666 100%)',
                   WebkitBackgroundClip: 'text',
