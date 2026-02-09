@@ -100,9 +100,10 @@ export default function Hero() {
       <div className="relative z-10 text-center px-4 sm:px-8 max-w-5xl mx-auto">
         {/* 主标题 */}
         <h1
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-bold mb-6 sm:mb-8 leading-tight animate-fade-in-up"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-[56px] font-bold mb-6 sm:mb-8 leading-[1.2] tracking-wide animate-fade-in-up"
           style={{
-            color: '#333333',
+            color: '#1a1a1a',
+            textShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
             animationDelay: '0s',
           }}
         >
@@ -111,9 +112,9 @@ export default function Hero() {
 
         {/* 副标题 */}
         <p
-          className="text-base sm:text-lg md:text-xl font-normal mb-8 sm:mb-10 leading-relaxed max-w-3xl mx-auto animate-fade-in-up"
+          className="text-lg sm:text-xl md:text-2xl font-normal mb-8 sm:mb-10 leading-relaxed max-w-3xl mx-auto tracking-tight animate-fade-in-up"
           style={{
-            color: '#666666',
+            color: '#4a4a4a',
             animationDelay: '0.2s',
           }}
         >
