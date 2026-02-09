@@ -1,12 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { X, ArrowRight, Brain, Zap, Target, CheckCircle2 } from 'lucide-react';
 
 export default function AIPhilosophy() {
   const [showForm, setShowForm] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [bgImageUrl, setBgImageUrl] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -14,24 +13,8 @@ export default function AIPhilosophy() {
     position: '',
   });
 
-  // 生成背景图片
-  useEffect(() => {
-    const generateImage = async () => {
-      try {
-        const response = await fetch('/api/generate-whitepaper-bg', {
-          method: 'POST',
-        });
-        const data = await response.json();
-        if (data.success) {
-          setBgImageUrl(data.imageUrl);
-        }
-      } catch (error) {
-        console.error('Failed to generate background image:', error);
-      }
-    };
-
-    generateImage();
-  }, []);
+  // 固定的背景图片URL
+  const WHITEPAPER_BG_URL = 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_31dac949-ea25-4b48-85f2-198bfe80383c.jpeg?sign=1802162100-56d6a8c77e-0-aff75373fec8b1c35d78d28167a4ca9ecb04f05d4eb6a191a40726da4de2cee8';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -184,67 +167,31 @@ export default function AIPhilosophy() {
             {/* 右侧下载区 - 图片背景 */}
             <div className="lg:col-span-2 p-0 relative overflow-hidden min-h-[500px]">
               {/* 背景图片 */}
-              {bgImageUrl && (
-                <div
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url("${bgImageUrl}")`,
-                  }}
-                />
-              )}
-
-              {/* 加载中提示 */}
-              {!bgImageUrl && (
-                <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: '#F8F9FA' }}>
-                  <div className="text-center">
-                    <div className="w-12 h-12 border-4 border-gray-200 border-t-red-500 rounded-full animate-spin mx-auto mb-3"></div>
-                    <p style={{ color: '#666666', fontSize: '14px' }}>加载中...</p>
-                  </div>
-                </div>
-              )}
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: `url("${WHITEPAPER_BG_URL}")`,
+                }}
+              />
 
               {/* 渐变遮罩，确保文字可读 */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20"></div>
 
-              {/* 内容 - 仅按钮 */}
-              <div className="relative z-10 h-full flex flex-col items-center justify-center p-10">
-                {/* 按钮组 */}
-                <div className="space-y-3 w-full max-w-xs">
+              {/* 内容 - 文字CTA */}
+              <div className="relative z-10 h-full flex flex-col items-center justify-center p-10 text-center">
+                {/* CTA文字链接 */}
+                <div className="space-y-4">
                   <button
                     onClick={() => setShowForm(true)}
-                    className="w-full px-6 py-2.5 text-xs sm:text-sm font-medium rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg border-2 backdrop-blur-sm inline-flex items-center justify-center gap-2"
-                    style={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                      borderColor: '#FF3B30',
-                      color: '#FF3B30',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = '#FF3B30';
-                      e.currentTarget.style.color = 'white';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
-                      e.currentTarget.style.color = '#FF3B30';
-                    }}
+                    className="text-lg font-semibold transition-all duration-300 hover:underline"
+                    style={{ color: '#FFFFFF' }}
                   >
                     立即下载
                   </button>
                   <button
                     onClick={handleScrollToEngine}
-                    className="w-full px-6 py-2.5 text-xs sm:text-sm font-medium rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg border-2 backdrop-blur-sm inline-flex items-center justify-center gap-2"
-                    style={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                      borderColor: '#666666',
-                      color: '#666666',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = '#666666';
-                      e.currentTarget.style.color = 'white';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
-                      e.currentTarget.style.color = '#666666';
-                    }}
+                    className="text-base font-medium transition-all duration-300 hover:underline inline-flex items-center gap-2"
+                    style={{ color: 'rgba(255, 255, 255, 0.9)' }}
                   >
                     查看完整方法论
                     <ArrowRight className="w-4 h-4" />
