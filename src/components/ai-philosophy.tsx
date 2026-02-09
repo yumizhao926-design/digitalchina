@@ -74,7 +74,7 @@ export default function AIPhilosophy() {
                 <div className="flex items-center gap-3 mb-8">
                   <div
                     className="w-1 h-6"
-                    style={{ backgroundColor: '#FF3B30' }}
+                    style={{ backgroundColor: '#E60012' }}
                   ></div>
                   <h3
                     className="font-semibold"
@@ -89,7 +89,7 @@ export default function AIPhilosophy() {
                   <div className="pl-4 relative">
                     <div
                       className="absolute left-0 top-1 font-bold"
-                      style={{ color: '#FF3B30', fontSize: '18px', width: '40px' }}
+                      style={{ color: '#E60012', fontSize: '18px', width: '40px' }}
                     >
                       01
                     </div>
@@ -135,7 +135,7 @@ export default function AIPhilosophy() {
                   <div className="pl-4 relative">
                     <div
                       className="absolute left-0 top-1 font-bold"
-                      style={{ color: '#FF3B30', fontSize: '18px', width: '40px' }}
+                      style={{ color: '#E60012', fontSize: '18px', width: '40px' }}
                     >
                       03
                     </div>
@@ -306,7 +306,7 @@ export default function AIPhilosophy() {
                   type="submit"
                   className="flex-1 py-3 font-medium text-white transition-all duration-300 hover:shadow-md"
                   style={{
-                    backgroundColor: '#FF3B30',
+                    backgroundColor: '#E60012',
                     borderRadius: '6px',
                   }}
                 >

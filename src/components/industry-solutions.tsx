@@ -270,7 +270,7 @@ export default function IndustrySolutions() {
                   <div
                     className="inline-block px-4 py-2 rounded-full mb-3 text-sm font-semibold"
                     style={{
-                      backgroundColor: '#FF3B30',
+                      backgroundColor: '#E60012',
                       color: '#FFFFFF',
                       width: 'fit-content'
                     }}
@@ -327,7 +327,7 @@ export default function IndustrySolutions() {
                 onClick={() => handleDotClick(index)}
                 className="w-2 h-2 rounded-full transition-all duration-300 hover:scale-125"
                 style={{
-                  backgroundColor: index === currentIndex ? '#FF3B30' : '#D1D5DB',
+                  backgroundColor: index === currentIndex ? '#E60012' : '#D1D5DB',
                   width: index === currentIndex ? '32px' : '8px'
                 }}
               />
@@ -360,7 +360,7 @@ export default function IndustrySolutions() {
                   <div
                     className="inline-block px-4 py-2 rounded-full mb-3 text-sm font-semibold"
                     style={{
-                      backgroundColor: '#FF3B30',
+                      backgroundColor: '#E60012',
                       color: '#FFFFFF',
                       width: 'fit-content'
                     }}
@@ -447,7 +447,7 @@ export default function IndustrySolutions() {
                   style={{
                     color: '#333333',
                     fontSize: '20px',
-                    borderBottom: '2px solid #FF3B30'
+                    borderBottom: '2px solid #E60012'
                   }}
                 >
                   方案概述
@@ -461,7 +461,7 @@ export default function IndustrySolutions() {
                     >
                       <span
                         className="flex-shrink-0 w-2 h-2 rounded-full mt-2"
-                        style={{ backgroundColor: '#FF3B30' }}
+                        style={{ backgroundColor: '#E60012' }}
                       />
                       {item}
                     </li>
@@ -476,7 +476,7 @@ export default function IndustrySolutions() {
                   style={{
                     color: '#333333',
                     fontSize: '20px',
-                    borderBottom: '2px solid #FF3B30'
+                    borderBottom: '2px solid #E60012'
                   }}
                 >
                   应用成果
@@ -490,7 +490,7 @@ export default function IndustrySolutions() {
                     >
                       <p
                         className="font-medium"
-                        style={{ color: '#FF3B30', fontSize: '18px' }}
+                        style={{ color: '#E60012', fontSize: '18px' }}
                       >
                         {result}
                       </p>

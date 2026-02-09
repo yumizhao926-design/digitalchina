@@ -25,7 +25,7 @@ export default function ProductCards() {
             <div className="relative">
             {/* 标题图标和标题 */}
             <div className="flex items-center gap-4 mb-3">
-              <Brain className="w-10 h-10 flex-shrink-0" style={{ color: '#FF3B30' }} />
+              <Brain className="w-10 h-10 flex-shrink-0" style={{ color: '#E60012' }} />
               <h3
                 className="font-bold leading-tight"
                 style={{ color: '#333333', fontSize: '24px', letterSpacing: '1px' }}
@@ -43,7 +43,7 @@ export default function ProductCards() {
               </p>
 
               {/* 分割线 */}
-              <div className="w-16 h-1 mb-6 rounded-full" style={{ backgroundColor: '#FF3B30' }}></div>
+              <div className="w-16 h-1 mb-6 rounded-full" style={{ backgroundColor: '#E60012' }}></div>
 
               {/* 三个特点 */}
               <ul className="space-y-3 mb-8">
@@ -52,21 +52,21 @@ export default function ProductCards() {
                   style={{ color: '#666666', fontSize: '16px' }}
                 >
                   <span>多模型调度适配</span>
-                  <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300" style={{ color: '#FF3B30' }} />
+                  <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300" style={{ color: '#E60012' }} />
                 </li>
                 <li
                   className="flex items-center justify-between group/item"
                   style={{ color: '#666666', fontSize: '16px' }}
                 >
                   <span>全生命周期知识治理</span>
-                  <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300" style={{ color: '#FF3B30' }} />
+                  <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300" style={{ color: '#E60012' }} />
                 </li>
                 <li
                   className="flex items-center justify-between group/item"
                   style={{ color: '#666666', fontSize: '16px' }}
                 >
                   <span>流程智能编排</span>
-                  <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300" style={{ color: '#FF3B30' }} />
+                  <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300" style={{ color: '#E60012' }} />
                 </li>
               </ul>
 
