@@ -122,13 +122,13 @@ export default function Hero() {
           <button
             className="px-10 py-3 sm:px-12 sm:py-4 text-sm sm:text-base font-medium text-white rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
             style={{
-              backgroundColor: '#FF3B30',
+              backgroundColor: '#333333',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#D70015';
+              e.currentTarget.style.backgroundColor = '#FF3B30';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#FF3B30';
+              e.currentTarget.style.backgroundColor = '#333333';
             }}
           >
             发现企业智能
@@ -138,13 +138,13 @@ export default function Hero() {
           <button
             className="px-10 py-3 sm:px-12 sm:py-4 text-sm sm:text-base font-medium text-white rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
             style={{
-              backgroundColor: '#FF3B30',
+              backgroundColor: '#333333',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#D70015';
+              e.currentTarget.style.backgroundColor = '#FF3B30';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#FF3B30';
+              e.currentTarget.style.backgroundColor = '#333333';
             }}
           >
             预约专家演示
