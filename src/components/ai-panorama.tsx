@@ -551,11 +551,8 @@ export default function AIPanorama() {
                 {/* 行业项 - 8个 */}
                 {showPhase >= 1 && industryItems.map((item, index) => {
                   const angle = (index * 45 - 90) * (Math.PI / 180);
-                  const x = Math.cos(angle) * 175;
-                  const y = Math.sin(angle) * 175;
-                  const cosAngle = Math.cos(angle);
-                  const textX = cosAngle > 0 ? -50 : (cosAngle < 0 ? 50 : -50);
-                  const justifyClass = cosAngle > 0 ? 'justify-start' : (cosAngle < 0 ? 'justify-end' : 'justify-center');
+                  const x = Math.cos(angle) * 160;
+                  const y = Math.sin(angle) * 160;
 
                   return (
                     <g transform={`translate(${x}, ${y})`} key={item.id}>
@@ -570,8 +567,8 @@ export default function AIPanorama() {
                         onMouseLeave={() => setHoveredItem(null)}
                         onClick={() => handleItemClick(item)}
                       >
-                        <foreignObject x={textX} y="-12" width="100" height="24">
-                          <div className={`w-full h-full flex items-center ${justifyClass} gap-2 transition-all duration-300 relative whitespace-nowrap`} style={{
+                        <foreignObject x="-50" y="-12" width="100" height="24">
+                          <div className="w-full h-full flex items-center justify-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
                             transform: hoveredItem?.id === item.id ? 'scale(1.1)' : 'scale(1)',
                           }}>
                             <div className="pulse-animation" style={{ color: item.color }}>
@@ -601,11 +598,8 @@ export default function AIPanorama() {
                 {/* 产品项 - 12个 */}
                 {showPhase >= 2 && productItems.map((item, index) => {
                   const angle = (index * 30 - 90) * (Math.PI / 180);
-                  const x = Math.cos(angle) * 275;
-                  const y = Math.sin(angle) * 275;
-                  const cosAngle = Math.cos(angle);
-                  const textX = cosAngle > 0 ? -45 : (cosAngle < 0 ? 45 : -45);
-                  const justifyClass = cosAngle > 0 ? 'justify-start' : (cosAngle < 0 ? 'justify-end' : 'justify-center');
+                  const x = Math.cos(angle) * 260;
+                  const y = Math.sin(angle) * 260;
 
                   return (
                     <g transform={`translate(${x}, ${y})`} key={item.id}>
@@ -620,8 +614,8 @@ export default function AIPanorama() {
                         onMouseLeave={() => setHoveredItem(null)}
                         onClick={() => handleItemClick(item)}
                       >
-                        <foreignObject x={textX} y="-10" width="90" height="20">
-                          <div className={`w-full h-full flex items-center ${justifyClass} gap-2 transition-all duration-300 relative whitespace-nowrap`} style={{
+                        <foreignObject x="-45" y="-10" width="90" height="20">
+                          <div className="w-full h-full flex items-center justify-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
                             transform: hoveredItem?.id === item.id ? 'scale(1.1)' : 'scale(1)',
                           }}>
                             <div className="pulse-animation" style={{ color: item.color }}>
