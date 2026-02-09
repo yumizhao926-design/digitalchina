@@ -2,7 +2,7 @@
 
 export default function Hero() {
   return (
-    <section className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center">
+    <section className="relative w-full overflow-hidden py-20 sm:py-24 md:py-32">
       {/* 背景图片层 */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -23,7 +23,7 @@ export default function Hero() {
       <div className="absolute inset-0 overflow-hidden">
         {/* 大圆光晕1 - 右上角 */}
         <div
-          className="absolute -top-40 -right-40 w-96 h-96 rounded-full"
+          className="absolute -top-20 -right-20 w-64 h-64 rounded-full"
           style={{
             background: 'radial-gradient(circle, rgba(255,59,48,0.04) 0%, transparent 70%)',
             animation: 'float 8s ease-in-out infinite',
@@ -32,7 +32,7 @@ export default function Hero() {
 
         {/* 大圆光晕2 - 左下角 */}
         <div
-          className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full"
+          className="absolute -bottom-16 -left-16 w-56 h-56 rounded-full"
           style={{
             background: 'radial-gradient(circle, rgba(51,51,51,0.03) 0%, transparent 70%)',
             animation: 'float 10s ease-in-out infinite',
@@ -42,13 +42,13 @@ export default function Hero() {
 
         {/* 淡线条装饰 - 水平 */}
         <div
-          className="absolute top-1/4 left-10 w-32 h-px"
+          className="absolute top-1/4 left-10 w-24 h-px"
           style={{
             background: 'linear-gradient(90deg, transparent, rgba(51,51,51,0.1), transparent)',
           }}
         />
         <div
-          className="absolute top-1/4 right-10 w-24 h-px"
+          className="absolute top-1/4 right-10 w-20 h-px"
           style={{
             background: 'linear-gradient(90deg, transparent, rgba(51,51,51,0.08), transparent)',
           }}
@@ -56,13 +56,13 @@ export default function Hero() {
 
         {/* 淡线条装饰 - 垂直 */}
         <div
-          className="absolute top-20 left-1/4 w-px h-20"
+          className="absolute top-20 left-1/4 w-px h-16"
           style={{
             background: 'linear-gradient(180deg, transparent, rgba(51,51,51,0.08), transparent)',
           }}
         />
         <div
-          className="absolute bottom-32 right-1/3 w-px h-16"
+          className="absolute bottom-24 right-1/3 w-px h-12"
           style={{
             background: 'linear-gradient(180deg, transparent, rgba(51,51,51,0.1), transparent)',
           }}
@@ -103,10 +103,10 @@ export default function Hero() {
       </div>
 
       {/* 中央内容 */}
-      <div className="relative z-10 text-center px-4 sm:px-8 max-w-5xl">
+      <div className="relative z-10 text-center px-4 sm:px-8 max-w-5xl mx-auto">
         {/* 主标题 */}
         <h1
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-[48px] font-bold mb-8 leading-tight"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-bold mb-6 sm:mb-8 leading-tight"
           style={{
             color: '#333333',
           }}
@@ -116,7 +116,7 @@ export default function Hero() {
 
         {/* 副标题 */}
         <p
-          className="text-lg sm:text-xl md:text-2xl font-normal mb-12 leading-relaxed max-w-3xl mx-auto"
+          className="text-base sm:text-lg md:text-xl font-normal mb-8 sm:mb-10 leading-relaxed max-w-3xl mx-auto"
           style={{
             color: '#666666',
           }}
@@ -126,7 +126,7 @@ export default function Hero() {
 
         {/* 主CTA按钮 */}
         <button
-          className="px-12 py-4 text-base font-medium text-white rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+          className="px-10 py-3 sm:px-12 sm:py-4 text-sm sm:text-base font-medium text-white rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
           style={{
             backgroundColor: '#FF3B30',
           }}
@@ -139,18 +139,18 @@ export default function Hero() {
         >
           下载AI for Process蓝皮书
         </button>
-      </div>
 
-      {/* 底部小字 */}
-      <div className="absolute bottom-8 left-0 right-0 text-center z-10">
-        <p
-          className="text-sm"
-          style={{
-            color: '#999999',
-          }}
-        >
-          神州数码·企业数智化转型合作伙伴
-        </p>
+        {/* 底部小字 */}
+        <div className="mt-12 sm:mt-16">
+          <p
+            className="text-xs sm:text-sm"
+            style={{
+              color: '#999999',
+            }}
+          >
+            神州数码·企业数智化转型合作伙伴
+          </p>
+        </div>
       </div>
 
       {/* 添加CSS动画 */}
