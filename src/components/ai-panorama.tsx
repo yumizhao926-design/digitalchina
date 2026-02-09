@@ -328,23 +328,23 @@ export default function AIPanorama() {
               <defs>
                 {/* 渐变定义 */}
                 <linearGradient id="coreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#FF3B30" stopOpacity="0.1" />
-                  <stop offset="100%" stopColor="#666666" stopOpacity="0.1" />
+                  <stop offset="0%" stopColor="#FF3B30" stopOpacity="0.25" />
+                  <stop offset="100%" stopColor="#FF3B30" stopOpacity="0.15" />
                 </linearGradient>
                 <linearGradient id="industryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.1" />
-                  <stop offset="100%" stopColor="#60A5FA" stopOpacity="0.1" />
+                  <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.2" />
+                  <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.1" />
                 </linearGradient>
                 <linearGradient id="productGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#9CA3AF" stopOpacity="0.1" />
-                  <stop offset="100%" stopColor="#D1D5DB" stopOpacity="0.1" />
+                  <stop offset="0%" stopColor="#9CA3AF" stopOpacity="0.15" />
+                  <stop offset="100%" stopColor="#9CA3AF" stopOpacity="0.08" />
                 </linearGradient>
               </defs>
 
               {/* 中心点 */}
               <g transform="translate(400, 350)">
                 {/* 核心圈层 - 内环 */}
-                <circle cx="0" cy="0" r="80" fill="url(#coreGradient)" stroke="#FF3B30" strokeWidth="2" strokeOpacity="0.3" />
+                <circle cx="0" cy="0" r="80" fill="url(#coreGradient)" />
 
                 {/* 核心项1 */}
                 <g
@@ -356,18 +356,27 @@ export default function AIPanorama() {
                 >
                   <foreignObject x="-25" y="-25" width="50" height="50">
                     <div className="w-full h-full rounded-full flex items-center justify-center transition-all duration-300 relative" style={{
-                      background: hoveredItem?.id === coreItems[0].id ? '#FF3B30' : 'transparent',
-                      border: `2px solid ${hoveredItem?.id === coreItems[0].id ? '#FF3B30' : '#FF3B30'}`,
-                      borderColor: '#FF3B30',
-                      borderWidth: '2px',
+                      background: hoveredItem?.id === coreItems[0].id ? '#FF3B30' : 'rgba(255, 59, 48, 0.6)',
                       transform: hoveredItem?.id === coreItems[0].id ? 'scale(1.2)' : 'scale(1)',
                       transition: 'all 0.3s ease',
                     }}>
-                      <div style={{ color: hoveredItem?.id === coreItems[0].id ? '#FFFFFF' : '#FF3B30' }}>
+                      <div style={{ color: '#FFFFFF' }}>
                         {coreItems[0].icon}
                       </div>
                     </div>
                   </foreignObject>
+                  <text
+                    x="0"
+                    y="45"
+                    textAnchor="middle"
+                    className="text-xs font-medium transition-all duration-300"
+                    style={{
+                      fill: '#333333',
+                      fontSize: '13px',
+                    }}
+                  >
+                    {coreItems[0].label}
+                  </text>
                 </g>
 
                 {/* 核心项2 */}
@@ -380,22 +389,31 @@ export default function AIPanorama() {
                 >
                   <foreignObject x="-25" y="-25" width="50" height="50">
                     <div className="w-full h-full rounded-full flex items-center justify-center transition-all duration-300 relative" style={{
-                      background: hoveredItem?.id === coreItems[1].id ? '#666666' : 'transparent',
-                      border: `2px solid ${hoveredItem?.id === coreItems[1].id ? '#666666' : '#666666'}`,
-                      borderColor: '#666666',
-                      borderWidth: '2px',
+                      background: hoveredItem?.id === coreItems[1].id ? '#666666' : 'rgba(102, 102, 102, 0.6)',
                       transform: hoveredItem?.id === coreItems[1].id ? 'scale(1.2)' : 'scale(1)',
                       transition: 'all 0.3s ease',
                     }}>
-                      <div style={{ color: hoveredItem?.id === coreItems[1].id ? '#FFFFFF' : '#666666' }}>
+                      <div style={{ color: '#FFFFFF' }}>
                         {coreItems[1].icon}
                       </div>
                     </div>
                   </foreignObject>
+                  <text
+                    x="0"
+                    y="45"
+                    textAnchor="middle"
+                    className="text-xs font-medium transition-all duration-300"
+                    style={{
+                      fill: '#333333',
+                      fontSize: '13px',
+                    }}
+                  >
+                    {coreItems[1].label}
+                  </text>
                 </g>
 
                 {/* 行业圈层 - 中环 */}
-                <circle cx="0" cy="0" r="160" fill="url(#industryGradient)" stroke="#3B82F6" strokeWidth="2" strokeOpacity="0.2" />
+                <circle cx="0" cy="0" r="160" fill="url(#industryGradient)" />
 
                 {/* 行业项 - 8个 */}
                 {industryItems.map((item, index) => {
@@ -414,24 +432,33 @@ export default function AIPanorama() {
                     >
                       <foreignObject x="-22" y="-22" width="44" height="44">
                         <div className="w-full h-full rounded-full flex items-center justify-center transition-all duration-300 relative" style={{
-                          background: hoveredItem?.id === item.id ? '#3B82F6' : 'transparent',
-                          border: `2px solid ${hoveredItem?.id === item.id ? '#3B82F6' : '#3B82F6'}`,
-                          borderColor: '#3B82F6',
-                          borderWidth: '2px',
+                          background: hoveredItem?.id === item.id ? '#3B82F6' : 'rgba(59, 130, 246, 0.7)',
                           transform: hoveredItem?.id === item.id ? 'scale(1.15)' : 'scale(1)',
                           transition: 'all 0.3s ease',
                         }}>
-                          <div style={{ color: hoveredItem?.id === item.id ? '#FFFFFF' : '#3B82F6' }}>
+                          <div style={{ color: '#FFFFFF' }}>
                             {item.icon}
                           </div>
                         </div>
                       </foreignObject>
+                      <text
+                        x="0"
+                        y="38"
+                        textAnchor="middle"
+                        className="text-xs font-medium transition-all duration-300"
+                        style={{
+                          fill: '#333333',
+                          fontSize: '13px',
+                        }}
+                      >
+                        {item.label}
+                      </text>
                     </g>
                   );
                 })}
 
                 {/* 产品圈层 - 外环 */}
-                <circle cx="0" cy="0" r="260" fill="url(#productGradient)" stroke="#9CA3AF" strokeWidth="2" strokeOpacity="0.2" />
+                <circle cx="0" cy="0" r="260" fill="url(#productGradient)" />
 
                 {/* 产品项 - 12个 */}
                 {productItems.map((item, index) => {
@@ -450,18 +477,27 @@ export default function AIPanorama() {
                     >
                       <foreignObject x="-18" y="-18" width="36" height="36">
                         <div className="w-full h-full rounded-full flex items-center justify-center transition-all duration-300 relative" style={{
-                          background: hoveredItem?.id === item.id ? '#9CA3AF' : 'transparent',
-                          border: `2px solid ${hoveredItem?.id === item.id ? '#9CA3AF' : '#9CA3AF'}`,
-                          borderColor: '#9CA3AF',
-                          borderWidth: '2px',
+                          background: hoveredItem?.id === item.id ? '#9CA3AF' : 'rgba(156, 163, 175, 0.7)',
                           transform: hoveredItem?.id === item.id ? 'scale(1.15)' : 'scale(1)',
                           transition: 'all 0.3s ease',
                         }}>
-                          <div style={{ color: hoveredItem?.id === item.id ? '#FFFFFF' : '#9CA3AF' }}>
+                          <div style={{ color: '#FFFFFF' }}>
                             {item.icon}
                           </div>
                         </div>
                       </foreignObject>
+                      <text
+                        x="0"
+                        y="32"
+                        textAnchor="middle"
+                        className="text-xs transition-all duration-300"
+                        style={{
+                          fill: '#333333',
+                          fontSize: '12px',
+                        }}
+                      >
+                        {item.label}
+                      </text>
                     </g>
                   );
                 })}
@@ -484,7 +520,6 @@ export default function AIPanorama() {
                   <div
                     className="inline-block px-3 py-1 rounded-full text-xs font-medium mb-3"
                     style={{
-                      backgroundColor: '#F3F4F6',
                       color: '#666666',
                     }}
                   >
@@ -529,7 +564,7 @@ export default function AIPanorama() {
                     <div className="flex items-center gap-3 mb-2">
                       <div
                         className="w-10 h-10 rounded-full flex items-center justify-center"
-                        style={{ color: '#FF3B30', border: '2px solid #FF3B30' }}
+                        style={{ color: '#FFFFFF', backgroundColor: 'rgba(255, 59, 48, 0.7)' }}
                       >
                         {item.icon}
                       </div>
@@ -565,7 +600,7 @@ export default function AIPanorama() {
                   >
                     <div
                       className="w-10 h-10 rounded-full flex items-center justify-center mb-2 mx-auto"
-                      style={{ color: '#3B82F6', border: '2px solid #3B82F6' }}
+                      style={{ color: '#FFFFFF', backgroundColor: 'rgba(59, 130, 246, 0.7)' }}
                     >
                       {item.icon}
                     </div>
@@ -609,7 +644,7 @@ export default function AIPanorama() {
                             <div className="flex items-center gap-3">
                               <div
                                 className="w-8 h-8 rounded-full flex items-center justify-center"
-                                style={{ color: '#9CA3AF', border: '2px solid #9CA3AF' }}
+                                style={{ color: '#FFFFFF', backgroundColor: 'rgba(156, 163, 175, 0.7)' }}
                               >
                                 {item.icon}
                               </div>
@@ -666,7 +701,7 @@ export default function AIPanorama() {
                 <div className="flex items-center gap-3 mb-2">
                   <div
                     className="w-12 h-12 rounded-full flex items-center justify-center"
-                    style={{ color: '#FF3B30', border: '2px solid #FF3B30' }}
+                    style={{ color: '#FFFFFF', backgroundColor: 'rgba(255, 59, 48, 0.7)' }}
                   >
                     {selectedItem.icon}
                   </div>
