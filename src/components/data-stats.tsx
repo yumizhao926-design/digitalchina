@@ -46,25 +46,22 @@ export default function DataStats() {
   return (
     <section className="py-16 sm:py-20 md:py-24 bg-white">
       <div className="container mx-auto max-w-7xl px-4 sm:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center space-y-4"
+              className="flex flex-col items-center text-center space-y-3 min-w-[120px] md:min-w-[140px]"
             >
               {/* 图标 */}
               <div
-                className="flex items-center justify-center w-16 h-16 rounded-full"
-                style={{
-                  backgroundColor: 'rgba(255, 59, 48, 0.1)',
-                }}
+                className="flex items-center justify-center"
               >
                 <span style={{ color: '#FF3B30' }}>{stat.icon}</span>
               </div>
 
               {/* 数字 */}
               <div
-                className="text-4xl sm:text-5xl md:text-6xl font-bold leading-none"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold leading-none"
                 style={{
                   color: '#333333',
                 }}
@@ -74,7 +71,7 @@ export default function DataStats() {
 
               {/* 标签 */}
               <div
-                className="text-sm sm:text-base leading-relaxed max-w-[200px]"
+                className="text-xs sm:text-sm leading-relaxed max-w-[150px] md:max-w-[180px]"
                 style={{
                   color: '#666666',
                 }}
