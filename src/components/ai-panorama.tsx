@@ -415,9 +415,15 @@ export default function AIPanorama() {
                       opacity: 0.5;
                     }
                   }
-                  .flow-animation {
-                    stroke-dasharray: 10 5;
-                    animation: flow 3s linear infinite;
+                  @keyframes scaleIn {
+                    from {
+                      transform: scale(0);
+                      opacity: 0;
+                    }
+                    to {
+                      transform: scale(1);
+                      opacity: 1;
+                    }
                   }
                   .fade-in-up {
                     animation: fadeInUp 0.6s ease-out forwards;
@@ -428,19 +434,36 @@ export default function AIPanorama() {
                   }
                   .pulse-animation {
                     animation: pulse 2s ease-in-out infinite;
+                  }
+                  .scale-in-core {
+                    animation: scaleIn 0.8s ease-out forwards;
+                    transform: scale(0);
+                    opacity: 0;
+                  }
+                  .scale-in-industry {
+                    animation: scaleIn 0.8s ease-out forwards;
+                    transform: scale(0);
+                    opacity: 0;
+                    animation-delay: 0.5s;
+                  }
+                  .scale-in-product {
+                    animation: scaleIn 0.8s ease-out forwards;
+                    transform: scale(0);
+                    opacity: 0;
+                    animation-delay: 1s;
                   }`}
                 </style>
               </defs>
               {/* 中心点 */}
               <g transform="translate(400, 350)">
                 {/* 核心圈层 - 内环 - 科技感渐变边框 */}
-                <circle cx="0" cy="0" r="80" fill="none" stroke="url(#coreGradient)" strokeWidth="2" strokeOpacity="0.8" className="flow-animation glow-effect" />
+                <circle cx="0" cy="0" r="80" fill="none" stroke="url(#coreGradient)" strokeWidth="2" strokeOpacity="0.8" className="glow-effect scale-in-core" />
 
                 {/* 核心项1 */}
                 <g
                   transform="translate(0, -35)"
                   className="cursor-pointer fade-in-up"
-                  style={{ animationDelay: '0.2s' }}
+                  style={{ animationDelay: '0.8s' }}
                   onMouseEnter={() => setHoveredItem(coreItems[0])}
                   onMouseLeave={() => setHoveredItem(null)}
                   onClick={() => handleItemClick(coreItems[0])}
@@ -463,7 +486,7 @@ export default function AIPanorama() {
                 <g
                   transform="translate(0, 35)"
                   className="cursor-pointer fade-in-up"
-                  style={{ animationDelay: '0.4s' }}
+                  style={{ animationDelay: '0.9s' }}
                   onMouseEnter={() => setHoveredItem(coreItems[1])}
                   onMouseLeave={() => setHoveredItem(null)}
                   onClick={() => handleItemClick(coreItems[1])}
@@ -483,7 +506,7 @@ export default function AIPanorama() {
                 </g>
 
                 {/* 行业圈层 - 中环 - 科技感渐变边框 */}
-                <circle cx="0" cy="0" r="160" fill="none" stroke="url(#industryGradient)" strokeWidth="2" strokeOpacity="0.7" className="flow-animation glow-effect" style={{ animationDelay: '1s' }} />
+                <circle cx="0" cy="0" r="160" fill="none" stroke="url(#industryGradient)" strokeWidth="2" strokeOpacity="0.7" className="glow-effect scale-in-industry" />
 
                 {/* 行业项 - 8个 */}
                 {industryItems.map((item, index) => {
@@ -496,7 +519,7 @@ export default function AIPanorama() {
                       key={item.id}
                       transform={`translate(${x}, ${y})`}
                       className="cursor-pointer fade-in-up"
-                      style={{ animationDelay: `${1 + index * 0.1}s` }}
+                      style={{ animationDelay: `${1.3 + index * 0.1}s` }}
                       onMouseEnter={() => setHoveredItem(item)}
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={() => handleItemClick(item)}
@@ -518,7 +541,7 @@ export default function AIPanorama() {
                 })}
 
                 {/* 产品圈层 - 外环 - 科技感渐变边框 */}
-                <circle cx="0" cy="0" r="260" fill="none" stroke="url(#productGradient)" strokeWidth="2" strokeOpacity="0.6" className="flow-animation glow-effect" style={{ animationDelay: '2s' }} />
+                <circle cx="0" cy="0" r="260" fill="none" stroke="url(#productGradient)" strokeWidth="2" strokeOpacity="0.6" className="glow-effect scale-in-product" />
 
                 {/* 产品项 - 12个 */}
                 {productItems.map((item, index) => {
@@ -531,7 +554,7 @@ export default function AIPanorama() {
                       key={item.id}
                       transform={`translate(${x}, ${y})`}
                       className="cursor-pointer fade-in-up"
-                      style={{ animationDelay: `${2 + index * 0.08}s` }}
+                      style={{ animationDelay: `${1.8 + index * 0.08}s` }}
                       onMouseEnter={() => setHoveredItem(item)}
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={() => handleItemClick(item)}
