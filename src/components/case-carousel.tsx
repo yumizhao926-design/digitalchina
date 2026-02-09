@@ -16,7 +16,7 @@ const caseStudies: CaseStudy[] = [
   {
     id: 'case-1',
     clientName: '黄冈烟草',
-    logo: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_ed4caed5-53be-40e5-82d8-27d10438e98a.jpeg?sign=1802170314-bf92e0c9b2-0-b7fe4d29f7f79e29c56ba7874f2c14f433c0dd329c0ebcd01de14fb298501a42',
+    logo: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_f98fb07a-cbdc-4298-bb66-1a413e46aba3.jpeg?sign=1802170632-13a841b7e6-0-58ffb3ed6e7981ecdb461195cdd040060a627e40e12f588aece75df2f0d5f570',
     industry: '政务',
     scenario: '案卷AI评审',
     result: '效率提升70%'
@@ -24,7 +24,7 @@ const caseStudies: CaseStudy[] = [
   {
     id: 'case-2',
     clientName: '岚图汽车',
-    logo: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_cf0d650f-46dc-4a47-9135-0f11f83168b9.jpeg?sign=1802170331-5e3282c4ff-0-a6ed577a29682e30abc6481bd4c32997caf7c17c4891cdb6cfbdbee77fb68d32',
+    logo: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_b7096896-8709-4edf-8d5c-cad7584f9acd.jpeg?sign=1802170649-82b92c91e4-0-75337ec5388582295ddcb5fbd1db2516890b60f453f8e4038773c7fe936136c2',
     industry: '制造',
     scenario: '智能办公',
     result: '成本降低40%'
@@ -32,7 +32,7 @@ const caseStudies: CaseStudy[] = [
   {
     id: 'case-3',
     clientName: '天士力',
-    logo: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_ce137bef-a8d9-4109-bd11-9c99ef048dce.jpeg?sign=1802170348-924319581e-0-0032c23fd91c1c41b08678dc9565adc021b4f40397ccfd94b994843ff9596515',
+    logo: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_5d044ef3-e969-430e-907d-b1e78bce6e14.jpeg?sign=1802170664-b9a46f588d-0-7e0e93d249f388971c41676e0bb6e8f551502373f63562b86bfe1d82fd80b1cd',
     industry: '医疗',
     scenario: '医药循证问答',
     result: '效率提升80%'
@@ -123,65 +123,6 @@ export default function CaseCarousel() {
                       className="absolute inset-0 bg-cover bg-center transition-all duration-700 hover:scale-110"
                       style={{ backgroundImage: `url(${caseStudy.logo})` }}
                     />
-
-                    {/* 渐变遮罩 */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-
-                    {/* 内容叠加 */}
-                    <div className="relative z-10 p-8 sm:p-12 h-full flex flex-col justify-between min-h-[400px]">
-                      <div>
-                        {/* 行业标签 */}
-                        <div
-                          className="inline-block px-4 py-2 rounded-full text-sm font-medium mb-4"
-                          style={{
-                            backgroundColor: '#E60012',
-                            color: '#FFFFFF'
-                          }}
-                        >
-                          {caseStudy.industry}
-                        </div>
-
-                        {/* 客户名称 */}
-                        <h3
-                          className="font-bold mb-3"
-                          style={{ color: '#FFFFFF', fontSize: '28px', letterSpacing: '0.5px' }}
-                        >
-                          {caseStudy.clientName}
-                        </h3>
-
-                        {/* 合作场景 */}
-                        <div className="mb-4">
-                          <p
-                            className="text-xs mb-2"
-                            style={{ color: '#FFFFFF', opacity: 0.8 }}
-                          >
-                            合作场景
-                          </p>
-                          <p
-                            className="font-medium"
-                            style={{ color: '#FFFFFF', fontSize: '20px', lineHeight: '1.4' }}
-                          >
-                            {caseStudy.scenario}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* 核心成果 */}
-                      <div>
-                        <p
-                          className="text-xs mb-2"
-                          style={{ color: '#FFFFFF', opacity: 0.8 }}
-                        >
-                          核心成果
-                        </p>
-                        <p
-                          className="font-bold"
-                          style={{ color: '#E60012', fontSize: '32px' }}
-                        >
-                          {caseStudy.result}
-                        </p>
-                      </div>
-                    </div>
                   </div>
                 </div>
               ))}
