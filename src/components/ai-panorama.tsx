@@ -479,7 +479,7 @@ export default function AIPanorama() {
 
                 {/* 核心项1 */}
                 {showPhase >= 0 && (
-                  <g transform="translate(0, -55)">
+                  <g transform="translate(0, -45)">
                     <g
                       className="cursor-pointer transition-all duration-1000"
                       style={{
@@ -509,7 +509,7 @@ export default function AIPanorama() {
 
                 {/* 核心项2 */}
                 {showPhase >= 0 && (
-                  <g transform="translate(0, 55)">
+                  <g transform="translate(0, 45)">
                     <g
                       className="cursor-pointer transition-all duration-1000"
                       style={{
@@ -551,8 +551,8 @@ export default function AIPanorama() {
                 {/* 行业项 - 8个 */}
                 {showPhase >= 1 && industryItems.map((item, index) => {
                   const angle = (index * 45 - 90) * (Math.PI / 180);
-                  const x = Math.cos(angle) * 185;
-                  const y = Math.sin(angle) * 185;
+                  const x = Math.cos(angle) * 175;
+                  const y = Math.sin(angle) * 175;
 
                   return (
                     <g transform={`translate(${x}, ${y})`} key={item.id}>
@@ -598,8 +598,8 @@ export default function AIPanorama() {
                 {/* 产品项 - 12个 */}
                 {showPhase >= 2 && productItems.map((item, index) => {
                   const angle = (index * 30 - 90) * (Math.PI / 180);
-                  const x = Math.cos(angle) * 285;
-                  const y = Math.sin(angle) * 285;
+                  const x = Math.cos(angle) * 275;
+                  const y = Math.sin(angle) * 275;
 
                   return (
                     <g transform={`translate(${x}, ${y})`} key={item.id}>
