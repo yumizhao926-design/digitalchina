@@ -6,6 +6,7 @@ import ProductCards from '@/components/product-cards';
 import IndustrySolutions from '@/components/industry-solutions';
 import CaseCarousel from '@/components/case-carousel';
 import EcosystemPartners from '@/components/ecosystem-partners';
+import Footer from '@/components/footer';
 import AIPanorama from '@/components/ai-panorama';
 import AIPhilosophy from '@/components/ai-philosophy';
 
@@ -164,57 +165,7 @@ export default function Home() {
       </section>
 
       {/* 页脚 */}
-      <footer className="border-t border-border bg-card py-12">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h3 className="font-semibold text-foreground mb-4">产品</h3>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">功能介绍</a></li>
-                <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">定价方案</a></li>
-                <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">更新日志</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-foreground mb-4">资源</h3>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">文档中心</a></li>
-                <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">API 参考</a></li>
-                <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">社区论坛</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-foreground mb-4">公司</h3>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">关于我们</a></li>
-                <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">加入我们</a></li>
-                <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">联系方式</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-foreground mb-4">法律</h3>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">隐私政策</a></li>
-                <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">服务条款</a></li>
-                <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Cookie 政策</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-border pt-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-            <p className="text-sm text-muted-foreground">
-              © 2024 扣子. 保留所有权利.
-            </p>
-            <div className="flex items-center space-x-6">
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                隐私
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                条款
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
