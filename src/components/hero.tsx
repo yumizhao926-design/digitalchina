@@ -103,7 +103,6 @@ export default function Hero() {
           className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-bold mb-6 sm:mb-8 leading-tight animate-fade-in-up"
           style={{
             color: '#333333',
-            textShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
             animationDelay: '0s',
           }}
         >
