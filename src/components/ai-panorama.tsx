@@ -1,7 +1,34 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { X, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
+import {
+  X,
+  ArrowRight,
+  ChevronDown,
+  ChevronUp,
+  Server,
+  Brain,
+  Building2,
+  Factory,
+  Landmark,
+  Stethoscope,
+  ShoppingBag,
+  GraduationCap,
+  Zap,
+  Car,
+  Database,
+  Search,
+  BookOpen,
+  Layers,
+  Workflow,
+  MessageSquare,
+  Wrench,
+  Sparkles,
+  Headphones,
+  FileText,
+  Target,
+  Shield,
+} from 'lucide-react';
 
 interface CircleItem {
   id: string;
@@ -11,6 +38,7 @@ interface CircleItem {
   features: string[];
   category?: string;
   link?: string;
+  icon: React.ReactNode;
 }
 
 // 核心圈层（内环）
@@ -27,6 +55,7 @@ const coreItems: CircleItem[] = [
       '多云弹性算力'
     ],
     link: '#infrastructure',
+    icon: <Server className="w-5 h-5" />,
   },
   {
     id: 'core-2',
@@ -40,6 +69,7 @@ const coreItems: CircleItem[] = [
       '企业级安全保障'
     ],
     link: '#agent-platform',
+    icon: <Brain className="w-5 h-5" />,
   },
 ];
 
@@ -52,6 +82,7 @@ const industryItems: CircleItem[] = [
     description: '政务数字化转型智能化支撑',
     features: ['一网通办', '智慧政务', '数据治理', '智能监管'],
     link: '#industry-government',
+    icon: <Building2 className="w-4 h-4" />,
   },
   {
     id: 'industry-2',
@@ -60,6 +91,7 @@ const industryItems: CircleItem[] = [
     description: '智能制造全流程AI赋能',
     features: ['预测性维护', '智能质检', '供应链优化', '能源管理'],
     link: '#industry-manufacturing',
+    icon: <Factory className="w-4 h-4" />,
   },
   {
     id: 'industry-3',
@@ -68,6 +100,7 @@ const industryItems: CircleItem[] = [
     description: '面向金融行业的智能化解决方案',
     features: ['智能风控', '量化投研', '智能客服', '反欺诈'],
     link: '#industry-finance',
+    icon: <Landmark className="w-4 h-4" />,
   },
   {
     id: 'industry-4',
@@ -76,6 +109,7 @@ const industryItems: CircleItem[] = [
     description: '医疗健康智能化解决方案',
     features: ['影像诊断', '药物研发', '健康管理', '慢病管理'],
     link: '#industry-healthcare',
+    icon: <Stethoscope className="w-4 h-4" />,
   },
   {
     id: 'industry-5',
@@ -84,6 +118,7 @@ const industryItems: CircleItem[] = [
     description: '零售行业智能化运营方案',
     features: ['智能推荐', '会员运营', '库存优化', '价格预测'],
     link: '#industry-retail',
+    icon: <ShoppingBag className="w-4 h-4" />,
   },
   {
     id: 'industry-6',
@@ -92,6 +127,7 @@ const industryItems: CircleItem[] = [
     description: '教育行业智能化应用场景',
     features: ['个性化学习', '智能批改', '知识图谱', '学情分析'],
     link: '#industry-education',
+    icon: <GraduationCap className="w-4 h-4" />,
   },
   {
     id: 'industry-7',
@@ -100,6 +136,7 @@ const industryItems: CircleItem[] = [
     description: '能源行业智能化管理方案',
     features: ['智能调度', '负荷预测', '设备监测', '能效优化'],
     link: '#industry-energy',
+    icon: <Zap className="w-4 h-4" />,
   },
   {
     id: 'industry-8',
@@ -108,6 +145,7 @@ const industryItems: CircleItem[] = [
     description: '智慧交通智能化解决方案',
     features: ['路径规划', '智能调度', '交通监控', '违章识别'],
     link: '#industry-transport',
+    icon: <Car className="w-4 h-4" />,
   },
 ];
 
@@ -122,6 +160,7 @@ const productItems: CircleItem[] = [
     description: '提供60+主流大模型统一接入服务',
     features: ['多模型统一接入', 'API标准化', '私有化部署支持', '模型微调'],
     link: '#product-llm-service',
+    icon: <Layers className="w-3 h-3" />,
   },
   {
     id: 'product-2',
@@ -131,6 +170,7 @@ const productItems: CircleItem[] = [
     description: '企业级向量数据库，支撑知识库建设',
     features: ['高性能检索', '亿级向量支持', '企业级安全', '实时更新'],
     link: '#product-vector-db',
+    icon: <Database className="w-3 h-3" />,
   },
   {
     id: 'product-3',
@@ -140,6 +180,7 @@ const productItems: CircleItem[] = [
     description: '检索增强生成引擎，提升回答准确度',
     features: ['知识增强', '精准检索', '多模态支持', '溯源可解释'],
     link: '#product-rag',
+    icon: <Search className="w-3 h-3" />,
   },
   {
     id: 'product-4',
@@ -149,6 +190,7 @@ const productItems: CircleItem[] = [
     description: '企业知识全生命周期管理平台',
     features: ['知识治理', '自动解析', '版本控制', '权限管理'],
     link: '#product-knowledge-base',
+    icon: <BookOpen className="w-3 h-3" />,
   },
   // 平台层
   {
@@ -159,6 +201,7 @@ const productItems: CircleItem[] = [
     description: '可视化Agent构建与编排平台',
     features: ['可视化编排', '零代码开发', '多Agent协作', '流程监控'],
     link: '#product-agent-builder',
+    icon: <Workflow className="w-3 h-3" />,
   },
   {
     id: 'product-6',
@@ -168,6 +211,7 @@ const productItems: CircleItem[] = [
     description: '统一对话管理与人机协作平台',
     features: ['多渠道接入', '人机协作', '会话分析', '意图识别'],
     link: '#product-dialog-manager',
+    icon: <MessageSquare className="w-3 h-3" />,
   },
   {
     id: 'product-7',
@@ -177,6 +221,7 @@ const productItems: CircleItem[] = [
     description: '业务流程自动化编排引擎',
     features: ['流程自动化', 'API集成', '业务编排', '异常处理'],
     link: '#product-workflow-engine',
+    icon: <Wrench className="w-3 h-3" />,
   },
   {
     id: 'product-8',
@@ -186,6 +231,7 @@ const productItems: CircleItem[] = [
     description: '提示词工程优化与管理平台',
     features: ['提示词优化', 'A/B测试', '效果评估', '版本管理'],
     link: '#product-prompt-optimizer',
+    icon: <Sparkles className="w-3 h-3" />,
   },
   // 应用层
   {
@@ -196,6 +242,7 @@ const productItems: CircleItem[] = [
     description: '智能化客户服务解决方案',
     features: ['多模态交互', '情感识别', '知识库驱动', '人机协作'],
     link: '#product-customer-service',
+    icon: <Headphones className="w-3 h-3" />,
   },
   {
     id: 'product-10',
@@ -205,6 +252,7 @@ const productItems: CircleItem[] = [
     description: '文档智能化处理平台',
     features: ['OCR识别', '语义理解', '自动分类', '智能提取'],
     link: '#product-document',
+    icon: <FileText className="w-3 h-3" />,
   },
   {
     id: 'product-11',
@@ -214,6 +262,7 @@ const productItems: CircleItem[] = [
     description: '智能化营销运营平台',
     features: ['用户画像', '精准投放', '效果分析', '创意生成'],
     link: '#product-marketing',
+    icon: <Target className="w-3 h-3" />,
   },
   {
     id: 'product-12',
@@ -223,6 +272,7 @@ const productItems: CircleItem[] = [
     description: '智能化风险控制系统',
     features: ['实时监控', '异常检测', '风险预警', '策略引擎'],
     link: '#product-risk-control',
+    icon: <Shield className="w-3 h-3" />,
   },
 ];
 
@@ -304,40 +354,20 @@ export default function AIPanorama() {
                   onMouseLeave={() => setHoveredItem(null)}
                   onClick={() => handleItemClick(coreItems[0])}
                 >
-                  <circle
-                    r="25"
-                    fill={hoveredItem?.id === coreItems[0].id ? '#FF3B30' : '#FFFFFF'}
-                    stroke="#FF3B30"
-                    strokeWidth="2"
-                    className="transition-all duration-300"
-                    style={{
+                  <foreignObject x="-25" y="-25" width="50" height="50">
+                    <div className="w-full h-full rounded-full flex items-center justify-center transition-all duration-300 relative" style={{
+                      background: hoveredItem?.id === coreItems[0].id ? '#FF3B30' : 'transparent',
+                      border: `2px solid ${hoveredItem?.id === coreItems[0].id ? '#FF3B30' : '#FF3B30'}`,
+                      borderColor: '#FF3B30',
+                      borderWidth: '2px',
                       transform: hoveredItem?.id === coreItems[0].id ? 'scale(1.2)' : 'scale(1)',
-                    }}
-                  />
-                  <text
-                    x="0"
-                    y="-5"
-                    textAnchor="middle"
-                    className="text-xs font-semibold transition-all duration-300"
-                    style={{
-                      fill: hoveredItem?.id === coreItems[0].id ? '#FFFFFF' : '#333333',
-                      fontSize: '12px',
-                    }}
-                  >
-                    AI算力
-                  </text>
-                  <text
-                    x="0"
-                    y="10"
-                    textAnchor="middle"
-                    className="text-xs transition-all duration-300"
-                    style={{
-                      fill: hoveredItem?.id === coreItems[0].id ? '#FFFFFF' : '#333333',
-                      fontSize: '12px',
-                    }}
-                  >
-                    底座
-                  </text>
+                      transition: 'all 0.3s ease',
+                    }}>
+                      <div style={{ color: hoveredItem?.id === coreItems[0].id ? '#FFFFFF' : '#FF3B30' }}>
+                        {coreItems[0].icon}
+                      </div>
+                    </div>
+                  </foreignObject>
                 </g>
 
                 {/* 核心项2 */}
@@ -348,40 +378,20 @@ export default function AIPanorama() {
                   onMouseLeave={() => setHoveredItem(null)}
                   onClick={() => handleItemClick(coreItems[1])}
                 >
-                  <circle
-                    r="25"
-                    fill={hoveredItem?.id === coreItems[1].id ? '#666666' : '#FFFFFF'}
-                    stroke="#666666"
-                    strokeWidth="2"
-                    className="transition-all duration-300"
-                    style={{
+                  <foreignObject x="-25" y="-25" width="50" height="50">
+                    <div className="w-full h-full rounded-full flex items-center justify-center transition-all duration-300 relative" style={{
+                      background: hoveredItem?.id === coreItems[1].id ? '#666666' : 'transparent',
+                      border: `2px solid ${hoveredItem?.id === coreItems[1].id ? '#666666' : '#666666'}`,
+                      borderColor: '#666666',
+                      borderWidth: '2px',
                       transform: hoveredItem?.id === coreItems[1].id ? 'scale(1.2)' : 'scale(1)',
-                    }}
-                  />
-                  <text
-                    x="0"
-                    y="-5"
-                    textAnchor="middle"
-                    className="text-xs font-semibold transition-all duration-300"
-                    style={{
-                      fill: hoveredItem?.id === coreItems[1].id ? '#FFFFFF' : '#333333',
-                      fontSize: '12px',
-                    }}
-                  >
-                    神州问学
-                  </text>
-                  <text
-                    x="0"
-                    y="10"
-                    textAnchor="middle"
-                    className="text-xs transition-all duration-300"
-                    style={{
-                      fill: hoveredItem?.id === coreItems[1].id ? '#FFFFFF' : '#333333',
-                      fontSize: '12px',
-                    }}
-                  >
-                    Agent中台
-                  </text>
+                      transition: 'all 0.3s ease',
+                    }}>
+                      <div style={{ color: hoveredItem?.id === coreItems[1].id ? '#FFFFFF' : '#666666' }}>
+                        {coreItems[1].icon}
+                      </div>
+                    </div>
+                  </foreignObject>
                 </g>
 
                 {/* 行业圈层 - 中环 */}
@@ -402,28 +412,20 @@ export default function AIPanorama() {
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={() => handleItemClick(item)}
                     >
-                      <circle
-                        r="22"
-                        fill={hoveredItem?.id === item.id ? '#3B82F6' : '#FFFFFF'}
-                        stroke="#3B82F6"
-                        strokeWidth="2"
-                        className="transition-all duration-300"
-                        style={{
+                      <foreignObject x="-22" y="-22" width="44" height="44">
+                        <div className="w-full h-full rounded-full flex items-center justify-center transition-all duration-300 relative" style={{
+                          background: hoveredItem?.id === item.id ? '#3B82F6' : 'transparent',
+                          border: `2px solid ${hoveredItem?.id === item.id ? '#3B82F6' : '#3B82F6'}`,
+                          borderColor: '#3B82F6',
+                          borderWidth: '2px',
                           transform: hoveredItem?.id === item.id ? 'scale(1.15)' : 'scale(1)',
-                        }}
-                      />
-                      <text
-                        x="0"
-                        y="5"
-                        textAnchor="middle"
-                        className="text-xs font-medium transition-all duration-300"
-                        style={{
-                          fill: hoveredItem?.id === item.id ? '#FFFFFF' : '#333333',
-                          fontSize: '13px',
-                        }}
-                      >
-                        {item.label}
-                      </text>
+                          transition: 'all 0.3s ease',
+                        }}>
+                          <div style={{ color: hoveredItem?.id === item.id ? '#FFFFFF' : '#3B82F6' }}>
+                            {item.icon}
+                          </div>
+                        </div>
+                      </foreignObject>
                     </g>
                   );
                 })}
@@ -446,28 +448,20 @@ export default function AIPanorama() {
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={() => handleItemClick(item)}
                     >
-                      <circle
-                        r="18"
-                        fill={hoveredItem?.id === item.id ? '#9CA3AF' : '#FFFFFF'}
-                        stroke="#9CA3AF"
-                        strokeWidth="2"
-                        className="transition-all duration-300"
-                        style={{
+                      <foreignObject x="-18" y="-18" width="36" height="36">
+                        <div className="w-full h-full rounded-full flex items-center justify-center transition-all duration-300 relative" style={{
+                          background: hoveredItem?.id === item.id ? '#9CA3AF' : 'transparent',
+                          border: `2px solid ${hoveredItem?.id === item.id ? '#9CA3AF' : '#9CA3AF'}`,
+                          borderColor: '#9CA3AF',
+                          borderWidth: '2px',
                           transform: hoveredItem?.id === item.id ? 'scale(1.15)' : 'scale(1)',
-                        }}
-                      />
-                      <text
-                        x="0"
-                        y="4"
-                        textAnchor="middle"
-                        className="text-xs transition-all duration-300"
-                        style={{
-                          fill: hoveredItem?.id === item.id ? '#FFFFFF' : '#333333',
-                          fontSize: '11px',
-                        }}
-                      >
-                        {item.label.slice(0, 4)}
-                      </text>
+                          transition: 'all 0.3s ease',
+                        }}>
+                          <div style={{ color: hoveredItem?.id === item.id ? '#FFFFFF' : '#9CA3AF' }}>
+                            {item.icon}
+                          </div>
+                        </div>
+                      </foreignObject>
                     </g>
                   );
                 })}
@@ -490,7 +484,7 @@ export default function AIPanorama() {
                   <div
                     className="inline-block px-3 py-1 rounded-full text-xs font-medium mb-3"
                     style={{
-                      backgroundColor: '#E5E7EB',
+                      backgroundColor: '#F3F4F6',
                       color: '#666666',
                     }}
                   >
@@ -501,13 +495,11 @@ export default function AIPanorama() {
                   {hoveredItem.keywords.map((keyword, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1.5 text-sm rounded-full transition-all duration-300"
-                      style={{
-                        backgroundColor: '#F3F4F6',
-                        color: '#333333',
-                      }}
+                      className="text-sm transition-all duration-300"
+                      style={{ color: '#666666' }}
                     >
                       {keyword}
+                      {idx < hoveredItem.keywords.length - 1 && ' • '}
                     </span>
                   ))}
                 </div>
@@ -534,25 +526,22 @@ export default function AIPanorama() {
                     className="bg-white rounded-xl p-5 shadow-md cursor-pointer transition-all duration-300 active:scale-95"
                     onClick={() => handleItemClick(item)}
                   >
-                    <h4
-                      className="font-semibold mb-2"
-                      style={{ color: '#333333', fontSize: '16px' }}
-                    >
-                      {item.label}
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {item.keywords.slice(0, 3).map((keyword, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1 text-xs rounded-full"
-                          style={{
-                            backgroundColor: '#F3F4F6',
-                            color: '#666666',
-                          }}
-                        >
-                          {keyword}
-                        </span>
-                      ))}
+                    <div className="flex items-center gap-3 mb-2">
+                      <div
+                        className="w-10 h-10 rounded-full flex items-center justify-center"
+                        style={{ color: '#FF3B30', border: '2px solid #FF3B30' }}
+                      >
+                        {item.icon}
+                      </div>
+                      <h4
+                        className="font-semibold"
+                        style={{ color: '#333333', fontSize: '16px' }}
+                      >
+                        {item.label}
+                      </h4>
+                    </div>
+                    <div className="text-sm" style={{ color: '#666666' }}>
+                      {item.keywords.join(' • ')}
                     </div>
                   </div>
                 ))}
@@ -576,14 +565,9 @@ export default function AIPanorama() {
                   >
                     <div
                       className="w-10 h-10 rounded-full flex items-center justify-center mb-2 mx-auto"
-                      style={{ backgroundColor: '#3B82F6', backgroundColor: 'rgba(59, 130, 246, 0.1)' }}
+                      style={{ color: '#3B82F6', border: '2px solid #3B82F6' }}
                     >
-                      <span
-                        className="font-semibold"
-                        style={{ color: '#3B82F6', fontSize: '14px' }}
-                      >
-                        {item.label[0]}
-                      </span>
+                      {item.icon}
                     </div>
                     <h4
                       className="text-center font-medium"
@@ -622,12 +606,20 @@ export default function AIPanorama() {
                             className="bg-white rounded-lg p-3 shadow-sm cursor-pointer transition-all duration-300 active:scale-95"
                             onClick={() => handleItemClick(item)}
                           >
-                            <h4
-                              className="font-medium"
-                              style={{ color: '#333333', fontSize: '14px' }}
-                            >
-                              {item.label}
-                            </h4>
+                            <div className="flex items-center gap-3">
+                              <div
+                                className="w-8 h-8 rounded-full flex items-center justify-center"
+                                style={{ color: '#9CA3AF', border: '2px solid #9CA3AF' }}
+                              >
+                                {item.icon}
+                              </div>
+                              <h4
+                                className="font-medium"
+                                style={{ color: '#333333', fontSize: '14px' }}
+                              >
+                                {item.label}
+                              </h4>
+                            </div>
                           </div>
                         ))}
                     </div>
@@ -665,19 +657,26 @@ export default function AIPanorama() {
                   <div
                     className="inline-block px-3 py-1 rounded-full text-xs font-medium mb-3"
                     style={{
-                      backgroundColor: '#F3F4F6',
                       color: '#666666',
                     }}
                   >
                     {selectedItem.category}
                   </div>
                 )}
-                <h3
-                  className="font-bold mb-2"
-                  style={{ color: '#333333', fontSize: '24px' }}
-                >
-                  {selectedItem.label}
-                </h3>
+                <div className="flex items-center gap-3 mb-2">
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center"
+                    style={{ color: '#FF3B30', border: '2px solid #FF3B30' }}
+                  >
+                    {selectedItem.icon}
+                  </div>
+                  <h3
+                    className="font-bold"
+                    style={{ color: '#333333', fontSize: '24px' }}
+                  >
+                    {selectedItem.label}
+                  </h3>
+                </div>
                 <p style={{ color: '#666666', lineHeight: '1.8', fontSize: '15px' }}>
                   {selectedItem.description}
                 </p>
@@ -695,13 +694,13 @@ export default function AIPanorama() {
                   {selectedItem.keywords.map((keyword, idx) => (
                     <span
                       key={idx}
-                      className="px-4 py-2 text-sm rounded-full"
+                      className="text-sm"
                       style={{
-                        backgroundColor: 'rgba(255, 59, 48, 0.1)',
                         color: '#FF3B30',
                       }}
                     >
                       {keyword}
+                      {idx < selectedItem.keywords.length - 1 && ' • '}
                     </span>
                   ))}
                 </div>
