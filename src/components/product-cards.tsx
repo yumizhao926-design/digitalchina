@@ -17,7 +17,7 @@ export default function ProductCards() {
         {/* 双列网格布局 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* 左卡片 - 智能平台 */}
-          <div className="group relative overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:shadow-xl border border-gray-100 bg-gradient-to-br from-white to-gray-50">
+          <div className="group relative overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:shadow-xl border border-gray-100 bg-gradient-to-br from-white to-red-50/70">
             {/* 流光效果 */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-50/30 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
 
@@ -87,7 +87,7 @@ export default function ProductCards() {
           </div>
 
           {/* 右卡片 - 智算底座 */}
-          <div className="group relative overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:shadow-xl border border-gray-100 bg-gradient-to-br from-white to-gray-50">
+          <div className="group relative overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:shadow-xl border border-gray-100 bg-gradient-to-br from-white to-red-50/70">
             {/* 流光效果 */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-100/50 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
 
