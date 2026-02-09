@@ -4,6 +4,7 @@ import Hero from '@/components/hero';
 import DataStats from '@/components/data-stats';
 import ProductCards from '@/components/product-cards';
 import AIPanorama from '@/components/ai-panorama';
+import AIPhilosophy from '@/components/ai-philosophy';
 
 export const metadata: Metadata = {
   title: '神州数码 - AI for Process',
@@ -27,6 +28,9 @@ export default function Home() {
 
       {/* AI能力全景图 */}
       <AIPanorama />
+
+      {/* AI核心理念专区 */}
+      <AIPhilosophy />
 
       {/* 产品特性 */}
       <section id="features" className="container mx-auto max-w-7xl px-4 sm:px-8 py-16 sm:py-24">
