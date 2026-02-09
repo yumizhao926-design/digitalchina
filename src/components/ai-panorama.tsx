@@ -383,7 +383,7 @@ export default function AIPanorama() {
             <div
               className="w-3 h-3 rounded-full transition-all duration-300"
               style={{
-                backgroundColor: showPhase >= 0 ? '#4A90E2' : '#e0e0e0',
+                backgroundColor: showPhase >= 0 ? '#FF3B30' : '#e0e0e0',
                 transform: showPhase === 0 ? 'scale(1.2)' : 'scale(1)'
               }}
             />
@@ -395,7 +395,7 @@ export default function AIPanorama() {
             <div
               className="w-3 h-3 rounded-full transition-all duration-300"
               style={{
-                backgroundColor: showPhase >= 1 ? '#667eea' : '#e0e0e0',
+                backgroundColor: showPhase >= 1 ? '#666666' : '#e0e0e0',
                 transform: showPhase === 1 ? 'scale(1.2)' : 'scale(1)'
               }}
             />
@@ -407,7 +407,7 @@ export default function AIPanorama() {
             <div
               className="w-3 h-3 rounded-full transition-all duration-300"
               style={{
-                backgroundColor: showPhase >= 2 ? '#f5576c' : '#e0e0e0',
+                backgroundColor: showPhase >= 2 ? '#999999' : '#e0e0e0',
                 transform: showPhase === 2 ? 'scale(1.2)' : 'scale(1)'
               }}
             />
