@@ -325,10 +325,7 @@ export default function AIPanorama() {
     <section
       id="ai-panorama"
       className="py-20 px-4 sm:px-8 relative overflow-hidden"
-      style={{
-        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
-        minHeight: '900px'
-      }}
+      style={{ backgroundColor: '#F8F9FA' }}
     >
       {/* 科技感装饰背景 */}
       <div
@@ -345,8 +342,8 @@ export default function AIPanorama() {
         className="absolute inset-0"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
+            linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px)
           `,
           backgroundSize: '50px 50px',
           opacity: 0.3
