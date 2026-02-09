@@ -1,42 +1,16 @@
 import type { Metadata } from 'next';
+import Navbar from '@/components/navbar';
 
 export const metadata: Metadata = {
-  title: '扣子 - 智能开发平台',
-  description: '扣子，智能开发平台，让每个人都能创造AI应用',
+  title: '神州数码 - 智能科技平台',
+  description: '神州数码，引领数字化转型的智能科技平台',
 };
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* 导航栏 */}
-      <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-8">
-          <div className="flex items-center space-x-8">
-            <div className="text-xl font-bold tracking-tight text-foreground">
-              扣子
-            </div>
-            <div className="hidden md:flex items-center space-x-6">
-              <a href="#features" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                产品特性
-              </a>
-              <a href="#solutions" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                解决方案
-              </a>
-              <a href="#about" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                关于我们
-              </a>
-            </div>
-          </div>
-          <div className="flex items-center space-x-4">
-            <button className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-              登录
-            </button>
-            <button className="bg-primary text-primary-foreground px-4 py-2 text-sm font-medium hover:bg-primary/90 transition-colors rounded">
-              立即开始
-            </button>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero 区域 */}
       <section className="container mx-auto max-w-7xl px-4 sm:px-8 py-24 sm:py-32 md:py-40">
