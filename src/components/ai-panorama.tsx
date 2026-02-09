@@ -593,48 +593,6 @@ export default function AIPanorama() {
               </g>
             </svg>
 
-            {/* 阶段指示器 - 右下角 */}
-            <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-3 flex flex-col gap-2 min-w-[100px]">
-              <div className="flex flex-col gap-2">
-                <div className="flex items-center gap-2">
-                  <div
-                    className="w-2.5 h-2.5 rounded-full transition-all duration-300"
-                    style={{
-                      backgroundColor: showPhase >= 0 ? '#FF3B30' : '#e0e0e0',
-                      transform: showPhase === 0 ? 'scale(1.2)' : 'scale(1)'
-                    }}
-                  />
-                  <span className="text-xs" style={{ color: showPhase >= 0 ? '#333333' : '#999999', fontWeight: showPhase >= 0 ? '500' : '400' }}>
-                    核心层
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div
-                    className="w-2.5 h-2.5 rounded-full transition-all duration-300"
-                    style={{
-                      backgroundColor: showPhase >= 1 ? '#666666' : '#e0e0e0',
-                      transform: showPhase === 1 ? 'scale(1.2)' : 'scale(1)'
-                    }}
-                  />
-                  <span className="text-xs" style={{ color: showPhase >= 1 ? '#333333' : '#999999', fontWeight: showPhase >= 1 ? '500' : '400' }}>
-                    行业层
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div
-                    className="w-2.5 h-2.5 rounded-full transition-all duration-300"
-                    style={{
-                      backgroundColor: showPhase >= 2 ? '#999999' : '#e0e0e0',
-                      transform: showPhase === 2 ? 'scale(1.2)' : 'scale(1)'
-                    }}
-                  />
-                  <span className="text-xs" style={{ color: showPhase >= 2 ? '#333333' : '#999999', fontWeight: showPhase >= 2 ? '500' : '400' }}>
-                    产品层
-                  </span>
-                </div>
-              </div>
-            </div>
-
             {/* 悬停关键词显示 */}
             {hoveredItem && (
               <div
@@ -671,6 +629,77 @@ export default function AIPanorama() {
                 </div>
               </div>
             )}
+
+            {/* 桌面端：横排小字展示 */}
+            <div className="absolute bottom-0 left-0 right-0 p-4">
+              <div className="flex flex-wrap gap-4 justify-center">
+                {/* 核心圈层 */}
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-medium" style={{ color: '#999999' }}>核心</span>
+                  <div className="flex items-center gap-2">
+                    {coreItems.map((item) => (
+                      <button
+                        key={item.id}
+                        onClick={() => handleItemClick(item)}
+                        className="flex items-center gap-1 transition-all duration-300 hover:scale-105 active:scale-95"
+                      >
+                        <span className="text-xs" style={{ color: '#666666' }}>•</span>
+                        <span
+                          className="text-xs font-medium whitespace-nowrap"
+                          style={{ color: '#333333' }}
+                        >
+                          {item.label}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 行业圈层 */}
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-medium" style={{ color: '#999999' }}>行业</span>
+                  <div className="flex items-center gap-2">
+                    {industryItems.map((item) => (
+                      <button
+                        key={item.id}
+                        onClick={() => handleItemClick(item)}
+                        className="flex items-center gap-1 transition-all duration-300 hover:scale-105 active:scale-95"
+                      >
+                        <span className="text-xs" style={{ color: '#666666' }}>•</span>
+                        <span
+                          className="text-xs font-medium whitespace-nowrap"
+                          style={{ color: '#333333' }}
+                        >
+                          {item.label}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 产品圈层 */}
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-medium" style={{ color: '#999999' }}>产品</span>
+                  <div className="flex items-center gap-2">
+                    {productItems.map((item) => (
+                      <button
+                        key={item.id}
+                        onClick={() => handleItemClick(item)}
+                        className="flex items-center gap-1 transition-all duration-300 hover:scale-105 active:scale-95"
+                      >
+                        <span className="text-xs" style={{ color: '#666666' }}>•</span>
+                        <span
+                          className="text-xs font-medium whitespace-nowrap"
+                          style={{ color: '#333333' }}
+                        >
+                          {item.label}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         )}
 
