@@ -65,7 +65,7 @@ export default function NewsUpdates() {
             >
               企业资讯
             </h3>
-            <ul className="space-y-6">
+            <ul className="space-y-6 mb-8">
               {news.map((item, index) => (
                 <li key={index} className="group cursor-pointer">
                   <div className="flex justify-between items-start gap-4">
@@ -84,6 +84,16 @@ export default function NewsUpdates() {
                 </li>
               ))}
             </ul>
+
+            {/* 企业资讯CTA */}
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 group"
+              style={{ color: '#E60012', fontSize: '14px' }}
+            >
+              了解更多
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </a>
           </div>
 
           {/* 右栏：行业活动 */}
@@ -99,7 +109,7 @@ export default function NewsUpdates() {
             >
               行业活动
             </h3>
-            <ul className="space-y-6">
+            <ul className="space-y-6 mb-8">
               {events.map((item, index) => (
                 <li key={index} className="group cursor-pointer">
                   <div className="flex justify-between items-start gap-4">
@@ -124,31 +134,17 @@ export default function NewsUpdates() {
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
 
-        {/* 统一次CTA按钮 */}
-        <div className="text-center">
-          <button
-            className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium transition-all duration-300 hover:gap-3"
-            style={{
-              border: '1px solid #E60012',
-              color: '#E60012',
-              backgroundColor: 'transparent',
-              borderRadius: '9999px'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#E60012';
-              e.currentTarget.style.color = '#FFFFFF';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = '#E60012';
-            }}
-          >
-            查看全部动态
-            <ArrowRight size={16} />
-          </button>
+            {/* 行业活动CTA */}
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 group"
+              style={{ color: '#E60012', fontSize: '14px' }}
+            >
+              了解更多
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
         </div>
       </div>
     </section>
