@@ -303,14 +303,35 @@ export default function AIPanorama() {
   const [hoveredItem, setHoveredItem] = useState<CircleItem | null>(null);
   const [selectedItem, setSelectedItem] = useState<CircleItem | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [showPhase, setShowPhase] = useState(0); // 0: 核心层, 1: 行业层, 2: 产品层
+  const [animationTime, setAnimationTime] = useState(0); // 动画时间，0-5秒循环
 
   useEffect(() => {
+    let startTime = Date.now();
+    const cycleDuration = 5000; // 5秒循环周期
+
     const interval = setInterval(() => {
-      setShowPhase(prev => (prev + 1) % 3);
-    }, 1500); // 每1.5秒切换一次，实现连续性
+      const elapsed = (Date.now() - startTime) % cycleDuration;
+      setAnimationTime(elapsed / 1000); // 转换为秒
+    }, 16); // 约60fps
     return () => clearInterval(interval);
   }, []);
+
+  // 计算动画状态
+  const getAnimationState = (startTime: number, duration: number = 1) => {
+    if (animationTime < startTime) {
+      return { opacity: 0, scale: 0 };
+    }
+    const elapsed = animationTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    return {
+      opacity: progress,
+      scale: progress
+    };
+  };
+
+  const coreState = getAnimationState(0);      // 0s开始
+  const industryState = getAnimationState(0.5); // 0.5s开始
+  const productState = getAnimationState(1);    // 1s开始
 
   useEffect(() => {
     const checkMobile = () => {
@@ -427,26 +448,25 @@ export default function AIPanorama() {
               {/* 中心点 */}
               <g transform="translate(400, 350)">
                 {/* 核心圈层 - 内环 - 红色填充 */}
-                {showPhase >= 0 && (
-                  <g className="transition-all duration-1000" style={{
-                    opacity: showPhase >= 0 ? 1 : 0,
-                    transform: showPhase >= 0 ? 'scale(1)' : 'scale(0)',
-                    transformOrigin: 'center center'
-                  }}>
-                    <circle cx="0" cy="0" r="80" fill="#FF3B30" />
-                  </g>
-                )}
+                <g style={{
+                  opacity: coreState.opacity,
+                  transform: `scale(${coreState.scale})`,
+                  transformOrigin: 'center center',
+                  transition: 'opacity 1s ease-out, transform 1s ease-out'
+                }}>
+                  <circle cx="0" cy="0" r="80" fill="#FF3B30" />
+                </g>
 
                 {/* 核心项1 */}
-                {showPhase >= 0 && (
-                  <g transform="translate(0, -45)">
-                    <g
-                      className="cursor-pointer transition-all duration-1000"
-                      style={{
-                        opacity: showPhase >= 0 ? 1 : 0,
-                        transform: showPhase >= 0 ? 'scale(1)' : 'scale(0)',
-                        transformOrigin: 'center center'
-                      }}
+                <g transform="translate(0, -45)">
+                  <g
+                    className="cursor-pointer"
+                    style={{
+                      opacity: coreState.opacity,
+                      transform: `scale(${coreState.scale})`,
+                      transformOrigin: 'center center',
+                      transition: 'opacity 1s ease-out, transform 1s ease-out'
+                    }}
                       onMouseEnter={() => setHoveredItem(coreItems[0])}
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={() => handleItemClick(coreItems[0])}
@@ -468,15 +488,15 @@ export default function AIPanorama() {
                 )}
 
                 {/* 核心项2 */}
-                {showPhase >= 0 && (
-                  <g transform="translate(0, 45)">
-                    <g
-                      className="cursor-pointer transition-all duration-1000"
-                      style={{
-                        opacity: showPhase >= 0 ? 1 : 0,
-                        transform: showPhase >= 0 ? 'scale(1)' : 'scale(0)',
-                        transformOrigin: 'center center'
-                      }}
+                <g transform="translate(0, 45)">
+                  <g
+                    className="cursor-pointer"
+                    style={{
+                      opacity: coreState.opacity,
+                      transform: `scale(${coreState.scale})`,
+                      transformOrigin: 'center center',
+                      transition: 'opacity 1s ease-out, transform 1s ease-out'
+                    }}
                       onMouseEnter={() => setHoveredItem(coreItems[1])}
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={() => handleItemClick(coreItems[1])}
@@ -498,18 +518,17 @@ export default function AIPanorama() {
                 )}
 
                 {/* 行业圈层 - 中环 - 灰色填充 */}
-                {showPhase >= 1 && (
-                  <g className="transition-all duration-1000" style={{
-                    opacity: showPhase >= 1 ? 1 : 0,
-                    transform: showPhase >= 1 ? 'scale(1)' : 'scale(0)',
-                    transformOrigin: 'center center'
-                  }}>
-                    <circle cx="0" cy="0" r="160" fill="#666666" fillOpacity="0.05" />
-                  </g>
-                )}
+                <g style={{
+                  opacity: industryState.opacity,
+                  transform: `scale(${industryState.scale})`,
+                  transformOrigin: 'center center',
+                  transition: 'opacity 1s ease-out, transform 1s ease-out'
+                }}>
+                  <circle cx="0" cy="0" r="160" fill="#666666" fillOpacity="0.05" />
+                </g>
 
                 {/* 行业项 - 8个 */}
-                {showPhase >= 1 && industryItems.map((item, index) => {
+                {industryItems.map((item, index) => {
                   const angle = (index * 45 - 90) * (Math.PI / 180);
                   const x = Math.cos(angle) * 160;
                   const y = Math.sin(angle) * 160;
@@ -517,11 +536,12 @@ export default function AIPanorama() {
                   return (
                     <g transform={`translate(${x}, ${y})`} key={item.id}>
                       <g
-                        className="cursor-pointer transition-all duration-1000"
+                        className="cursor-pointer"
                         style={{
-                          opacity: showPhase >= 1 ? 1 : 0,
-                          transform: showPhase >= 1 ? 'scale(1)' : 'scale(0)',
-                          transformOrigin: 'center center'
+                          opacity: industryState.opacity,
+                          transform: `scale(${industryState.scale})`,
+                          transformOrigin: 'center center',
+                          transition: 'opacity 1s ease-out, transform 1s ease-out'
                         }}
                         onMouseEnter={() => setHoveredItem(item)}
                         onMouseLeave={() => setHoveredItem(null)}
@@ -545,18 +565,17 @@ export default function AIPanorama() {
                 })}
 
                 {/* 产品圈层 - 外环 - 灰色填充 */}
-                {showPhase >= 2 && (
-                  <g className="transition-all duration-1000" style={{
-                    opacity: showPhase >= 2 ? 1 : 0,
-                    transform: showPhase >= 2 ? 'scale(1)' : 'scale(0)',
-                    transformOrigin: 'center center'
-                  }}>
-                    <circle cx="0" cy="0" r="260" fill="#999999" fillOpacity="0.03" />
-                  </g>
-                )}
+                <g style={{
+                  opacity: productState.opacity,
+                  transform: `scale(${productState.scale})`,
+                  transformOrigin: 'center center',
+                  transition: 'opacity 1s ease-out, transform 1s ease-out'
+                }}>
+                  <circle cx="0" cy="0" r="260" fill="#999999" fillOpacity="0.03" />
+                </g>
 
                 {/* 产品项 - 12个 */}
-                {showPhase >= 2 && productItems.map((item, index) => {
+                {productItems.map((item, index) => {
                   const angle = (index * 30 - 90) * (Math.PI / 180);
                   const x = Math.cos(angle) * 260;
                   const y = Math.sin(angle) * 260;
@@ -564,11 +583,12 @@ export default function AIPanorama() {
                   return (
                     <g transform={`translate(${x}, ${y})`} key={item.id}>
                       <g
-                        className="cursor-pointer transition-all duration-1000"
+                        className="cursor-pointer"
                         style={{
-                          opacity: showPhase >= 2 ? 1 : 0,
-                          transform: showPhase >= 2 ? 'scale(1)' : 'scale(0)',
-                          transformOrigin: 'center center'
+                          opacity: productState.opacity,
+                          transform: `scale(${productState.scale})`,
+                          transformOrigin: 'center center',
+                          transition: 'opacity 1s ease-out, transform 1s ease-out'
                         }}
                         onMouseEnter={() => setHoveredItem(item)}
                         onMouseLeave={() => setHoveredItem(null)}
@@ -600,11 +620,11 @@ export default function AIPanorama() {
                   <div
                     className="w-2.5 h-2.5 rounded-full transition-all duration-300"
                     style={{
-                      backgroundColor: showPhase >= 0 ? '#FF3B30' : '#e0e0e0',
-                      transform: showPhase === 0 ? 'scale(1.2)' : 'scale(1)'
+                      backgroundColor: coreState.opacity > 0 ? '#FF3B30' : '#e0e0e0',
+                      transform: coreState.opacity > 0 ? `scale(${0.8 + coreState.opacity * 0.4})` : 'scale(1)'
                     }}
                   />
-                  <span className="text-xs" style={{ color: showPhase >= 0 ? '#333333' : '#999999', fontWeight: showPhase >= 0 ? '500' : '400' }}>
+                  <span className="text-xs" style={{ color: coreState.opacity > 0 ? '#333333' : '#999999', fontWeight: coreState.opacity > 0 ? '500' : '400' }}>
                     核心层
                   </span>
                 </div>
@@ -612,11 +632,11 @@ export default function AIPanorama() {
                   <div
                     className="w-2.5 h-2.5 rounded-full transition-all duration-300"
                     style={{
-                      backgroundColor: showPhase >= 1 ? '#666666' : '#e0e0e0',
-                      transform: showPhase === 1 ? 'scale(1.2)' : 'scale(1)'
+                      backgroundColor: industryState.opacity > 0 ? '#666666' : '#e0e0e0',
+                      transform: industryState.opacity > 0 ? `scale(${0.8 + industryState.opacity * 0.4})` : 'scale(1)'
                     }}
                   />
-                  <span className="text-xs" style={{ color: showPhase >= 1 ? '#333333' : '#999999', fontWeight: showPhase >= 1 ? '500' : '400' }}>
+                  <span className="text-xs" style={{ color: industryState.opacity > 0 ? '#333333' : '#999999', fontWeight: industryState.opacity > 0 ? '500' : '400' }}>
                     行业层
                   </span>
                 </div>
@@ -624,11 +644,11 @@ export default function AIPanorama() {
                   <div
                     className="w-2.5 h-2.5 rounded-full transition-all duration-300"
                     style={{
-                      backgroundColor: showPhase >= 2 ? '#999999' : '#e0e0e0',
-                      transform: showPhase === 2 ? 'scale(1.2)' : 'scale(1)'
+                      backgroundColor: productState.opacity > 0 ? '#999999' : '#e0e0e0',
+                      transform: productState.opacity > 0 ? `scale(${0.8 + productState.opacity * 0.4})` : 'scale(1)'
                     }}
                   />
-                  <span className="text-xs" style={{ color: showPhase >= 2 ? '#333333' : '#999999', fontWeight: showPhase >= 2 ? '500' : '400' }}>
+                  <span className="text-xs" style={{ color: productState.opacity > 0 ? '#333333' : '#999999', fontWeight: productState.opacity > 0 ? '500' : '400' }}>
                     产品层
                   </span>
                 </div>
