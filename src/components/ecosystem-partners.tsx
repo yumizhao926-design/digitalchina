@@ -106,31 +106,37 @@ interface LogoRowProps {
 function LogoRow({ partners, direction, speed = 0.5, isPaused }: LogoRowProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const scrollPositionRef = useRef(0);
+  const innerWidthRef = useRef(0);
+
+  // 计算内容宽度
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      const itemWidth = 163; // 160px width + 3px gap
+      const totalItems = partners.length * 2;
+      innerWidthRef.current = itemWidth * totalItems;
+    }
+  }, [partners]);
 
   useEffect(() => {
-    if (!scrollContainerRef.current) return;
-
-    const scrollContainer = scrollContainerRef.current;
-    scrollPositionRef.current = 0;
     let animationFrameId: number;
 
     const animate = () => {
       if (!isPaused) {
         if (direction === 'left') {
           scrollPositionRef.current += speed;
-          const scrollWidth = scrollContainer.scrollWidth / 2;
-          if (scrollPositionRef.current >= scrollWidth) {
+          if (scrollPositionRef.current >= innerWidthRef.current / 2) {
             scrollPositionRef.current = 0;
           }
         } else {
           scrollPositionRef.current -= speed;
           if (scrollPositionRef.current <= 0) {
-            const scrollWidth = scrollContainer.scrollWidth / 2;
-            scrollPositionRef.current = scrollWidth;
+            scrollPositionRef.current = innerWidthRef.current / 2;
           }
         }
 
-        scrollContainer.scrollLeft = scrollPositionRef.current;
+        if (scrollContainerRef.current) {
+          scrollContainerRef.current.style.transform = `translateX(-${scrollPositionRef.current}px)`;
+        }
       }
 
       animationFrameId = requestAnimationFrame(animate);
@@ -141,14 +147,18 @@ function LogoRow({ partners, direction, speed = 0.5, isPaused }: LogoRowProps) {
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
-  }, [direction, speed, isPaused]);
+  }, [direction, speed, isPaused, partners]);
 
   return (
-    <div className="overflow-hidden mb-4" style={{ height: '100px', width: '100%' }}>
+    <div className="overflow-hidden mb-4" style={{ height: '100px', width: '100%', position: 'relative' }}>
       <div
         ref={scrollContainerRef}
         className="flex gap-3"
-        style={{ width: 'max-content' }}
+        style={{ 
+          width: 'max-content',
+          transform: 'translateX(0)',
+          willChange: 'transform'
+        }}
       >
         {[...partners, ...partners].map((partner, index) => (
           <div
@@ -235,7 +245,7 @@ export default function EcosystemPartners() {
             <LogoRow
               partners={rows[0]}
               direction="left"
-              speed={1.5}
+              speed={2.5}
               isPaused={isPaused}
             />
 
@@ -243,7 +253,7 @@ export default function EcosystemPartners() {
             <LogoRow
               partners={rows[1]}
               direction="right"
-              speed={2.0}
+              speed={3.0}
               isPaused={isPaused}
             />
 
@@ -251,7 +261,7 @@ export default function EcosystemPartners() {
             <LogoRow
               partners={rows[2]}
               direction="left"
-              speed={1.0}
+              speed={2.0}
               isPaused={isPaused}
             />
           </div>
