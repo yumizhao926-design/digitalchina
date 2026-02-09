@@ -24,7 +24,7 @@ export default function Hero() {
             animationDelay: '0s',
           }}
         >
-          AI for Process 重塑企业核心流程
+          AI for Process 用AI重塑企业核心流程
         </h1>
 
         {/* 副标题 */}

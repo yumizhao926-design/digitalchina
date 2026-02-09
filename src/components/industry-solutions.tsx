@@ -201,7 +201,7 @@ export default function IndustrySolutions() {
           className="font-bold mb-12 text-center"
           style={{ color: '#333333', fontSize: '32px' }}
         >
-          行业解决方案
+          行业AI解决方案
         </h2>
 
         {/* 桌面端横向滚动 */}
