@@ -102,13 +102,13 @@ export default function CaseCarousel() {
         <div className="relative w-full">
           {/* 轮播容器 */}
           <div
-            className="overflow-hidden rounded-2xl w-full"
-            style={{ minHeight: '400px' }}
+            className="overflow-hidden rounded-2xl"
+            style={{ width: '100%', minHeight: '400px' }}
           >
             <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{
-                transform: `translateX(-${currentIndex * 100}%)`,
+                transform: `translateX(-${currentIndex * (100 / caseStudies.length)}%)`,
                 width: `${caseStudies.length * 100}%`
               }}
             >
@@ -116,7 +116,7 @@ export default function CaseCarousel() {
                 <div
                   key={caseStudy.id}
                   className="flex-shrink-0"
-                  style={{ width: '100%' }}
+                  style={{ width: `${100 / caseStudies.length}%` }}
                 >
                   <div className="relative overflow-hidden rounded-2xl shadow-lg min-h-[400px]">
                     {/* 背景图片 */}
