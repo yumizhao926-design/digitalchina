@@ -11,11 +11,11 @@ export default function Hero() {
         }}
       />
 
-      {/* 遮罩层 - 深色遮罩让文字更清晰 */}
+      {/* 遮罩层 - 让背景更明显 */}
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(245,245,245,0.9) 100%)',
+          background: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(245,245,245,0.5) 100%)',
         }}
       />
 
