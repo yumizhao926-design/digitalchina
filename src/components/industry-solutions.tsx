@@ -21,7 +21,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-1',
     name: '汽车制造',
     description: '智能制造质量检测：AI视觉质检\n用户运营智能分析：数据深度挖掘\n车联网AI优化：智能驾驶算法优化',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=900&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&h=900&fit=crop&q=80',
     value: '效率提升90%',
     detail: {
       title: '汽车制造智能化解决方案',
@@ -40,7 +40,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-2',
     name: '制造流程优化方案',
     description: '预测性维护 · 智能质检 · 供应链',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=900&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=900&fit=crop&q=80',
     value: '良品率+25%',
     detail: {
       title: '智能制造流程优化解决方案',
@@ -62,7 +62,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-3',
     name: '智慧政务',
     description: 'AI辅助决策：政策模拟与效果预测\n智慧政务服务：智能审批与自动受理\n政务数据治理：跨部门数据融合分析',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=900&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1565514020296-59d775083a16?w=1200&h=900&fit=crop&q=80',
     value: '审批效率提升70%',
     detail: {
       title: '政务智能化升级方案',
@@ -139,7 +139,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-7',
     name: '教育流程创新方案',
     description: '智能教学 · 个性化学习 · 教务管理',
-    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&h=900&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&h=900&fit=crop&q=80',
     value: '学习效率+60%',
     detail: {
       title: '教育智能化解决方案',
