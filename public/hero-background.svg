@@ -1,0 +1,65 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景底色 -->
+  <rect width="1920" height="1080" fill="#FFFFFF"/>
+
+  <!-- 左上角装饰 - 淡红色渐变 -->
+  <circle cx="0" cy="0" r="600" fill="url(#gradient1)" opacity="0.3"/>
+
+  <!-- 右下角装饰 - 灰色渐变 -->
+  <circle cx="1920" cy="1080" r="700" fill="url(#gradient2)" opacity="0.25"/>
+
+  <!-- 中间装饰 - 淡雅几何图形 -->
+  <rect x="800" y="200" width="320" height="680" fill="url(#gradient3)" opacity="0.15" rx="20"/>
+
+  <!-- 顶部线条装饰 -->
+  <line x1="400" y1="150" x2="600" y2="150" stroke="#E0E0E0" stroke-width="2"/>
+  <line x1="1300" y1="150" x2="1500" y2="150" stroke="#E0E0E0" stroke-width="2"/>
+
+  <!-- 底部线条装饰 -->
+  <line x1="300" y1="950" x2="500" y2="950" stroke="#E0E0E0" stroke-width="2"/>
+  <line x1="1400" y1="950" y2="1600" y2="950" stroke="#E0E0E0" stroke-width="2"/>
+
+  <!-- 左侧线条装饰 -->
+  <line x1="200" y1="400" x2="200" y2="600" stroke="#E0E0E0" stroke-width="2"/>
+  <line x1="200" y1="750" x2="200" y2="900" stroke="#E0E0E0" stroke-width="2"/>
+
+  <!-- 右侧线条装饰 -->
+  <line x1="1720" y1="350" x2="1720" y2="550" stroke="#E0E0E0" stroke-width="2"/>
+  <line x1="1720" y1="700" x2="1720" y2="850" stroke="#E0E0E0" stroke-width="2"/>
+
+  <!-- 小圆点装饰 -->
+  <circle cx="600" cy="300" r="4" fill="#FF3B30" opacity="0.3"/>
+  <circle cx="1300" cy="750" r="3" fill="#333333" opacity="0.2"/>
+  <circle cx="800" cy="500" r="5" fill="#FF3B30" opacity="0.2"/>
+  <circle cx="1100" cy="600" r="4" fill="#333333" opacity="0.25"/>
+
+  <!-- 几何图形装饰 -->
+  <rect x="450" y="650" width="60" height="60" stroke="#E0E0E0" stroke-width="1.5" fill="none" opacity="0.5" transform="rotate(45 480 680)"/>
+  <rect x="1400" y="400" width="40" height="40" stroke="#FF3B30" stroke-width="1" fill="none" opacity="0.3" transform="rotate(30 1420 420)"/>
+
+  <!-- 流动曲线装饰 -->
+  <path d="M0 540 Q 400 400 960 540 T 1920 540" stroke="url(#gradient4)" stroke-width="1" fill="none" opacity="0.3"/>
+  <path d="M0 580 Q 400 440 960 580 T 1920 580" stroke="url(#gradient4)" stroke-width="1" fill="none" opacity="0.25"/>
+
+  <!-- 渐变定义 -->
+  <defs>
+    <radialGradient id="gradient1" cx="0%" cy="0%" r="100%">
+      <stop offset="0%" stop-color="#FF3B30" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#FF3B30" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gradient2" cx="100%" cy="100%" r="100%">
+      <stop offset="0%" stop-color="#333333" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#333333" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF3B30" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#333333" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#FF3B30" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="gradient4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF3B30" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#FF3B30" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#FF3B30" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>
