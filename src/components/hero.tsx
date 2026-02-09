@@ -123,16 +123,16 @@ export default function Hero() {
             className="px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg border-2"
             style={{
               backgroundColor: 'transparent',
-              borderColor: '#FF3B30',
-              color: '#FF3B30',
+              borderColor: '#333333',
+              color: '#333333',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#FF3B30';
+              e.currentTarget.style.backgroundColor = '#333333';
               e.currentTarget.style.color = 'white';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = '#FF3B30';
+              e.currentTarget.style.color = '#333333';
             }}
           >
             发现企业智能
@@ -143,16 +143,16 @@ export default function Hero() {
             className="px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg border-2"
             style={{
               backgroundColor: 'transparent',
-              borderColor: '#FF3B30',
-              color: '#FF3B30',
+              borderColor: '#333333',
+              color: '#333333',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#FF3B30';
+              e.currentTarget.style.backgroundColor = '#333333';
               e.currentTarget.style.color = 'white';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = '#FF3B30';
+              e.currentTarget.style.color = '#333333';
             }}
           >
             预约专家演示
