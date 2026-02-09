@@ -473,7 +473,7 @@ export default function AIPanorama() {
                     transform: showPhase >= 0 ? 'scale(1)' : 'scale(0)',
                     transformOrigin: 'center center'
                   }}>
-                    <circle cx="0" cy="0" r="80" fill="#FF3B30" fillOpacity="0.12" stroke="url(#coreGradient)" strokeWidth="2" strokeOpacity="0.8" className="glow-effect" />
+                    <circle cx="0" cy="0" r="80" fill="#FF3B30" />
                   </g>
                 )}
 
@@ -544,7 +544,7 @@ export default function AIPanorama() {
                     transform: showPhase >= 1 ? 'scale(1)' : 'scale(0)',
                     transformOrigin: 'center center'
                   }}>
-                    <circle cx="0" cy="0" r="160" fill="#666666" fillOpacity="0.05" stroke="url(#industryGradient)" strokeWidth="2" strokeOpacity="0.7" className="glow-effect" />
+                    <circle cx="0" cy="0" r="160" fill="#666666" fillOpacity="0.05" />
                   </g>
                 )}
 
@@ -591,7 +591,7 @@ export default function AIPanorama() {
                     transform: showPhase >= 2 ? 'scale(1)' : 'scale(0)',
                     transformOrigin: 'center center'
                   }}>
-                    <circle cx="0" cy="0" r="260" fill="#999999" fillOpacity="0.03" stroke="url(#productGradient)" strokeWidth="2" strokeOpacity="0.6" className="glow-effect" />
+                    <circle cx="0" cy="0" r="260" fill="#999999" fillOpacity="0.03" />
                   </g>
                 )}
 
