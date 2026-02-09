@@ -105,31 +105,32 @@ interface LogoRowProps {
 
 function LogoRow({ partners, direction, speed = 0.5, isPaused }: LogoRowProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const scrollPositionRef = useRef(0);
 
   useEffect(() => {
-    if (!scrollContainerRef.current || isPaused) return;
+    if (!scrollContainerRef.current) return;
 
     const scrollContainer = scrollContainerRef.current;
+    scrollPositionRef.current = 0;
     let animationFrameId: number;
-    let scrollPosition = 0;
 
     const animate = () => {
       if (!isPaused) {
         if (direction === 'left') {
-          scrollPosition += speed;
+          scrollPositionRef.current += speed;
           const scrollWidth = scrollContainer.scrollWidth / 2;
-          if (scrollPosition >= scrollWidth) {
-            scrollPosition = 0;
+          if (scrollPositionRef.current >= scrollWidth) {
+            scrollPositionRef.current = 0;
           }
         } else {
-          scrollPosition -= speed;
-          if (scrollPosition <= 0) {
+          scrollPositionRef.current -= speed;
+          if (scrollPositionRef.current <= 0) {
             const scrollWidth = scrollContainer.scrollWidth / 2;
-            scrollPosition = scrollWidth;
+            scrollPositionRef.current = scrollWidth;
           }
         }
 
-        scrollContainer.scrollLeft = scrollPosition;
+        scrollContainer.scrollLeft = scrollPositionRef.current;
       }
 
       animationFrameId = requestAnimationFrame(animate);
@@ -143,11 +144,11 @@ function LogoRow({ partners, direction, speed = 0.5, isPaused }: LogoRowProps) {
   }, [direction, speed, isPaused]);
 
   return (
-    <div className="overflow-hidden mb-4" style={{ height: '100px' }}>
+    <div className="overflow-hidden mb-4" style={{ height: '100px', width: '100%' }}>
       <div
         ref={scrollContainerRef}
         className="flex gap-3"
-        style={{ width: 'fit-content' }}
+        style={{ width: 'max-content' }}
       >
         {[...partners, ...partners].map((partner, index) => (
           <div
@@ -167,7 +168,7 @@ function LogoRow({ partners, direction, speed = 0.5, isPaused }: LogoRowProps) {
               src="https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2Flogo800_16491854285791195.jpg&nonce=e06464a1-7977-461d-ad83-825de22dc580&project_id=7604737481589964809&sign=c14762e556b1b78ff260fd8941624a169713621c1d1bfabb7109f300bba11e27"
               alt={partner.name}
               className="max-w-full max-h-full object-contain px-3"
-              style={{ width: 'auto', height: 'auto' }}
+              style={{ width: '120px', height: 'auto' }}
             />
           </div>
         ))}
@@ -234,7 +235,7 @@ export default function EcosystemPartners() {
             <LogoRow
               partners={rows[0]}
               direction="left"
-              speed={0.5}
+              speed={1.5}
               isPaused={isPaused}
             />
 
@@ -242,7 +243,7 @@ export default function EcosystemPartners() {
             <LogoRow
               partners={rows[1]}
               direction="right"
-              speed={0.6}
+              speed={2.0}
               isPaused={isPaused}
             />
 
@@ -250,7 +251,7 @@ export default function EcosystemPartners() {
             <LogoRow
               partners={rows[2]}
               direction="left"
-              speed={0.4}
+              speed={1.0}
               isPaused={isPaused}
             />
           </div>
