@@ -258,7 +258,10 @@ export default function IndustrySolutions() {
                 {/* 背景图片 */}
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-all duration-700 hover:scale-110"
-                  style={{ backgroundImage: `url(${solution.image})` }}
+                  style={{
+                    backgroundImage: `url(${solution.image})`,
+                    filter: 'grayscale(30%) sepia(20%) brightness(1.05) contrast(1.05)'
+                  }}
                 />
 
                 {/* 渐变遮罩 */}
@@ -348,7 +351,10 @@ export default function IndustrySolutions() {
                 {/* 背景图片 */}
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-all duration-700 hover:scale-110"
-                  style={{ backgroundImage: `url(${solution.image})` }}
+                  style={{
+                    backgroundImage: `url(${solution.image})`,
+                    filter: 'grayscale(30%) sepia(20%) brightness(1.05) contrast(1.05)'
+                  }}
                 />
 
                 {/* 渐变遮罩 */}
