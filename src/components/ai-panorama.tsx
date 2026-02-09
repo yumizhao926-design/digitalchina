@@ -604,25 +604,25 @@ export default function AIPanorama() {
               >
                 核心圈层
               </h3>
-              <div className="space-y-3">
+              <div className="flex gap-3 overflow-x-auto pb-2 px-2" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                 {coreItems.map((item) => (
                   <div
                     key={item.id}
-                    className="bg-white rounded-xl p-5 shadow-md cursor-pointer transition-all duration-300 active:scale-95"
+                    className="bg-white rounded-xl p-4 shadow-md cursor-pointer transition-all duration-300 active:scale-95 flex-shrink-0 min-w-[200px]"
                     onClick={() => handleItemClick(item)}
                   >
-                    <div className="flex items-center gap-3 mb-2">
+                    <div className="flex items-center gap-2 mb-2">
                       <div style={{ color: item.color }}>
                         {item.icon}
                       </div>
                       <h4
-                        className="font-semibold"
+                        className="font-semibold whitespace-nowrap"
                         style={{ color: '#333333', fontSize: '16px' }}
                       >
                         {item.label}
                       </h4>
                     </div>
-                    <div className="text-sm" style={{ color: '#666666' }}>
+                    <div className="text-sm whitespace-nowrap" style={{ color: '#666666' }}>
                       {item.keywords.join(' • ')}
                     </div>
                   </div>
@@ -638,19 +638,19 @@ export default function AIPanorama() {
               >
                 行业圈层
               </h3>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="flex gap-3 overflow-x-auto pb-2 px-2" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                 {industryItems.map((item) => (
                   <div
                     key={item.id}
-                    className="bg-white rounded-xl p-4 shadow-sm cursor-pointer transition-all duration-300 active:scale-95"
+                    className="bg-white rounded-xl p-4 shadow-sm cursor-pointer transition-all duration-300 active:scale-95 flex-shrink-0 min-w-[150px]"
                     onClick={() => handleItemClick(item)}
                   >
-                    <div className="flex items-center gap-3 mb-2">
+                    <div className="flex items-center gap-2">
                       <div style={{ color: item.color }}>
                         {item.icon}
                       </div>
                       <h4
-                        className="font-medium"
+                        className="font-medium whitespace-nowrap"
                         style={{ color: '#333333', fontSize: '14px' }}
                       >
                         {item.label}
@@ -669,37 +669,23 @@ export default function AIPanorama() {
               >
                 产品圈层
               </h3>
-              <div className="space-y-3">
-                {['基础层', '平台层', '应用层'].map((category) => (
-                  <div key={category}>
-                    <div
-                      className="px-2 mb-2 text-xs font-medium"
-                      style={{ color: '#666666' }}
-                    >
-                      {category}
-                    </div>
-                    <div className="space-y-2">
-                      {productItems
-                        .filter((item) => item.category === category)
-                        .map((item) => (
-                          <div
-                            key={item.id}
-                            className="bg-white rounded-lg p-3 shadow-sm cursor-pointer transition-all duration-300 active:scale-95"
-                            onClick={() => handleItemClick(item)}
-                          >
-                            <div className="flex items-center gap-3">
-                              <div style={{ color: item.color }}>
-                                {item.icon}
-                              </div>
-                              <h4
-                                className="font-medium"
-                                style={{ color: '#333333', fontSize: '14px' }}
-                              >
-                                {item.label}
-                              </h4>
-                            </div>
-                          </div>
-                        ))}
+              <div className="flex gap-3 overflow-x-auto pb-2 px-2" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                {productItems.map((item) => (
+                  <div
+                    key={item.id}
+                    className="bg-white rounded-lg p-3 shadow-sm cursor-pointer transition-all duration-300 active:scale-95 flex-shrink-0 min-w-[140px]"
+                    onClick={() => handleItemClick(item)}
+                  >
+                    <div className="flex items-center gap-2">
+                      <div style={{ color: item.color }}>
+                        {item.icon}
+                      </div>
+                      <h4
+                        className="font-medium whitespace-nowrap"
+                        style={{ color: '#333333', fontSize: '14px' }}
+                      >
+                        {item.label}
+                      </h4>
                     </div>
                   </div>
                 ))}
