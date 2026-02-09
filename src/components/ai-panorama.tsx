@@ -479,46 +479,49 @@ export default function AIPanorama() {
 
                 {/* 核心项1 */}
                 {showPhase >= 0 && (
-                  <g
-                    className="cursor-pointer transition-all duration-1000"
-                    style={{
-                      opacity: showPhase >= 0 ? 1 : 0,
-                      transform: showPhase >= 0 ? 'translate(0, -35) scale(1)' : 'translate(0, -35) scale(0)',
-                      transformOrigin: 'center center'
-                    }}
-                    onMouseEnter={() => setHoveredItem(coreItems[0])}
-                    onMouseLeave={() => setHoveredItem(null)}
-                    onClick={() => handleItemClick(coreItems[0])}
-                  >
-                    <foreignObject x="-60" y="-15" width="120" height="30">
-                      <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
-                        transform: hoveredItem?.id === coreItems[0].id ? 'scale(1.1)' : 'scale(1)',
-                      }}>
-                        <div className="pulse-animation" style={{ color: coreItems[0].color }}>
-                          {coreItems[0].icon}
+                  <g transform="translate(0, -35)">
+                    <g
+                      className="cursor-pointer transition-all duration-1000"
+                      style={{
+                        opacity: showPhase >= 0 ? 1 : 0,
+                        transform: showPhase >= 0 ? 'scale(1)' : 'scale(0)',
+                        transformOrigin: 'center center'
+                      }}
+                      onMouseEnter={() => setHoveredItem(coreItems[0])}
+                      onMouseLeave={() => setHoveredItem(null)}
+                      onClick={() => handleItemClick(coreItems[0])}
+                    >
+                      <foreignObject x="-60" y="-15" width="120" height="30">
+                        <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
+                          transform: hoveredItem?.id === coreItems[0].id ? 'scale(1.1)' : 'scale(1)',
+                        }}>
+                          <div className="pulse-animation" style={{ color: coreItems[0].color }}>
+                            {coreItems[0].icon}
+                          </div>
+                          <span style={{ color: '#333333', fontSize: '13px', fontWeight: '500' }}>
+                            {coreItems[0].label}
+                          </span>
                         </div>
-                        <span style={{ color: '#333333', fontSize: '13px', fontWeight: '500' }}>
-                          {coreItems[0].label}
-                        </span>
-                      </div>
-                    </foreignObject>
+                      </foreignObject>
+                    </g>
                   </g>
                 )}
 
                 {/* 核心项2 */}
                 {showPhase >= 0 && (
-                  <g
-                    className="cursor-pointer transition-all duration-1000"
-                    style={{
-                      opacity: showPhase >= 0 ? 1 : 0,
-                      transform: showPhase >= 0 ? 'translate(0, 35) scale(1)' : 'translate(0, 35) scale(0)',
-                      transformOrigin: 'center center'
-                    }}
-                    onMouseEnter={() => setHoveredItem(coreItems[1])}
-                    onMouseLeave={() => setHoveredItem(null)}
-                    onClick={() => handleItemClick(coreItems[1])}
-                  >
-                  <foreignObject x="-60" y="-15" width="120" height="30">
+                  <g transform="translate(0, 35)">
+                    <g
+                      className="cursor-pointer transition-all duration-1000"
+                      style={{
+                        opacity: showPhase >= 0 ? 1 : 0,
+                        transform: showPhase >= 0 ? 'scale(1)' : 'scale(0)',
+                        transformOrigin: 'center center'
+                      }}
+                      onMouseEnter={() => setHoveredItem(coreItems[1])}
+                      onMouseLeave={() => setHoveredItem(null)}
+                      onClick={() => handleItemClick(coreItems[1])}
+                    >
+                      <foreignObject x="-60" y="-15" width="120" height="30">
                     <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
                       transform: hoveredItem?.id === coreItems[1].id ? 'scale(1.1)' : 'scale(1)',
                     }}>
@@ -531,6 +534,7 @@ export default function AIPanorama() {
                     </div>
                   </foreignObject>
                 </g>
+                  </g>
                 )}
 
                 {/* 行业圈层 - 中环 - 科技感渐变边框 */}
@@ -551,30 +555,31 @@ export default function AIPanorama() {
                   const y = Math.sin(angle) * 160;
 
                   return (
-                    <g
-                      key={item.id}
-                      className="cursor-pointer transition-all duration-1000"
-                      style={{
-                        opacity: showPhase >= 1 ? 1 : 0,
-                        transform: showPhase >= 1 ? `translate(${x}, ${y}) scale(1)` : `translate(${x}, ${y}) scale(0)`,
-                        transformOrigin: 'center center'
-                      }}
-                      onMouseEnter={() => setHoveredItem(item)}
-                      onMouseLeave={() => setHoveredItem(null)}
-                      onClick={() => handleItemClick(item)}
-                    >
-                      <foreignObject x="-50" y="-12" width="100" height="24">
-                        <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
-                          transform: hoveredItem?.id === item.id ? 'scale(1.1)' : 'scale(1)',
-                        }}>
-                          <div className="pulse-animation" style={{ color: item.color }}>
-                            {item.icon}
+                    <g transform={`translate(${x}, ${y})`} key={item.id}>
+                      <g
+                        className="cursor-pointer transition-all duration-1000"
+                        style={{
+                          opacity: showPhase >= 1 ? 1 : 0,
+                          transform: showPhase >= 1 ? 'scale(1)' : 'scale(0)',
+                          transformOrigin: 'center center'
+                        }}
+                        onMouseEnter={() => setHoveredItem(item)}
+                        onMouseLeave={() => setHoveredItem(null)}
+                        onClick={() => handleItemClick(item)}
+                      >
+                        <foreignObject x="-50" y="-12" width="100" height="24">
+                          <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
+                            transform: hoveredItem?.id === item.id ? 'scale(1.1)' : 'scale(1)',
+                          }}>
+                            <div className="pulse-animation" style={{ color: item.color }}>
+                              {item.icon}
+                            </div>
+                            <span style={{ color: '#333333', fontSize: '12px', fontWeight: '500' }}>
+                              {item.label}
+                            </span>
                           </div>
-                          <span style={{ color: '#333333', fontSize: '12px', fontWeight: '500' }}>
-                            {item.label}
-                          </span>
-                        </div>
-                      </foreignObject>
+                        </foreignObject>
+                      </g>
                     </g>
                   );
                 })}
@@ -597,30 +602,31 @@ export default function AIPanorama() {
                   const y = Math.sin(angle) * 260;
 
                   return (
-                    <g
-                      key={item.id}
-                      className="cursor-pointer transition-all duration-1000"
-                      style={{
-                        opacity: showPhase >= 2 ? 1 : 0,
-                        transform: showPhase >= 2 ? `translate(${x}, ${y}) scale(1)` : `translate(${x}, ${y}) scale(0)`,
-                        transformOrigin: 'center center'
-                      }}
-                      onMouseEnter={() => setHoveredItem(item)}
-                      onMouseLeave={() => setHoveredItem(null)}
-                      onClick={() => handleItemClick(item)}
-                    >
-                      <foreignObject x="-45" y="-10" width="90" height="20">
-                        <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
-                          transform: hoveredItem?.id === item.id ? 'scale(1.1)' : 'scale(1)',
-                        }}>
-                          <div className="pulse-animation" style={{ color: item.color }}>
-                            {item.icon}
+                    <g transform={`translate(${x}, ${y})`} key={item.id}>
+                      <g
+                        className="cursor-pointer transition-all duration-1000"
+                        style={{
+                          opacity: showPhase >= 2 ? 1 : 0,
+                          transform: showPhase >= 2 ? 'scale(1)' : 'scale(0)',
+                          transformOrigin: 'center center'
+                        }}
+                        onMouseEnter={() => setHoveredItem(item)}
+                        onMouseLeave={() => setHoveredItem(null)}
+                        onClick={() => handleItemClick(item)}
+                      >
+                        <foreignObject x="-45" y="-10" width="90" height="20">
+                          <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
+                            transform: hoveredItem?.id === item.id ? 'scale(1.1)' : 'scale(1)',
+                          }}>
+                            <div className="pulse-animation" style={{ color: item.color }}>
+                              {item.icon}
+                            </div>
+                            <span style={{ color: '#333333', fontSize: '11px', fontWeight: '500' }}>
+                              {item.label}
+                            </span>
                           </div>
-                          <span style={{ color: '#333333', fontSize: '11px', fontWeight: '500' }}>
-                            {item.label}
-                          </span>
-                        </div>
-                      </foreignObject>
+                        </foreignObject>
+                      </g>
                     </g>
                   );
                 })}
