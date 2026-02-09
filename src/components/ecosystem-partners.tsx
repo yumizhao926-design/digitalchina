@@ -198,7 +198,7 @@ export default function EcosystemPartners() {
           className="font-bold mb-16 text-center"
           style={{ color: '#333333', fontSize: '32px' }}
         >
-          开放生态 | 共筑AI for Process产业未来
+          共筑AI for Process产业未来
         </h2>
 
         {/* 左右布局 */}

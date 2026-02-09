@@ -39,7 +39,7 @@ export default function AIPhilosophy() {
             className="font-bold mb-4"
             style={{ color: '#333333', fontSize: '32px' }}
           >
-            AI FOR PROCESS | 核心理念
+            AI FOR PROCESS 核心理念
           </h2>
           <p
             className="max-w-3xl mx-auto"
