@@ -55,17 +55,17 @@ export default function IndustrySolutions() {
           行业方案 | AI for Process 全域落地
         </h2>
 
-        {/* 2×2 网格布局 - 竖版卡片 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        {/* 一排4个卡片 - 横向布局 */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {industrySolutions.map((solution) => (
             <div
               key={solution.id}
-              className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-all duration-300 group"
+              className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer"
             >
-              <div className="flex flex-col items-center gap-5">
+              <div className="flex flex-col items-center gap-4">
                 {/* 图标 - 上方 */}
                 <div
-                  className="p-4 rounded-lg transition-transform duration-300 group-hover:scale-110"
+                  className="p-3 rounded-lg transition-all duration-300"
                   style={{
                     backgroundColor: solution.color === '#FF3B30' ? '#FFF5F5' : '#F5F5F5',
                     color: solution.color
@@ -79,7 +79,7 @@ export default function IndustrySolutions() {
                   className="font-medium text-center"
                   style={{
                     color: '#333333',
-                    fontSize: '20px'
+                    fontSize: '18px'
                   }}
                 >
                   {solution.name}
@@ -95,10 +95,11 @@ export default function IndustrySolutions() {
 
                 {/* 详情按钮 - 底部 */}
                 <button
-                  className="px-8 py-2.5 text-sm font-medium border rounded-lg hover:bg-gray-50 transition-colors"
+                  className="px-6 py-2 text-sm font-medium border rounded-lg transition-all duration-300 hover:bg-white hover:border-gray-600 hover:text-gray-900"
                   style={{
-                    borderColor: '#999999',
-                    color: '#666666'
+                    borderColor: '#E5E5E5',
+                    color: '#666666',
+                    backgroundColor: '#FAFAFA'
                   }}
                 >
                   查看详情
