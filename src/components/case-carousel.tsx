@@ -117,49 +117,54 @@ export default function CaseCarousel() {
                   className="flex-shrink-0 w-full"
                   style={{ width: `${100 / caseStudies.length}%` }}
                 >
-                  <div className="relative h-full overflow-hidden rounded-2xl shadow-lg">
-                    {/* 背景图片 */}
+                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    {/* 图片区域 */}
                     <div
-                      className="absolute inset-0 bg-cover bg-center transition-all duration-700 hover:scale-110"
-                      style={{ backgroundImage: `url(${caseStudy.logo})` }}
-                    />
+                      className="relative overflow-hidden"
+                      style={{ height: '300px' }}
+                    >
+                      <div
+                        className="absolute inset-0 bg-cover bg-center transition-all duration-700 hover:scale-110"
+                        style={{ backgroundImage: `url(${caseStudy.logo})` }}
+                      />
+                    </div>
 
-                    {/* 渐变遮罩 */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                    {/* 文字信息区域 */}
+                    <div className="p-6 sm:p-8">
+                      {/* 客户名称 */}
+                      <h3
+                        className="font-bold mb-3"
+                        style={{ color: '#333333', fontSize: '24px' }}
+                      >
+                        {caseStudy.clientName}
+                      </h3>
 
-                    {/* 内容叠加 */}
-                    <div className="relative z-10 p-8 sm:p-12 h-full flex flex-col justify-between min-h-[400px]">
-                      <div>
-                        {/* 行业标签 */}
-                        <div
-                          className="inline-block px-4 py-2 rounded-full text-sm font-medium mb-4"
-                          style={{
-                            backgroundColor: '#E60012',
-                            color: '#FFFFFF'
-                          }}
-                        >
-                          {caseStudy.industry}
-                        </div>
-
-                        {/* 客户名称 */}
-                        <h3
-                          className="font-bold mb-3"
-                          style={{ color: '#FFFFFF', fontSize: '28px', letterSpacing: '0.5px' }}
-                        >
-                          {caseStudy.clientName}
-                        </h3>
-
-                        {/* 合作场景 */}
-                        <div className="mb-4">
+                      {/* 行业标签和合作场景 */}
+                      <div className="flex items-start justify-between mb-4">
+                        <div>
                           <p
-                            className="text-xs mb-2"
-                            style={{ color: '#FFFFFF', opacity: 0.8 }}
+                            className="text-xs mb-1"
+                            style={{ color: '#999999' }}
+                          >
+                            行业
+                          </p>
+                          <p
+                            className="text-sm font-medium"
+                            style={{ color: '#666666' }}
+                          >
+                            {caseStudy.industry}
+                          </p>
+                        </div>
+                        <div className="text-right">
+                          <p
+                            className="text-xs mb-1"
+                            style={{ color: '#999999' }}
                           >
                             合作场景
                           </p>
                           <p
-                            className="font-medium"
-                            style={{ color: '#FFFFFF', fontSize: '20px', lineHeight: '1.4' }}
+                            className="text-sm font-medium"
+                            style={{ color: '#666666' }}
                           >
                             {caseStudy.scenario}
                           </p>
@@ -169,14 +174,14 @@ export default function CaseCarousel() {
                       {/* 核心成果 */}
                       <div>
                         <p
-                          className="text-xs mb-2"
-                          style={{ color: '#FFFFFF', opacity: 0.8 }}
+                          className="text-xs mb-1"
+                          style={{ color: '#999999' }}
                         >
                           核心成果
                         </p>
                         <p
                           className="font-bold"
-                          style={{ color: '#E60012', fontSize: '32px' }}
+                          style={{ color: '#E60012', fontSize: '28px' }}
                         >
                           {caseStudy.result}
                         </p>
