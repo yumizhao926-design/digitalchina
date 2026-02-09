@@ -162,24 +162,13 @@ function LogoRow({ partners, direction, speed = 0.5, isPaused }: LogoRowProps) {
             }}
             title={partner.name}
           >
-            {/* 使用SVG文字作为logo */}
-            <div className="text-center px-3 w-full">
-              <p
-                style={{
-                  color: '#666666',
-                  fontSize: '14px',
-                  fontWeight: 600,
-                  lineHeight: '1.3',
-                  wordBreak: 'break-word',
-                  display: '-webkit-box',
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: 'vertical',
-                  overflow: 'hidden'
-                }}
-              >
-                {partner.name}
-              </p>
-            </div>
+            {/* 使用logo图片 */}
+            <img
+              src="https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2Flogo800_16491854285791195.jpg&nonce=e06464a1-7977-461d-ad83-825de22dc580&project_id=7604737481589964809&sign=c14762e556b1b78ff260fd8941624a169713621c1d1bfabb7109f300bba11e27"
+              alt={partner.name}
+              className="max-w-full max-h-full object-contain px-3"
+              style={{ width: 'auto', height: 'auto' }}
+            />
           </div>
         ))}
       </div>
