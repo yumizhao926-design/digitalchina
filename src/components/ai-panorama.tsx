@@ -304,6 +304,7 @@ export default function AIPanorama() {
   const [selectedItem, setSelectedItem] = useState<CircleItem | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [animationTime, setAnimationTime] = useState(0); // 动画时间，0-7秒循环
+  const [showHint, setShowHint] = useState(false); // 首次访问提示
 
   useEffect(() => {
     let startTime = Date.now();
@@ -314,6 +315,22 @@ export default function AIPanorama() {
       setAnimationTime(elapsed / 1000); // 转换为秒
     }, 16); // 约60fps
     return () => clearInterval(interval);
+  }, []);
+
+  // 首次访问提示：3秒后显示，5秒后消失
+  useEffect(() => {
+    const showTimer = setTimeout(() => {
+      setShowHint(true);
+    }, 3000);
+
+    const hideTimer = setTimeout(() => {
+      setShowHint(false);
+    }, 8000); // 3秒显示 + 5秒消失
+
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
+    };
   }, []);
 
   // 计算动画状态
@@ -508,6 +525,29 @@ export default function AIPanorama() {
                       </foreignObject>
                     </g>
                   </g>
+                )}
+
+                {/* 首次访问提示 */}
+                {showHint && (
+                  <foreignObject x="-120" y="-30" width="240" height="60">
+                    <div className="w-full h-full flex items-center justify-center relative">
+                      <div
+                        className="px-4 py-2 bg-white rounded-lg shadow-lg text-center"
+                        style={{
+                          opacity: showHint ? 1 : 0,
+                          transform: showHint ? 'scale(1)' : 'scale(0.8)',
+                          transition: 'opacity 0.5s ease-out, transform 0.5s ease-out'
+                        }}
+                      >
+                        <span
+                          className="text-sm font-medium whitespace-nowrap"
+                          style={{ color: '#FF3B30' }}
+                        >
+                          点击模块探索AI能力
+                        </span>
+                      </div>
+                    </div>
+                  </foreignObject>
                 )}
 
                 {/* 行业圈层 - 中环 - 灰色填充 */}
