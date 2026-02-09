@@ -58,7 +58,7 @@ export default function DataStats() {
 
               {/* 数字 - 渐变效果 */}
               <div
-                className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-none mb-1.5 tracking-wide"
+                className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-none mb-1.5 tracking-wide"
                 style={{
                   background: 'linear-gradient(135deg, #333333 0%, #666666 100%)',
                   WebkitBackgroundClip: 'text',
