@@ -180,23 +180,14 @@ export default function AIPhilosophy() {
               {/* 内容 - 文字CTA在左下角 */}
               <div className="relative z-10 h-full flex flex-col items-start justify-end p-10">
                 {/* CTA文字链接 */}
-                <div className="space-y-4">
-                  <button
-                    onClick={() => setShowForm(true)}
-                    className="text-lg font-semibold transition-all duration-300 hover:underline"
-                    style={{ color: '#FFFFFF' }}
-                  >
-                    立即下载
-                  </button>
-                  <button
-                    onClick={handleScrollToEngine}
-                    className="text-base font-medium transition-all duration-300 hover:underline inline-flex items-center gap-2"
-                    style={{ color: 'rgba(255, 255, 255, 0.9)' }}
-                  >
-                    查看完整方法论
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
+                <button
+                  onClick={handleScrollToEngine}
+                  className="text-base font-medium transition-all duration-300 hover:underline inline-flex items-center gap-2"
+                  style={{ color: 'rgba(255, 255, 255, 0.9)' }}
+                >
+                  查看完整方法论
+                  <ArrowRight className="w-4 h-4" />
+                </button>
               </div>
             </div>
           </div>
