@@ -8,10 +8,10 @@ export async function POST(request: NextRequest) {
     const config = new Config();
     const client = new ImageGenerationClient(config, customHeaders);
 
-    // 生成浅色商务风格背景图片 - 确保文字可读性
+    // 生成浅色商务风格背景图片 - 4K 高清，确保文字可读性
     const response = await client.generate({
       prompt: 'clean minimalist business background with very soft subtle gradient in light gray and white tones. Extremely subtle abstract geometric shapes with minimal red accents (#FF3B30). Low contrast background design. Absolutely NO text, NO typography, NO characters, NO words, NO letters, NO numbers, NO writing, NO symbols, NO logos, NO branding, NO trademarks. Clean abstract design only with plenty of empty space for text to be clearly visible. Professional photography style.',
-      size: '2K',
+      size: '4K',
       watermark: false,
     });
 
