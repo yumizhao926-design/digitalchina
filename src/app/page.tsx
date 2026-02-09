@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import Navbar from '@/components/navbar';
+import Hero from '@/components/hero';
 
 export const metadata: Metadata = {
-  title: '神州数码 - 智能科技平台',
-  description: '神州数码，引领数字化转型的智能科技平台',
+  title: '神州数码 - AI for Process',
+  description: '神州数码，让AI成为业务流程原生能力，驱动企业数智化深水区变革',
 };
 
 export default function Home() {
@@ -13,26 +14,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero 区域 */}
-      <section className="container mx-auto max-w-7xl px-4 sm:px-8 py-24 sm:py-32 md:py-40">
-        <div className="flex flex-col items-center text-center space-y-8">
-          <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-foreground">
-            创造AI应用
-            <span className="block mt-2">从未如此简单</span>
-          </h1>
-          <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            扣子是面向开发者的智能开发平台，提供强大的AI能力，
-            让你无需深厚的技术背景，也能快速构建出专业的AI应用
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <button className="bg-primary text-primary-foreground px-8 py-3 text-base font-medium hover:bg-primary/90 transition-colors rounded">
-              免费开始
-            </button>
-            <button className="border border-border bg-background text-foreground px-8 py-3 text-base font-medium hover:bg-accent transition-colors rounded">
-              了解更多
-            </button>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       {/* 产品特性 */}
       <section id="features" className="container mx-auto max-w-7xl px-4 sm:px-8 py-16 sm:py-24">
