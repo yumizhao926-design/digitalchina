@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { X, Download, ArrowRight, Brain, Zap, Target, BookOpen, CheckCircle2 } from 'lucide-react';
+import { X, ArrowRight, Brain, Zap, Target, CheckCircle2 } from 'lucide-react';
 
 export default function AIPhilosophy() {
   const [showForm, setShowForm] = useState(false);
@@ -171,44 +171,36 @@ export default function AIPhilosophy() {
                 }}
               />
 
+              {/* 书本形状装饰 */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-80 rounded-lg shadow-2xl" style={{
+                background: 'linear-gradient(145deg, #FF3B30 0%, #E63928 100%)',
+                opacity: 0.08,
+              }}></div>
+
+              {/* 书脊效果 */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-80 rounded-l" style={{
+                background: 'rgba(0, 0, 0, 0.05)',
+                transform: 'translateX(-136px)',
+              }}></div>
+
               {/* 装饰元素 */}
               <div className="absolute top-8 right-8 w-32 h-32 rounded-full opacity-20" style={{ backgroundColor: '#FF3B30' }}></div>
               <div className="absolute bottom-8 left-8 w-24 h-24 rounded-full opacity-10" style={{ backgroundColor: '#666666' }}></div>
 
               {/* 内容 */}
               <div className="relative z-10 h-full flex flex-col items-center justify-center p-10 text-center">
-                {/* 书本图标 */}
-                <div className="mb-6">
-                  <div
-                    className="w-36 h-48 mx-auto rounded-lg shadow-xl flex flex-col items-center justify-center relative overflow-hidden transition-transform duration-300 hover:scale-105"
-                    style={{
-                      background: 'linear-gradient(145deg, #FF3B30 0%, #E63928 100%)',
-                    }}
-                  >
-                    {/* 装饰线条 */}
-                    <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: 'rgba(255,255,255,0.4)' }}></div>
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'rgba(255,255,255,0.4)' }}></div>
-
-                    <BookOpen className="w-12 h-12 text-white mb-3" />
-                    <div className="text-white font-bold text-lg mb-1">AI FOR PROCESS</div>
-                    <div className="text-white text-sm mb-3" style={{ opacity: 0.9 }}>方法论白皮书</div>
-                    <div className="w-8 h-0.5 mb-2" style={{ background: 'rgba(255,255,255,0.5)' }}></div>
-                    <div className="text-white text-xs" style={{ opacity: 0.7 }}>2024</div>
-                  </div>
-                </div>
-
                 {/* 标题 */}
                 <h3
                   className="font-semibold mb-3"
-                  style={{ color: '#333333', fontSize: '22px' }}
+                  style={{ color: '#333333', fontSize: '24px' }}
                 >
                   获取完整白皮书
                 </h3>
 
                 {/* 描述 */}
                 <p
-                  className="mb-6"
-                  style={{ color: '#666666', lineHeight: '1.7', fontSize: '14px' }}
+                  className="mb-8"
+                  style={{ color: '#666666', lineHeight: '1.7', fontSize: '15px' }}
                 >
                   30页深度解读AI for Process方法论<br />
                   包含企业级应用案例和实施指南
@@ -218,13 +210,11 @@ export default function AIPhilosophy() {
                 <div className="space-y-3 w-full max-w-xs">
                   <button
                     onClick={() => setShowForm(true)}
-                    className="w-full px-8 py-3 font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg inline-flex items-center justify-center gap-2"
+                    className="w-full px-6 py-2.5 text-xs sm:text-sm font-medium rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg border-2 backdrop-blur-sm inline-flex items-center justify-center gap-2"
                     style={{
                       backgroundColor: 'rgba(255, 255, 255, 0.15)',
                       borderColor: '#FF3B30',
                       color: '#FF3B30',
-                      border: '2px solid',
-                      borderRadius: '6px',
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = '#FF3B30';
@@ -235,18 +225,15 @@ export default function AIPhilosophy() {
                       e.currentTarget.style.color = '#FF3B30';
                     }}
                   >
-                    <Download className="w-4 h-4" />
                     立即下载
                   </button>
                   <button
                     onClick={handleScrollToEngine}
-                    className="w-full px-8 py-3 font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg inline-flex items-center justify-center gap-2"
+                    className="w-full px-6 py-2.5 text-xs sm:text-sm font-medium rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg border-2 backdrop-blur-sm inline-flex items-center justify-center gap-2"
                     style={{
                       backgroundColor: 'rgba(255, 255, 255, 0.15)',
                       borderColor: '#666666',
                       color: '#666666',
-                      border: '2px solid',
-                      borderRadius: '6px',
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = '#666666';
