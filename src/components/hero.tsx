@@ -16,15 +16,26 @@ export default function Hero() {
       {/* 中央内容 */}
       <div className="relative z-10 text-center px-4 sm:px-8 max-w-5xl mx-auto">
         {/* 主标题 */}
-        <h1
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-bold mb-6 sm:mb-8 leading-tight animate-fade-in-up"
-          style={{
-            color: '#333333',
-            animationDelay: '0s',
-          }}
-        >
-          AI for Process 重构企业核心流程
-        </h1>
+        <div className="mb-6 sm:mb-8 animate-fade-in-up" style={{ animationDelay: '0s' }}>
+          <h1
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-bold leading-tight mb-4"
+            style={{
+              color: '#333333',
+              letterSpacing: '2px',
+            }}
+          >
+            AI for Process
+          </h1>
+          <h1
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-bold leading-tight"
+            style={{
+              color: '#333333',
+              letterSpacing: '2px',
+            }}
+          >
+            用AI重塑企业核心流程
+          </h1>
+        </div>
 
         {/* 副标题 */}
         <p

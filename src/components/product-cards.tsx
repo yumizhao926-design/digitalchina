@@ -23,18 +23,16 @@ export default function ProductCards() {
 
             {/* 内容 */}
             <div className="relative">
-              {/* 标题图标 */}
-              <div className="mb-6">
-                <Brain className="w-12 h-12" style={{ color: '#FF3B30' }} />
-              </div>
-
-              {/* 标题 */}
+            {/* 标题图标和标题 */}
+            <div className="flex items-center gap-4 mb-3">
+              <Brain className="w-12 h-12" style={{ color: '#FF3B30' }} />
               <h3
-                className="font-bold mb-3"
+                className="font-bold"
                 style={{ color: '#333333', fontSize: '24px' }}
               >
                 神州问学：企业级Agent中台
               </h3>
+            </div>
 
               {/* 描述 */}
               <p
@@ -95,18 +93,16 @@ export default function ProductCards() {
 
             {/* 内容 */}
             <div className="relative">
-              {/* 标题图标 */}
-              <div className="mb-6">
-                <Server className="w-12 h-12" style={{ color: '#666666' }} />
-              </div>
-
-              {/* 标题 */}
+            {/* 标题图标和标题 */}
+            <div className="flex items-center gap-4 mb-3">
+              <Server className="w-12 h-12" style={{ color: '#666666' }} />
               <h3
-                className="font-bold mb-3"
+                className="font-bold"
                 style={{ color: '#333333', fontSize: '24px' }}
               >
                 神州鲲泰：全栈AI算力基础设施
               </h3>
+            </div>
 
               {/* 描述 */}
               <p
