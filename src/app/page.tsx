@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Navbar from '@/components/navbar';
 import Hero from '@/components/hero';
+import DataStats from '@/components/data-stats';
 
 export const metadata: Metadata = {
   title: '神州数码 - AI for Process',
@@ -15,6 +16,9 @@ export default function Home() {
 
       {/* Hero 区域 */}
       <Hero />
+
+      {/* 数据展示 */}
+      <DataStats />
 
       {/* 产品特性 */}
       <section id="features" className="container mx-auto max-w-7xl px-4 sm:px-8 py-16 sm:py-24">
