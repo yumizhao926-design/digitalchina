@@ -55,110 +55,103 @@ export default function AIPhilosophy() {
             {/* 左侧内容区 */}
             <div className="lg:col-span-3 p-10 lg:p-12">
               {/* 核心理念 */}
-              <div className="mb-12">
-                <div className="flex items-start gap-6 mb-6">
-                  <div
-                    className="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center"
-                    style={{ backgroundColor: '#FF3B30' }}
-                  >
-                    <Brain className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <h3
-                      className="font-semibold mb-2"
-                      style={{ color: '#333333', fontSize: '22px' }}
-                    >
-                      从工具级应用到流程级重构
-                    </h3>
-                    <p
-                      style={{ color: '#666666', lineHeight: '1.8', fontSize: '15px' }}
-                    >
-                      让AI成为业务流程的原生能力，驱动企业数智化深水区变革
-                    </p>
-                  </div>
-                </div>
+              <div className="mb-16">
+                <h3
+                  className="font-bold mb-4"
+                  style={{ color: '#333333', fontSize: '28px', letterSpacing: '0.5px' }}
+                >
+                  从工具级应用到流程级重构
+                </h3>
+                <p
+                  style={{ color: '#666666', lineHeight: '1.9', fontSize: '16px', maxWidth: '600px' }}
+                >
+                  让AI成为业务流程的原生能力，驱动企业数智化深水区变革
+                </p>
               </div>
 
               {/* 三大变革 */}
               <div>
-                <h3
-                  className="font-semibold mb-6"
-                  style={{ color: '#333333', fontSize: '20px' }}
-                >
-                  三大核心变革
-                </h3>
+                <div className="flex items-center gap-3 mb-8">
+                  <div
+                    className="w-1 h-6"
+                    style={{ backgroundColor: '#FF3B30' }}
+                  ></div>
+                  <h3
+                    className="font-semibold"
+                    style={{ color: '#333333', fontSize: '20px', letterSpacing: '0.5px' }}
+                  >
+                    三大核心变革
+                  </h3>
+                </div>
 
-                <div className="space-y-5">
+                <div className="space-y-8">
                   {/* 变革1 */}
-                  <div className="flex items-center gap-5 p-4 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-md">
+                  <div className="pl-4 relative">
                     <div
-                      className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
-                      style={{ backgroundColor: 'rgba(255, 59, 48, 0.1)' }}
+                      className="absolute left-0 top-1 font-bold"
+                      style={{ color: '#FF3B30', fontSize: '18px', width: '40px' }}
                     >
-                      <Zap className="w-6 h-6" style={{ color: '#FF3B30' }} />
+                      01
                     </div>
-                    <div className="flex-1">
+                    <div className="pl-10">
                       <h4
-                        className="font-semibold mb-1"
-                        style={{ color: '#333333', fontSize: '16px' }}
+                        className="font-bold mb-2"
+                        style={{ color: '#333333', fontSize: '18px' }}
                       >
                         流程自动化
                       </h4>
                       <p
-                        style={{ color: '#666666', lineHeight: '1.7', fontSize: '14px' }}
+                        style={{ color: '#666666', lineHeight: '1.8', fontSize: '15px' }}
                       >
                         AI驱动端到端业务流程自动流转，实现智能化的流程编排
                       </p>
                     </div>
-                    <CheckCircle2 className="w-5 h-5 flex-shrink-0" style={{ color: '#FF3B30' }} />
                   </div>
 
                   {/* 变革2 */}
-                  <div className="flex items-center gap-5 p-4 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-md">
+                  <div className="pl-4 relative">
                     <div
-                      className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
-                      style={{ backgroundColor: 'rgba(102, 102, 102, 0.1)' }}
+                      className="absolute left-0 top-1 font-bold"
+                      style={{ color: '#666666', fontSize: '18px', width: '40px' }}
                     >
-                      <Target className="w-6 h-6" style={{ color: '#666666' }} />
+                      02
                     </div>
-                    <div className="flex-1">
+                    <div className="pl-10">
                       <h4
-                        className="font-semibold mb-1"
-                        style={{ color: '#333333', fontSize: '16px' }}
+                        className="font-bold mb-2"
+                        style={{ color: '#333333', fontSize: '18px' }}
                       >
                         决策智能化
                       </h4>
                       <p
-                        style={{ color: '#666666', lineHeight: '1.7', fontSize: '14px' }}
+                        style={{ color: '#666666', lineHeight: '1.8', fontSize: '15px' }}
                       >
                         基于实时数据的智能决策支持，提升决策效率与准确性
                       </p>
                     </div>
-                    <CheckCircle2 className="w-5 h-5 flex-shrink-0" style={{ color: '#666666' }} />
                   </div>
 
                   {/* 变革3 */}
-                  <div className="flex items-center gap-5 p-4 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-md">
+                  <div className="pl-4 relative">
                     <div
-                      className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
-                      style={{ backgroundColor: 'rgba(255, 59, 48, 0.1)' }}
+                      className="absolute left-0 top-1 font-bold"
+                      style={{ color: '#FF3B30', fontSize: '18px', width: '40px' }}
                     >
-                      <Brain className="w-6 h-6" style={{ color: '#FF3B30' }} />
+                      03
                     </div>
-                    <div className="flex-1">
+                    <div className="pl-10">
                       <h4
-                        className="font-semibold mb-1"
-                        style={{ color: '#333333', fontSize: '16px' }}
+                        className="font-bold mb-2"
+                        style={{ color: '#333333', fontSize: '18px' }}
                       >
                         价值最大化
                       </h4>
                       <p
-                        style={{ color: '#666666', lineHeight: '1.7', fontSize: '14px' }}
+                        style={{ color: '#666666', lineHeight: '1.8', fontSize: '15px' }}
                       >
                         从降本增效到业务模式创新，实现持续价值释放
                       </p>
                     </div>
-                    <CheckCircle2 className="w-5 h-5 flex-shrink-0" style={{ color: '#FF3B30' }} />
                   </div>
                 </div>
               </div>
