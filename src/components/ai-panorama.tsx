@@ -319,13 +319,12 @@ export default function AIPanorama() {
   // 计算动画状态
   const getAnimationState = (startTime: number, duration: number = 1) => {
     if (animationTime < startTime) {
-      return { opacity: 0, scale: 0 };
+      return { opacity: 0 };
     }
     const elapsed = animationTime - startTime;
     const progress = Math.min(elapsed / duration, 1);
     return {
-      opacity: progress,
-      scale: progress
+      opacity: progress
     };
   };
 
@@ -450,9 +449,7 @@ export default function AIPanorama() {
                 {/* 核心圈层 - 内环 - 红色填充 */}
                 <g style={{
                   opacity: coreState.opacity,
-                  transform: `scale(${coreState.scale})`,
-                  transformOrigin: 'center center',
-                  transition: 'opacity 1s ease-out, transform 1s ease-out'
+                  transition: 'opacity 1s ease-out'
                 }}>
                   <circle cx="0" cy="0" r="80" fill="#FF3B30" />
                 </g>
@@ -463,9 +460,7 @@ export default function AIPanorama() {
                     className="cursor-pointer"
                     style={{
                       opacity: coreState.opacity,
-                      transform: `scale(${coreState.scale})`,
-                      transformOrigin: 'center center',
-                      transition: 'opacity 1s ease-out, transform 1s ease-out'
+                      transition: 'opacity 1s ease-out'
                     }}
                       onMouseEnter={() => setHoveredItem(coreItems[0])}
                       onMouseLeave={() => setHoveredItem(null)}
@@ -493,9 +488,7 @@ export default function AIPanorama() {
                     className="cursor-pointer"
                     style={{
                       opacity: coreState.opacity,
-                      transform: `scale(${coreState.scale})`,
-                      transformOrigin: 'center center',
-                      transition: 'opacity 1s ease-out, transform 1s ease-out'
+                      transition: 'opacity 1s ease-out'
                     }}
                       onMouseEnter={() => setHoveredItem(coreItems[1])}
                       onMouseLeave={() => setHoveredItem(null)}
@@ -520,9 +513,7 @@ export default function AIPanorama() {
                 {/* 行业圈层 - 中环 - 灰色填充 */}
                 <g style={{
                   opacity: industryState.opacity,
-                  transform: `scale(${industryState.scale})`,
-                  transformOrigin: 'center center',
-                  transition: 'opacity 1s ease-out, transform 1s ease-out'
+                  transition: 'opacity 1s ease-out'
                 }}>
                   <circle cx="0" cy="0" r="160" fill="#666666" fillOpacity="0.05" />
                 </g>
@@ -539,9 +530,7 @@ export default function AIPanorama() {
                         className="cursor-pointer"
                         style={{
                           opacity: industryState.opacity,
-                          transform: `scale(${industryState.scale})`,
-                          transformOrigin: 'center center',
-                          transition: 'opacity 1s ease-out, transform 1s ease-out'
+                          transition: 'opacity 1s ease-out'
                         }}
                         onMouseEnter={() => setHoveredItem(item)}
                         onMouseLeave={() => setHoveredItem(null)}
@@ -567,9 +556,7 @@ export default function AIPanorama() {
                 {/* 产品圈层 - 外环 - 灰色填充 */}
                 <g style={{
                   opacity: productState.opacity,
-                  transform: `scale(${productState.scale})`,
-                  transformOrigin: 'center center',
-                  transition: 'opacity 1s ease-out, transform 1s ease-out'
+                  transition: 'opacity 1s ease-out'
                 }}>
                   <circle cx="0" cy="0" r="260" fill="#999999" fillOpacity="0.03" />
                 </g>
@@ -586,9 +573,7 @@ export default function AIPanorama() {
                         className="cursor-pointer"
                         style={{
                           opacity: productState.opacity,
-                          transform: `scale(${productState.scale})`,
-                          transformOrigin: 'center center',
-                          transition: 'opacity 1s ease-out, transform 1s ease-out'
+                          transition: 'opacity 1s ease-out'
                         }}
                         onMouseEnter={() => setHoveredItem(item)}
                         onMouseLeave={() => setHoveredItem(null)}
@@ -621,7 +606,7 @@ export default function AIPanorama() {
                     className="w-2.5 h-2.5 rounded-full transition-all duration-300"
                     style={{
                       backgroundColor: coreState.opacity > 0 ? '#FF3B30' : '#e0e0e0',
-                      transform: coreState.opacity > 0 ? `scale(${0.8 + coreState.opacity * 0.4})` : 'scale(1)'
+                      transform: coreState.opacity > 0 ? 'scale(1.2)' : 'scale(1)'
                     }}
                   />
                   <span className="text-xs" style={{ color: coreState.opacity > 0 ? '#333333' : '#999999', fontWeight: coreState.opacity > 0 ? '500' : '400' }}>
@@ -633,7 +618,7 @@ export default function AIPanorama() {
                     className="w-2.5 h-2.5 rounded-full transition-all duration-300"
                     style={{
                       backgroundColor: industryState.opacity > 0 ? '#666666' : '#e0e0e0',
-                      transform: industryState.opacity > 0 ? `scale(${0.8 + industryState.opacity * 0.4})` : 'scale(1)'
+                      transform: industryState.opacity > 0 ? 'scale(1.2)' : 'scale(1)'
                     }}
                   />
                   <span className="text-xs" style={{ color: industryState.opacity > 0 ? '#333333' : '#999999', fontWeight: industryState.opacity > 0 ? '500' : '400' }}>
@@ -645,7 +630,7 @@ export default function AIPanorama() {
                     className="w-2.5 h-2.5 rounded-full transition-all duration-300"
                     style={{
                       backgroundColor: productState.opacity > 0 ? '#999999' : '#e0e0e0',
-                      transform: productState.opacity > 0 ? `scale(${0.8 + productState.opacity * 0.4})` : 'scale(1)'
+                      transform: productState.opacity > 0 ? 'scale(1.2)' : 'scale(1)'
                     }}
                   />
                   <span className="text-xs" style={{ color: productState.opacity > 0 ? '#333333' : '#999999', fontWeight: productState.opacity > 0 ? '500' : '400' }}>
