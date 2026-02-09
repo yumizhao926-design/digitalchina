@@ -6,6 +6,7 @@ import ProductCards from '@/components/product-cards';
 import IndustrySolutions from '@/components/industry-solutions';
 import CaseCarousel from '@/components/case-carousel';
 import EcosystemPartners from '@/components/ecosystem-partners';
+import NewsUpdates from '@/components/news-updates';
 import Footer from '@/components/footer';
 import AIPanorama from '@/components/ai-panorama';
 import AIPhilosophy from '@/components/ai-philosophy';
@@ -41,6 +42,9 @@ export default function Home() {
 
       {/* 生态合作伙伴 */}
       <EcosystemPartners />
+
+      {/* 资讯动态 */}
+      <NewsUpdates />
 
       {/* AI能力全景图 */}
       <AIPanorama />
