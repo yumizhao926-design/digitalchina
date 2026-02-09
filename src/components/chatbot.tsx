@@ -25,9 +25,21 @@ export default function ChatBot() {
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
-  const [showFirstTimeAnimation, setShowFirstTimeAnimation] = useState(true);
+  const [showFirstTimeAnimation, setShowFirstTimeAnimation] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // 检查是否显示首次提示
+  useEffect(() => {
+    const hasSeenPrompt = localStorage.getItem('chatbot_first_time_prompt');
+    if (!hasSeenPrompt) {
+      setShowFirstTimeAnimation(true);
+      // 4秒后标记为已看过
+      setTimeout(() => {
+        localStorage.setItem('chatbot_first_time_prompt', 'true');
+      }, 4000);
+    }
+  }, []);
 
   // 滚动到底部
   const scrollToBottom = () => {
