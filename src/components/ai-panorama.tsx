@@ -479,7 +479,7 @@ export default function AIPanorama() {
 
                 {/* 核心项1 */}
                 {showPhase >= 0 && (
-                  <g transform="translate(0, -35)">
+                  <g transform="translate(0, -55)">
                     <g
                       className="cursor-pointer transition-all duration-1000"
                       style={{
@@ -495,10 +495,10 @@ export default function AIPanorama() {
                         <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
                           transform: hoveredItem?.id === coreItems[0].id ? 'scale(1.1)' : 'scale(1)',
                         }}>
-                          <div className="pulse-animation" style={{ color: coreItems[0].color }}>
+                          <div className="pulse-animation" style={{ color: '#FFFFFF' }}>
                             {coreItems[0].icon}
                           </div>
-                          <span style={{ color: '#333333', fontSize: '13px', fontWeight: '500' }}>
+                          <span style={{ color: '#FFFFFF', fontSize: '13px', fontWeight: '500' }}>
                             {coreItems[0].label}
                           </span>
                         </div>
@@ -509,7 +509,7 @@ export default function AIPanorama() {
 
                 {/* 核心项2 */}
                 {showPhase >= 0 && (
-                  <g transform="translate(0, 35)">
+                  <g transform="translate(0, 55)">
                     <g
                       className="cursor-pointer transition-all duration-1000"
                       style={{
@@ -525,10 +525,10 @@ export default function AIPanorama() {
                     <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
                       transform: hoveredItem?.id === coreItems[1].id ? 'scale(1.1)' : 'scale(1)',
                     }}>
-                      <div className="pulse-animation" style={{ color: coreItems[1].color }}>
+                      <div className="pulse-animation" style={{ color: '#FFFFFF' }}>
                         {coreItems[1].icon}
                       </div>
-                      <span style={{ color: '#333333', fontSize: '13px', fontWeight: '500' }}>
+                      <span style={{ color: '#FFFFFF', fontSize: '13px', fontWeight: '500' }}>
                         {coreItems[1].label}
                       </span>
                     </div>
@@ -551,8 +551,8 @@ export default function AIPanorama() {
                 {/* 行业项 - 8个 */}
                 {showPhase >= 1 && industryItems.map((item, index) => {
                   const angle = (index * 45 - 90) * (Math.PI / 180);
-                  const x = Math.cos(angle) * 160;
-                  const y = Math.sin(angle) * 160;
+                  const x = Math.cos(angle) * 185;
+                  const y = Math.sin(angle) * 185;
 
                   return (
                     <g transform={`translate(${x}, ${y})`} key={item.id}>
@@ -598,8 +598,8 @@ export default function AIPanorama() {
                 {/* 产品项 - 12个 */}
                 {showPhase >= 2 && productItems.map((item, index) => {
                   const angle = (index * 30 - 90) * (Math.PI / 180);
-                  const x = Math.cos(angle) * 260;
-                  const y = Math.sin(angle) * 260;
+                  const x = Math.cos(angle) * 285;
+                  const y = Math.sin(angle) * 285;
 
                   return (
                     <g transform={`translate(${x}, ${y})`} key={item.id}>
