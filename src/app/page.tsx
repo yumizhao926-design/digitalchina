@@ -3,6 +3,7 @@ import Navbar from '@/components/navbar';
 import Hero from '@/components/hero';
 import DataStats from '@/components/data-stats';
 import ProductCards from '@/components/product-cards';
+import IndustrySolutions from '@/components/industry-solutions';
 import AIPanorama from '@/components/ai-panorama';
 import AIPhilosophy from '@/components/ai-philosophy';
 
@@ -28,6 +29,9 @@ export default function Home() {
 
       {/* 产品卡片展示 */}
       <ProductCards />
+
+      {/* 行业方案展示 */}
+      <IndustrySolutions />
 
       {/* AI能力全景图 */}
       <AIPanorama />
