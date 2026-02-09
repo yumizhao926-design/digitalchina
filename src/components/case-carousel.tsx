@@ -16,7 +16,7 @@ const caseStudies: CaseStudy[] = [
   {
     id: 'case-1',
     clientName: '黄冈烟草',
-    logo: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_0acf929f-8675-473c-8792-26aeacf32c9e.jpeg?sign=1802171287-495ee4c67c-0-0463e69a4b16ba1e217900376586e453f174343059451903ea09790182edbd2c',
+    logo: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_a2f81d2c-1ea2-4094-8ce4-2fc89929c576.jpeg?sign=1802171540-21f5e3cb07-0-f0fe53e935acf2716d2228629d04fe2074bbb8f0b4565d6e5ccd6dc3f4a41b66',
     industry: '医疗',
     scenario: '案卷AI评审',
     result: '效率提升70%'
@@ -24,7 +24,7 @@ const caseStudies: CaseStudy[] = [
   {
     id: 'case-2',
     clientName: '岚图汽车',
-    logo: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_fdab8bd2-474b-4574-957e-1d66063c416e.jpeg?sign=1802171366-3ab343b682-0-8ff4dd31787c2a63c7990f6991518e615e1197941c8667d0649809ba4fdf407d',
+    logo: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_c48375e3-567e-47b5-869a-00d19dce09ad.jpeg?sign=1802171556-7672440fd6-0-ecb6a080cfa46428c80268a4040c20a6047b3cb6b7d23ef594c47f0c5d1eec5f',
     industry: '制造',
     scenario: '智能办公',
     result: '成本降低40%'
@@ -32,7 +32,7 @@ const caseStudies: CaseStudy[] = [
   {
     id: 'case-3',
     clientName: '天士力',
-    logo: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_31a9f4d0-3651-49b8-a909-6f8a68a55bd7.jpeg?sign=1802171382-fa9c883e7f-0-e3dd45f7558086fc669e34bdf93c27ff1eee3915b85496593a43c01e7fbb07d8',
+    logo: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_7e09de6b-6a1c-4d19-b0c3-b415b175dfa8.jpeg?sign=1802171571-c89c21c10f-0-eef277139d7496c25bb305419b39e695ec39571cb6343f882a836aa58517d72a',
     industry: '医疗',
     scenario: '医药循证问答',
     result: '效率提升80%'
