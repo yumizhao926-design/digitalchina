@@ -59,25 +59,6 @@ const industrySolutions: IndustrySolution[] = [
     }
   },
   {
-    id: 'solution-3',
-    name: '智慧政务',
-    description: '辅助决策 · 智慧服务 · 数据治理',
-    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_395254cc-6cd8-4d5a-a0ec-3edeb7e7cb0d.jpeg?sign=1802169672-2f79f6cca3-0-30373a5875ba6f18bd0fc1563efb237445edda6fb342116b368089c476a6d52f',
-    value: '审批效率提升70%',
-    detail: {
-      title: '政务智能化升级方案',
-      content: [
-        'AI辅助决策：政策模拟与效果预测',
-        '智慧政务服务：智能审批与自动受理',
-        '政务数据治理：跨部门数据融合分析'
-      ],
-      results: [
-        '审批效率提升70%',
-        '公众服务满意度提升80%'
-      ]
-    }
-  },
-  {
     id: 'solution-4',
     name: '医药医疗',
     description: '药物研发 · 智慧诊疗 · 数据安全',
