@@ -20,7 +20,7 @@ const industrySolutions: IndustrySolution[] = [
   {
     id: 'solution-1',
     name: '汽车制造',
-    description: '智能制造质量检测：AI视觉质检\n用户运营智能分析：数据深度挖掘\n车联网AI优化：智能驾驶算法优化',
+    description: '质量检测 · 用户运营 · 车联网',
     image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_b3296359-fa0e-423f-a3f6-e7e5d11dd7bd.jpeg?sign=1802168978-d1ae252cc2-0-773469df3099a94f38419e12bf9604d540619fadead713587feae5c2852ded59',
     value: '效率提升90%',
     detail: {
@@ -61,7 +61,7 @@ const industrySolutions: IndustrySolution[] = [
   {
     id: 'solution-3',
     name: '智慧政务',
-    description: 'AI辅助决策：政策模拟与效果预测\n智慧政务服务：智能审批与自动受理\n政务数据治理：跨部门数据融合分析',
+    description: '辅助决策 · 智慧服务 · 数据治理',
     image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_6ce34c65-0707-4d5b-9cdb-65aa8d2c1839.jpeg?sign=1802169060-8dbbfaff79-0-5817522e3ded8f98af774378b28efcd62d18aed4dce4350bde66864ebab0d022',
     value: '审批效率提升70%',
     detail: {
@@ -80,7 +80,7 @@ const industrySolutions: IndustrySolution[] = [
   {
     id: 'solution-4',
     name: '医药医疗',
-    description: '药物研发辅助：AI加速新药靶点筛选\n智慧诊疗支持：辅助诊断与治疗方案推荐\n医疗数据安全：私有化部署，数据不出院',
+    description: '药物研发 · 智慧诊疗 · 数据安全',
     image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_cb6ffeb4-43d4-4d58-886d-d4f2e874ce56.jpeg?sign=1802169041-50daf75095-0-a04cdf8f8e279baa989964b25e7bbf64f2e80b0be6ee1cdc8b94ad8dd188e82a',
     value: '靶点筛选效率提升30%',
     detail: {
@@ -100,7 +100,7 @@ const industrySolutions: IndustrySolution[] = [
   {
     id: 'solution-5',
     name: '数字金融',
-    description: '智能风控：实时交易风险监测\n投顾AI助手：个性化投资建议\n交易反欺诈：异常行为智能识别',
+    description: '智能风控 · 投顾助手 · 交易反欺诈',
     image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_49c9d35f-7b9a-49e5-85d9-ee875f921694.jpeg?sign=1802169023-e7efb9997d-0-b81a065987f0584bb0e39696c4419a6037438bd6f1ede4470ace3d4ae2b8d118',
     value: '风险识别率提升95%',
     detail: {
@@ -119,7 +119,7 @@ const industrySolutions: IndustrySolution[] = [
   {
     id: 'solution-6',
     name: '通信运营商',
-    description: '网络智能优化：基站负载均衡与自愈\n客户服务AI坐席：智能客服与问题预判\n流量经营分析：用户行为与套餐优化',
+    description: '网络优化 · 客服坐席 · 流量分析',
     image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_d12de778-51dd-40c6-ad14-6a7e778fe365.jpeg?sign=1802169078-75b03dda19-0-f76b9f417cbed32a3cf1e232e13732e00cd645529a979f1a7477bea2f51ca928',
     value: '网络故障自愈率提升90%',
     detail: {
@@ -292,13 +292,16 @@ export default function IndustrySolutions() {
                   </h3>
 
                   {/* 描述文字 - 支持多行显示 */}
-                  <div className="text-sm font-light mb-4 space-y-1" style={{ color: '#FFFFFF', textShadow: '0 1px 4px rgba(0,0,0,0.3)' }}>
-                    {solution.description.split('\n').map((line, index) => (
-                      <p key={index} className="leading-relaxed" style={{ lineHeight: '1.4' }}>
-                        {line}
-                      </p>
-                    ))}
-                  </div>
+                  <p
+                    className="text-sm font-light mb-4"
+                    style={{
+                      color: '#FFFFFF',
+                      lineHeight: '1.5',
+                      textShadow: '0 1px 4px rgba(0,0,0,0.3)'
+                    }}
+                  >
+                    {solution.description}
+                  </p>
 
                   {/* 详情按钮 */}
                   <button
@@ -381,14 +384,16 @@ export default function IndustrySolutions() {
                     {solution.name}
                   </h3>
 
-                  {/* 描述文字 - 支持多行显示 */}
-                  <div className="text-sm font-light mb-4 space-y-1" style={{ color: '#FFFFFF', textShadow: '0 1px 4px rgba(0,0,0,0.3)' }}>
-                    {solution.description.split('\n').map((line, index) => (
-                      <p key={index} className="leading-relaxed" style={{ lineHeight: '1.4' }}>
-                        {line}
-                      </p>
-                    ))}
-                  </div>
+                  <p
+                    className="text-sm font-light mb-4"
+                    style={{
+                      color: '#FFFFFF',
+                      lineHeight: '1.5',
+                      textShadow: '0 1px 4px rgba(0,0,0,0.3)'
+                    }}
+                  >
+                    {solution.description}
+                  </p>
 
                   {/* 详情按钮 */}
                   <button
