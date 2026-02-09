@@ -53,7 +53,7 @@ export default function DataStats() {
             >
               {/* 图标 */}
               <div className="mb-1.5 opacity-80">
-                <span className="w-4 h-4" style={{ color: '#FF3B30' }}>{stat.icon}</span>
+                <span className="w-4 h-4" style={{ color: '#666666' }}>{stat.icon}</span>
               </div>
 
               {/* 数字 - 渐变效果 */}
