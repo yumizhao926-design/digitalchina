@@ -50,43 +50,46 @@ export default function IndustrySolutions() {
           行业方案 | AI for Process 全域落地
         </h2>
 
-        {/* 2×2 网格布局 */}
+        {/* 2×2 网格布局 - 图文混排 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {industrySolutions.map((solution) => (
             <div
               key={solution.id}
-              className="bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition-all duration-300 group"
+              className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-300 group"
             >
-              <div className="flex flex-col items-center gap-6">
+              <div className="flex items-center gap-6">
                 {/* 行业图标 */}
                 <div
-                  className="transition-transform duration-300 group-hover:scale-110"
+                  className="flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
                   style={{ color: solution.color }}
                 >
                   {solution.icon}
                 </div>
 
-                {/* 方案名称 */}
-                <h3
-                  className="text-center font-medium"
-                  style={{
-                    color: '#333333',
-                    fontSize: '18px'
-                  }}
-                >
-                  {solution.name}
-                </h3>
+                {/* 右侧内容 */}
+                <div className="flex-1">
+                  {/* 方案名称 */}
+                  <h3
+                    className="font-medium mb-3"
+                    style={{
+                      color: '#333333',
+                      fontSize: '18px'
+                    }}
+                  >
+                    {solution.name}
+                  </h3>
 
-                {/* 详情按钮 */}
-                <button
-                  className="px-6 py-2 text-sm font-medium border rounded hover:bg-gray-50 transition-colors"
-                  style={{
-                    borderColor: '#999999',
-                    color: '#666666'
-                  }}
-                >
-                  详情
-                </button>
+                  {/* 详情按钮 */}
+                  <button
+                    className="px-6 py-2 text-sm font-medium border rounded hover:bg-gray-50 transition-colors"
+                    style={{
+                      borderColor: '#999999',
+                      color: '#666666'
+                    }}
+                  >
+                    详情
+                  </button>
+                </div>
               </div>
             </div>
           ))}
