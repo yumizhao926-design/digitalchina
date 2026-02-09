@@ -332,7 +332,7 @@ export default function AIPanorama() {
   return (
     <section
       id="ai-panorama"
-      className="py-20 px-4 sm:px-8 relative overflow-hidden"
+      className="py-16 px-4 sm:px-8 relative overflow-hidden"
       style={{ backgroundColor: '#F8F9FA' }}
     >
       {/* 科技感装饰背景 */}
@@ -367,7 +367,7 @@ export default function AIPanorama() {
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* 区域标题 */}
         <h2
-          className="font-bold mb-6 text-center relative z-10"
+          className="font-bold mb-4 text-center relative z-10"
           style={{
             color: '#333333',
             fontSize: '32px',
@@ -379,8 +379,8 @@ export default function AIPanorama() {
 
         {/* 桌面端：环形布局 */}
         {!isMobile && (
-          <div className="relative" style={{ height: '700px' }}>
-            <svg viewBox="0 0 800 700" className="w-full h-full">
+          <div className="relative" style={{ height: '600px' }}>
+            <svg viewBox="0 0 800 600" className="w-full h-full">
               {/* 定义流光动画和科技感效果 */}
               <defs>
                 <linearGradient id="coreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
