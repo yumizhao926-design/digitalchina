@@ -131,18 +131,6 @@ export default function Hero() {
         >
           下载AI for Process蓝皮书
         </button>
-
-        {/* 底部小字 */}
-        <div className="mt-12 sm:mt-16">
-          <p
-            className="text-xs sm:text-sm"
-            style={{
-              color: '#999999',
-            }}
-          >
-            神州数码·企业数智化转型合作伙伴
-          </p>
-        </div>
       </div>
 
       {/* 添加CSS动画 */}
