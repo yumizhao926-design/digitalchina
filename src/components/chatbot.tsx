@@ -25,6 +25,7 @@ export default function ChatBot() {
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
+  const [showFirstTimeAnimation, setShowFirstTimeAnimation] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -145,17 +146,45 @@ export default function ChatBot() {
 
   return (
     <>
+      {/* 首次进入提示 */}
+      {showFirstTimeAnimation && !isOpen && (
+        <div
+          className="fixed bottom-6 right-24 z-40 px-4 py-3 rounded-xl shadow-lg animate-fade-in-out"
+          style={{
+            backgroundColor: '#FFFFFF',
+            border: '2px solid #E60012',
+            animation: 'fadeInOut 4s ease-in-out forwards'
+          }}
+        >
+          <p className="text-sm font-medium" style={{ color: '#333333' }}>
+            🤖 有什么可以帮您的吗？
+          </p>
+        </div>
+      )}
+
       {/* 悬浮按钮 */}
       {!isOpen && (
         <button
-          onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-3xl"
+          onClick={() => {
+            setIsOpen(true);
+            setShowFirstTimeAnimation(false);
+          }}
+          className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110"
           style={{
-            background: 'linear-gradient(135deg, #0066FF 0%, #0052CC 100%)',
-            boxShadow: '0 8px 32px rgba(0, 102, 255, 0.4)'
+            background: 'linear-gradient(135deg, #E60012 0%, #CC0000 100%)',
+            boxShadow: '0 8px 32px rgba(230, 0, 18, 0.4)',
+            animation: showFirstTimeAnimation ? 'bounceIn 0.8s ease-out, float 3s ease-in-out infinite 0.8s' : 'float 3s ease-in-out infinite'
           }}
         >
           <MessageCircle className="text-white" size={28} />
+          <span
+            className="absolute -top-1 -right-1 w-4 h-4 bg-white rounded-full animate-ping"
+            style={{ backgroundColor: '#FFFFFF' }}
+          />
+          <span
+            className="absolute -top-1 -right-1 w-4 h-4 bg-white rounded-full"
+            style={{ backgroundColor: '#FFFFFF' }}
+          />
         </button>
       )}
 
@@ -166,14 +195,15 @@ export default function ChatBot() {
           style={{
             backgroundColor: '#FFFFFF',
             height: isMinimized ? 'auto' : '600px',
-            maxHeight: 'calc(100vh - 120px)'
+            maxHeight: 'calc(100vh - 120px)',
+            animation: 'slideUp 0.3s ease-out'
           }}
         >
           {/* 头部 */}
           <div
             className="px-6 py-4 flex items-center justify-between rounded-t-2xl"
             style={{
-              background: 'linear-gradient(135deg, #0066FF 0%, #0052CC 100%)'
+              background: 'linear-gradient(135deg, #E60012 0%, #CC0000 100%)'
             }}
           >
             <div className="flex items-center gap-3">
@@ -186,7 +216,10 @@ export default function ChatBot() {
               </div>
               <div>
                 <h3 className="text-white font-semibold text-base">神州数码AI助理</h3>
-                <p className="text-white/70 text-xs">在线服务</p>
+                <p className="text-white/70 text-xs flex items-center gap-1">
+                  <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                  在线服务
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -217,10 +250,13 @@ export default function ChatBot() {
                 className="flex-1 overflow-y-auto px-4 py-4 space-y-4"
                 style={{ backgroundColor: '#F8F9FA' }}
               >
-                {messages.map((message) => (
+                {messages.map((message, index) => (
                   <div
                     key={message.id}
                     className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
+                    style={{
+                      animation: `fadeInUp 0.3s ease-out ${index * 0.1}s both`
+                    }}
                   >
                     <div
                       className={`max-w-[85%] px-4 py-3 rounded-2xl ${
@@ -229,7 +265,7 @@ export default function ChatBot() {
                           : 'text-gray-800'
                       }`}
                       style={{
-                        backgroundColor: message.type === 'user' ? '#0066FF' : '#FFFFFF',
+                        backgroundColor: message.type === 'user' ? '#E60012' : '#FFFFFF',
                         border: message.type === 'bot' ? '1px solid #E5E7EB' : 'none',
                         borderRadius: message.type === 'user' ? '20px 20px 4px 20px' : '20px 20px 20px 4px'
                       }}
@@ -253,7 +289,7 @@ export default function ChatBot() {
                 ))}
 
                 {isTyping && (
-                  <div className="flex justify-start">
+                  <div className="flex justify-start" style={{ animation: 'fadeIn 0.3s ease-out' }}>
                     <div
                       className="px-4 py-3 rounded-2xl"
                       style={{
@@ -265,15 +301,15 @@ export default function ChatBot() {
                       <div className="flex gap-1">
                         <div
                           className="w-2 h-2 rounded-full animate-bounce"
-                          style={{ backgroundColor: '#0066FF', animationDelay: '0ms' }}
+                          style={{ backgroundColor: '#E60012', animationDelay: '0ms' }}
                         />
                         <div
                           className="w-2 h-2 rounded-full animate-bounce"
-                          style={{ backgroundColor: '#0066FF', animationDelay: '150ms' }}
+                          style={{ backgroundColor: '#E60012', animationDelay: '150ms' }}
                         />
                         <div
                           className="w-2 h-2 rounded-full animate-bounce"
-                          style={{ backgroundColor: '#0066FF', animationDelay: '300ms' }}
+                          style={{ backgroundColor: '#E60012', animationDelay: '300ms' }}
                         />
                       </div>
                     </div>
@@ -282,21 +318,22 @@ export default function ChatBot() {
 
                 {/* 快捷问题 */}
                 {messages.length > 0 && messages[messages.length - 1].type === 'bot' && !isTyping && (
-                  <div className="space-y-2 mt-4">
-                    {quickQuestions.map((question) => (
+                  <div className="space-y-2 mt-4" style={{ animation: 'fadeInUp 0.3s ease-out' }}>
+                    {quickQuestions.map((question, index) => (
                       <button
                         key={question.id}
                         onClick={question.action}
-                        className="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 hover:shadow-md text-left"
+                        className="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 hover:shadow-md hover:scale-105 text-left"
                         style={{
                           backgroundColor: '#FFFFFF',
                           border: '1px solid #E5E7EB',
-                          color: '#333333'
+                          color: '#333333',
+                          animation: `fadeInUp 0.3s ease-out ${index * 0.1}s both`
                         }}
                       >
                         <span
                           className="p-2 rounded-lg"
-                          style={{ backgroundColor: 'rgba(0, 102, 255, 0.1)', color: '#0066FF' }}
+                          style={{ backgroundColor: 'rgba(230, 0, 18, 0.1)', color: '#E60012' }}
                         >
                           {question.icon}
                         </span>
@@ -322,7 +359,7 @@ export default function ChatBot() {
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="请输入您的问题..."
-                    className="flex-1 px-4 py-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="flex-1 px-4 py-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500 transition-all"
                     style={{
                       backgroundColor: '#F8F9FA',
                       border: '1px solid #E5E7EB'
@@ -333,7 +370,7 @@ export default function ChatBot() {
                     disabled={!inputValue.trim() || isTyping}
                     className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                     style={{
-                      backgroundColor: inputValue.trim() ? '#0066FF' : '#E5E7EB',
+                      backgroundColor: inputValue.trim() ? '#E60012' : '#E5E7EB',
                       color: inputValue.trim() ? '#FFFFFF' : '#999999'
                     }}
                   >
@@ -351,6 +388,89 @@ export default function ChatBot() {
         open={isBookingDialogOpen}
         onOpenChange={setIsBookingDialogOpen}
       />
+
+      {/* 动画样式 */}
+      <style jsx global>{`
+        @keyframes bounceIn {
+          0% {
+            opacity: 0;
+            transform: scale(0.3) translateY(100px);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1.05);
+          }
+          70% {
+            transform: scale(0.9);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+
+        @keyframes fadeInOut {
+          0% {
+            opacity: 0;
+            transform: translateX(20px);
+          }
+          10% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+          90% {
+            opacity: 1;
+          transform: translateX(0);
+          }
+          100% {
+            opacity: 0;
+            transform: translateX(20px);
+          }
+        }
+
+        @keyframes slideUp {
+          0% {
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in-out {
+          animation: fadeInOut 4s ease-in-out forwards;
+        }
+      `}</style>
     </>
   );
 }
