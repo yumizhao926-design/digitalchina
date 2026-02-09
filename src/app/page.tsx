@@ -4,6 +4,7 @@ import Hero from '@/components/hero';
 import DataStats from '@/components/data-stats';
 import ProductCards from '@/components/product-cards';
 import IndustrySolutions from '@/components/industry-solutions';
+import CaseCarousel from '@/components/case-carousel';
 import AIPanorama from '@/components/ai-panorama';
 import AIPhilosophy from '@/components/ai-philosophy';
 
@@ -32,6 +33,9 @@ export default function Home() {
 
       {/* 行业方案展示 */}
       <IndustrySolutions />
+
+      {/* 客户案例轮播 */}
+      <CaseCarousel />
 
       {/* AI能力全景图 */}
       <AIPanorama />
