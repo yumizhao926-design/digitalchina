@@ -3,11 +3,19 @@
 export default function Hero() {
   return (
     <section className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center">
-      {/* 浅色背景渐变 */}
+      {/* 背景图片层 */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url("/hero-background.jpg")',
+        }}
+      />
+
+      {/* 遮罩层 - 深色遮罩让文字更清晰 */}
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%)',
+          background: 'linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(245,245,245,0.9) 100%)',
         }}
       />
 
@@ -17,7 +25,7 @@ export default function Hero() {
         <div
           className="absolute -top-40 -right-40 w-96 h-96 rounded-full"
           style={{
-            background: 'radial-gradient(circle, rgba(255,59,48,0.03) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(255,59,48,0.04) 0%, transparent 70%)',
             animation: 'float 8s ease-in-out infinite',
           }}
         />
@@ -26,7 +34,7 @@ export default function Hero() {
         <div
           className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full"
           style={{
-            background: 'radial-gradient(circle, rgba(51,51,51,0.02) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(51,51,51,0.03) 0%, transparent 70%)',
             animation: 'float 10s ease-in-out infinite',
             animationDelay: '2s',
           }}
@@ -36,13 +44,13 @@ export default function Hero() {
         <div
           className="absolute top-1/4 left-10 w-32 h-px"
           style={{
-            background: 'linear-gradient(90deg, transparent, rgba(51,51,51,0.08), transparent)',
+            background: 'linear-gradient(90deg, transparent, rgba(51,51,51,0.1), transparent)',
           }}
         />
         <div
           className="absolute top-1/4 right-10 w-24 h-px"
           style={{
-            background: 'linear-gradient(90deg, transparent, rgba(51,51,51,0.06), transparent)',
+            background: 'linear-gradient(90deg, transparent, rgba(51,51,51,0.08), transparent)',
           }}
         />
 
@@ -50,13 +58,13 @@ export default function Hero() {
         <div
           className="absolute top-20 left-1/4 w-px h-20"
           style={{
-            background: 'linear-gradient(180deg, transparent, rgba(51,51,51,0.06), transparent)',
+            background: 'linear-gradient(180deg, transparent, rgba(51,51,51,0.08), transparent)',
           }}
         />
         <div
           className="absolute bottom-32 right-1/3 w-px h-16"
           style={{
-            background: 'linear-gradient(180deg, transparent, rgba(51,51,51,0.08), transparent)',
+            background: 'linear-gradient(180deg, transparent, rgba(51,51,51,0.1), transparent)',
           }}
         />
 
@@ -64,14 +72,14 @@ export default function Hero() {
         <div
           className="absolute top-1/3 right-1/4 w-2 h-2 rounded-full"
           style={{
-            background: 'rgba(255,59,48,0.2)',
+            background: 'rgba(255,59,48,0.25)',
             animation: 'pulse 3s ease-in-out infinite',
           }}
         />
         <div
           className="absolute bottom-1/3 left-1/4 w-1.5 h-1.5 rounded-full"
           style={{
-            background: 'rgba(51,51,51,0.15)',
+            background: 'rgba(51,51,51,0.2)',
             animation: 'pulse 4s ease-in-out infinite',
             animationDelay: '1s',
           }}
@@ -81,14 +89,14 @@ export default function Hero() {
         <div
           className="absolute top-1/2 left-16 w-4 h-4 border rotate-45"
           style={{
-            borderColor: 'rgba(51,51,51,0.05)',
+            borderColor: 'rgba(51,51,51,0.08)',
             animation: 'rotateSlow 20s linear infinite',
           }}
         />
         <div
           className="absolute bottom-1/4 right-20 w-3 h-3 border rotate-12"
           style={{
-            borderColor: 'rgba(255,59,48,0.1)',
+            borderColor: 'rgba(255,59,48,0.12)',
             animation: 'rotateSlow 25s linear infinite reverse',
           }}
         />
