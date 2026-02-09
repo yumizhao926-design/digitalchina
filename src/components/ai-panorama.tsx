@@ -364,10 +364,9 @@ export default function AIPanorama() {
         <h2
           className="font-bold mb-16 text-center relative z-10"
           style={{
-            color: '#ffffff',
+            color: '#333333',
             fontSize: '32px',
-            letterSpacing: '0.5px',
-            textShadow: '0 0 20px rgba(74, 144, 226, 0.5)'
+            letterSpacing: '0.5px'
           }}
         >
           AI能力全景图
@@ -458,7 +457,7 @@ export default function AIPanorama() {
                       <div className="pulse-animation" style={{ color: coreItems[0].color }}>
                         {coreItems[0].icon}
                       </div>
-                      <span style={{ color: '#ffffff', fontSize: '13px', fontWeight: '500' }}>
+                      <span style={{ color: '#333333', fontSize: '13px', fontWeight: '500' }}>
                         {coreItems[0].label}
                       </span>
                     </div>
@@ -481,7 +480,7 @@ export default function AIPanorama() {
                       <div className="pulse-animation" style={{ color: coreItems[1].color }}>
                         {coreItems[1].icon}
                       </div>
-                      <span style={{ color: '#ffffff', fontSize: '13px', fontWeight: '500' }}>
+                      <span style={{ color: '#333333', fontSize: '13px', fontWeight: '500' }}>
                         {coreItems[1].label}
                       </span>
                     </div>
@@ -514,7 +513,7 @@ export default function AIPanorama() {
                           <div className="pulse-animation" style={{ color: item.color }}>
                             {item.icon}
                           </div>
-                          <span style={{ color: '#ffffff', fontSize: '12px', fontWeight: '500' }}>
+                          <span style={{ color: '#333333', fontSize: '12px', fontWeight: '500' }}>
                             {item.label}
                           </span>
                         </div>
@@ -549,7 +548,7 @@ export default function AIPanorama() {
                           <div className="pulse-animation" style={{ color: item.color }}>
                             {item.icon}
                           </div>
-                          <span style={{ color: '#ffffff', fontSize: '11px', fontWeight: '500' }}>
+                          <span style={{ color: '#333333', fontSize: '11px', fontWeight: '500' }}>
                             {item.label}
                           </span>
                         </div>
@@ -606,7 +605,7 @@ export default function AIPanorama() {
             <div>
               <h3
                 className="font-semibold mb-3 px-2 relative z-10"
-                style={{ color: '#ffffff', fontSize: '16px' }}
+                style={{ color: '#333333', fontSize: '16px' }}
               >
                 核心圈层
               </h3>
@@ -640,7 +639,7 @@ export default function AIPanorama() {
             <div>
               <h3
                 className="font-semibold mb-3 px-2 relative z-10"
-                style={{ color: '#ffffff', fontSize: '16px' }}
+                style={{ color: '#333333', fontSize: '16px' }}
               >
                 行业圈层
               </h3>
@@ -671,7 +670,7 @@ export default function AIPanorama() {
             <div>
               <h3
                 className="font-semibold mb-3 px-2 relative z-10"
-                style={{ color: '#ffffff', fontSize: '16px' }}
+                style={{ color: '#333333', fontSize: '16px' }}
               >
                 产品圈层
               </h3>
