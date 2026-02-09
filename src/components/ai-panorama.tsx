@@ -521,6 +521,7 @@ export default function AIPanorama() {
                     </div>
                   </foreignObject>
                 </g>
+                )}
 
                 {/* 行业圈层 - 中环 - 科技感渐变边框 */}
                 {showPhase >= 1 && (
