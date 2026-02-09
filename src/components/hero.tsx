@@ -98,9 +98,10 @@ export default function Hero() {
       <div className="relative z-10 text-center px-4 sm:px-8 max-w-5xl mx-auto">
         {/* 主标题 */}
         <h1
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-bold mb-6 sm:mb-8 leading-tight"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-bold mb-6 sm:mb-8 leading-tight animate-fade-in-up"
           style={{
             color: '#333333',
+            animationDelay: '0s',
           }}
         >
           AI for Process 重构企业核心流程
@@ -108,16 +109,17 @@ export default function Hero() {
 
         {/* 副标题 */}
         <p
-          className="text-base sm:text-lg md:text-xl font-normal mb-8 sm:mb-10 leading-relaxed max-w-3xl mx-auto"
+          className="text-base sm:text-lg md:text-xl font-normal mb-8 sm:mb-10 leading-relaxed max-w-3xl mx-auto animate-fade-in-up"
           style={{
             color: '#666666',
+            animationDelay: '0.2s',
           }}
         >
           让AI成为业务流程原生能力，驱动企业数智化深水区变革
         </p>
 
         {/* CTA按钮组 */}
-        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
           {/* 按钮1 */}
           <button
             className="px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg border-2 backdrop-blur-sm"
@@ -189,6 +191,22 @@ export default function Hero() {
           100% {
             transform: rotate(360deg);
           }
+        }
+
+        @keyframes fadeInUp {
+          0% {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in-up {
+          opacity: 0;
+          animation: fadeInUp 0.8s ease-out forwards;
         }
       `}</style>
     </section>
