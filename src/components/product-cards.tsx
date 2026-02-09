@@ -4,7 +4,7 @@ import { Brain, Server, ArrowRight } from 'lucide-react';
 
 export default function ProductCards() {
   return (
-    <section className="py-24 px-4 sm:px-8" style={{ backgroundColor: '#F5F5F5' }}>
+    <section className="py-24 px-4 sm:px-8" style={{ backgroundColor: '#FFFFFF' }}>
       <div className="container mx-auto max-w-7xl">
         {/* 区域标题 */}
         <h2

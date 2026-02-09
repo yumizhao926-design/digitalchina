@@ -193,7 +193,7 @@ export default function IndustrySolutions() {
   return (
     <section
       className="px-6 lg:px-24 py-20"
-      style={{ backgroundColor: '#F5F5F5' }}
+      style={{ backgroundColor: '#FFFFFF' }}
     >
       <div className="max-w-7xl mx-auto">
         {/* 标题 */}

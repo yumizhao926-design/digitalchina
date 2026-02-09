@@ -31,7 +31,7 @@ export default function AIPhilosophy() {
   };
 
   return (
-    <section id="ai-engine" className="py-24 px-4 sm:px-8 bg-white">
+    <section id="ai-engine" className="py-24 px-4 sm:px-8" style={{ backgroundColor: '#F8F9FA' }}>
       <div className="container mx-auto max-w-7xl">
         {/* 标题区域 */}
         <div className="text-center mb-16">

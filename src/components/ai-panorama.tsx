@@ -370,7 +370,7 @@ export default function AIPanorama() {
     <section
       id="ai-panorama"
       className="py-16 px-4 sm:px-8 relative overflow-hidden"
-      style={{ backgroundColor: '#F8F9FA' }}
+      style={{ backgroundColor: '#FFFFFF' }}
     >
       {/* 科技感装饰背景 */}
       <div

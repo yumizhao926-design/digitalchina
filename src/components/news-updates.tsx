@@ -40,7 +40,7 @@ const events: EventItem[] = [
 
 export default function NewsUpdates() {
   return (
-    <section className="py-24 px-4 sm:px-8" style={{ backgroundColor: '#FFFFFF' }}>
+    <section className="py-24 px-4 sm:px-8" style={{ backgroundColor: '#F8F9FA' }}>
       <div className="container mx-auto max-w-7xl">
         {/* 标题 */}
         <h2

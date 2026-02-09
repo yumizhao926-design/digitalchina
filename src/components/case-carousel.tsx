@@ -64,7 +64,7 @@ export default function CaseCarousel() {
   };
 
   return (
-    <section className="py-24 px-4 sm:px-8" style={{ backgroundColor: '#F5F5F5' }}>
+    <section className="py-24 px-4 sm:px-8" style={{ backgroundColor: '#F8F9FA' }}>
       <div className="container mx-auto max-w-7xl">
         {/* 标题区域 */}
         <div className="flex items-end justify-between mb-12">

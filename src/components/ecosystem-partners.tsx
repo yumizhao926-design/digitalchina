@@ -191,7 +191,7 @@ export default function EcosystemPartners() {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section className="py-24 px-4 sm:px-8" style={{ backgroundColor: '#FFFFFF' }}>
+    <section className="py-24 px-4 sm:px-8" style={{ backgroundColor: '#F5F5F5' }}>
       <div className="container mx-auto max-w-7xl">
         {/* 标题区域 */}
         <h2

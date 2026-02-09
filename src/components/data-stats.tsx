@@ -34,7 +34,7 @@ const stats: StatItem[] = [
 
 export default function DataStats() {
   return (
-    <section className="py-12 sm:py-14 md:py-16 bg-white">
+    <section className="py-12 sm:py-14 md:py-16" style={{ backgroundColor: '#F5F5F5' }}>
       <div className="container mx-auto max-w-7xl px-4 sm:px-8">
         <div className="flex justify-center items-center gap-4 sm:gap-6 md:gap-8">
           {stats.map((stat, index) => (
