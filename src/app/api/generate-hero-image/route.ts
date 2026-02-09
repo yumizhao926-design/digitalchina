@@ -8,9 +8,9 @@ export async function POST(request: NextRequest) {
     const config = new Config();
     const client = new ImageGenerationClient(config, customHeaders);
 
-    // 生成浅色商务风格背景图片
+    // 生成浅色商务风格背景图片 - 新版本
     const response = await client.generate({
-      prompt: 'clean, minimalist corporate background. Light color scheme with white, soft gray. subtle red accents. Huawei-inspired design. plenty of white space. no huawei logo.',
+      prompt: 'professional business banner with clean minimalist design. Soft gradient background in light gray and white tones. Abstract geometric shapes with subtle red accents (#FF3B30). Modern corporate aesthetic similar to Huawei. High quality photography style. No text, no logo, no branding.',
       size: '2K',
       watermark: false,
     });
