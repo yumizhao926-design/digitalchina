@@ -11,7 +11,7 @@ export default function ProductCards() {
           className="font-bold mb-16 text-center"
           style={{ color: '#333333', fontSize: '32px' }}
         >
-          AI for Process 技术支撑
+          核心技术平台
         </h2>
 
         {/* 双列网格布局 */}

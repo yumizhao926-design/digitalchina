@@ -24,7 +24,7 @@ export default function FinalCTA() {
             lineHeight: '1.4'
           }}
         >
-          开启企业流程数智化转型之旅
+          开启智能化转型之旅
         </h1>
 
         {/* 副标题 */}
