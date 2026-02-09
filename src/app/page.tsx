@@ -7,6 +7,7 @@ import IndustrySolutions from '@/components/industry-solutions';
 import CaseCarousel from '@/components/case-carousel';
 import EcosystemPartners from '@/components/ecosystem-partners';
 import NewsUpdates from '@/components/news-updates';
+import FinalCTA from '@/components/final-cta';
 import Footer from '@/components/footer';
 import AIPanorama from '@/components/ai-panorama';
 import AIPhilosophy from '@/components/ai-philosophy';
@@ -153,20 +154,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA 区域 */}
-      <section className="container mx-auto max-w-7xl px-4 sm:px-8 py-16 sm:py-24">
-        <div className="border border-border bg-card rounded-lg p-8 sm:p-12 md:p-16 text-center space-y-6">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-            准备好开始了吗？
-          </h2>
-          <p className="text-muted-foreground text-base max-w-2xl mx-auto">
-            加入扣子开发者社区，体验AI驱动的开发新模式
-          </p>
-          <button className="bg-primary text-primary-foreground px-8 py-3 text-base font-medium hover:bg-primary/90 transition-colors rounded">
-            立即注册
-          </button>
-        </div>
-      </section>
+      {/* 最终转化区 */}
+      <FinalCTA />
 
       {/* 页脚 */}
       <Footer />
