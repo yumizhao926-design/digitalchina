@@ -56,11 +56,14 @@ export default function DataStats() {
                 <span className="w-4 h-4" style={{ color: '#FF3B30' }}>{stat.icon}</span>
               </div>
 
-              {/* 数字 - 超大 */}
+              {/* 数字 - 渐变效果 */}
               <div
-                className="text-3xl sm:text-4xl md:text-5xl font-bold leading-none mb-1.5"
+                className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-none mb-1.5 tracking-wide"
                 style={{
-                  color: '#333333',
+                  background: 'linear-gradient(135deg, #333333 0%, #666666 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
                 }}
               >
                 {stat.value}
