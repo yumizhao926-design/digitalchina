@@ -23,13 +23,9 @@ export default function ProductCards() {
 
             {/* 内容 */}
             <div className="relative">
-              {/* 标题图标 - 渐变背景 */}
+              {/* 标题图标 */}
               <div className="mb-6">
-                <div
-                  className="w-16 h-16 rounded-xl flex items-center justify-center bg-gradient-to-br from-red-500 to-red-600 shadow-lg shadow-red-500/20"
-                >
-                  <Brain className="w-8 h-8 text-white" />
-                </div>
+                <Brain className="w-12 h-12" style={{ color: '#FF3B30' }} />
               </div>
 
               {/* 标题 */}
@@ -99,13 +95,9 @@ export default function ProductCards() {
 
             {/* 内容 */}
             <div className="relative">
-              {/* 标题图标 - 渐变背景 */}
+              {/* 标题图标 */}
               <div className="mb-6">
-                <div
-                  className="w-16 h-16 rounded-xl flex items-center justify-center bg-gradient-to-br from-gray-600 to-gray-700 shadow-lg shadow-gray-600/20"
-                >
-                  <Server className="w-8 h-8 text-white" />
-                </div>
+                <Server className="w-12 h-12" style={{ color: '#666666' }} />
               </div>
 
               {/* 标题 */}
