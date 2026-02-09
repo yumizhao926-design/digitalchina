@@ -348,10 +348,23 @@ export default function AIPanorama() {
         {!isMobile && (
           <div className="relative" style={{ height: '700px' }}>
             <svg viewBox="0 0 800 700" className="w-full h-full">
+              {/* 定义流光动画 */}
+              <defs>
+                <style>
+                  {`@keyframes flow {
+                    0% { stroke-dashoffset: 0; }
+                    100% { stroke-dashoffset: 100; }
+                  }
+                  .flow-animation {
+                    stroke-dasharray: 10 5;
+                    animation: flow 3s linear infinite;
+                  }`}
+                </style>
+              </defs>
               {/* 中心点 */}
               <g transform="translate(400, 350)">
                 {/* 核心圈层 - 内环 - 深灰色边框 */}
-                <circle cx="0" cy="0" r="80" fill="none" stroke="#333333" strokeWidth="3" strokeOpacity="0.5" />
+                <circle cx="0" cy="0" r="80" fill="none" stroke="#333333" strokeWidth="1.5" strokeOpacity="0.5" className="flow-animation" />
 
                 {/* 核心项1 */}
                 <g
@@ -398,7 +411,7 @@ export default function AIPanorama() {
                 </g>
 
                 {/* 行业圈层 - 中环 - 中灰色边框 */}
-                <circle cx="0" cy="0" r="160" fill="none" stroke="#666666" strokeWidth="2.5" strokeOpacity="0.35" />
+                <circle cx="0" cy="0" r="160" fill="none" stroke="#666666" strokeWidth="1.2" strokeOpacity="0.35" className="flow-animation" style={{ animationDelay: '1s' }} />
 
                 {/* 行业项 - 8个 */}
                 {industryItems.map((item, index) => {
@@ -432,7 +445,7 @@ export default function AIPanorama() {
                 })}
 
                 {/* 产品圈层 - 外环 - 浅灰色边框 */}
-                <circle cx="0" cy="0" r="260" fill="none" stroke="#999999" strokeWidth="2" strokeOpacity="0.2" />
+                <circle cx="0" cy="0" r="260" fill="none" stroke="#999999" strokeWidth="1" strokeOpacity="0.2" className="flow-animation" style={{ animationDelay: '2s' }} />
 
                 {/* 产品项 - 12个 */}
                 {productItems.map((item, index) => {
