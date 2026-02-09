@@ -40,7 +40,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-2',
     name: '制造流程优化方案',
     description: '预测性维护 · 智能质检 · 供应链',
-    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_e47b0e06-98e3-4e41-8309-d78b9a8e960e.jpeg?sign=1802169860-12204f0b74-0-929870ce386acbfe46ac17e3ccfc5505db9277eef05a0c6d86be0fc3dca98131',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_2b3ec2e1-b496-444b-a930-2d78d46cb7dd.jpeg?sign=1802169954-8c09c1734b-0-da3a0a9e23ed62b95530f36a7b1ef5cad9d5035629f274b958aa7e5908fd5496',
     value: '良品率+25%',
     detail: {
       title: '智能制造流程优化解决方案',
@@ -101,7 +101,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-5',
     name: '数字金融',
     description: '智能风控 · 投顾助手 · 交易反欺诈',
-    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_2170bf7e-0a33-4bb7-beae-ca3c85bfa180.jpeg?sign=1802169876-f1cc0c7bee-0-f62e869136b8fe14fd08455b88ebf1c1a76078f1a758b551874003cebc415053',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_4fb92c51-85e9-45b9-921c-3faebef48a98.jpeg?sign=1802169974-7de1d28fed-0-acba8dc17643b682d635d364d65c2d2ddb109e13a62f5a828c010e1fb4a843dc',
     value: '风险识别率提升95%',
     detail: {
       title: '金融智能风控与服务',
