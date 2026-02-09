@@ -21,7 +21,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-1',
     name: '汽车制造',
     description: '质量检测 · 用户运营 · 车联网',
-    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_b3296359-fa0e-423f-a3f6-e7e5d11dd7bd.jpeg?sign=1802168978-d1ae252cc2-0-773469df3099a94f38419e12bf9604d540619fadead713587feae5c2852ded59',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_ac0e9175-f45f-49af-adfb-8e3649848faa.jpeg?sign=1802169589-93ba632b9a-0-f663998a4c8f6ab1319a2a3316cfca7f0a16857c598f75ec1ed1fc3ee18e032b',
     value: '效率提升90%',
     detail: {
       title: '汽车制造智能化解决方案',
@@ -40,7 +40,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-2',
     name: '制造流程优化方案',
     description: '预测性维护 · 智能质检 · 供应链',
-    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_c522f5bb-f7ab-427c-9ab5-96d385818a17.jpeg?sign=1802169002-f389928b2f-0-f1e3c9125c1edf676232596a8c908e72f60422afcccb0a9b759b985ee0b469a6',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_1b8a7c37-7b87-431a-88b0-37421d6a4ca9.jpeg?sign=1802169607-7ec3622283-0-41f5ed3cbff4c69a6d8a4650725ca3be4c3e2d75b0bdfdfe8dd24c520849ac2c',
     value: '良品率+25%',
     detail: {
       title: '智能制造流程优化解决方案',
@@ -62,7 +62,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-3',
     name: '智慧政务',
     description: '辅助决策 · 智慧服务 · 数据治理',
-    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_6ce34c65-0707-4d5b-9cdb-65aa8d2c1839.jpeg?sign=1802169060-8dbbfaff79-0-5817522e3ded8f98af774378b28efcd62d18aed4dce4350bde66864ebab0d022',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_395254cc-6cd8-4d5a-a0ec-3edeb7e7cb0d.jpeg?sign=1802169672-2f79f6cca3-0-30373a5875ba6f18bd0fc1563efb237445edda6fb342116b368089c476a6d52f',
     value: '审批效率提升70%',
     detail: {
       title: '政务智能化升级方案',
@@ -81,7 +81,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-4',
     name: '医药医疗',
     description: '药物研发 · 智慧诊疗 · 数据安全',
-    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_cb6ffeb4-43d4-4d58-886d-d4f2e874ce56.jpeg?sign=1802169041-50daf75095-0-a04cdf8f8e279baa989964b25e7bbf64f2e80b0be6ee1cdc8b94ad8dd188e82a',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_edaae34b-c2e9-4da1-95f2-bb2c72deefab.jpeg?sign=1802169655-7f24c88fe4-0-6434bd273ee160e884a18c82d5dd9ae66bd3e795aea16fc834dc34ebd8bde599',
     value: '靶点筛选效率提升30%',
     detail: {
       title: '靶点研究AI赋能方案',
@@ -101,7 +101,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-5',
     name: '数字金融',
     description: '智能风控 · 投顾助手 · 交易反欺诈',
-    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_49c9d35f-7b9a-49e5-85d9-ee875f921694.jpeg?sign=1802169023-e7efb9997d-0-b81a065987f0584bb0e39696c4419a6037438bd6f1ede4470ace3d4ae2b8d118',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_20395776-b98d-4dad-9291-c78069dbe997.jpeg?sign=1802169625-db882e829e-0-1c071ab16739aa883a9af3267715bce294aa8b6083d00e0570fea4016f29ec08',
     value: '风险识别率提升95%',
     detail: {
       title: '金融智能风控与服务',
@@ -120,7 +120,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-6',
     name: '通信运营商',
     description: '网络优化 · 客服坐席 · 流量分析',
-    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_d12de778-51dd-40c6-ad14-6a7e778fe365.jpeg?sign=1802169078-75b03dda19-0-f76b9f417cbed32a3cf1e232e13732e00cd645529a979f1a7477bea2f51ca928',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_4da64b4f-8ecb-42a2-b8b2-322821d6c7e6.jpeg?sign=1802169690-32abb4110c-0-a1e914a22e379658b14a76634bc66c681ee0026e37eb903219f493cedc5c9054',
     value: '网络故障自愈率提升90%',
     detail: {
       title: '运营商网络与服务优化',
@@ -139,7 +139,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-7',
     name: '教育流程创新方案',
     description: '智能教学 · 个性化学习 · 教务管理',
-    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_4dd96c56-755e-498c-9d94-b5dc115fa35e.jpeg?sign=1802169098-32303b734f-0-2aa3d28cce18320824f2efa4cd567a521ae053234fd8aeec151a4f133c7637f3',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_51308365-34f0-4c3e-a124-746129e5073b.jpeg?sign=1802169708-8b9e185970-0-09dabfbd596d5c442d3263f454129a1b6ae500d4cd69e610ae3313e97cfd8040',
     value: '学习效率+60%',
     detail: {
       title: '教育智能化解决方案',
