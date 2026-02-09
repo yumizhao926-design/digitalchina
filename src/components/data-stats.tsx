@@ -43,25 +43,22 @@ const stats: StatItem[] = [
 
 export default function DataStats() {
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-white">
-      <div className="container mx-auto max-w-6xl px-4 sm:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+    <section className="py-12 sm:py-14 md:py-16 bg-white">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-8">
+        <div className="flex justify-center items-center gap-4 sm:gap-6 md:gap-8">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center text-center p-6 sm:p-8 rounded-lg border transition-all hover:shadow-md hover:scale-105"
-              style={{
-                borderColor: '#E0E0E0',
-              }}
+              className="flex flex-col items-center justify-center text-center px-3 sm:px-4"
             >
               {/* 图标 - 很小 */}
-              <div className="mb-3 opacity-60">
-                <span style={{ color: '#FF3B30' }}>{stat.icon}</span>
+              <div className="mb-1.5 opacity-50">
+                <span className="w-4 h-4" style={{ color: '#FF3B30' }}>{stat.icon}</span>
               </div>
 
               {/* 数字 - 超大 */}
               <div
-                className="text-5xl sm:text-6xl md:text-7xl font-bold leading-none mb-2"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold leading-none mb-1.5"
                 style={{
                   color: '#333333',
                 }}
@@ -71,7 +68,7 @@ export default function DataStats() {
 
               {/* 标签 - 很小 */}
               <div
-                className="text-xs sm:text-[11px] leading-tight opacity-70"
+                className="text-[9px] sm:text-[10px] md:text-xs leading-tight opacity-60 whitespace-nowrap"
                 style={{
                   color: '#666666',
                 }}
