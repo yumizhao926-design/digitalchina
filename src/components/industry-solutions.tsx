@@ -198,8 +198,8 @@ export default function IndustrySolutions() {
       <div className="max-w-7xl mx-auto">
         {/* 标题 */}
         <h2
-          className="font-semibold mb-12 text-center"
-          style={{ color: '#333333', fontSize: '42px', letterSpacing: '-0.5px' }}
+          className="font-bold mb-12 text-center"
+          style={{ color: '#333333', fontSize: '32px' }}
         >
           行业AI解决方案
         </h2>
