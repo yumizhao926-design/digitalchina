@@ -303,6 +303,14 @@ export default function AIPanorama() {
   const [hoveredItem, setHoveredItem] = useState<CircleItem | null>(null);
   const [selectedItem, setSelectedItem] = useState<CircleItem | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [showPhase, setShowPhase] = useState(0); // 0: 核心层, 1: 行业层, 2: 产品层
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowPhase(prev => (prev + 1) % 3);
+    }, 3000); // 每3秒切换一次
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -369,6 +377,46 @@ export default function AIPanorama() {
           AI能力全景图
         </h2>
 
+        {/* 阶段指示器 */}
+        <div className="flex justify-center gap-4 mb-12">
+          <div className="flex items-center gap-2">
+            <div
+              className="w-3 h-3 rounded-full transition-all duration-300"
+              style={{
+                backgroundColor: showPhase >= 0 ? '#4A90E2' : '#e0e0e0',
+                transform: showPhase === 0 ? 'scale(1.2)' : 'scale(1)'
+              }}
+            />
+            <span className="text-sm" style={{ color: showPhase >= 0 ? '#333333' : '#999999' }}>
+              核心层
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div
+              className="w-3 h-3 rounded-full transition-all duration-300"
+              style={{
+                backgroundColor: showPhase >= 1 ? '#667eea' : '#e0e0e0',
+                transform: showPhase === 1 ? 'scale(1.2)' : 'scale(1)'
+              }}
+            />
+            <span className="text-sm" style={{ color: showPhase >= 1 ? '#333333' : '#999999' }}>
+              行业层
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div
+              className="w-3 h-3 rounded-full transition-all duration-300"
+              style={{
+                backgroundColor: showPhase >= 2 ? '#f5576c' : '#e0e0e0',
+                transform: showPhase === 2 ? 'scale(1.2)' : 'scale(1)'
+              }}
+            />
+            <span className="text-sm" style={{ color: showPhase >= 2 ? '#333333' : '#999999' }}>
+              产品层
+            </span>
+          </div>
+        </div>
+
         {/* 桌面端：环形布局 */}
         {!isMobile && (
           <div className="relative" style={{ height: '700px' }}>
@@ -399,14 +447,6 @@ export default function AIPanorama() {
                     0% { stroke-dashoffset: 100; }
                     100% { stroke-dashoffset: 0; }
                   }
-                  @keyframes fadeInUp {
-                    from {
-                      opacity: 0;
-                    }
-                    to {
-                      opacity: 1;
-                    }
-                  }
                   @keyframes pulse {
                     0%, 100% {
                       opacity: 1;
@@ -415,82 +455,59 @@ export default function AIPanorama() {
                       opacity: 0.5;
                     }
                   }
-                  @keyframes scaleIn {
-                    from {
-                      transform: scale(0);
-                      opacity: 0;
-                    }
-                    to {
-                      transform: scale(1);
-                      opacity: 1;
-                    }
-                  }
-                  .fade-in-up {
-                    animation: fadeInUp 0.6s ease-out forwards;
-                    opacity: 0;
-                  }
                   .glow-effect {
                     filter: url(#glow);
                   }
                   .pulse-animation {
                     animation: pulse 2s ease-in-out infinite;
                   }
-                  .scale-in-core {
-                    animation: scaleIn 0.8s ease-out forwards;
-                    transform: scale(0);
-                    opacity: 0;
-                  }
-                  .scale-in-industry {
-                    animation: scaleIn 0.8s ease-out forwards;
-                    transform: scale(0);
-                    opacity: 0;
-                    animation-delay: 0.5s;
-                  }
-                  .scale-in-product {
-                    animation: scaleIn 0.8s ease-out forwards;
-                    transform: scale(0);
-                    opacity: 0;
-                    animation-delay: 1s;
-                  }`}
+`}
                 </style>
               </defs>
               {/* 中心点 */}
               <g transform="translate(400, 350)">
                 {/* 核心圈层 - 内环 - 科技感渐变边框 */}
-                <circle cx="0" cy="0" r="80" fill="none" stroke="url(#coreGradient)" strokeWidth="2" strokeOpacity="0.8" className="glow-effect scale-in-core" />
+                {showPhase >= 0 && (
+                  <g className="transition-all duration-1000" style={{ opacity: showPhase >= 0 ? 1 : 0 }}>
+                    <circle cx="0" cy="0" r="80" fill="none" stroke="url(#coreGradient)" strokeWidth="2" strokeOpacity="0.8" className="glow-effect" />
+                  </g>
+                )}
 
                 {/* 核心项1 */}
-                <g
-                  transform="translate(0, -35)"
-                  className="cursor-pointer fade-in-up"
-                  style={{ animationDelay: '0.8s' }}
-                  onMouseEnter={() => setHoveredItem(coreItems[0])}
-                  onMouseLeave={() => setHoveredItem(null)}
-                  onClick={() => handleItemClick(coreItems[0])}
-                >
-                  <foreignObject x="-60" y="-15" width="120" height="30">
-                    <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
-                      transform: hoveredItem?.id === coreItems[0].id ? 'scale(1.1)' : 'scale(1)',
-                    }}>
-                      <div className="pulse-animation" style={{ color: coreItems[0].color }}>
-                        {coreItems[0].icon}
+                {showPhase >= 0 && (
+                  <g
+                    transform="translate(0, -35)"
+                    className="cursor-pointer transition-all duration-1000"
+                    style={{ opacity: showPhase >= 0 ? 1 : 0 }}
+                    onMouseEnter={() => setHoveredItem(coreItems[0])}
+                    onMouseLeave={() => setHoveredItem(null)}
+                    onClick={() => handleItemClick(coreItems[0])}
+                  >
+                    <foreignObject x="-60" y="-15" width="120" height="30">
+                      <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
+                        transform: hoveredItem?.id === coreItems[0].id ? 'scale(1.1)' : 'scale(1)',
+                      }}>
+                        <div className="pulse-animation" style={{ color: coreItems[0].color }}>
+                          {coreItems[0].icon}
+                        </div>
+                        <span style={{ color: '#333333', fontSize: '13px', fontWeight: '500' }}>
+                          {coreItems[0].label}
+                        </span>
                       </div>
-                      <span style={{ color: '#333333', fontSize: '13px', fontWeight: '500' }}>
-                        {coreItems[0].label}
-                      </span>
-                    </div>
-                  </foreignObject>
-                </g>
+                    </foreignObject>
+                  </g>
+                )}
 
                 {/* 核心项2 */}
-                <g
-                  transform="translate(0, 35)"
-                  className="cursor-pointer fade-in-up"
-                  style={{ animationDelay: '0.9s' }}
-                  onMouseEnter={() => setHoveredItem(coreItems[1])}
-                  onMouseLeave={() => setHoveredItem(null)}
-                  onClick={() => handleItemClick(coreItems[1])}
-                >
+                {showPhase >= 0 && (
+                  <g
+                    transform="translate(0, 35)"
+                    className="cursor-pointer transition-all duration-1000"
+                    style={{ opacity: showPhase >= 0 ? 1 : 0 }}
+                    onMouseEnter={() => setHoveredItem(coreItems[1])}
+                    onMouseLeave={() => setHoveredItem(null)}
+                    onClick={() => handleItemClick(coreItems[1])}
+                  >
                   <foreignObject x="-60" y="-15" width="120" height="30">
                     <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
                       transform: hoveredItem?.id === coreItems[1].id ? 'scale(1.1)' : 'scale(1)',
@@ -506,10 +523,14 @@ export default function AIPanorama() {
                 </g>
 
                 {/* 行业圈层 - 中环 - 科技感渐变边框 */}
-                <circle cx="0" cy="0" r="160" fill="none" stroke="url(#industryGradient)" strokeWidth="2" strokeOpacity="0.7" className="glow-effect scale-in-industry" />
+                {showPhase >= 1 && (
+                  <g className="transition-all duration-1000" style={{ opacity: showPhase >= 1 ? 1 : 0 }}>
+                    <circle cx="0" cy="0" r="160" fill="none" stroke="url(#industryGradient)" strokeWidth="2" strokeOpacity="0.7" className="glow-effect" />
+                  </g>
+                )}
 
                 {/* 行业项 - 8个 */}
-                {industryItems.map((item, index) => {
+                {showPhase >= 1 && industryItems.map((item, index) => {
                   const angle = (index * 45 - 90) * (Math.PI / 180);
                   const x = Math.cos(angle) * 160;
                   const y = Math.sin(angle) * 160;
@@ -518,8 +539,8 @@ export default function AIPanorama() {
                     <g
                       key={item.id}
                       transform={`translate(${x}, ${y})`}
-                      className="cursor-pointer fade-in-up"
-                      style={{ animationDelay: `${1.3 + index * 0.1}s` }}
+                      className="cursor-pointer transition-all duration-1000"
+                      style={{ opacity: showPhase >= 1 ? 1 : 0 }}
                       onMouseEnter={() => setHoveredItem(item)}
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={() => handleItemClick(item)}
@@ -541,10 +562,14 @@ export default function AIPanorama() {
                 })}
 
                 {/* 产品圈层 - 外环 - 科技感渐变边框 */}
-                <circle cx="0" cy="0" r="260" fill="none" stroke="url(#productGradient)" strokeWidth="2" strokeOpacity="0.6" className="glow-effect scale-in-product" />
+                {showPhase >= 2 && (
+                  <g className="transition-all duration-1000" style={{ opacity: showPhase >= 2 ? 1 : 0 }}>
+                    <circle cx="0" cy="0" r="260" fill="none" stroke="url(#productGradient)" strokeWidth="2" strokeOpacity="0.6" className="glow-effect" />
+                  </g>
+                )}
 
                 {/* 产品项 - 12个 */}
-                {productItems.map((item, index) => {
+                {showPhase >= 2 && productItems.map((item, index) => {
                   const angle = (index * 30 - 90) * (Math.PI / 180);
                   const x = Math.cos(angle) * 260;
                   const y = Math.sin(angle) * 260;
@@ -553,8 +578,8 @@ export default function AIPanorama() {
                     <g
                       key={item.id}
                       transform={`translate(${x}, ${y})`}
-                      className="cursor-pointer fade-in-up"
-                      style={{ animationDelay: `${1.8 + index * 0.08}s` }}
+                      className="cursor-pointer transition-all duration-1000"
+                      style={{ opacity: showPhase >= 2 ? 1 : 0 }}
                       onMouseEnter={() => setHoveredItem(item)}
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={() => handleItemClick(item)}
