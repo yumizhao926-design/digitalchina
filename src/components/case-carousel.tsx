@@ -117,7 +117,7 @@ export default function CaseCarousel() {
                   className="flex-shrink-0 w-full"
                   style={{ width: `${100 / caseStudies.length}%` }}
                 >
-                  <div className="relative h-full overflow-hidden rounded-2xl shadow-lg">
+                  <div className="relative overflow-hidden rounded-2xl shadow-lg min-h-[400px]">
                     {/* 背景图片 */}
                     <div
                       className="absolute inset-0 bg-cover bg-center transition-all duration-700 hover:scale-110"
