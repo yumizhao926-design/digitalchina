@@ -308,7 +308,7 @@ export default function AIPanorama() {
   useEffect(() => {
     const interval = setInterval(() => {
       setShowPhase(prev => (prev + 1) % 3);
-    }, 3000); // 每3秒切换一次
+    }, 1500); // 每1.5秒切换一次，实现连续性
     return () => clearInterval(interval);
   }, []);
 
