@@ -7,7 +7,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url("https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_991dc52a-8699-4a40-b0fe-a609317594d7.jpeg?sign=1802155379-d9c4ac1c8c-0-252197ec2b6e45a46e32f678bb5e3e5090a6286805af297274e97ecbba575f30")',
+          backgroundImage: 'url("https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_d181ce18-9618-48ce-a832-1738e7a13add.jpeg?sign=1802155495-ec357b08bf-0-eb9bbdba978a18d7b3ff83539a1132e6728e92583a9a5c9ca6028550579a60f7")',
         }}
       />
 

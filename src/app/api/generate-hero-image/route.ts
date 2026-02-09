@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
 
     // 生成浅色商务风格背景图片
     const response = await client.generate({
-      prompt: 'A clean, minimalist corporate background for a technology company website. Light color scheme with white, soft gray, and subtle red accents. Professional office environment with natural light, clean lines, and geometric shapes. Huawei-inspired design with plenty of white space. Flat design style, soft shadows, modern and elegant. High quality, web banner style.',
+      prompt: 'clean, minimalist corporate background. Light color scheme with white, soft gray. subtle red accents. Huawei-inspired design. plenty of white space. no huawei logo.',
       size: '2K',
       watermark: false,
     });
