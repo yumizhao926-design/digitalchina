@@ -432,6 +432,24 @@ export default function AIPanorama() {
                   <stop offset="0%" stopColor="#999999" />
                   <stop offset="100%" stopColor="#999999" />
                 </linearGradient>
+                {/* 核心圈流光渐变 */}
+                <linearGradient id="coreFlowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="rgba(215, 0, 29, 0)" />
+                  <stop offset="50%" stopColor="rgba(215, 0, 29, 0.8)" />
+                  <stop offset="100%" stopColor="rgba(215, 0, 29, 0)" />
+                </linearGradient>
+                {/* 行业圈流光渐变 */}
+                <linearGradient id="industryFlowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="rgba(102, 102, 102, 0)" />
+                  <stop offset="50%" stopColor="rgba(102, 102, 102, 0.6)" />
+                  <stop offset="100%" stopColor="rgba(102, 102, 102, 0)" />
+                </linearGradient>
+                {/* 产品圈流光渐变 */}
+                <linearGradient id="productFlowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="rgba(153, 153, 153, 0)" />
+                  <stop offset="50%" stopColor="rgba(153, 153, 153, 0.5)" />
+                  <stop offset="100%" stopColor="rgba(153, 153, 153, 0)" />
+                </linearGradient>
                 <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
                   <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
                   <feMerge>
@@ -443,6 +461,10 @@ export default function AIPanorama() {
                   {`@keyframes flow {
                     0% { stroke-dashoffset: 100; }
                     100% { stroke-dashoffset: 0; }
+                  }
+                  @keyframes rotate {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
                   }
                   @keyframes pulse {
                     0%, 100% {
@@ -458,6 +480,14 @@ export default function AIPanorama() {
                   .pulse-animation {
                     animation: pulse 2s ease-in-out infinite;
                   }
+                  .flow-ring {
+                    transform-origin: center;
+                    animation: rotate 8s linear infinite;
+                  }
+                  .flow-ring-reverse {
+                    transform-origin: center;
+                    animation: rotate 10s linear infinite reverse;
+                  }
 `}
                 </style>
               </defs>
@@ -468,6 +498,28 @@ export default function AIPanorama() {
                   opacity: coreState.opacity,
                   transition: 'opacity 1s ease-out'
                 }}>
+                  {/* 核心圈流光效果 */}
+                  <circle
+                    cx="0"
+                    cy="0"
+                    r="88"
+                    fill="none"
+                    stroke="url(#coreFlowGradient)"
+                    strokeWidth="2"
+                    className="flow-ring"
+                    style={{ opacity: 0.6 }}
+                  />
+                  <circle
+                    cx="0"
+                    cy="0"
+                    r="85"
+                    fill="none"
+                    stroke="rgb(215, 0, 29)"
+                    strokeWidth="1"
+                    strokeDasharray="4 4"
+                    className="flow-ring-reverse"
+                    style={{ opacity: 0.3 }}
+                  />
                   <circle cx="0" cy="0" r="80" fill="rgb(215, 0, 29)" />
                 </g>
 
@@ -555,6 +607,28 @@ export default function AIPanorama() {
                   opacity: industryState.opacity,
                   transition: 'opacity 1s ease-out'
                 }}>
+                  {/* 行业圈流光效果 */}
+                  <circle
+                    cx="0"
+                    cy="0"
+                    r="168"
+                    fill="none"
+                    stroke="url(#industryFlowGradient)"
+                    strokeWidth="2"
+                    className="flow-ring-reverse"
+                    style={{ opacity: 0.5 }}
+                  />
+                  <circle
+                    cx="0"
+                    cy="0"
+                    r="164"
+                    fill="none"
+                    stroke="#666666"
+                    strokeWidth="1"
+                    strokeDasharray="6 4"
+                    className="flow-ring"
+                    style={{ opacity: 0.25 }}
+                  />
                   <circle cx="0" cy="0" r="160" fill="#666666" fillOpacity="0.05" />
                 </g>
 
@@ -598,6 +672,28 @@ export default function AIPanorama() {
                   opacity: productState.opacity,
                   transition: 'opacity 1s ease-out'
                 }}>
+                  {/* 产品圈流光效果 */}
+                  <circle
+                    cx="0"
+                    cy="0"
+                    r="268"
+                    fill="none"
+                    stroke="url(#productFlowGradient)"
+                    strokeWidth="2"
+                    className="flow-ring"
+                    style={{ opacity: 0.4 }}
+                  />
+                  <circle
+                    cx="0"
+                    cy="0"
+                    r="264"
+                    fill="none"
+                    stroke="#999999"
+                    strokeWidth="1"
+                    strokeDasharray="8 4"
+                    className="flow-ring-reverse"
+                    style={{ opacity: 0.2 }}
+                  />
                   <circle cx="0" cy="0" r="260" fill="#999999" fillOpacity="0.03" />
                 </g>
 
