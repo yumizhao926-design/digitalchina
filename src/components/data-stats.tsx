@@ -44,24 +44,22 @@ const stats: StatItem[] = [
 
 export default function DataStats() {
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-white">
+    <section className="py-12 sm:py-16 md:py-20 bg-white">
       <div className="container mx-auto max-w-7xl px-4 sm:px-8">
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16">
+        <div className="flex justify-center items-center gap-6 md:gap-10 lg:gap-12 overflow-x-auto">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center space-y-3 min-w-[120px] md:min-w-[140px]"
+              className="flex flex-col items-center text-center space-y-2 flex-shrink-0"
             >
               {/* 图标 */}
-              <div
-                className="flex items-center justify-center"
-              >
-                <span style={{ color: '#FF3B30' }}>{stat.icon}</span>
+              <div className="flex items-center justify-center">
+                <span className="w-6 h-6 md:w-7 md:h-7" style={{ color: '#FF3B30' }}>{stat.icon}</span>
               </div>
 
               {/* 数字 */}
               <div
-                className="text-3xl sm:text-4xl md:text-5xl font-bold leading-none"
+                className="text-2xl sm:text-3xl md:text-4xl font-bold leading-none whitespace-nowrap"
                 style={{
                   color: '#333333',
                 }}
@@ -71,7 +69,7 @@ export default function DataStats() {
 
               {/* 标签 */}
               <div
-                className="text-xs sm:text-sm leading-relaxed max-w-[150px] md:max-w-[180px]"
+                className="text-[10px] sm:text-xs leading-tight whitespace-nowrap"
                 style={{
                   color: '#666666',
                 }}
