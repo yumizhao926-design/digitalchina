@@ -424,16 +424,16 @@ export default function AIPanorama() {
               {/* 定义流光动画和科技感效果 */}
               <defs>
                 <linearGradient id="coreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#4A90E2" />
-                  <stop offset="100%" stopColor="#50E3C2" />
+                  <stop offset="0%" stopColor="#FF3B30" />
+                  <stop offset="100%" stopColor="#FF3B30" />
                 </linearGradient>
                 <linearGradient id="industryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#667eea" />
-                  <stop offset="100%" stopColor="#764ba2" />
+                  <stop offset="0%" stopColor="#666666" />
+                  <stop offset="100%" stopColor="#666666" />
                 </linearGradient>
                 <linearGradient id="productGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#f093fb" />
-                  <stop offset="100%" stopColor="#f5576c" />
+                  <stop offset="0%" stopColor="#999999" />
+                  <stop offset="100%" stopColor="#999999" />
                 </linearGradient>
                 <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
                   <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
@@ -473,7 +473,7 @@ export default function AIPanorama() {
                     transform: showPhase >= 0 ? 'scale(1)' : 'scale(0)',
                     transformOrigin: 'center center'
                   }}>
-                    <circle cx="0" cy="0" r="80" fill="none" stroke="url(#coreGradient)" strokeWidth="2" strokeOpacity="0.8" className="glow-effect" />
+                    <circle cx="0" cy="0" r="80" fill="#FF3B30" fillOpacity="0.08" stroke="url(#coreGradient)" strokeWidth="2" strokeOpacity="0.8" className="glow-effect" />
                   </g>
                 )}
 
