@@ -21,7 +21,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-1',
     name: '汽车制造',
     description: '质量检测 · 用户运营 · 车联网',
-    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_ac0e9175-f45f-49af-adfb-8e3649848faa.jpeg?sign=1802169589-93ba632b9a-0-f663998a4c8f6ab1319a2a3316cfca7f0a16857c598f75ec1ed1fc3ee18e032b',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_3ce6bd77-2148-483d-a420-ed8c025932cb.jpeg?sign=1802169845-2ac763ccab-0-a377c68a91f539ef916d198afdbd050c47364cfd63c5b0e5b79e23092d51ce0e',
     value: '效率提升90%',
     detail: {
       title: '汽车制造智能化解决方案',
@@ -40,7 +40,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-2',
     name: '制造流程优化方案',
     description: '预测性维护 · 智能质检 · 供应链',
-    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_1b8a7c37-7b87-431a-88b0-37421d6a4ca9.jpeg?sign=1802169607-7ec3622283-0-41f5ed3cbff4c69a6d8a4650725ca3be4c3e2d75b0bdfdfe8dd24c520849ac2c',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_e47b0e06-98e3-4e41-8309-d78b9a8e960e.jpeg?sign=1802169860-12204f0b74-0-929870ce386acbfe46ac17e3ccfc5505db9277eef05a0c6d86be0fc3dca98131',
     value: '良品率+25%',
     detail: {
       title: '智能制造流程优化解决方案',
@@ -101,7 +101,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-5',
     name: '数字金融',
     description: '智能风控 · 投顾助手 · 交易反欺诈',
-    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_20395776-b98d-4dad-9291-c78069dbe997.jpeg?sign=1802169625-db882e829e-0-1c071ab16739aa883a9af3267715bce294aa8b6083d00e0570fea4016f29ec08',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_2170bf7e-0a33-4bb7-beae-ca3c85bfa180.jpeg?sign=1802169876-f1cc0c7bee-0-f62e869136b8fe14fd08455b88ebf1c1a76078f1a758b551874003cebc415053',
     value: '风险识别率提升95%',
     detail: {
       title: '金融智能风控与服务',
