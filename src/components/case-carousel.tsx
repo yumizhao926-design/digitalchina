@@ -16,7 +16,7 @@ const caseStudies: CaseStudy[] = [
   {
     id: 'case-1',
     clientName: '黄冈烟草',
-    logo: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_04a5e3f2-de39-4f7b-b3be-54d0282520c0.jpeg?sign=1802171167-70aee9bd54-0-0d486a465d13efbda08ca64cbd5f12e229929a4d633fc384bdeca449437eb9de',
+    logo: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_0acf929f-8675-473c-8792-26aeacf32c9e.jpeg?sign=1802171287-495ee4c67c-0-0463e69a4b16ba1e217900376586e453f174343059451903ea09790182edbd2c',
     industry: '医疗',
     scenario: '案卷AI评审',
     result: '效率提升70%'
