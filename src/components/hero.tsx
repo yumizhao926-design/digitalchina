@@ -2,7 +2,7 @@
 
 export default function Hero() {
   return (
-    <section className="relative w-full overflow-hidden py-28 sm:py-32 md:py-40">
+    <section className="relative w-full overflow-hidden py-36 sm:py-44 md:py-52">
       {/* 背景图片层 */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
