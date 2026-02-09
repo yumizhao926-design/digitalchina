@@ -174,7 +174,7 @@ export default function CaseCarousel() {
                         </p>
                         <p
                           className="font-bold"
-                          style={{ color: '#E60012', fontSize: '20px' }}
+                          style={{ color: '#E60012', fontSize: '32px' }}
                         >
                           {caseStudy.result}
                         </p>
