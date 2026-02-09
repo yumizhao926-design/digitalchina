@@ -33,6 +33,9 @@ export default function Home() {
       {/* AI核心理念专区 */}
       <AIPhilosophy />
 
+      {/* AI能力全景图 */}
+      <AIPanorama />
+
       {/* 产品卡片展示 */}
       <ProductCards />
 
@@ -47,9 +50,6 @@ export default function Home() {
 
       {/* 资讯动态 */}
       <NewsUpdates />
-
-      {/* AI能力全景图 */}
-      <AIPanorama />
 
       {/* 最终转化区 */}
       <FinalCTA />
