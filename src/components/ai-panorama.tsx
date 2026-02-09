@@ -445,8 +445,8 @@ export default function AIPanorama() {
                   onMouseLeave={() => setHoveredItem(null)}
                   onClick={() => handleItemClick(coreItems[0])}
                 >
-                  <foreignObject x="-50" y="-15" width="100" height="30">
-                    <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative" style={{
+                  <foreignObject x="-60" y="-15" width="120" height="30">
+                    <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
                       transform: hoveredItem?.id === coreItems[0].id ? 'scale(1.1)' : 'scale(1)',
                     }}>
                       <div className="pulse-animation" style={{ color: coreItems[0].color }}>
@@ -468,8 +468,8 @@ export default function AIPanorama() {
                   onMouseLeave={() => setHoveredItem(null)}
                   onClick={() => handleItemClick(coreItems[1])}
                 >
-                  <foreignObject x="-50" y="-15" width="100" height="30">
-                    <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative" style={{
+                  <foreignObject x="-60" y="-15" width="120" height="30">
+                    <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
                       transform: hoveredItem?.id === coreItems[1].id ? 'scale(1.1)' : 'scale(1)',
                     }}>
                       <div className="pulse-animation" style={{ color: coreItems[1].color }}>
@@ -501,8 +501,8 @@ export default function AIPanorama() {
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={() => handleItemClick(item)}
                     >
-                      <foreignObject x="-35" y="-12" width="70" height="24">
-                        <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative" style={{
+                      <foreignObject x="-50" y="-12" width="100" height="24">
+                        <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
                           transform: hoveredItem?.id === item.id ? 'scale(1.1)' : 'scale(1)',
                         }}>
                           <div className="pulse-animation" style={{ color: item.color }}>
@@ -536,8 +536,8 @@ export default function AIPanorama() {
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={() => handleItemClick(item)}
                     >
-                      <foreignObject x="-30" y="-10" width="60" height="20">
-                        <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative" style={{
+                      <foreignObject x="-45" y="-10" width="90" height="20">
+                        <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
                           transform: hoveredItem?.id === item.id ? 'scale(1.1)' : 'scale(1)',
                         }}>
                           <div className="pulse-animation" style={{ color: item.color }}>
