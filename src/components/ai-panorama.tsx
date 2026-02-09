@@ -303,11 +303,11 @@ export default function AIPanorama() {
   const [hoveredItem, setHoveredItem] = useState<CircleItem | null>(null);
   const [selectedItem, setSelectedItem] = useState<CircleItem | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [animationTime, setAnimationTime] = useState(0); // 动画时间，0-5秒循环
+  const [animationTime, setAnimationTime] = useState(0); // 动画时间，0-7秒循环
 
   useEffect(() => {
     let startTime = Date.now();
-    const cycleDuration = 5000; // 5秒循环周期
+    const cycleDuration = 7000; // 7秒循环周期
 
     const interval = setInterval(() => {
       const elapsed = (Date.now() - startTime) % cycleDuration;
@@ -400,7 +400,7 @@ export default function AIPanorama() {
         {/* 桌面端：环形布局 */}
         {!isMobile && (
           <div className="relative" style={{ height: '600px' }}>
-            <svg viewBox="0 0 800 600" className="w-full h-full">
+            <svg viewBox="0 0 800 700" className="w-full h-full">
               {/* 定义流光动画和科技感效果 */}
               <defs>
                 <linearGradient id="coreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
