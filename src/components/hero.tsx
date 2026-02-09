@@ -102,7 +102,7 @@ export default function Hero() {
         <h1
           className="text-4xl sm:text-5xl md:text-6xl lg:text-[56px] font-bold mb-6 sm:mb-8 leading-[1.2] tracking-wide animate-fade-in-up"
           style={{
-            color: '#1a1a1a',
+            color: '#333333',
             textShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
             animationDelay: '0s',
           }}
@@ -114,7 +114,7 @@ export default function Hero() {
         <p
           className="text-lg sm:text-xl md:text-2xl font-normal mb-8 sm:mb-10 leading-relaxed max-w-3xl mx-auto tracking-tight animate-fade-in-up"
           style={{
-            color: '#4a4a4a',
+            color: '#666666',
             animationDelay: '0.2s',
           }}
         >
