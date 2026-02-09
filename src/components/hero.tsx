@@ -11,6 +11,14 @@ export default function Hero() {
         }}
       />
 
+      {/* 淡色遮罩层 - 让背景变浅，文字清晰 */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.4) 100%)',
+        }}
+      />
+
       {/* 淡色几何装饰元素 */}
       <div className="absolute inset-0 overflow-hidden">
         {/* 大圆光晕1 - 右上角 */}
