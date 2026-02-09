@@ -117,10 +117,10 @@ export default function Hero() {
         </p>
 
         {/* CTA按钮组 */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
           {/* 按钮1 */}
           <button
-            className="px-10 py-3 sm:px-12 sm:py-4 text-sm sm:text-base font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg border-2"
+            className="px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg border-2"
             style={{
               backgroundColor: 'white',
               borderColor: '#FF3B30',
@@ -140,7 +140,7 @@ export default function Hero() {
 
           {/* 按钮2 */}
           <button
-            className="px-10 py-3 sm:px-12 sm:py-4 text-sm sm:text-base font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg border-2"
+            className="px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg border-2"
             style={{
               backgroundColor: 'white',
               borderColor: '#FF3B30',
