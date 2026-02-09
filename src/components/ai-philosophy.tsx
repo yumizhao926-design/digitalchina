@@ -161,27 +161,57 @@ export default function AIPhilosophy() {
               </div>
             </div>
 
-            {/* 右侧下载区 */}
-            <div className="lg:col-span-2 p-10 lg:p-12 flex flex-col justify-center" style={{ backgroundColor: 'rgba(255, 59, 48, 0.05)' }}>
-              <div className="text-center">
-                {/* 书本图标 */}
-                <div className="mb-6">
+            {/* 右侧下载区 - 图片风格 */}
+            <div className="lg:col-span-2 p-0 relative overflow-hidden" style={{ backgroundColor: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)' }}>
+              {/* 装饰背景 */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 right-0 w-64 h-64 rounded-full" style={{ background: 'radial-gradient(circle, #FF3B30 0%, transparent 70%)', transform: 'translate(30%, -30%)' }}></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full" style={{ background: 'radial-gradient(circle, #FF3B30 0%, transparent 70%)', transform: 'translate(-30%, 30%)' }}></div>
+              </div>
+
+              {/* 内容 */}
+              <div className="relative z-10 h-full flex flex-col items-center justify-center p-10 text-center">
+                {/* 书本封面 */}
+                <div className="relative mb-8">
                   <div
-                    className="w-32 h-40 mx-auto rounded-lg shadow-xl flex flex-col items-center justify-center transition-transform duration-300 hover:scale-105"
+                    className="w-48 h-64 rounded-lg shadow-2xl flex flex-col items-center justify-center relative overflow-hidden"
                     style={{
-                      background: 'linear-gradient(135deg, #FF3B30 0%, #E63928 100%)',
+                      background: 'linear-gradient(145deg, #FF3B30 0%, #C42520 100%)',
                     }}
                   >
-                    <BookOpen className="w-10 h-10 text-white mb-2" />
-                    <div className="text-white font-semibold text-sm">AI for Process</div>
-                    <div className="text-white text-xs mt-1" style={{ opacity: 0.8 }}>白皮书</div>
+                    {/* 封面装饰线条 */}
+                    <div className="absolute top-0 left-0 right-0 h-1" style={{ background: 'rgba(255,255,255,0.3)' }}></div>
+                    <div className="absolute bottom-0 left-0 right-0 h-1" style={{ background: 'rgba(255,255,255,0.3)' }}></div>
+                    <div className="absolute left-0 top-0 bottom-0 w-1" style={{ background: 'rgba(255,255,255,0.2)' }}></div>
+
+                    {/* 图标 */}
+                    <BookOpen className="w-14 h-14 text-white mb-4" />
+
+                    {/* 文字 */}
+                    <div className="text-white font-bold text-xl mb-1">AI FOR PROCESS</div>
+                    <div className="text-white text-base mb-4" style={{ opacity: 0.9 }}>方法论白皮书</div>
+
+                    {/* 分割线 */}
+                    <div className="w-12 h-0.5 mb-4" style={{ background: 'rgba(255,255,255,0.5)' }}></div>
+
+                    {/* 年份 */}
+                    <div className="text-white text-sm" style={{ opacity: 0.7 }}>2024</div>
                   </div>
+
+                  {/* 书脊阴影 */}
+                  <div
+                    className="absolute left-0 top-0 bottom-0 w-4 rounded-l-lg"
+                    style={{
+                      background: 'linear-gradient(90deg, #8B1A15 0%, #FF3B30 100%)',
+                      transform: 'translateX(-2px)',
+                    }}
+                  ></div>
                 </div>
 
                 {/* 标题 */}
                 <h3
                   className="font-semibold mb-3"
-                  style={{ color: '#333333', fontSize: '20px' }}
+                  style={{ color: '#FFFFFF', fontSize: '24px' }}
                 >
                   获取完整白皮书
                 </h3>
@@ -189,16 +219,17 @@ export default function AIPhilosophy() {
                 {/* 描述 */}
                 <p
                   className="mb-6"
-                  style={{ color: '#666666', lineHeight: '1.7', fontSize: '14px' }}
+                  style={{ color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7', fontSize: '14px' }}
                 >
-                  30页深度解读AI for Process方法论，包含企业级应用案例和实施指南
+                  30页深度解读AI for Process方法论<br />
+                  包含企业级应用案例和实施指南
                 </p>
 
                 {/* 按钮组 */}
-                <div className="space-y-3">
+                <div className="space-y-3 w-full max-w-xs">
                   <button
                     onClick={() => setShowForm(true)}
-                    className="w-full px-8 py-3 font-medium text-white transition-all duration-300 hover:shadow-lg inline-flex items-center justify-center gap-2"
+                    className="w-full px-8 py-3.5 font-medium text-white transition-all duration-300 hover:shadow-lg inline-flex items-center justify-center gap-2"
                     style={{
                       backgroundColor: '#FF3B30',
                       borderRadius: '8px',
@@ -209,10 +240,10 @@ export default function AIPhilosophy() {
                   </button>
                   <button
                     onClick={handleScrollToEngine}
-                    className="w-full px-8 py-3 font-medium transition-all duration-300 hover:shadow-md inline-flex items-center justify-center gap-2"
+                    className="w-full px-8 py-3.5 font-medium transition-all duration-300 hover:shadow-md inline-flex items-center justify-center gap-2"
                     style={{
-                      border: '1px solid #666666',
-                      color: '#666666',
+                      border: '1px solid rgba(255, 255, 255, 0.3)',
+                      color: '#FFFFFF',
                       borderRadius: '8px',
                       backgroundColor: 'transparent',
                     }}
