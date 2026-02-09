@@ -118,7 +118,7 @@ export default function Hero() {
 
         {/* CTA按钮组 */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          {/* 主按钮 */}
+          {/* 按钮1 */}
           <button
             className="px-10 py-3 sm:px-12 sm:py-4 text-sm sm:text-base font-medium text-white rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
             style={{
@@ -134,19 +134,17 @@ export default function Hero() {
             发现企业智能
           </button>
 
-          {/* 次按钮 */}
+          {/* 按钮2 */}
           <button
-            className="px-10 py-3 sm:px-12 sm:py-4 text-sm sm:text-base font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg border-2"
+            className="px-10 py-3 sm:px-12 sm:py-4 text-sm sm:text-base font-medium text-white rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
             style={{
-              backgroundColor: 'white',
-              borderColor: '#FF3B30',
-              color: '#FF3B30',
+              backgroundColor: '#FF3B30',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#FFF5F5';
+              e.currentTarget.style.backgroundColor = '#D70015';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'white';
+              e.currentTarget.style.backgroundColor = '#FF3B30';
             }}
           >
             预约专家演示
