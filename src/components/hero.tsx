@@ -120,9 +120,9 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
           {/* 按钮1 */}
           <button
-            className="px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg border-2"
+            className="px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg border-2 backdrop-blur-sm"
             style={{
-              backgroundColor: 'transparent',
+              backgroundColor: 'rgba(255, 255, 255, 0.7)',
               borderColor: '#FF3B30',
               color: '#FF3B30',
             }}
@@ -131,7 +131,7 @@ export default function Hero() {
               e.currentTarget.style.color = 'white';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
               e.currentTarget.style.color = '#FF3B30';
             }}
           >
@@ -140,9 +140,9 @@ export default function Hero() {
 
           {/* 按钮2 */}
           <button
-            className="px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg border-2"
+            className="px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg border-2 backdrop-blur-sm"
             style={{
-              backgroundColor: 'transparent',
+              backgroundColor: 'rgba(255, 255, 255, 0.7)',
               borderColor: '#FF3B30',
               color: '#FF3B30',
             }}
@@ -151,7 +151,7 @@ export default function Hero() {
               e.currentTarget.style.color = 'white';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
               e.currentTarget.style.color = '#FF3B30';
             }}
           >
