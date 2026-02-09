@@ -42,18 +42,19 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
           {/* 按钮1 */}
           <button
-            className="px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg border-2 backdrop-blur-sm"
+            className="px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg border"
             style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.15)',
+              backgroundColor: 'transparent',
               borderColor: 'rgb(215, 0, 29)',
               color: 'rgb(215, 0, 29)',
+              borderRadius: '6px',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = 'rgb(215, 0, 29)';
               e.currentTarget.style.color = 'white';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+              e.currentTarget.style.backgroundColor = 'transparent';
               e.currentTarget.style.color = 'rgb(215, 0, 29)';
             }}
           >
@@ -62,18 +63,19 @@ export default function Hero() {
 
           {/* 按钮2 */}
           <button
-            className="px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg border-2 backdrop-blur-sm"
+            className="px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg border"
             style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.15)',
+              backgroundColor: 'transparent',
               borderColor: 'rgb(215, 0, 29)',
               color: 'rgb(215, 0, 29)',
+              borderRadius: '6px',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = 'rgb(215, 0, 29)';
               e.currentTarget.style.color = 'white';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+              e.currentTarget.style.backgroundColor = 'transparent';
               e.currentTarget.style.color = 'rgb(215, 0, 29)';
             }}
           >

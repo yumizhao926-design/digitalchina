@@ -90,7 +90,7 @@ export default function CaseCarousel() {
               border: '1px solid rgb(215, 0, 29)',
               color: 'rgb(215, 0, 29)',
               backgroundColor: 'transparent',
-              borderRadius: '9999px'
+              borderRadius: '6px'
             }}
           >
             查看全部案例
@@ -235,7 +235,7 @@ export default function CaseCarousel() {
               border: '1px solid rgb(215, 0, 29)',
               color: 'rgb(215, 0, 29)',
               backgroundColor: 'transparent',
-              borderRadius: '9999px'
+              borderRadius: '6px'
             }}
           >
             查看全部案例

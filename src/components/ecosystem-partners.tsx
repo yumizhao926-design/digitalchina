@@ -219,7 +219,7 @@ export default function EcosystemPartners() {
                 border: '1px solid rgb(215, 0, 29)',
                 color: 'rgb(215, 0, 29)',
                 backgroundColor: 'transparent',
-                borderRadius: '9999px'
+                borderRadius: '6px'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = 'rgb(215, 0, 29)';
