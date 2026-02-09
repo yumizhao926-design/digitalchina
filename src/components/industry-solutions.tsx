@@ -303,20 +303,14 @@ export default function IndustrySolutions() {
                     {solution.description}
                   </p>
 
-                  {/* 详情按钮 */}
-                  <button
-                    className="px-5 py-2.5 text-sm font-medium rounded-full flex items-center gap-2 transition-all duration-300 hover:bg-white hover:text-gray-900 hover:scale-105"
-                    style={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                      color: '#FFFFFF',
-                      border: '1px solid rgba(255, 255, 255, 0.3)',
-                      backdropFilter: 'blur(10px)',
-                      width: 'fit-content'
-                    }}
+                  {/* 详情文字链接 */}
+                  <div
+                    className="flex items-center gap-2 text-sm font-medium transition-all duration-300 hover:gap-3 cursor-pointer"
+                    style={{ color: '#FFFFFF', opacity: 0.9 }}
                   >
                     查看详情
-                    <ArrowRight size={12} />
-                  </button>
+                    <ArrowRight size={14} />
+                  </div>
                 </div>
               </div>
             ))}
@@ -395,20 +389,14 @@ export default function IndustrySolutions() {
                     {solution.description}
                   </p>
 
-                  {/* 详情按钮 */}
-                  <button
-                    className="px-5 py-2.5 text-sm font-medium rounded-full flex items-center gap-2 transition-all duration-300 hover:bg-white hover:text-gray-900"
-                    style={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                      color: '#FFFFFF',
-                      border: '1px solid rgba(255, 255, 255, 0.3)',
-                      backdropFilter: 'blur(10px)',
-                      width: 'fit-content'
-                    }}
+                  {/* 详情文字链接 */}
+                  <div
+                    className="flex items-center gap-2 text-sm font-medium transition-all duration-300 hover:gap-3 cursor-pointer"
+                    style={{ color: '#FFFFFF', opacity: 0.9 }}
                   >
                     查看详情
-                    <ArrowRight size={12} />
-                  </button>
+                    <ArrowRight size={14} />
+                  </div>
                 </div>
               </div>
             ))}
