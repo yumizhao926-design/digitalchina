@@ -34,11 +34,14 @@ export default function Navbar() {
     >
       <div className="container mx-auto max-w-7xl h-full px-4 sm:px-8">
         <div className="flex items-center justify-between h-full">
-          {/* 左侧 Logo */}
+          {/* 左侧 Logo - 图片框 */}
           <div className="flex-shrink-0">
-            <span className="text-base font-semibold text-foreground">
-              神州数码
-            </span>
+            <div
+              className="flex items-center justify-center w-10 h-10 border-2 rounded"
+              style={{ borderColor: '#FF3B30' }}
+            >
+              <span className="text-xs font-bold" style={{ color: '#FF3B30' }}>LOGO</span>
+            </div>
           </div>
 
           {/* 中间导航项 */}
