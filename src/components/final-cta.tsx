@@ -10,16 +10,14 @@ export default function FinalCTA() {
   return (
     <section
       className="py-24 sm:py-32 px-4 sm:px-8"
-      style={{
-        background: 'linear-gradient(135deg, #0A0A0A 0%, #1A1A2E 50%, #0F0F1A 100%)'
-      }}
+      style={{ backgroundColor: '#FFFFFF' }}
     >
       <div className="container mx-auto max-w-7xl text-center">
         {/* 主标题 */}
         <h1
           className="font-bold mb-6"
           style={{
-            color: '#FFFFFF',
+            color: '#333333',
             fontSize: '32px',
             lineHeight: '1.4'
           }}
@@ -31,7 +29,7 @@ export default function FinalCTA() {
         <p
           className="mb-12 max-w-3xl mx-auto"
           style={{
-            color: '#999999',
+            color: '#666666',
             fontSize: '18px',
             lineHeight: '1.6'
           }}
