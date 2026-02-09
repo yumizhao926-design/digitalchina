@@ -128,57 +128,57 @@ export default function CaseCarousel() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
                     {/* 内容叠加 */}
-                    <div className="relative z-10 p-8 sm:p-12 h-full flex flex-col min-h-[400px]">
-                      {/* 顶部：客户名称 + 行业标签 */}
-                      <div className="flex items-start justify-between mb-auto">
-                        <div>
-                          <h3
-                            className="font-bold mb-2"
-                            style={{ color: '#FFFFFF', fontSize: '32px', letterSpacing: '0.5px' }}
-                          >
-                            {caseStudy.clientName}
-                          </h3>
-                          <p
-                            className="text-sm"
-                            style={{ color: '#FFFFFF', opacity: 0.7 }}
-                          >
-                            {caseStudy.industry}
-                          </p>
-                        </div>
-
-                        {/* 红色数据标签 */}
+                    <div className="relative z-10 p-8 sm:p-12 h-full flex flex-col justify-between min-h-[400px]">
+                      <div>
+                        {/* 行业标签 */}
                         <div
-                          className="px-5 py-3 rounded-2xl text-center"
+                          className="inline-block px-4 py-2 rounded-full text-sm font-medium mb-4"
                           style={{
                             backgroundColor: '#E60012',
-                            color: '#FFFFFF',
-                            minWidth: 'fit-content'
+                            color: '#FFFFFF'
                           }}
                         >
-                          <p className="text-xs mb-1" style={{ opacity: 0.8 }}>核心成果</p>
+                          {caseStudy.industry}
+                        </div>
+
+                        {/* 客户名称 */}
+                        <h3
+                          className="font-bold mb-3"
+                          style={{ color: '#FFFFFF', fontSize: '28px', letterSpacing: '0.5px' }}
+                        >
+                          {caseStudy.clientName}
+                        </h3>
+
+                        {/* 合作场景 */}
+                        <div className="mb-4">
                           <p
-                            className="font-bold"
-                            style={{ fontSize: '28px', lineHeight: '1' }}
+                            className="text-xs mb-2"
+                            style={{ color: '#FFFFFF', opacity: 0.8 }}
                           >
-                            {caseStudy.result}
+                            合作场景
+                          </p>
+                          <p
+                            className="font-medium"
+                            style={{ color: '#FFFFFF', fontSize: '20px', lineHeight: '1.4' }}
+                          >
+                            {caseStudy.scenario}
                           </p>
                         </div>
                       </div>
 
-                      {/* 底部：合作场景 */}
+                      {/* 核心成果 */}
                       <div>
-                        <div className="w-12 h-0.5 mb-4" style={{ backgroundColor: '#FFFFFF', opacity: 0.3 }} />
                         <p
                           className="text-xs mb-2"
-                          style={{ color: '#FFFFFF', opacity: 0.6 }}
+                          style={{ color: '#FFFFFF', opacity: 0.8 }}
                         >
-                          合作场景
+                          核心成果
                         </p>
                         <p
-                          className="font-medium"
-                          style={{ color: '#FFFFFF', fontSize: '22px', lineHeight: '1.4' }}
+                          className="font-bold"
+                          style={{ color: '#E60012', fontSize: '32px' }}
                         >
-                          {caseStudy.scenario}
+                          {caseStudy.result}
                         </p>
                       </div>
                     </div>
