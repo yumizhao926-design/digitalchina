@@ -21,7 +21,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-1',
     name: '汽车制造',
     description: '智能制造质量检测：AI视觉质检\n用户运营智能分析：数据深度挖掘\n车联网AI优化：智能驾驶算法优化',
-    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&h=900&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=900&fit=crop&q=80',
     value: '效率提升90%',
     detail: {
       title: '汽车制造智能化解决方案',
@@ -40,7 +40,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-2',
     name: '制造流程优化方案',
     description: '预测性维护 · 智能质检 · 供应链',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=900&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=900&fit=crop&q=80',
     value: '良品率+25%',
     detail: {
       title: '智能制造流程优化解决方案',
@@ -62,7 +62,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-3',
     name: '金融流程数智方案',
     description: '智能风控 · 量化投研 · 反欺诈',
-    image: 'https://images.unsplash.com/photo-1565514020296-59d775083a16?w=1200&h=900&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=900&fit=crop&q=80',
     value: '风险识别率99.9%',
     detail: {
       title: '金融数智化解决方案',
@@ -84,7 +84,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-4',
     name: '医疗医药流程升级方案',
     description: '影像诊断 · 药物研发 · 健康管理',
-    image: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1200&h=900&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=900&fit=crop&q=80',
     value: '诊断准确率95%',
     detail: {
       title: '医疗医药智能化解决方案',
@@ -106,7 +106,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-5',
     name: '零售流程智能化方案',
     description: '智能推荐 · 供应链 · 客户洞察',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a276?w=1200&h=900&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&h=900&fit=crop&q=80',
     value: '转化率+80%',
     detail: {
       title: '零售智能化解决方案',
@@ -128,7 +128,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-6',
     name: '能源流程优化方案',
     description: '智能调度 · 能效分析 · 预测维护',
-    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&h=900&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=900&fit=crop&q=80',
     value: '能耗降低35%',
     detail: {
       title: '能源智能化解决方案',
@@ -150,7 +150,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-7',
     name: '教育流程创新方案',
     description: '智能教学 · 个性化学习 · 教务管理',
-    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&h=900&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&h=900&fit=crop&q=80',
     value: '学习效率+60%',
     detail: {
       title: '教育智能化解决方案',
