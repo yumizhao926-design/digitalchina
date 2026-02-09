@@ -24,7 +24,7 @@ const caseStudies: CaseStudy[] = [
   {
     id: 'case-2',
     clientName: '岚图汽车',
-    logo: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_65494f4a-2081-46c2-bd47-1290eaf8357b.jpeg?sign=1802172303-93248a35ab-0-d10f4443dac968a615330c6476e74d5baea0d69dc9b1355b9539dd3ccfde37bf',
+    logo: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_d1c0b62a-b682-4526-9efb-5d1343d482b3.jpeg?sign=1802172482-1243795b91-0-c791808ac5c6e149e29b1ea3632c2e974d1f2523163e97e32fb02f0903431815',
     industry: '制造',
     scenario: '智能办公',
     result: '成本降低40%'
