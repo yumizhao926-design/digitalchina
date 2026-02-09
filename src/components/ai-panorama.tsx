@@ -39,6 +39,7 @@ interface CircleItem {
   category?: string;
   link?: string;
   icon: React.ReactNode;
+  color: string;
 }
 
 // 核心圈层（内环）
@@ -56,6 +57,7 @@ const coreItems: CircleItem[] = [
     ],
     link: '#infrastructure',
     icon: <Server className="w-5 h-5" />,
+    color: '#FF3B30',
   },
   {
     id: 'core-2',
@@ -70,6 +72,7 @@ const coreItems: CircleItem[] = [
     ],
     link: '#agent-platform',
     icon: <Brain className="w-5 h-5" />,
+    color: '#FF3B30',
   },
 ];
 
@@ -83,6 +86,7 @@ const industryItems: CircleItem[] = [
     features: ['一网通办', '智慧政务', '数据治理', '智能监管'],
     link: '#industry-government',
     icon: <Building2 className="w-4 h-4" />,
+    color: '#3B82F6',
   },
   {
     id: 'industry-2',
@@ -92,6 +96,7 @@ const industryItems: CircleItem[] = [
     features: ['预测性维护', '智能质检', '供应链优化', '能源管理'],
     link: '#industry-manufacturing',
     icon: <Factory className="w-4 h-4" />,
+    color: '#3B82F6',
   },
   {
     id: 'industry-3',
@@ -101,6 +106,7 @@ const industryItems: CircleItem[] = [
     features: ['智能风控', '量化投研', '智能客服', '反欺诈'],
     link: '#industry-finance',
     icon: <Landmark className="w-4 h-4" />,
+    color: '#3B82F6',
   },
   {
     id: 'industry-4',
@@ -110,6 +116,7 @@ const industryItems: CircleItem[] = [
     features: ['影像诊断', '药物研发', '健康管理', '慢病管理'],
     link: '#industry-healthcare',
     icon: <Stethoscope className="w-4 h-4" />,
+    color: '#3B82F6',
   },
   {
     id: 'industry-5',
@@ -119,6 +126,7 @@ const industryItems: CircleItem[] = [
     features: ['智能推荐', '会员运营', '库存优化', '价格预测'],
     link: '#industry-retail',
     icon: <ShoppingBag className="w-4 h-4" />,
+    color: '#3B82F6',
   },
   {
     id: 'industry-6',
@@ -128,6 +136,7 @@ const industryItems: CircleItem[] = [
     features: ['个性化学习', '智能批改', '知识图谱', '学情分析'],
     link: '#industry-education',
     icon: <GraduationCap className="w-4 h-4" />,
+    color: '#3B82F6',
   },
   {
     id: 'industry-7',
@@ -137,6 +146,7 @@ const industryItems: CircleItem[] = [
     features: ['智能调度', '负荷预测', '设备监测', '能效优化'],
     link: '#industry-energy',
     icon: <Zap className="w-4 h-4" />,
+    color: '#3B82F6',
   },
   {
     id: 'industry-8',
@@ -146,6 +156,7 @@ const industryItems: CircleItem[] = [
     features: ['路径规划', '智能调度', '交通监控', '违章识别'],
     link: '#industry-transport',
     icon: <Car className="w-4 h-4" />,
+    color: '#3B82F6',
   },
 ];
 
@@ -161,6 +172,7 @@ const productItems: CircleItem[] = [
     features: ['多模型统一接入', 'API标准化', '私有化部署支持', '模型微调'],
     link: '#product-llm-service',
     icon: <Layers className="w-3 h-3" />,
+    color: '#9CA3AF',
   },
   {
     id: 'product-2',
@@ -171,6 +183,7 @@ const productItems: CircleItem[] = [
     features: ['高性能检索', '亿级向量支持', '企业级安全', '实时更新'],
     link: '#product-vector-db',
     icon: <Database className="w-3 h-3" />,
+    color: '#9CA3AF',
   },
   {
     id: 'product-3',
@@ -181,6 +194,7 @@ const productItems: CircleItem[] = [
     features: ['知识增强', '精准检索', '多模态支持', '溯源可解释'],
     link: '#product-rag',
     icon: <Search className="w-3 h-3" />,
+    color: '#9CA3AF',
   },
   {
     id: 'product-4',
@@ -191,6 +205,7 @@ const productItems: CircleItem[] = [
     features: ['知识治理', '自动解析', '版本控制', '权限管理'],
     link: '#product-knowledge-base',
     icon: <BookOpen className="w-3 h-3" />,
+    color: '#9CA3AF',
   },
   // 平台层
   {
@@ -202,6 +217,7 @@ const productItems: CircleItem[] = [
     features: ['可视化编排', '零代码开发', '多Agent协作', '流程监控'],
     link: '#product-agent-builder',
     icon: <Workflow className="w-3 h-3" />,
+    color: '#9CA3AF',
   },
   {
     id: 'product-6',
@@ -212,6 +228,7 @@ const productItems: CircleItem[] = [
     features: ['多渠道接入', '人机协作', '会话分析', '意图识别'],
     link: '#product-dialog-manager',
     icon: <MessageSquare className="w-3 h-3" />,
+    color: '#9CA3AF',
   },
   {
     id: 'product-7',
@@ -222,6 +239,7 @@ const productItems: CircleItem[] = [
     features: ['流程自动化', 'API集成', '业务编排', '异常处理'],
     link: '#product-workflow-engine',
     icon: <Wrench className="w-3 h-3" />,
+    color: '#9CA3AF',
   },
   {
     id: 'product-8',
@@ -232,6 +250,7 @@ const productItems: CircleItem[] = [
     features: ['提示词优化', 'A/B测试', '效果评估', '版本管理'],
     link: '#product-prompt-optimizer',
     icon: <Sparkles className="w-3 h-3" />,
+    color: '#9CA3AF',
   },
   // 应用层
   {
@@ -243,6 +262,7 @@ const productItems: CircleItem[] = [
     features: ['多模态交互', '情感识别', '知识库驱动', '人机协作'],
     link: '#product-customer-service',
     icon: <Headphones className="w-3 h-3" />,
+    color: '#9CA3AF',
   },
   {
     id: 'product-10',
@@ -253,6 +273,7 @@ const productItems: CircleItem[] = [
     features: ['OCR识别', '语义理解', '自动分类', '智能提取'],
     link: '#product-document',
     icon: <FileText className="w-3 h-3" />,
+    color: '#9CA3AF',
   },
   {
     id: 'product-11',
@@ -263,6 +284,7 @@ const productItems: CircleItem[] = [
     features: ['用户画像', '精准投放', '效果分析', '创意生成'],
     link: '#product-marketing',
     icon: <Target className="w-3 h-3" />,
+    color: '#9CA3AF',
   },
   {
     id: 'product-12',
@@ -273,6 +295,7 @@ const productItems: CircleItem[] = [
     features: ['实时监控', '异常检测', '风险预警', '策略引擎'],
     link: '#product-risk-control',
     icon: <Shield className="w-3 h-3" />,
+    color: '#9CA3AF',
   },
 ];
 
@@ -325,26 +348,10 @@ export default function AIPanorama() {
         {!isMobile && (
           <div className="relative" style={{ height: '700px' }}>
             <svg viewBox="0 0 800 700" className="w-full h-full">
-              <defs>
-                {/* 渐变定义 */}
-                <linearGradient id="coreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#FF3B30" stopOpacity="0.25" />
-                  <stop offset="100%" stopColor="#FF3B30" stopOpacity="0.15" />
-                </linearGradient>
-                <linearGradient id="industryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.2" />
-                  <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.1" />
-                </linearGradient>
-                <linearGradient id="productGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#9CA3AF" stopOpacity="0.15" />
-                  <stop offset="100%" stopColor="#9CA3AF" stopOpacity="0.08" />
-                </linearGradient>
-              </defs>
-
               {/* 中心点 */}
               <g transform="translate(400, 350)">
-                {/* 核心圈层 - 内环 */}
-                <circle cx="0" cy="0" r="80" fill="url(#coreGradient)" />
+                {/* 核心圈层 - 内环 - 仅边框 */}
+                <circle cx="0" cy="0" r="80" fill="none" stroke="#FF3B30" strokeWidth="3" strokeOpacity="0.4" />
 
                 {/* 核心项1 */}
                 <g
@@ -355,12 +362,10 @@ export default function AIPanorama() {
                   onClick={() => handleItemClick(coreItems[0])}
                 >
                   <foreignObject x="-25" y="-25" width="50" height="50">
-                    <div className="w-full h-full rounded-full flex items-center justify-center transition-all duration-300 relative" style={{
-                      background: hoveredItem?.id === coreItems[0].id ? '#FF3B30' : 'rgba(255, 59, 48, 0.6)',
+                    <div className="w-full h-full flex items-center justify-center transition-all duration-300 relative" style={{
                       transform: hoveredItem?.id === coreItems[0].id ? 'scale(1.2)' : 'scale(1)',
-                      transition: 'all 0.3s ease',
                     }}>
-                      <div style={{ color: '#FFFFFF' }}>
+                      <div style={{ color: coreItems[0].color }}>
                         {coreItems[0].icon}
                       </div>
                     </div>
@@ -388,12 +393,10 @@ export default function AIPanorama() {
                   onClick={() => handleItemClick(coreItems[1])}
                 >
                   <foreignObject x="-25" y="-25" width="50" height="50">
-                    <div className="w-full h-full rounded-full flex items-center justify-center transition-all duration-300 relative" style={{
-                      background: hoveredItem?.id === coreItems[1].id ? '#666666' : 'rgba(102, 102, 102, 0.6)',
+                    <div className="w-full h-full flex items-center justify-center transition-all duration-300 relative" style={{
                       transform: hoveredItem?.id === coreItems[1].id ? 'scale(1.2)' : 'scale(1)',
-                      transition: 'all 0.3s ease',
                     }}>
-                      <div style={{ color: '#FFFFFF' }}>
+                      <div style={{ color: coreItems[1].color }}>
                         {coreItems[1].icon}
                       </div>
                     </div>
@@ -412,8 +415,8 @@ export default function AIPanorama() {
                   </text>
                 </g>
 
-                {/* 行业圈层 - 中环 */}
-                <circle cx="0" cy="0" r="160" fill="url(#industryGradient)" />
+                {/* 行业圈层 - 中环 - 仅边框 */}
+                <circle cx="0" cy="0" r="160" fill="none" stroke="#3B82F6" strokeWidth="2.5" strokeOpacity="0.35" />
 
                 {/* 行业项 - 8个 */}
                 {industryItems.map((item, index) => {
@@ -431,12 +434,10 @@ export default function AIPanorama() {
                       onClick={() => handleItemClick(item)}
                     >
                       <foreignObject x="-22" y="-22" width="44" height="44">
-                        <div className="w-full h-full rounded-full flex items-center justify-center transition-all duration-300 relative" style={{
-                          background: hoveredItem?.id === item.id ? '#3B82F6' : 'rgba(59, 130, 246, 0.7)',
+                        <div className="w-full h-full flex items-center justify-center transition-all duration-300 relative" style={{
                           transform: hoveredItem?.id === item.id ? 'scale(1.15)' : 'scale(1)',
-                          transition: 'all 0.3s ease',
                         }}>
-                          <div style={{ color: '#FFFFFF' }}>
+                          <div style={{ color: item.color }}>
                             {item.icon}
                           </div>
                         </div>
@@ -457,8 +458,8 @@ export default function AIPanorama() {
                   );
                 })}
 
-                {/* 产品圈层 - 外环 */}
-                <circle cx="0" cy="0" r="260" fill="url(#productGradient)" />
+                {/* 产品圈层 - 外环 - 仅边框 */}
+                <circle cx="0" cy="0" r="260" fill="none" stroke="#9CA3AF" strokeWidth="2" strokeOpacity="0.3" />
 
                 {/* 产品项 - 12个 */}
                 {productItems.map((item, index) => {
@@ -476,12 +477,10 @@ export default function AIPanorama() {
                       onClick={() => handleItemClick(item)}
                     >
                       <foreignObject x="-18" y="-18" width="36" height="36">
-                        <div className="w-full h-full rounded-full flex items-center justify-center transition-all duration-300 relative" style={{
-                          background: hoveredItem?.id === item.id ? '#9CA3AF' : 'rgba(156, 163, 175, 0.7)',
+                        <div className="w-full h-full flex items-center justify-center transition-all duration-300 relative" style={{
                           transform: hoveredItem?.id === item.id ? 'scale(1.15)' : 'scale(1)',
-                          transition: 'all 0.3s ease',
                         }}>
-                          <div style={{ color: '#FFFFFF' }}>
+                          <div style={{ color: item.color }}>
                             {item.icon}
                           </div>
                         </div>
@@ -562,10 +561,7 @@ export default function AIPanorama() {
                     onClick={() => handleItemClick(item)}
                   >
                     <div className="flex items-center gap-3 mb-2">
-                      <div
-                        className="w-10 h-10 rounded-full flex items-center justify-center"
-                        style={{ color: '#FFFFFF', backgroundColor: 'rgba(255, 59, 48, 0.7)' }}
-                      >
+                      <div style={{ color: item.color }}>
                         {item.icon}
                       </div>
                       <h4
@@ -598,18 +594,17 @@ export default function AIPanorama() {
                     className="bg-white rounded-xl p-4 shadow-sm cursor-pointer transition-all duration-300 active:scale-95"
                     onClick={() => handleItemClick(item)}
                   >
-                    <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center mb-2 mx-auto"
-                      style={{ color: '#FFFFFF', backgroundColor: 'rgba(59, 130, 246, 0.7)' }}
-                    >
-                      {item.icon}
+                    <div className="flex items-center gap-3 mb-2">
+                      <div style={{ color: item.color }}>
+                        {item.icon}
+                      </div>
+                      <h4
+                        className="font-medium"
+                        style={{ color: '#333333', fontSize: '14px' }}
+                      >
+                        {item.label}
+                      </h4>
                     </div>
-                    <h4
-                      className="text-center font-medium"
-                      style={{ color: '#333333', fontSize: '14px' }}
-                    >
-                      {item.label}
-                    </h4>
                   </div>
                 ))}
               </div>
@@ -642,10 +637,7 @@ export default function AIPanorama() {
                             onClick={() => handleItemClick(item)}
                           >
                             <div className="flex items-center gap-3">
-                              <div
-                                className="w-8 h-8 rounded-full flex items-center justify-center"
-                                style={{ color: '#FFFFFF', backgroundColor: 'rgba(156, 163, 175, 0.7)' }}
-                              >
+                              <div style={{ color: item.color }}>
                                 {item.icon}
                               </div>
                               <h4
@@ -699,10 +691,7 @@ export default function AIPanorama() {
                   </div>
                 )}
                 <div className="flex items-center gap-3 mb-2">
-                  <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center"
-                    style={{ color: '#FFFFFF', backgroundColor: 'rgba(255, 59, 48, 0.7)' }}
-                  >
+                  <div style={{ color: selectedItem.color }}>
                     {selectedItem.icon}
                   </div>
                   <h3
