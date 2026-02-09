@@ -124,9 +124,6 @@ export default function CaseCarousel() {
                       style={{ backgroundImage: `url(${caseStudy.logo})` }}
                     />
 
-                    {/* 渐变遮罩 */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-
                     {/* 内容叠加 */}
                     <div className="relative z-10 p-8 sm:p-12 h-full flex flex-col justify-between min-h-[400px]">
                       <div>
@@ -144,7 +141,7 @@ export default function CaseCarousel() {
                         {/* 客户名称 */}
                         <h3
                           className="font-bold mb-3"
-                          style={{ color: '#FFFFFF', fontSize: '28px', letterSpacing: '0.5px' }}
+                          style={{ color: '#333333', fontSize: '28px', letterSpacing: '0.5px' }}
                         >
                           {caseStudy.clientName}
                         </h3>
@@ -153,13 +150,13 @@ export default function CaseCarousel() {
                         <div className="mb-4">
                           <p
                             className="text-xs mb-2"
-                            style={{ color: '#FFFFFF', opacity: 0.8 }}
+                            style={{ color: '#666666' }}
                           >
                             合作场景
                           </p>
                           <p
                             className="font-medium"
-                            style={{ color: '#FFFFFF', fontSize: '20px', lineHeight: '1.4' }}
+                            style={{ color: '#333333', fontSize: '20px', lineHeight: '1.4' }}
                           >
                             {caseStudy.scenario}
                           </p>
@@ -170,7 +167,7 @@ export default function CaseCarousel() {
                       <div>
                         <p
                           className="text-xs mb-2"
-                          style={{ color: '#FFFFFF', opacity: 0.8 }}
+                          style={{ color: '#666666' }}
                         >
                           核心成果
                         </p>
