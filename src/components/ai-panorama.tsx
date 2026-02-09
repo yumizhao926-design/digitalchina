@@ -480,7 +480,6 @@ export default function AIPanorama() {
                 {/* 核心项1 */}
                 {showPhase >= 0 && (
                   <g
-                    transform="translate(0, -35)"
                     className="cursor-pointer transition-all duration-1000"
                     style={{
                       opacity: showPhase >= 0 ? 1 : 0,
@@ -509,7 +508,6 @@ export default function AIPanorama() {
                 {/* 核心项2 */}
                 {showPhase >= 0 && (
                   <g
-                    transform="translate(0, 35)"
                     className="cursor-pointer transition-all duration-1000"
                     style={{
                       opacity: showPhase >= 0 ? 1 : 0,
@@ -555,17 +553,6 @@ export default function AIPanorama() {
                   return (
                     <g
                       key={item.id}
-                      transform={`translate(${x}, ${y})`}
-                      className="cursor-pointer transition-all duration-1000"
-                      style={{
-                        opacity: showPhase >= 2 ? 1 : 0,
-                        transform: showPhase >= 2 ? `translate(${x}, ${y}) scale(1)` : `translate(${x}, ${y}) scale(0)`,
-                        transformOrigin: 'center center'
-                      }}
-                      onMouseEnter={() => setHoveredItem(item)}
-                      onMouseLeave={() => setHoveredItem(null)}
-                      onClick={() => handleItemClick(item)}
-                    >
                       className="cursor-pointer transition-all duration-1000"
                       style={{
                         opacity: showPhase >= 1 ? 1 : 0,
@@ -612,9 +599,12 @@ export default function AIPanorama() {
                   return (
                     <g
                       key={item.id}
-                      transform={`translate(${x}, ${y})`}
                       className="cursor-pointer transition-all duration-1000"
-                      style={{ opacity: showPhase >= 2 ? 1 : 0 }}
+                      style={{
+                        opacity: showPhase >= 2 ? 1 : 0,
+                        transform: showPhase >= 2 ? `translate(${x}, ${y}) scale(1)` : `translate(${x}, ${y}) scale(0)`,
+                        transformOrigin: 'center center'
+                      }}
                       onMouseEnter={() => setHoveredItem(item)}
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={() => handleItemClick(item)}
