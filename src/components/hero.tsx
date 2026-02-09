@@ -13,89 +13,6 @@ export default function Hero() {
         }}
       />
 
-      {/* 淡色几何装饰元素 */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* 大圆光晕1 - 右上角 */}
-        <div
-          className="absolute -top-20 -right-20 w-64 h-64 rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(255,59,48,0.04) 0%, transparent 70%)',
-            animation: 'float 8s ease-in-out infinite',
-          }}
-        />
-
-        {/* 大圆光晕2 - 左下角 */}
-        <div
-          className="absolute -bottom-16 -left-16 w-56 h-56 rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(51,51,51,0.03) 0%, transparent 70%)',
-            animation: 'float 10s ease-in-out infinite',
-            animationDelay: '2s',
-          }}
-        />
-
-        {/* 淡线条装饰 - 水平 */}
-        <div
-          className="absolute top-1/4 left-10 w-24 h-px"
-          style={{
-            background: 'linear-gradient(90deg, transparent, rgba(51,51,51,0.1), transparent)',
-          }}
-        />
-        <div
-          className="absolute top-1/4 right-10 w-20 h-px"
-          style={{
-            background: 'linear-gradient(90deg, transparent, rgba(51,51,51,0.08), transparent)',
-          }}
-        />
-
-        {/* 淡线条装饰 - 垂直 */}
-        <div
-          className="absolute top-20 left-1/4 w-px h-16"
-          style={{
-            background: 'linear-gradient(180deg, transparent, rgba(51,51,51,0.08), transparent)',
-          }}
-        />
-        <div
-          className="absolute bottom-24 right-1/3 w-px h-12"
-          style={{
-            background: 'linear-gradient(180deg, transparent, rgba(51,51,51,0.1), transparent)',
-          }}
-        />
-
-        {/* 小圆点装饰 */}
-        <div
-          className="absolute top-1/2 right-1/4 w-2 h-2 rounded-full"
-          style={{
-            background: 'rgba(255,59,48,0.25)',
-            animation: 'pulse 3s ease-in-out infinite',
-          }}
-        />
-        <div
-          className="absolute bottom-1/4 left-1/4 w-1.5 h-1.5 rounded-full"
-          style={{
-            background: 'rgba(51,51,51,0.2)',
-            animation: 'pulse 4s ease-in-out infinite',
-            animationDelay: '1s',
-          }}
-        />
-
-        {/* 几何方块装饰 */}
-        <div
-          className="absolute top-1/2 left-16 w-4 h-4 border rotate-45"
-          style={{
-            borderColor: 'rgba(51,51,51,0.08)',
-            animation: 'rotateSlow 20s linear infinite',
-          }}
-        />
-        <div
-          className="absolute bottom-1/4 right-20 w-3 h-3 border rotate-12"
-          style={{
-            borderColor: 'rgba(255,59,48,0.12)',
-            animation: 'rotateSlow 25s linear infinite reverse',
-          }}
-        />
-      </div>
-
       {/* 中央内容 */}
       <div className="relative z-10 text-center px-4 sm:px-8 max-w-5xl mx-auto">
         {/* 主标题 */}
@@ -166,35 +83,6 @@ export default function Hero() {
 
       {/* 添加CSS动画 */}
       <style jsx>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translate(0, 0) scale(1);
-          }
-          50% {
-            transform: translate(10px, -10px) scale(1.05);
-          }
-        }
-
-        @keyframes pulse {
-          0%, 100% {
-            opacity: 0.3;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.6;
-            transform: scale(1.2);
-          }
-        }
-
-        @keyframes rotateSlow {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-
         @keyframes fadeInUp {
           0% {
             opacity: 0;
