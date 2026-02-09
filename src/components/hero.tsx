@@ -7,15 +7,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80")',
-        }}
-      />
-
-      {/* 淡色遮罩层 - 让背景变浅，文字清晰 */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: 'linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.4) 100%)',
+          backgroundImage: 'url("https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_991dc52a-8699-4a40-b0fe-a609317594d7.jpeg?sign=1802155379-d9c4ac1c8c-0-252197ec2b6e45a46e32f678bb5e3e5090a6286805af297274e97ecbba575f30")',
         }}
       />
 
