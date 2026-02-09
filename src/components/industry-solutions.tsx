@@ -21,7 +21,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-1',
     name: '汽车制造',
     description: '智能制造质量检测：AI视觉质检\n用户运营智能分析：数据深度挖掘\n车联网AI优化：智能驾驶算法优化',
-    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&h=900&fit=crop&q=80',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_b3296359-fa0e-423f-a3f6-e7e5d11dd7bd.jpeg?sign=1802168978-d1ae252cc2-0-773469df3099a94f38419e12bf9604d540619fadead713587feae5c2852ded59',
     value: '效率提升90%',
     detail: {
       title: '汽车制造智能化解决方案',
@@ -40,7 +40,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-2',
     name: '制造流程优化方案',
     description: '预测性维护 · 智能质检 · 供应链',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=900&fit=crop&q=80',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_c522f5bb-f7ab-427c-9ab5-96d385818a17.jpeg?sign=1802169002-f389928b2f-0-f1e3c9125c1edf676232596a8c908e72f60422afcccb0a9b759b985ee0b469a6',
     value: '良品率+25%',
     detail: {
       title: '智能制造流程优化解决方案',
@@ -62,7 +62,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-3',
     name: '智慧政务',
     description: 'AI辅助决策：政策模拟与效果预测\n智慧政务服务：智能审批与自动受理\n政务数据治理：跨部门数据融合分析',
-    image: 'https://images.unsplash.com/photo-1565514020296-59d775083a16?w=1200&h=900&fit=crop&q=80',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_6ce34c65-0707-4d5b-9cdb-65aa8d2c1839.jpeg?sign=1802169060-8dbbfaff79-0-5817522e3ded8f98af774378b28efcd62d18aed4dce4350bde66864ebab0d022',
     value: '审批效率提升70%',
     detail: {
       title: '政务智能化升级方案',
@@ -81,7 +81,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-4',
     name: '医药医疗',
     description: '药物研发辅助：AI加速新药靶点筛选\n智慧诊疗支持：辅助诊断与治疗方案推荐\n医疗数据安全：私有化部署，数据不出院',
-    image: 'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=1200&h=900&fit=crop&q=80',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_cb6ffeb4-43d4-4d58-886d-d4f2e874ce56.jpeg?sign=1802169041-50daf75095-0-a04cdf8f8e279baa989964b25e7bbf64f2e80b0be6ee1cdc8b94ad8dd188e82a',
     value: '靶点筛选效率提升30%',
     detail: {
       title: '靶点研究AI赋能方案',
@@ -101,7 +101,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-5',
     name: '数字金融',
     description: '智能风控：实时交易风险监测\n投顾AI助手：个性化投资建议\n交易反欺诈：异常行为智能识别',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=900&fit=crop&q=80',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_49c9d35f-7b9a-49e5-85d9-ee875f921694.jpeg?sign=1802169023-e7efb9997d-0-b81a065987f0584bb0e39696c4419a6037438bd6f1ede4470ace3d4ae2b8d118',
     value: '风险识别率提升95%',
     detail: {
       title: '金融智能风控与服务',
@@ -120,7 +120,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-6',
     name: '通信运营商',
     description: '网络智能优化：基站负载均衡与自愈\n客户服务AI坐席：智能客服与问题预判\n流量经营分析：用户行为与套餐优化',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=900&fit=crop&q=80',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_d12de778-51dd-40c6-ad14-6a7e778fe365.jpeg?sign=1802169078-75b03dda19-0-f76b9f417cbed32a3cf1e232e13732e00cd645529a979f1a7477bea2f51ca928',
     value: '网络故障自愈率提升90%',
     detail: {
       title: '运营商网络与服务优化',
@@ -139,7 +139,7 @@ const industrySolutions: IndustrySolution[] = [
     id: 'solution-7',
     name: '教育流程创新方案',
     description: '智能教学 · 个性化学习 · 教务管理',
-    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&h=900&fit=crop&q=80',
+    image: 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_4dd96c56-755e-498c-9d94-b5dc115fa35e.jpeg?sign=1802169098-32303b734f-0-2aa3d28cce18320824f2efa4cd567a521ae053234fd8aeec151a4f133c7637f3',
     value: '学习效率+60%',
     detail: {
       title: '教育智能化解决方案',
@@ -258,10 +258,7 @@ export default function IndustrySolutions() {
                 {/* 背景图片 */}
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-all duration-700 hover:scale-110"
-                  style={{
-                    backgroundImage: `url(${solution.image})`,
-                    filter: 'grayscale(30%) sepia(20%) brightness(1.05) contrast(1.05)'
-                  }}
+                  style={{ backgroundImage: `url(${solution.image})` }}
                 />
 
                 {/* 渐变遮罩 */}
@@ -351,10 +348,7 @@ export default function IndustrySolutions() {
                 {/* 背景图片 */}
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-all duration-700 hover:scale-110"
-                  style={{
-                    backgroundImage: `url(${solution.image})`,
-                    filter: 'grayscale(30%) sepia(20%) brightness(1.05) contrast(1.05)'
-                  }}
+                  style={{ backgroundImage: `url(${solution.image})` }}
                 />
 
                 {/* 渐变遮罩 */}
