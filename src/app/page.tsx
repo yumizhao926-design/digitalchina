@@ -23,14 +23,14 @@ export default function Home() {
       {/* 数据展示 */}
       <DataStats />
 
+      {/* AI核心理念专区 */}
+      <AIPhilosophy />
+
       {/* 产品卡片展示 */}
       <ProductCards />
 
       {/* AI能力全景图 */}
       <AIPanorama />
-
-      {/* AI核心理念专区 */}
-      <AIPhilosophy />
 
       {/* 产品特性 */}
       <section id="features" className="container mx-auto max-w-7xl px-4 sm:px-8 py-16 sm:py-24">
