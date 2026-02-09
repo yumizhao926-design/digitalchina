@@ -1,80 +1,133 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface Partner {
   name: string;
   type: 'technical' | 'ecosystem';
+  logo: string;
 }
 
-// 生成100个合作伙伴列表
-const generatePartners = (): Partner[] => {
-  const technicalPartners = [
-    '华为', '智谱AI', 'DeepSeek', '微软', '百度', '阿里巴巴', '腾讯', '字节跳动',
-    '科大讯飞', '商汤科技', '旷视科技', '依图科技', '云从科技', '第四范式', '明略科技',
-    '百分点', '百分点智能', '百分点数据', '百分点技术', '百分点算法',
-    '京东科技', '网易', '小米', '滴滴出行', '美团', '快手', 'B站', '小红书',
-    '网易有道', '搜狗', '搜狐', '360', '金山云', '华为云', '阿里云', '腾讯云',
-    '百度智能云', '字节云', '火山引擎', '阿里达摩院', '腾讯AI Lab', '百度研究院',
-  ];
+// 合作伙伴数据
+const partners: Partner[] = [
+  // 技术伙伴
+  { name: '华为', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Huawei_Logo.svg' },
+  { name: '微软', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg' },
+  { name: '百度', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e8/Baidu_logo.svg' },
+  { name: '阿里巴巴', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Alibaba_logo.svg' },
+  { name: '腾讯', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/00/Tencent_logo.svg' },
+  { name: '字节跳动', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/91/ByteDance_Logo_2021.svg' },
+  { name: '科大讯飞', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Iflytek_logo.svg' },
+  { name: '商汤科技', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/89/SenseTime_logo.svg' },
+  { name: '旷视科技', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Megvii_logo.svg' },
+  { name: '云从科技', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/CloudWalk_logo.svg' },
+  { name: '依图科技', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Yitu_Technology_logo.svg' },
+  { name: '第四范式', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6c/4Paradigm_logo.svg' },
+  { name: '京东科技', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/56/JD.com_logo.svg' },
+  { name: '网易', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/86/NetEase_logo.svg' },
+  { name: '小米', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Xiaomi_logo_%282021-%29.svg' },
+  { name: '滴滴出行', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e8/Didi_logo.svg' },
+  { name: '美团', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/72/Meituan_logo.svg' },
+  { name: '快手', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Kuaishou_logo.svg' },
+  { name: 'B站', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Bilibili_logo.svg' },
+  { name: '小红书', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Xiaohongshu_logo.svg' },
+  { name: '网易有道', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/60/Youdao_logo.svg' },
+  { name: '搜狗', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e1/Sogou_logo.svg' },
+  { name: '搜狐', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Sohu_logo.svg' },
+  { name: '360', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/360_logo.svg' },
+  { name: '金山云', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Kingsoft_Cloud_logo.svg' },
+  { name: '华为云', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Huawei_Cloud_logo.svg' },
+  { name: '阿里云', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Alibaba_Cloud_logo.svg' },
+  { name: '腾讯云', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Tencent_Cloud_logo.svg' },
+  { name: '百度智能云', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Baidu_AI_Cloud_logo.svg' },
+  { name: '字节云', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Volcengine_logo.svg' },
+  { name: '火山引擎', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Volcano_Engine_logo.svg' },
+  { name: '阿里达摩院', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Damo_Academy_logo.svg' },
+  { name: '腾讯AI Lab', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Tencent_AI_Lab_logo.svg' },
+  { name: '百度研究院', type: 'technical', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/36/Baidu_Research_logo.svg' },
+  
+  // 生态共建伙伴
+  { name: '德勤中国', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Deloitte_logo.svg' },
+  { name: '普华永道', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/PwC_logo.svg' },
+  { name: '毕马威', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/KPMG_logo.svg' },
+  { name: '安永', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/60/EY_logo.svg' },
+  { name: '中国信通院', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/42/CAICT_logo.svg' },
+  { name: '中国电子技术标准化研究院', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/CESI_logo.svg' },
+  { name: '中国工业互联网研究院', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/AII_logo.svg' },
+  { name: '中国信息通信研究院', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/CAICT_logo_2.svg' },
+  { name: '中国软件评测中心', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/44/CSTC_logo.svg' },
+  { name: '国家工业信息安全发展研究中心', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/97/CICT_logo.svg' },
+  { name: '中国电子信息产业发展研究院', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5a/CCID_logo.svg' },
+  { name: '中国电子学会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/78/CIE_logo.svg' },
+  { name: '中国计算机学会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/CCF_logo.svg' },
+  { name: '中国人工智能学会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/31/CAAI_logo.svg' },
+  { name: '中国自动化学会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/CAA_logo.svg' },
+  { name: '中国图象图形学学会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/78/CSIG_logo.svg' },
+  { name: '中国网络空间安全协会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/CSAC_logo.svg' },
+  { name: '中国互联网协会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/ISC_logo.svg' },
+  { name: '中国软件行业协会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/99/CSIA_logo.svg' },
+  { name: '中国电子信息行业联合会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/CEIA_logo.svg' },
+  { name: '中国工业互联网产业联盟', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/AII_Logo_2.svg' },
+  { name: '中国通信标准化协会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/44/CCSA_logo.svg' },
+  { name: '中国信息协会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/85/IIA_logo.svg' },
+  { name: '中国互联网发展基金会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/77/CIDF_logo.svg' },
+  { name: '中国网络社会组织联合会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/97/CNF_logo.svg' },
+  { name: '中国人工智能产业发展联盟', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/AIIA_logo.svg' },
+  { name: '中国数字经济百人会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/DEC100_logo.svg' },
+  { name: '中国新一代人工智能发展战略研究院', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5a/NAI_logo.svg' },
+  { name: '中国移动通信联合会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/CMCA_logo.svg' },
+  { name: '中国电子商会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/CECC_logo.svg' },
+  { name: '中国工业经济联合会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/CFIE_logo.svg' },
+  { name: '中国企业联合会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/CEC_logo.svg' },
+  { name: '中国中小企业协会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/85/CASME_logo.svg' },
+  { name: '中国企业家协会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/CEA_logo.svg' },
+  { name: '中国质量管理协会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/92/CAQ_logo.svg' },
+  { name: '中国标准化协会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/76/CAS_logo.svg' },
+  { name: '中国物流与采购联合会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/CFLP_logo.svg' },
+  { name: '中国对外经济贸易统计学会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5a/CFTES_logo.svg' },
+  { name: '中国国际贸易学会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/CITS_logo.svg' },
+  { name: '中国国际商会', type: 'ecosystem', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/CCOIC_logo.svg' },
+];
 
-  const ecosystemPartners = [
-    '德勤中国', '中国信通院', '普华永道', '毕马威', '安永', '中国电子技术标准化研究院',
-    '中国工业互联网研究院', '中国信息通信研究院', '中国软件评测中心', '国家工业信息安全发展研究中心',
-    '中国电子信息产业发展研究院', '中国电子学会', '中国计算机学会', '中国人工智能学会',
-    '中国自动化学会', '中国图象图形学学会', '中国网络空间安全协会', '中国互联网协会',
-    '中国软件行业协会', '中国电子信息行业联合会', '中国工业互联网产业联盟',
-    '中国通信标准化协会', '中国信息协会', '中国互联网发展基金会', '中国网络社会组织联合会',
-    '中国人工智能产业发展联盟', '中国数字经济百人会', '中国新一代人工智能发展战略研究院',
-    '中国移动通信联合会', '中国电子商会', '中国工业经济联合会', '中国企业联合会',
-    '中国中小企业协会', '中国企业家协会', '中国质量管理协会', '中国标准化协会',
-    '中国物流与采购联合会', '中国对外经济贸易统计学会', '中国国际贸易学会', '中国国际商会',
-  ];
+// 将合作伙伴分成三行
+const rows = [
+  partners.slice(0, 35),  // 第一行
+  partners.slice(35, 70), // 第二行
+  partners.slice(70, 100), // 第三行
+];
 
-  const partners: Partner[] = [];
+interface LogoRowProps {
+  partners: Partner[];
+  direction: 'left' | 'right';
+  speed?: number;
+  isPaused: boolean;
+}
 
-  // 添加技术伙伴
-  technicalPartners.forEach((name) => {
-    partners.push({ name, type: 'technical' });
-  });
-
-  // 添加生态共建伙伴
-  ecosystemPartners.forEach((name) => {
-    partners.push({ name, type: 'ecosystem' });
-  });
-
-  // 如果不够100个，循环添加
-  while (partners.length < 100) {
-    const randomIndex = Math.floor(Math.random() * technicalPartners.length);
-    partners.push({ name: technicalPartners[randomIndex], type: 'technical' });
-  }
-
-  return partners.slice(0, 100);
-};
-
-export default function EcosystemPartners() {
-  const [isPaused, setIsPaused] = useState(false);
+function LogoRow({ partners, direction, speed = 0.5, isPaused }: LogoRowProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const partners = generatePartners();
 
-  // 自动滚动
   useEffect(() => {
     if (!scrollContainerRef.current || isPaused) return;
 
     const scrollContainer = scrollContainerRef.current;
     let animationFrameId: number;
     let scrollPosition = 0;
-    const scrollSpeed = 0.5; // 滚动速度
 
     const animate = () => {
       if (!isPaused) {
-        scrollPosition += scrollSpeed;
-
-        // 当滚动到一定位置时，重置到开始位置（无缝循环）
-        const scrollWidth = scrollContainer.scrollWidth / 2;
-        if (scrollPosition >= scrollWidth) {
-          scrollPosition = 0;
+        if (direction === 'left') {
+          scrollPosition += speed;
+          const scrollWidth = scrollContainer.scrollWidth / 2;
+          if (scrollPosition >= scrollWidth) {
+            scrollPosition = 0;
+          }
+        } else {
+          scrollPosition -= speed;
+          if (scrollPosition <= 0) {
+            const scrollWidth = scrollContainer.scrollWidth / 2;
+            scrollPosition = scrollWidth;
+          }
         }
 
         scrollContainer.scrollLeft = scrollPosition;
@@ -88,7 +141,58 @@ export default function EcosystemPartners() {
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
-  }, [isPaused]);
+  }, [direction, speed, isPaused]);
+
+  return (
+    <div className="overflow-hidden mb-4" style={{ height: '100px' }}>
+      <div
+        ref={scrollContainerRef}
+        className="flex gap-3"
+        style={{ width: 'fit-content' }}
+      >
+        {[...partners, ...partners].map((partner, index) => (
+          <div
+            key={`${partner.name}-${index}`}
+            className="relative flex items-center justify-center transition-all duration-300 hover:scale-105 flex-shrink-0"
+            style={{
+              backgroundColor: '#FAFAFA',
+              borderRadius: '8px',
+              border: partner.type === 'technical' ? '1px solid #E60012' : 'none',
+              filter: 'grayscale(100%)',
+              width: '160px',
+              height: '80px',
+            }}
+            title={partner.name}
+          >
+            <img
+              src={partner.logo}
+              alt={partner.name}
+              className="max-w-full max-h-full object-contain px-3"
+              onError={(e) => {
+                // 图片加载失败时显示文字
+                e.currentTarget.style.display = 'none';
+                const parent = e.currentTarget.parentElement;
+                if (parent) {
+                  const textDiv = parent.querySelector('div');
+                  if (textDiv) textDiv.style.display = 'block';
+                }
+              }}
+            />
+            <div
+              className="text-center truncate w-full px-2"
+              style={{ color: '#666666', fontSize: '12px', fontWeight: 500, display: 'none' }}
+            >
+              {partner.name}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function EcosystemPartners() {
+  const [isPaused, setIsPaused] = useState(false);
 
   return (
     <section className="py-24 px-4 sm:px-8" style={{ backgroundColor: '#FFFFFF' }}>
@@ -136,47 +240,37 @@ export default function EcosystemPartners() {
           </div>
 
           {/* 右侧LOGO墙 - 70% */}
-          <div className="lg:col-span-7">
-            {/* 滚动容器 */}
-            <div
-              ref={scrollContainerRef}
-              className="overflow-hidden"
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-            >
-              {/* 滚动内容 - 使用两倍数据实现无缝循环 */}
-              <div
-                className="flex gap-4"
-                style={{ width: 'fit-content' }}
-              >
-                {[...partners, ...partners].map((partner, index) => (
-                  <div
-                    key={`${partner.name}-${index}`}
-                    className="relative p-4 flex items-center justify-center transition-all duration-300 hover:scale-105 flex-shrink-0"
-                    style={{
-                      backgroundColor: '#FAFAFA',
-                      borderRadius: '8px',
-                      border: partner.type === 'technical' ? '1px solid #E60012' : 'none',
-                      filter: 'grayscale(100%)',
-                      width: '140px',
-                      height: '80px',
-                    }}
-                    title={partner.name}
-                  >
-                    {/* Logo占位 */}
-                    <div
-                      className="text-center truncate w-full px-2"
-                      style={{ color: '#666666', fontSize: '12px', fontWeight: 500 }}
-                    >
-                      {partner.name}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div
+            className="lg:col-span-7"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            {/* 第一行 - 向左滚动 */}
+            <LogoRow
+              partners={rows[0]}
+              direction="left"
+              speed={0.5}
+              isPaused={isPaused}
+            />
 
-            {/* 滚动提示 */}
-            <div className="flex items-center justify-between mt-4">
+            {/* 第二行 - 向右滚动 */}
+            <LogoRow
+              partners={rows[1]}
+              direction="right"
+              speed={0.6}
+              isPaused={isPaused}
+            />
+
+            {/* 第三行 - 向左滚动 */}
+            <LogoRow
+              partners={rows[2]}
+              direction="left"
+              speed={0.4}
+              isPaused={isPaused}
+            />
+
+            {/* 底部信息 */}
+            <div className="flex items-center justify-between mt-6">
               <div className="flex gap-8 text-xs" style={{ color: '#999999' }}>
                 <div className="flex items-center gap-2">
                   <div
@@ -205,7 +299,7 @@ export default function EcosystemPartners() {
               <div className="flex items-center gap-2 text-xs" style={{ color: '#999999' }}>
                 <span>共 {partners.length} 家合作伙伴</span>
                 <span>•</span>
-                <span>自动滚动中</span>
+                <span>{isPaused ? '滚动暂停' : '自动滚动中'}</span>
               </div>
             </div>
           </div>
