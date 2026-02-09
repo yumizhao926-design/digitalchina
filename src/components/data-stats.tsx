@@ -51,8 +51,8 @@ export default function DataStats() {
               key={index}
               className="flex flex-col items-center justify-center text-center px-3 sm:px-4"
             >
-              {/* 图标 - 很小 */}
-              <div className="mb-1.5 opacity-50">
+              {/* 图标 */}
+              <div className="mb-1.5 opacity-80">
                 <span className="w-4 h-4" style={{ color: '#FF3B30' }}>{stat.icon}</span>
               </div>
 
@@ -69,9 +69,9 @@ export default function DataStats() {
                 {stat.value}
               </div>
 
-              {/* 标签 - 很小 */}
+              {/* 标签 */}
               <div
-                className="text-[9px] sm:text-[10px] md:text-xs leading-tight opacity-60 whitespace-nowrap"
+                className="text-[9px] sm:text-[10px] md:text-xs leading-tight opacity-80 whitespace-nowrap"
                 style={{
                   color: '#666666',
                 }}
