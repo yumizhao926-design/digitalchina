@@ -421,8 +421,8 @@ export default function AIPanorama() {
               {/* 定义流光动画和科技感效果 */}
               <defs>
                 <linearGradient id="coreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#E60012" />
-                  <stop offset="100%" stopColor="#E60012" />
+                  <stop offset="0%" stopColor="rgb(215, 0, 29)" />
+                  <stop offset="100%" stopColor="rgb(215, 0, 29)" />
                 </linearGradient>
                 <linearGradient id="industryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#666666" />
@@ -468,7 +468,7 @@ export default function AIPanorama() {
                   opacity: coreState.opacity,
                   transition: 'opacity 1s ease-out'
                 }}>
-                  <circle cx="0" cy="0" r="80" fill="#E60012" />
+                  <circle cx="0" cy="0" r="80" fill="rgb(215, 0, 29)" />
                 </g>
 
                 {/* 核心项1 */}
@@ -541,7 +541,7 @@ export default function AIPanorama() {
                       >
                         <span
                           className="text-sm font-medium whitespace-nowrap"
-                          style={{ color: '#E60012' }}
+                          style={{ color: 'rgb(215, 0, 29)' }}
                         >
                           点击模块探索AI能力
                         </span>
@@ -645,7 +645,7 @@ export default function AIPanorama() {
                   <div
                     className="w-2.5 h-2.5 rounded-full transition-all duration-300"
                     style={{
-                      backgroundColor: coreState.opacity > 0 ? '#E60012' : '#e0e0e0',
+                      backgroundColor: coreState.opacity > 0 ? 'rgb(215, 0, 29)' : '#e0e0e0',
                       transform: coreState.opacity > 0 ? 'scale(1.2)' : 'scale(1)'
                     }}
                   />
@@ -859,7 +859,7 @@ export default function AIPanorama() {
                       key={idx}
                       className="text-sm"
                       style={{
-                        color: '#E60012',
+                        color: 'rgb(215, 0, 29)',
                       }}
                     >
                       {keyword}
@@ -886,7 +886,7 @@ export default function AIPanorama() {
                     >
                       <div
                         className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
-                        style={{ backgroundColor: '#E60012' }}
+                        style={{ backgroundColor: 'rgb(215, 0, 29)' }}
                       ></div>
                       {feature}
                     </li>
@@ -899,7 +899,7 @@ export default function AIPanorama() {
                 <div className="pt-4 border-t border-gray-100">
                   <button
                     className="w-full py-3 font-semibold text-white rounded-lg transition-all duration-300 hover:shadow-lg"
-                    style={{ backgroundColor: '#E60012' }}
+                    style={{ backgroundColor: 'rgb(215, 0, 29)' }}
                   >
                     直达对应板块
                   </button>

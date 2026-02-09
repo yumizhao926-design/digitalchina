@@ -167,7 +167,7 @@ function LogoRow({ partners, direction, speed = 0.5, isPaused }: LogoRowProps) {
             style={{
               backgroundColor: '#FAFAFA',
               borderRadius: '8px',
-              border: partner.type === 'technical' ? '1px solid #E60012' : 'none',
+              border: partner.type === 'technical' ? '1px solid rgb(215, 0, 29)' : 'none',
               width: '160px',
               height: '80px',
             }}
@@ -216,18 +216,18 @@ export default function EcosystemPartners() {
             <button
               className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium transition-all duration-300 hover:gap-3 w-fit"
               style={{
-                border: '1px solid #E60012',
-                color: '#E60012',
+                border: '1px solid rgb(215, 0, 29)',
+                color: 'rgb(215, 0, 29)',
                 backgroundColor: 'transparent',
                 borderRadius: '9999px'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#E60012';
+                e.currentTarget.style.backgroundColor = 'rgb(215, 0, 29)';
                 e.currentTarget.style.color = '#FFFFFF';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.color = '#E60012';
+                e.currentTarget.style.color = 'rgb(215, 0, 29)';
               }}
             >
               生态合作申请

@@ -60,7 +60,7 @@ export default function NewsUpdates() {
                 color: '#333333',
                 fontSize: '20px',
                 fontWeight: 600,
-                borderBottom: '2px solid #E60012'
+                borderBottom: '2px solid rgb(215, 0, 29)'
               }}
             >
               企业资讯
@@ -89,7 +89,7 @@ export default function NewsUpdates() {
             <a
               href="#"
               className="inline-flex items-center gap-2 group"
-              style={{ color: '#E60012', fontSize: '14px' }}
+              style={{ color: 'rgb(215, 0, 29)', fontSize: '14px' }}
             >
               了解更多
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -104,7 +104,7 @@ export default function NewsUpdates() {
                 color: '#333333',
                 fontSize: '20px',
                 fontWeight: 600,
-                borderBottom: '2px solid #E60012'
+                borderBottom: '2px solid rgb(215, 0, 29)'
               }}
             >
               行业活动
@@ -123,7 +123,7 @@ export default function NewsUpdates() {
                       className="px-3 py-1 rounded-full"
                       style={{
                         backgroundColor: item.status === '即将开启' ? '#FFF0F0' : '#F5F5F5',
-                        color: item.status === '即将开启' ? '#E60012' : '#666666',
+                        color: item.status === '即将开启' ? 'rgb(215, 0, 29)' : '#666666',
                         fontSize: '12px',
                         flexShrink: 0
                       }}
@@ -139,7 +139,7 @@ export default function NewsUpdates() {
             <a
               href="#"
               className="inline-flex items-center gap-2 group"
-              style={{ color: '#E60012', fontSize: '14px' }}
+              style={{ color: 'rgb(215, 0, 29)', fontSize: '14px' }}
             >
               了解更多
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />

@@ -143,7 +143,7 @@ export default function Footer() {
             <div className="space-y-4">
               {/* 地址 */}
               <div className="flex items-start gap-3">
-                <MapPin size={16} style={{ color: '#E60012', flexShrink: 0, marginTop: '2px' }} />
+                <MapPin size={16} style={{ color: 'rgb(215, 0, 29)', flexShrink: 0, marginTop: '2px' }} />
                 <p style={{ color: '#999999', fontSize: '14px', lineHeight: '1.6' }}>
                   北京市海淀区上地信息产业基地<br />
                   上地九街9号数码科技广场
@@ -152,7 +152,7 @@ export default function Footer() {
 
               {/* 电话 */}
               <div className="flex items-center gap-3">
-                <Phone size={16} style={{ color: '#E60012', flexShrink: 0 }} />
+                <Phone size={16} style={{ color: 'rgb(215, 0, 29)', flexShrink: 0 }} />
                 <p style={{ color: '#999999', fontSize: '14px' }}>
                   400-810-8888
                 </p>
@@ -160,7 +160,7 @@ export default function Footer() {
 
               {/* 邮箱 */}
               <div className="flex items-center gap-3">
-                <Mail size={16} style={{ color: '#E60012', flexShrink: 0 }} />
+                <Mail size={16} style={{ color: 'rgb(215, 0, 29)', flexShrink: 0 }} />
                 <p style={{ color: '#999999', fontSize: '14px' }}>
                   contact@digitalchina.com
                 </p>
@@ -179,7 +179,7 @@ export default function Footer() {
                 >
                   <div
                     className="flex flex-col items-center justify-center"
-                    style={{ color: '#E60012' }}
+                    style={{ color: 'rgb(215, 0, 29)' }}
                   >
                     <QrCode size={80} />
                   </div>

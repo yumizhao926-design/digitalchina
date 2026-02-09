@@ -44,7 +44,7 @@ export default function FinalCTA() {
           onClick={() => setIsDialogOpen(true)}
           className="inline-flex items-center gap-2 px-10 py-4 text-base font-semibold transition-all duration-300 hover:gap-3 hover:shadow-2xl"
           style={{
-            backgroundColor: '#E60012',
+            backgroundColor: 'rgb(215, 0, 29)',
             color: '#FFFFFF',
             borderRadius: '9999px',
             boxShadow: '0 4px 20px rgba(230, 0, 18, 0.3)'

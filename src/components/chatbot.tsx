@@ -164,7 +164,7 @@ export default function ChatBot() {
           className="fixed bottom-6 right-24 z-40 px-4 py-3 rounded-xl shadow-lg animate-fade-in-out"
           style={{
             backgroundColor: '#FFFFFF',
-            border: '2px solid #E60012',
+            border: '2px solid rgb(215, 0, 29)',
             animation: 'fadeInOut 4s ease-in-out forwards'
           }}
         >
@@ -183,7 +183,7 @@ export default function ChatBot() {
           }}
           className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110"
           style={{
-            background: 'linear-gradient(135deg, #E60012 0%, #CC0000 100%)',
+            background: 'linear-gradient(135deg, rgb(215, 0, 29) 0%, #CC0000 100%)',
             boxShadow: '0 8px 32px rgba(230, 0, 18, 0.4)',
             animation: showFirstTimeAnimation ? 'bounceIn 0.8s ease-out, float 3s ease-in-out infinite 0.8s' : 'float 3s ease-in-out infinite'
           }}
@@ -215,7 +215,7 @@ export default function ChatBot() {
           <div
             className="px-6 py-4 flex items-center justify-between rounded-t-2xl"
             style={{
-              background: 'linear-gradient(135deg, #E60012 0%, #CC0000 100%)'
+              background: 'linear-gradient(135deg, rgb(215, 0, 29) 0%, #CC0000 100%)'
             }}
           >
             <div className="flex items-center gap-3">
@@ -277,7 +277,7 @@ export default function ChatBot() {
                           : 'text-gray-800'
                       }`}
                       style={{
-                        backgroundColor: message.type === 'user' ? '#E60012' : '#FFFFFF',
+                        backgroundColor: message.type === 'user' ? 'rgb(215, 0, 29)' : '#FFFFFF',
                         border: message.type === 'bot' ? '1px solid #E5E7EB' : 'none',
                         borderRadius: message.type === 'user' ? '20px 20px 4px 20px' : '20px 20px 20px 4px'
                       }}
@@ -313,15 +313,15 @@ export default function ChatBot() {
                       <div className="flex gap-1">
                         <div
                           className="w-2 h-2 rounded-full animate-bounce"
-                          style={{ backgroundColor: '#E60012', animationDelay: '0ms' }}
+                          style={{ backgroundColor: 'rgb(215, 0, 29)', animationDelay: '0ms' }}
                         />
                         <div
                           className="w-2 h-2 rounded-full animate-bounce"
-                          style={{ backgroundColor: '#E60012', animationDelay: '150ms' }}
+                          style={{ backgroundColor: 'rgb(215, 0, 29)', animationDelay: '150ms' }}
                         />
                         <div
                           className="w-2 h-2 rounded-full animate-bounce"
-                          style={{ backgroundColor: '#E60012', animationDelay: '300ms' }}
+                          style={{ backgroundColor: 'rgb(215, 0, 29)', animationDelay: '300ms' }}
                         />
                       </div>
                     </div>
@@ -345,7 +345,7 @@ export default function ChatBot() {
                       >
                         <span
                           className="p-2 rounded-lg"
-                          style={{ backgroundColor: 'rgba(230, 0, 18, 0.1)', color: '#E60012' }}
+                          style={{ backgroundColor: 'rgba(215, 0, 29, 0.1)', color: 'rgb(215, 0, 29)' }}
                         >
                           {question.icon}
                         </span>
@@ -382,7 +382,7 @@ export default function ChatBot() {
                     disabled={!inputValue.trim() || isTyping}
                     className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                     style={{
-                      backgroundColor: inputValue.trim() ? '#E60012' : '#E5E7EB',
+                      backgroundColor: inputValue.trim() ? 'rgb(215, 0, 29)' : '#E5E7EB',
                       color: inputValue.trim() ? '#FFFFFF' : '#999999'
                     }}
                   >

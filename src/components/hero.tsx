@@ -45,16 +45,16 @@ export default function Hero() {
             className="px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg border-2 backdrop-blur-sm"
             style={{
               backgroundColor: 'rgba(255, 255, 255, 0.15)',
-              borderColor: '#E60012',
-              color: '#E60012',
+              borderColor: 'rgb(215, 0, 29)',
+              color: 'rgb(215, 0, 29)',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#E60012';
+              e.currentTarget.style.backgroundColor = 'rgb(215, 0, 29)';
               e.currentTarget.style.color = 'white';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
-              e.currentTarget.style.color = '#E60012';
+              e.currentTarget.style.color = 'rgb(215, 0, 29)';
             }}
           >
             发现企业智能
@@ -65,16 +65,16 @@ export default function Hero() {
             className="px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg border-2 backdrop-blur-sm"
             style={{
               backgroundColor: 'rgba(255, 255, 255, 0.15)',
-              borderColor: '#E60012',
-              color: '#E60012',
+              borderColor: 'rgb(215, 0, 29)',
+              color: 'rgb(215, 0, 29)',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#E60012';
+              e.currentTarget.style.backgroundColor = 'rgb(215, 0, 29)';
               e.currentTarget.style.color = 'white';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
-              e.currentTarget.style.color = '#E60012';
+              e.currentTarget.style.color = 'rgb(215, 0, 29)';
             }}
           >
             预约专家演示

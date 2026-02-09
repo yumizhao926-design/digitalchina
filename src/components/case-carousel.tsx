@@ -87,8 +87,8 @@ export default function CaseCarousel() {
           <button
             className="hidden sm:flex items-center gap-2 px-6 py-2.5 text-sm font-medium transition-all duration-300 hover:gap-3"
             style={{
-              border: '1px solid #E60012',
-              color: '#E60012',
+              border: '1px solid rgb(215, 0, 29)',
+              color: 'rgb(215, 0, 29)',
               backgroundColor: 'transparent',
               borderRadius: '9999px'
             }}
@@ -132,7 +132,7 @@ export default function CaseCarousel() {
                         <div
                           className="inline-block px-4 py-2 rounded-full text-sm font-medium mb-4"
                           style={{
-                            backgroundColor: '#E60012',
+                            backgroundColor: 'rgb(215, 0, 29)',
                             color: '#FFFFFF'
                           }}
                         >
@@ -174,7 +174,7 @@ export default function CaseCarousel() {
                         </p>
                         <p
                           className="font-bold"
-                          style={{ color: '#E60012', fontSize: '32px' }}
+                          style={{ color: 'rgb(215, 0, 29)', fontSize: '32px' }}
                         >
                           {caseStudy.result}
                         </p>
@@ -219,7 +219,7 @@ export default function CaseCarousel() {
                 onClick={() => goToSlide(index)}
                 className="w-2.5 h-2.5 rounded-full transition-all duration-300"
                 style={{
-                  backgroundColor: index === currentIndex ? '#E60012' : '#CCCCCC',
+                  backgroundColor: index === currentIndex ? 'rgb(215, 0, 29)' : '#CCCCCC',
                   width: index === currentIndex ? '2.5rem' : '0.625rem'
                 }}
               />
@@ -232,8 +232,8 @@ export default function CaseCarousel() {
           <button
             className="flex items-center gap-2 px-6 py-2.5 text-sm font-medium transition-all duration-300 hover:gap-3"
             style={{
-              border: '1px solid #E60012',
-              color: '#E60012',
+              border: '1px solid rgb(215, 0, 29)',
+              color: 'rgb(215, 0, 29)',
               backgroundColor: 'transparent',
               borderRadius: '9999px'
             }}

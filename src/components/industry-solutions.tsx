@@ -251,7 +251,7 @@ export default function IndustrySolutions() {
                   <div
                     className="inline-block px-4 py-2 rounded-full mb-3 text-sm font-semibold"
                     style={{
-                      backgroundColor: '#E60012',
+                      backgroundColor: 'rgb(215, 0, 29)',
                       color: '#FFFFFF',
                       width: 'fit-content'
                     }}
@@ -305,7 +305,7 @@ export default function IndustrySolutions() {
                 onClick={() => handleDotClick(index)}
                 className="w-2 h-2 rounded-full transition-all duration-300 hover:scale-125"
                 style={{
-                  backgroundColor: index === currentIndex ? '#E60012' : '#D1D5DB',
+                  backgroundColor: index === currentIndex ? 'rgb(215, 0, 29)' : '#D1D5DB',
                   width: index === currentIndex ? '32px' : '8px'
                 }}
               />
@@ -338,7 +338,7 @@ export default function IndustrySolutions() {
                   <div
                     className="inline-block px-4 py-2 rounded-full mb-3 text-sm font-semibold"
                     style={{
-                      backgroundColor: '#E60012',
+                      backgroundColor: 'rgb(215, 0, 29)',
                       color: '#FFFFFF',
                       width: 'fit-content'
                     }}
@@ -421,7 +421,7 @@ export default function IndustrySolutions() {
                   style={{
                     color: '#333333',
                     fontSize: '20px',
-                    borderBottom: '2px solid #E60012'
+                    borderBottom: '2px solid rgb(215, 0, 29)'
                   }}
                 >
                   方案概述
@@ -435,7 +435,7 @@ export default function IndustrySolutions() {
                     >
                       <span
                         className="flex-shrink-0 w-2 h-2 rounded-full mt-2"
-                        style={{ backgroundColor: '#E60012' }}
+                        style={{ backgroundColor: 'rgb(215, 0, 29)' }}
                       />
                       {item}
                     </li>
@@ -450,7 +450,7 @@ export default function IndustrySolutions() {
                   style={{
                     color: '#333333',
                     fontSize: '20px',
-                    borderBottom: '2px solid #E60012'
+                    borderBottom: '2px solid rgb(215, 0, 29)'
                   }}
                 >
                   应用成果
@@ -464,7 +464,7 @@ export default function IndustrySolutions() {
                     >
                       <p
                         className="font-medium"
-                        style={{ color: '#E60012', fontSize: '18px' }}
+                        style={{ color: 'rgb(215, 0, 29)', fontSize: '18px' }}
                       >
                         {result}
                       </p>

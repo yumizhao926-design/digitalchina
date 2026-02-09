@@ -127,7 +127,7 @@ export function DemoBookingDialog({ open, onOpenChange }: DemoBookingDialogProps
           {/* 姓名 */}
           <div className="space-y-2">
             <Label htmlFor="name" style={{ color: '#333333' }}>
-              姓名 <span style={{ color: '#E60012' }}>*</span>
+              姓名 <span style={{ color: 'rgb(215, 0, 29)' }}>*</span>
             </Label>
             <Input
               id="name"
@@ -135,12 +135,12 @@ export function DemoBookingDialog({ open, onOpenChange }: DemoBookingDialogProps
               value={formData.name}
               onChange={(e) => handleChange('name', e.target.value)}
               style={{
-                borderColor: errors.name ? '#E60012' : '#E5E5E5',
+                borderColor: errors.name ? 'rgb(215, 0, 29)' : '#E5E5E5',
                 backgroundColor: '#FAFAFA'
               }}
             />
             {errors.name && (
-              <p className="text-sm" style={{ color: '#E60012' }}>
+              <p className="text-sm" style={{ color: 'rgb(215, 0, 29)' }}>
                 {errors.name}
               </p>
             )}
@@ -149,7 +149,7 @@ export function DemoBookingDialog({ open, onOpenChange }: DemoBookingDialogProps
           {/* 公司 */}
           <div className="space-y-2">
             <Label htmlFor="company" style={{ color: '#333333' }}>
-              公司名称 <span style={{ color: '#E60012' }}>*</span>
+              公司名称 <span style={{ color: 'rgb(215, 0, 29)' }}>*</span>
             </Label>
             <Input
               id="company"
@@ -157,12 +157,12 @@ export function DemoBookingDialog({ open, onOpenChange }: DemoBookingDialogProps
               value={formData.company}
               onChange={(e) => handleChange('company', e.target.value)}
               style={{
-                borderColor: errors.company ? '#E60012' : '#E5E5E5',
+                borderColor: errors.company ? 'rgb(215, 0, 29)' : '#E5E5E5',
                 backgroundColor: '#FAFAFA'
               }}
             />
             {errors.company && (
-              <p className="text-sm" style={{ color: '#E60012' }}>
+              <p className="text-sm" style={{ color: 'rgb(215, 0, 29)' }}>
                 {errors.company}
               </p>
             )}
@@ -171,7 +171,7 @@ export function DemoBookingDialog({ open, onOpenChange }: DemoBookingDialogProps
           {/* 职位 */}
           <div className="space-y-2">
             <Label htmlFor="position" style={{ color: '#333333' }}>
-              职位 <span style={{ color: '#E60012' }}>*</span>
+              职位 <span style={{ color: 'rgb(215, 0, 29)' }}>*</span>
             </Label>
             <Input
               id="position"
@@ -179,12 +179,12 @@ export function DemoBookingDialog({ open, onOpenChange }: DemoBookingDialogProps
               value={formData.position}
               onChange={(e) => handleChange('position', e.target.value)}
               style={{
-                borderColor: errors.position ? '#E60012' : '#E5E5E5',
+                borderColor: errors.position ? 'rgb(215, 0, 29)' : '#E5E5E5',
                 backgroundColor: '#FAFAFA'
               }}
             />
             {errors.position && (
-              <p className="text-sm" style={{ color: '#E60012' }}>
+              <p className="text-sm" style={{ color: 'rgb(215, 0, 29)' }}>
                 {errors.position}
               </p>
             )}
@@ -193,7 +193,7 @@ export function DemoBookingDialog({ open, onOpenChange }: DemoBookingDialogProps
           {/* 电话 */}
           <div className="space-y-2">
             <Label htmlFor="phone" style={{ color: '#333333' }}>
-              联系电话 <span style={{ color: '#E60012' }}>*</span>
+              联系电话 <span style={{ color: 'rgb(215, 0, 29)' }}>*</span>
             </Label>
             <Input
               id="phone"
@@ -202,12 +202,12 @@ export function DemoBookingDialog({ open, onOpenChange }: DemoBookingDialogProps
               value={formData.phone}
               onChange={(e) => handleChange('phone', e.target.value)}
               style={{
-                borderColor: errors.phone ? '#E60012' : '#E5E5E5',
+                borderColor: errors.phone ? 'rgb(215, 0, 29)' : '#E5E5E5',
                 backgroundColor: '#FAFAFA'
               }}
             />
             {errors.phone && (
-              <p className="text-sm" style={{ color: '#E60012' }}>
+              <p className="text-sm" style={{ color: 'rgb(215, 0, 29)' }}>
                 {errors.phone}
               </p>
             )}
@@ -216,7 +216,7 @@ export function DemoBookingDialog({ open, onOpenChange }: DemoBookingDialogProps
           {/* 需求描述 */}
           <div className="space-y-2">
             <Label htmlFor="description" style={{ color: '#333333' }}>
-              需求描述 <span style={{ color: '#E60012' }}>*</span>
+              需求描述 <span style={{ color: 'rgb(215, 0, 29)' }}>*</span>
             </Label>
             <Textarea
               id="description"
@@ -225,13 +225,13 @@ export function DemoBookingDialog({ open, onOpenChange }: DemoBookingDialogProps
               onChange={(e) => handleChange('description', e.target.value)}
               rows={4}
               style={{
-                borderColor: errors.description ? '#E60012' : '#E5E5E5',
+                borderColor: errors.description ? 'rgb(215, 0, 29)' : '#E5E5E5',
                 backgroundColor: '#FAFAFA',
                 resize: 'vertical'
               }}
             />
             {errors.description && (
-              <p className="text-sm" style={{ color: '#E60012' }}>
+              <p className="text-sm" style={{ color: 'rgb(215, 0, 29)' }}>
                 {errors.description}
               </p>
             )}
@@ -243,7 +243,7 @@ export function DemoBookingDialog({ open, onOpenChange }: DemoBookingDialogProps
             className="w-full"
             disabled={isSubmitting}
             style={{
-              backgroundColor: '#E60012',
+              backgroundColor: 'rgb(215, 0, 29)',
               color: '#FFFFFF',
               height: '48px',
               fontSize: '16px'
