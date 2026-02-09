@@ -1,17 +1,37 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X, ArrowRight, Brain, Zap, Target, CheckCircle2 } from 'lucide-react';
 
 export default function AIPhilosophy() {
   const [showForm, setShowForm] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [bgImageUrl, setBgImageUrl] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     company: '',
     email: '',
     position: '',
   });
+
+  // 生成背景图片
+  useEffect(() => {
+    const generateImage = async () => {
+      try {
+        const response = await fetch('/api/generate-whitepaper-bg', {
+          method: 'POST',
+        });
+        const data = await response.json();
+        if (data.success) {
+          setBgImageUrl(data.imageUrl);
+        }
+      } catch (error) {
+        console.error('Failed to generate background image:', error);
+      }
+    };
+
+    generateImage();
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -161,51 +181,33 @@ export default function AIPhilosophy() {
               </div>
             </div>
 
-            {/* 右侧下载区 - Banner风格图片 */}
+            {/* 右侧下载区 - 图片背景 */}
             <div className="lg:col-span-2 p-0 relative overflow-hidden min-h-[500px]">
-              {/* 背景图片层 */}
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{
-                  backgroundImage: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f1f3f5 100%)',
-                }}
-              />
+              {/* 背景图片 */}
+              {bgImageUrl && (
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url("${bgImageUrl}")`,
+                  }}
+                />
+              )}
 
-              {/* 书本形状装饰 */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-80 rounded-lg shadow-2xl" style={{
-                background: 'linear-gradient(145deg, #FF3B30 0%, #E63928 100%)',
-                opacity: 0.08,
-              }}></div>
+              {/* 加载中提示 */}
+              {!bgImageUrl && (
+                <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: '#F8F9FA' }}>
+                  <div className="text-center">
+                    <div className="w-12 h-12 border-4 border-gray-200 border-t-red-500 rounded-full animate-spin mx-auto mb-3"></div>
+                    <p style={{ color: '#666666', fontSize: '14px' }}>加载中...</p>
+                  </div>
+                </div>
+              )}
 
-              {/* 书脊效果 */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-80 rounded-l" style={{
-                background: 'rgba(0, 0, 0, 0.05)',
-                transform: 'translateX(-136px)',
-              }}></div>
+              {/* 渐变遮罩，确保文字可读 */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30"></div>
 
-              {/* 装饰元素 */}
-              <div className="absolute top-8 right-8 w-32 h-32 rounded-full opacity-20" style={{ backgroundColor: '#FF3B30' }}></div>
-              <div className="absolute bottom-8 left-8 w-24 h-24 rounded-full opacity-10" style={{ backgroundColor: '#666666' }}></div>
-
-              {/* 内容 */}
-              <div className="relative z-10 h-full flex flex-col items-center justify-center p-10 text-center">
-                {/* 标题 */}
-                <h3
-                  className="font-semibold mb-3"
-                  style={{ color: '#333333', fontSize: '24px' }}
-                >
-                  获取完整白皮书
-                </h3>
-
-                {/* 描述 */}
-                <p
-                  className="mb-8"
-                  style={{ color: '#666666', lineHeight: '1.7', fontSize: '15px' }}
-                >
-                  30页深度解读AI for Process方法论<br />
-                  包含企业级应用案例和实施指南
-                </p>
-
+              {/* 内容 - 仅按钮 */}
+              <div className="relative z-10 h-full flex flex-col items-center justify-center p-10">
                 {/* 按钮组 */}
                 <div className="space-y-3 w-full max-w-xs">
                   <button
