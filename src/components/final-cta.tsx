@@ -1,8 +1,12 @@
 "use client";
 
+import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { DemoBookingDialog } from '@/components/demo-booking-dialog';
 
 export default function FinalCTA() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   return (
     <section
       className="py-24 sm:py-32 px-4 sm:px-8"
@@ -37,6 +41,7 @@ export default function FinalCTA() {
 
         {/* 核心主CTA按钮 */}
         <button
+          onClick={() => setIsDialogOpen(true)}
           className="inline-flex items-center gap-2 px-10 py-4 text-base font-semibold transition-all duration-300 hover:gap-3 hover:shadow-2xl"
           style={{
             backgroundColor: '#E60012',
@@ -57,6 +62,9 @@ export default function FinalCTA() {
           <ArrowRight size={20} />
         </button>
       </div>
+
+      {/* 预约演示对话框 */}
+      <DemoBookingDialog open={isDialogOpen} onOpenChange={setIsDialogOpen} />
     </section>
   );
 }
