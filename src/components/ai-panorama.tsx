@@ -352,8 +352,8 @@ export default function AIPanorama() {
               <defs>
                 <style>
                   {`@keyframes flow {
-                    0% { stroke-dashoffset: 0; }
-                    100% { stroke-dashoffset: 100; }
+                    0% { stroke-dashoffset: 100; }
+                    100% { stroke-dashoffset: 0; }
                   }
                   .flow-animation {
                     stroke-dasharray: 10 5;
