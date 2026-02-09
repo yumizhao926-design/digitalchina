@@ -1,10 +1,19 @@
-import { ArrowRight } from 'lucide-react';
+"use client";
+
+import { useState, useEffect, useRef } from 'react';
+import { ArrowRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface IndustrySolution {
   id: string;
   name: string;
   description: string;
   image: string;
+  value: string; // 核心价值数据标签
+  detail: {
+    title: string;
+    content: string[];
+    results: string[];
+  };
 }
 
 const industrySolutions: IndustrySolution[] = [
@@ -13,121 +22,506 @@ const industrySolutions: IndustrySolution[] = [
     name: '政务流程智能方案',
     description: '一网通办 · 智慧政务 · 数据治理',
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=900&fit=crop&q=80',
+    value: '效率提升300%',
+    detail: {
+      title: '政务流程智能化解决方案',
+      content: [
+        '通过AI技术实现政务流程的全面智能化，从审批到办结全流程自动化处理',
+        '集成自然语言理解、智能路由、自动填表等核心能力',
+        '构建统一的政务知识图谱，实现跨部门数据共享与智能调度',
+        '支持多渠道接入，包括PC端、移动端、自助终端等'
+      ],
+      results: [
+        '平均办结时间从5天缩短至2小时',
+        '人工干预率降低85%',
+        '群众满意度提升至98.5%',
+        '年节约运营成本5000万元'
+      ]
+    }
   },
   {
     id: 'solution-2',
     name: '制造流程优化方案',
     description: '预测性维护 · 智能质检 · 供应链',
     image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=900&fit=crop&q=80',
+    value: '良品率+25%',
+    detail: {
+      title: '智能制造流程优化解决方案',
+      content: [
+        '基于AI视觉的智能质检系统，实现产品缺陷自动识别与分类',
+        '设备预测性维护，提前24小时预警潜在故障',
+        '供应链智能调度，动态优化生产计划与库存管理',
+        '数字孪生工厂，实时模拟与优化生产流程'
+      ],
+      results: [
+        '产品良品率提升25%',
+        '设备停机时间减少70%',
+        '生产效率提升40%',
+        '能耗降低30%'
+      ]
+    }
   },
   {
     id: 'solution-3',
     name: '金融流程数智方案',
     description: '智能风控 · 量化投研 · 反欺诈',
     image: 'https://images.unsplash.com/photo-1565514020296-59d775083a16?w=1200&h=900&fit=crop&q=80',
+    value: '风险识别率99.9%',
+    detail: {
+      title: '金融数智化解决方案',
+      content: [
+        '基于机器学习的智能风控系统，实时监控交易异常',
+        '量化投研平台，自动化分析市场数据与投资机会',
+        'AI反欺诈系统，精准识别欺诈交易与账户',
+        '智能客服机器人，7x24小时服务客户'
+      ],
+      results: [
+        '风险识别准确率达到99.9%',
+        '欺诈交易拦截成功率98.5%',
+        '客户服务响应时间从分钟级降至秒级',
+        '运营成本降低60%'
+      ]
+    }
   },
   {
     id: 'solution-4',
     name: '医疗医药流程升级方案',
     description: '影像诊断 · 药物研发 · 健康管理',
     image: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1200&h=900&fit=crop&q=80',
+    value: '诊断准确率95%',
+    detail: {
+      title: '医疗医药智能化解决方案',
+      content: [
+        'AI影像辅助诊断，支持CT、MRI、X光等多种医学影像',
+        '药物研发AI平台，加速新药筛选与临床试验设计',
+        '个性化健康管理，基于大数据预测疾病风险',
+        '智能病历分析，自动生成诊断建议'
+      ],
+      results: [
+        '影像诊断准确率达到95%以上',
+        '药物研发周期缩短50%',
+        '医疗资源利用率提升40%',
+        '误诊率降低60%'
+      ]
+    }
+  },
+  {
+    id: 'solution-5',
+    name: '零售流程智能化方案',
+    description: '智能推荐 · 供应链 · 客户洞察',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a276?w=1200&h=900&fit=crop&q=80',
+    value: '转化率+80%',
+    detail: {
+      title: '零售智能化解决方案',
+      content: [
+        'AI智能推荐系统，个性化推荐商品提升转化率',
+        '需求预测与智能补货，优化库存周转',
+        '客户画像分析，精准营销提升复购',
+        '智能客服与售后，自动处理订单咨询'
+      ],
+      results: [
+        '页面转化率提升80%',
+        '库存周转天数减少50%',
+        '客户复购率提升45%',
+        '人力成本降低70%'
+      ]
+    }
+  },
+  {
+    id: 'solution-6',
+    name: '能源流程优化方案',
+    description: '智能调度 · 能效分析 · 预测维护',
+    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&h=900&fit=crop&q=80',
+    value: '能耗降低35%',
+    detail: {
+      title: '能源智能化解决方案',
+      content: [
+        '智能电网调度，实时平衡供需优化资源配置',
+        '设备能耗分析与优化，识别节能机会',
+        '设备预测性维护，降低故障率',
+        '碳排放监测与管理，助力双碳目标'
+      ],
+      results: [
+        '综合能耗降低35%',
+        '设备故障率降低80%',
+        '能源利用效率提升50%',
+        '碳排放减少40%'
+      ]
+    }
+  },
+  {
+    id: 'solution-7',
+    name: '教育流程创新方案',
+    description: '智能教学 · 个性化学习 · 教务管理',
+    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&h=900&fit=crop&q=80',
+    value: '学习效率+60%',
+    detail: {
+      title: '教育智能化解决方案',
+      content: [
+        'AI智能教学系统，自适应学习路径规划',
+        '个性化推荐学习内容，因材施教',
+        '智能教务管理，自动化排课与考勤',
+        '学习效果分析，实时追踪学生进步'
+      ],
+      results: [
+        '学生学习效率提升60%',
+        '教师备课时间减少70%',
+        '及格率提升至95%',
+        '学生参与度提升80%'
+      ]
+    }
   },
 ];
 
 export default function IndustrySolutions() {
+  const [selectedSolution, setSelectedSolution] = useState<IndustrySolution | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  // 自动轮播
+  useEffect(() => {
+    if (!isAutoPlaying || selectedSolution) return;
+
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % industrySolutions.length);
+    }, 8000);
+
+    return () => clearInterval(timer);
+  }, [isAutoPlaying, selectedSolution]);
+
+  // 滚动到当前卡片
+  useEffect(() => {
+    if (containerRef.current) {
+      const cardWidth = containerRef.current.children[0] as HTMLElement;
+      const gap = 24; // gap-6
+      const scrollPosition = currentIndex * (cardWidth?.offsetWidth || 400 + gap);
+      containerRef.current.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, [currentIndex]);
+
+  const handleCardClick = (solution: IndustrySolution) => {
+    setSelectedSolution(solution);
+    setIsAutoPlaying(false);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + industrySolutions.length) % industrySolutions.length);
+    setIsAutoPlaying(false);
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % industrySolutions.length);
+    setIsAutoPlaying(false);
+  };
+
+  const handleDotClick = (index: number) => {
+    setCurrentIndex(index);
+    setIsAutoPlaying(false);
+  };
+
   return (
-    <section id="industry-solutions" className="py-16 px-4 sm:px-8 bg-white">
-      <div className="container mx-auto max-w-7xl">
-        {/* 区域标题 */}
+    <section
+      className="px-6 lg:px-24 py-20"
+      style={{ backgroundColor: '#F5F5F5' }}
+    >
+      <div className="max-w-7xl mx-auto">
+        {/* 标题 */}
         <h2
-          className="font-bold mb-12 text-center"
-          style={{
-            color: '#333333',
-            fontSize: '32px',
-            letterSpacing: '0.5px'
-          }}
+          className="font-semibold mb-12 text-center"
+          style={{ color: '#333333', fontSize: '42px', letterSpacing: '-0.5px' }}
         >
-          行业方案 | AI for Process 全域落地
+          行业AI解决方案
         </h2>
 
-        {/* 一排4个卡片 - 大图背景+文字叠加 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {industrySolutions.map((solution) => (
-            <div
-              key={solution.id}
-              className="rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 cursor-pointer relative overflow-hidden"
-              style={{ height: '420px' }}
-            >
-              {/* 背景图片 */}
+        {/* 桌面端横向滚动 */}
+        <div className="hidden md:block relative">
+          {/* 左右导航按钮 */}
+          <button
+            onClick={handlePrev}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center hover:scale-110"
+            style={{ left: '-40px' }}
+          >
+            <ChevronLeft size={20} className="text-gray-700" />
+          </button>
+
+          <button
+            onClick={handleNext}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center hover:scale-110"
+            style={{ right: '-40px' }}
+          >
+            <ChevronRight size={20} className="text-gray-700" />
+          </button>
+
+          {/* 卡片容器 */}
+          <div
+            ref={containerRef}
+            className="flex gap-6 overflow-hidden"
+            style={{ scrollBehavior: 'smooth' }}
+          >
+            {industrySolutions.map((solution) => (
               <div
-                className="absolute inset-0 bg-cover bg-center transition-all duration-700 hover:scale-110"
-                style={{ backgroundImage: `url(${solution.image})` }}
-              />
+                key={solution.id}
+                onClick={() => handleCardClick(solution)}
+                className="flex-shrink-0 rounded-xl shadow-sm hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 cursor-pointer relative overflow-hidden"
+                style={{ width: '380px', height: '480px' }}
+              >
+                {/* 背景图片 */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-all duration-700 hover:scale-110"
+                  style={{ backgroundImage: `url(${solution.image})` }}
+                />
 
-              {/* 渐变遮罩 - 更弱，让图片更清晰 */}
-              <div
-                className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
-              />
+                {/* 渐变遮罩 */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-              {/* 内容叠加 - 底部更紧凑 */}
-              <div className="relative z-10 p-6 h-full flex flex-col justify-end">
-                {/* 方案名称 */}
-                <h3
-                  className="font-semibold mb-2"
-                  style={{
-                    color: '#FFFFFF',
-                    fontSize: '22px',
-                    letterSpacing: '0.3px',
-                    textShadow: '0 2px 8px rgba(0,0,0,0.3)'
-                  }}
-                >
-                  {solution.name}
-                </h3>
+                {/* 内容叠加 */}
+                <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                  {/* 红色数据标签 */}
+                  <div
+                    className="inline-block px-4 py-2 rounded-full mb-3 text-sm font-semibold"
+                    style={{
+                      backgroundColor: '#FF3B30',
+                      color: '#FFFFFF',
+                      width: 'fit-content'
+                    }}
+                  >
+                    {solution.value}
+                  </div>
 
-                {/* 描述文字 - 更紧凑 */}
-                <p
-                  className="text-sm mb-4 font-light"
-                  style={{ 
-                    color: '#FFFFFF',
-                    lineHeight: '1.4',
-                    textShadow: '0 1px 4px rgba(0,0,0,0.3)'
-                  }}
-                >
-                  {solution.description}
-                </p>
+                  {/* 方案名称 */}
+                  <h3
+                    className="font-semibold mb-2"
+                    style={{
+                      color: '#FFFFFF',
+                      fontSize: '24px',
+                      letterSpacing: '0.3px',
+                      textShadow: '0 2px 8px rgba(0,0,0,0.3)'
+                    }}
+                  >
+                    {solution.name}
+                  </h3>
 
-                {/* 详情按钮 - 更小更精致 */}
-                <button
-                  className="px-5 py-2 text-sm font-medium rounded-full flex items-center gap-2 transition-all duration-300 hover:bg-white hover:text-gray-900 hover:scale-105"
-                  style={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                    color: '#FFFFFF',
-                    border: '1px solid rgba(255, 255, 255, 0.3)',
-                    backdropFilter: 'blur(10px)',
-                    width: 'fit-content'
-                  }}
-                >
-                  查看详情
-                  <ArrowRight size={12} />
-                </button>
+                  {/* 描述文字 */}
+                  <p
+                    className="text-sm font-light mb-4"
+                    style={{
+                      color: '#FFFFFF',
+                      lineHeight: '1.5',
+                      textShadow: '0 1px 4px rgba(0,0,0,0.3)'
+                    }}
+                  >
+                    {solution.description}
+                  </p>
+
+                  {/* 详情按钮 */}
+                  <button
+                    className="px-5 py-2.5 text-sm font-medium rounded-full flex items-center gap-2 transition-all duration-300 hover:bg-white hover:text-gray-900 hover:scale-105"
+                    style={{
+                      backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                      color: '#FFFFFF',
+                      border: '1px solid rgba(255, 255, 255, 0.3)',
+                      backdropFilter: 'blur(10px)',
+                      width: 'fit-content'
+                    }}
+                  >
+                    查看详情
+                    <ArrowRight size={12} />
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* 指示器 */}
+          <div className="flex justify-center gap-3 mt-8">
+            {industrySolutions.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleDotClick(index)}
+                className="w-2 h-2 rounded-full transition-all duration-300 hover:scale-125"
+                style={{
+                  backgroundColor: index === currentIndex ? '#FF3B30' : '#D1D5DB',
+                  width: index === currentIndex ? '32px' : '8px'
+                }}
+              />
+            ))}
+          </div>
         </div>
 
-        {/* 底部按钮 */}
-        <div className="flex justify-center">
-          <button
-            className="px-8 py-3 text-sm font-medium border rounded-lg hover:bg-gray-50 transition-colors"
-            style={{
-              borderColor: '#999999',
-              color: '#666666'
-            }}
-          >
-            查看全部行业方案
-          </button>
+        {/* 移动端垂直滑动 */}
+        <div className="md:hidden">
+          <div className="space-y-6">
+            {industrySolutions.map((solution) => (
+              <div
+                key={solution.id}
+                onClick={() => handleCardClick(solution)}
+                className="rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer relative overflow-hidden"
+                style={{ height: '400px' }}
+              >
+                {/* 背景图片 */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-all duration-700 hover:scale-110"
+                  style={{ backgroundImage: `url(${solution.image})` }}
+                />
+
+                {/* 渐变遮罩 */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+                {/* 内容叠加 */}
+                <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                  {/* 红色数据标签 */}
+                  <div
+                    className="inline-block px-4 py-2 rounded-full mb-3 text-sm font-semibold"
+                    style={{
+                      backgroundColor: '#FF3B30',
+                      color: '#FFFFFF',
+                      width: 'fit-content'
+                    }}
+                  >
+                    {solution.value}
+                  </div>
+
+                  {/* 方案名称 */}
+                  <h3
+                    className="font-semibold mb-2"
+                    style={{
+                      color: '#FFFFFF',
+                      fontSize: '22px',
+                      letterSpacing: '0.3px',
+                      textShadow: '0 2px 8px rgba(0,0,0,0.3)'
+                    }}
+                  >
+                    {solution.name}
+                  </h3>
+
+                  {/* 描述文字 */}
+                  <p
+                    className="text-sm font-light mb-4"
+                    style={{
+                      color: '#FFFFFF',
+                      lineHeight: '1.5',
+                      textShadow: '0 1px 4px rgba(0,0,0,0.3)'
+                    }}
+                  >
+                    {solution.description}
+                  </p>
+
+                  {/* 详情按钮 */}
+                  <button
+                    className="px-5 py-2.5 text-sm font-medium rounded-full flex items-center gap-2 transition-all duration-300 hover:bg-white hover:text-gray-900"
+                    style={{
+                      backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                      color: '#FFFFFF',
+                      border: '1px solid rgba(255, 255, 255, 0.3)',
+                      backdropFilter: 'blur(10px)',
+                      width: 'fit-content'
+                    }}
+                  >
+                    查看详情
+                    <ArrowRight size={12} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+
+      {/* 详情弹窗 */}
+      {selectedSolution && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}
+          onClick={() => setSelectedSolution(null)}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* 关闭按钮 */}
+            <button
+              onClick={() => setSelectedSolution(null)}
+              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-all duration-300 z-10"
+            >
+              <X size={20} className="text-gray-700" />
+            </button>
+
+            {/* 弹窗内容 */}
+            <div className="p-8">
+              {/* 标题 */}
+              <h3
+                className="font-semibold mb-6"
+                style={{ color: '#333333', fontSize: '32px' }}
+              >
+                {selectedSolution.detail.title}
+              </h3>
+
+              {/* 方案概述 */}
+              <div className="mb-8">
+                <h4
+                  className="font-medium mb-4 pb-2"
+                  style={{
+                    color: '#333333',
+                    fontSize: '20px',
+                    borderBottom: '2px solid #FF3B30'
+                  }}
+                >
+                  方案概述
+                </h4>
+                <ul className="space-y-3">
+                  {selectedSolution.detail.content.map((item, index) => (
+                    <li
+                      key={index}
+                      className="flex items-start gap-3"
+                      style={{ color: '#666666', lineHeight: '1.8' }}
+                    >
+                      <span
+                        className="flex-shrink-0 w-2 h-2 rounded-full mt-2"
+                        style={{ backgroundColor: '#FF3B30' }}
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* 应用成果 */}
+              <div>
+                <h4
+                  className="font-medium mb-4 pb-2"
+                  style={{
+                    color: '#333333',
+                    fontSize: '20px',
+                    borderBottom: '2px solid #FF3B30'
+                  }}
+                >
+                  应用成果
+                </h4>
+                <div className="grid grid-cols-2 gap-4">
+                  {selectedSolution.detail.results.map((result, index) => (
+                    <div
+                      key={index}
+                      className="p-4 rounded-xl"
+                      style={{ backgroundColor: '#FFF5F5' }}
+                    >
+                      <p
+                        className="font-medium"
+                        style={{ color: '#FF3B30', fontSize: '18px' }}
+                      >
+                        {result}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
