@@ -1,7 +1,7 @@
 'use client';
 
 export default function Hero() {
-  const HERO_IMAGE_URL = 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_cb028bdb-638e-4ca8-9222-8582f9871365.jpeg?sign=1802157200-e9da4de5e7-0-c3638e07b873793813353bb7d08945fc5a6c8f666e99d46171597e979a1d7aab';
+  const HERO_IMAGE_URL = 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_fa1b536b-0e64-445f-8c68-732c6a915236.jpeg?sign=1802157697-25c462f13e-0-a9ca3e678327aaeaf4ecdd433d1d4254974419d033f6ae48d05bc793818350a0';
 
   return (
     <section className="relative w-full overflow-hidden py-36 sm:py-44 md:py-52">
