@@ -19,23 +19,20 @@ interface IndustrySolution {
 const industrySolutions: IndustrySolution[] = [
   {
     id: 'solution-1',
-    name: '政务流程智能方案',
-    description: '一网通办 · 智慧政务 · 数据治理',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=900&fit=crop&q=80',
-    value: '效率提升300%',
+    name: '汽车制造',
+    description: '智能制造质量检测：AI视觉质检\n用户运营智能分析：数据深度挖掘\n车联网AI优化：智能驾驶算法优化',
+    image: 'https://images.unsplash.com/photo-1565514020296-59d775083a16?w=1200&h=900&fit=crop&q=80',
+    value: '效率提升90%',
     detail: {
-      title: '政务流程智能化解决方案',
+      title: '汽车制造智能化解决方案',
       content: [
-        '通过AI技术实现政务流程的全面智能化，从审批到办结全流程自动化处理',
-        '集成自然语言理解、智能路由、自动填表等核心能力',
-        '构建统一的政务知识图谱，实现跨部门数据共享与智能调度',
-        '支持多渠道接入，包括PC端、移动端、自助终端等'
+        '智能制造质量检测：AI视觉质检，实时缺陷识别',
+        '用户运营智能分析：用户行为数据深度挖掘',
+        '车联网AI优化：智能驾驶算法持续优化'
       ],
       results: [
-        '平均办结时间从5天缩短至2小时',
-        '人工干预率降低85%',
-        '群众满意度提升至98.5%',
-        '年节约运营成本5000万元'
+        '流程自动化效率提升90%',
+        '生产质检准确率提升98%'
       ]
     }
   },
@@ -305,17 +302,14 @@ export default function IndustrySolutions() {
                     {solution.name}
                   </h3>
 
-                  {/* 描述文字 */}
-                  <p
-                    className="text-sm font-light mb-4"
-                    style={{
-                      color: '#FFFFFF',
-                      lineHeight: '1.5',
-                      textShadow: '0 1px 4px rgba(0,0,0,0.3)'
-                    }}
-                  >
-                    {solution.description}
-                  </p>
+                  {/* 描述文字 - 支持多行显示 */}
+                  <div className="text-sm font-light mb-4 space-y-1" style={{ color: '#FFFFFF', textShadow: '0 1px 4px rgba(0,0,0,0.3)' }}>
+                    {solution.description.split('\n').map((line, index) => (
+                      <p key={index} className="leading-relaxed" style={{ lineHeight: '1.4' }}>
+                        {line}
+                      </p>
+                    ))}
+                  </div>
 
                   {/* 详情按钮 */}
                   <button
@@ -398,17 +392,14 @@ export default function IndustrySolutions() {
                     {solution.name}
                   </h3>
 
-                  {/* 描述文字 */}
-                  <p
-                    className="text-sm font-light mb-4"
-                    style={{
-                      color: '#FFFFFF',
-                      lineHeight: '1.5',
-                      textShadow: '0 1px 4px rgba(0,0,0,0.3)'
-                    }}
-                  >
-                    {solution.description}
-                  </p>
+                  {/* 描述文字 - 支持多行显示 */}
+                  <div className="text-sm font-light mb-4 space-y-1" style={{ color: '#FFFFFF', textShadow: '0 1px 4px rgba(0,0,0,0.3)' }}>
+                    {solution.description.split('\n').map((line, index) => (
+                      <p key={index} className="leading-relaxed" style={{ lineHeight: '1.4' }}>
+                        {line}
+                      </p>
+                    ))}
+                  </div>
 
                   {/* 详情按钮 */}
                   <button
