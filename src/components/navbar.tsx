@@ -34,14 +34,13 @@ export default function Navbar() {
     >
       <div className="container mx-auto max-w-7xl h-full px-4 sm:px-8">
         <div className="flex items-center justify-between h-full">
-          {/* 左侧 Logo - 图片框 */}
+          {/* 左侧 Logo */}
           <div className="flex-shrink-0">
-            <div
-              className="flex items-center justify-center w-10 h-10 border-2 rounded"
-              style={{ borderColor: '#FF3B30' }}
-            >
-              <span className="text-xs font-bold" style={{ color: '#FF3B30' }}>LOGO</span>
-            </div>
+            <img
+              src="https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2F3.+%E7%A5%9E%E5%B7%9E%E6%95%B0%E7%A0%81%E5%93%81%E7%89%8C%E6%A0%87%E8%AF%86%E2%80%94%E2%80%94%E4%B8%AD%E6%96%87%EF%BC%88%E6%A8%AA%EF%BC%89.png&nonce=66d7f3ab-a620-49ae-9a21-f859e68cc0f2&project_id=7604737481589964809&sign=41a4962f44f68a4185601c35633025e349453649b9a325c157ec590390bc31ae"
+              alt="神州数码"
+              className="h-8 w-auto"
+            />
           </div>
 
           {/* 中间导航项 */}
