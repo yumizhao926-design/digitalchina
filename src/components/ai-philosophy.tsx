@@ -13,8 +13,8 @@ export default function AIPhilosophy() {
     position: '',
   });
 
-  // 固定的背景图片URL - 灰色系带红色点缀
-  const WHITEPAPER_BG_URL = 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_20b2fe6b-ce92-49ea-a2e5-d5816df963f6.jpeg?sign=1802162703-b6feb48a41-0-1e7deae0ddd5e2449043a0955f9d55913029f2181e7e6e0c4bcedd608cef01f8';
+  // 固定的背景图片URL - 蓝皮书封面风格
+  const WHITEPAPER_BG_URL = 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_e9416e44-23f1-4038-8689-60d412a2549c.jpeg?sign=1802175114-a1b1437fdb-0-82263ededeefc0f1dd319f608a699ab8af93b689f9eebc0a153467c7f61c9bbf';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
