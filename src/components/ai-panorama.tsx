@@ -325,9 +325,33 @@ export default function AIPanorama() {
     <section
       id="ai-panorama"
       className="py-20 px-4 sm:px-8 relative overflow-hidden"
-      style={{ backgroundColor: '#F8F9FA' }}
+      style={{
+        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
+        minHeight: '900px'
+      }}
     >
-      {/* 浅色科技渐变背景 */}
+      {/* 科技感装饰背景 */}
+      <div
+        className="absolute inset-0 opacity-5"
+        style={{
+          backgroundImage: `
+            radial-gradient(circle at 20% 50%, rgba(74, 144, 226, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 50%, rgba(118, 75, 162, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 50% 80%, rgba(80, 227, 194, 0.2) 0%, transparent 50%)
+          `
+        }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
+          `,
+          backgroundSize: '50px 50px',
+          opacity: 0.3
+        }}
+      />
       <div
         className="absolute inset-0 opacity-30"
         style={{
@@ -338,8 +362,13 @@ export default function AIPanorama() {
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* 区域标题 */}
         <h2
-          className="font-bold mb-16 text-center"
-          style={{ color: '#333333', fontSize: '32px', letterSpacing: '0.5px' }}
+          className="font-bold mb-16 text-center relative z-10"
+          style={{
+            color: '#ffffff',
+            fontSize: '32px',
+            letterSpacing: '0.5px',
+            textShadow: '0 0 20px rgba(74, 144, 226, 0.5)'
+          }}
         >
           AI能力全景图
         </h2>
@@ -348,28 +377,76 @@ export default function AIPanorama() {
         {!isMobile && (
           <div className="relative" style={{ height: '700px' }}>
             <svg viewBox="0 0 800 700" className="w-full h-full">
-              {/* 定义流光动画 */}
+              {/* 定义流光动画和科技感效果 */}
               <defs>
+                <linearGradient id="coreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#4A90E2" />
+                  <stop offset="100%" stopColor="#50E3C2" />
+                </linearGradient>
+                <linearGradient id="industryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#667eea" />
+                  <stop offset="100%" stopColor="#764ba2" />
+                </linearGradient>
+                <linearGradient id="productGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#f093fb" />
+                  <stop offset="100%" stopColor="#f5576c" />
+                </linearGradient>
+                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
                 <style>
                   {`@keyframes flow {
                     0% { stroke-dashoffset: 100; }
                     100% { stroke-dashoffset: 0; }
                   }
+                  @keyframes fadeInUp {
+                    from {
+                      opacity: 0;
+                      transform: translateY(20px);
+                    }
+                    to {
+                      opacity: 1;
+                      transform: translateY(0);
+                    }
+                  }
+                  @keyframes pulse {
+                    0%, 100% {
+                      opacity: 1;
+                    }
+                    50% {
+                      opacity: 0.5;
+                    }
+                  }
                   .flow-animation {
                     stroke-dasharray: 10 5;
                     animation: flow 3s linear infinite;
+                  }
+                  .fade-in-up {
+                    animation: fadeInUp 0.6s ease-out forwards;
+                    opacity: 0;
+                  }
+                  .glow-effect {
+                    filter: url(#glow);
+                  }
+                  .pulse-animation {
+                    animation: pulse 2s ease-in-out infinite;
                   }`}
                 </style>
               </defs>
               {/* 中心点 */}
               <g transform="translate(400, 350)">
-                {/* 核心圈层 - 内环 - 深灰色边框 */}
-                <circle cx="0" cy="0" r="80" fill="none" stroke="#333333" strokeWidth="1.5" strokeOpacity="0.5" className="flow-animation" />
+                {/* 核心圈层 - 内环 - 科技感渐变边框 */}
+                <circle cx="0" cy="0" r="80" fill="none" stroke="url(#coreGradient)" strokeWidth="2" strokeOpacity="0.8" className="flow-animation glow-effect" />
 
                 {/* 核心项1 */}
                 <g
                   transform="translate(0, -35)"
-                  className="cursor-pointer"
+                  className="cursor-pointer fade-in-up"
+                  style={{ animationDelay: '0.2s' }}
                   onMouseEnter={() => setHoveredItem(coreItems[0])}
                   onMouseLeave={() => setHoveredItem(null)}
                   onClick={() => handleItemClick(coreItems[0])}
@@ -378,10 +455,10 @@ export default function AIPanorama() {
                     <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative" style={{
                       transform: hoveredItem?.id === coreItems[0].id ? 'scale(1.1)' : 'scale(1)',
                     }}>
-                      <div style={{ color: coreItems[0].color }}>
+                      <div className="pulse-animation" style={{ color: coreItems[0].color }}>
                         {coreItems[0].icon}
                       </div>
-                      <span style={{ color: '#333333', fontSize: '13px', fontWeight: '500' }}>
+                      <span style={{ color: '#ffffff', fontSize: '13px', fontWeight: '500' }}>
                         {coreItems[0].label}
                       </span>
                     </div>
@@ -391,7 +468,8 @@ export default function AIPanorama() {
                 {/* 核心项2 */}
                 <g
                   transform="translate(0, 35)"
-                  className="cursor-pointer"
+                  className="cursor-pointer fade-in-up"
+                  style={{ animationDelay: '0.4s' }}
                   onMouseEnter={() => setHoveredItem(coreItems[1])}
                   onMouseLeave={() => setHoveredItem(null)}
                   onClick={() => handleItemClick(coreItems[1])}
@@ -400,18 +478,18 @@ export default function AIPanorama() {
                     <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative" style={{
                       transform: hoveredItem?.id === coreItems[1].id ? 'scale(1.1)' : 'scale(1)',
                     }}>
-                      <div style={{ color: coreItems[1].color }}>
+                      <div className="pulse-animation" style={{ color: coreItems[1].color }}>
                         {coreItems[1].icon}
                       </div>
-                      <span style={{ color: '#333333', fontSize: '13px', fontWeight: '500' }}>
+                      <span style={{ color: '#ffffff', fontSize: '13px', fontWeight: '500' }}>
                         {coreItems[1].label}
                       </span>
                     </div>
                   </foreignObject>
                 </g>
 
-                {/* 行业圈层 - 中环 - 中灰色边框 */}
-                <circle cx="0" cy="0" r="160" fill="none" stroke="#666666" strokeWidth="1.2" strokeOpacity="0.35" className="flow-animation" style={{ animationDelay: '1s' }} />
+                {/* 行业圈层 - 中环 - 科技感渐变边框 */}
+                <circle cx="0" cy="0" r="160" fill="none" stroke="url(#industryGradient)" strokeWidth="2" strokeOpacity="0.7" className="flow-animation glow-effect" style={{ animationDelay: '1s' }} />
 
                 {/* 行业项 - 8个 */}
                 {industryItems.map((item, index) => {
@@ -423,7 +501,8 @@ export default function AIPanorama() {
                     <g
                       key={item.id}
                       transform={`translate(${x}, ${y})`}
-                      className="cursor-pointer"
+                      className="cursor-pointer fade-in-up"
+                      style={{ animationDelay: `${1 + index * 0.1}s` }}
                       onMouseEnter={() => setHoveredItem(item)}
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={() => handleItemClick(item)}
@@ -432,10 +511,10 @@ export default function AIPanorama() {
                         <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative" style={{
                           transform: hoveredItem?.id === item.id ? 'scale(1.1)' : 'scale(1)',
                         }}>
-                          <div style={{ color: item.color }}>
+                          <div className="pulse-animation" style={{ color: item.color }}>
                             {item.icon}
                           </div>
-                          <span style={{ color: '#333333', fontSize: '12px', fontWeight: '500' }}>
+                          <span style={{ color: '#ffffff', fontSize: '12px', fontWeight: '500' }}>
                             {item.label}
                           </span>
                         </div>
@@ -444,8 +523,8 @@ export default function AIPanorama() {
                   );
                 })}
 
-                {/* 产品圈层 - 外环 - 浅灰色边框 */}
-                <circle cx="0" cy="0" r="260" fill="none" stroke="#999999" strokeWidth="1" strokeOpacity="0.2" className="flow-animation" style={{ animationDelay: '2s' }} />
+                {/* 产品圈层 - 外环 - 科技感渐变边框 */}
+                <circle cx="0" cy="0" r="260" fill="none" stroke="url(#productGradient)" strokeWidth="2" strokeOpacity="0.6" className="flow-animation glow-effect" style={{ animationDelay: '2s' }} />
 
                 {/* 产品项 - 12个 */}
                 {productItems.map((item, index) => {
@@ -457,7 +536,8 @@ export default function AIPanorama() {
                     <g
                       key={item.id}
                       transform={`translate(${x}, ${y})`}
-                      className="cursor-pointer"
+                      className="cursor-pointer fade-in-up"
+                      style={{ animationDelay: `${2 + index * 0.08}s` }}
                       onMouseEnter={() => setHoveredItem(item)}
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={() => handleItemClick(item)}
@@ -466,10 +546,10 @@ export default function AIPanorama() {
                         <div className="w-full h-full flex items-center gap-2 transition-all duration-300 relative" style={{
                           transform: hoveredItem?.id === item.id ? 'scale(1.1)' : 'scale(1)',
                         }}>
-                          <div style={{ color: item.color }}>
+                          <div className="pulse-animation" style={{ color: item.color }}>
                             {item.icon}
                           </div>
-                          <span style={{ color: '#333333', fontSize: '11px', fontWeight: '500' }}>
+                          <span style={{ color: '#ffffff', fontSize: '11px', fontWeight: '500' }}>
                             {item.label}
                           </span>
                         </div>
@@ -525,8 +605,8 @@ export default function AIPanorama() {
             {/* 核心圈层 */}
             <div>
               <h3
-                className="font-semibold mb-3 px-2"
-                style={{ color: '#333333', fontSize: '16px' }}
+                className="font-semibold mb-3 px-2 relative z-10"
+                style={{ color: '#ffffff', fontSize: '16px' }}
               >
                 核心圈层
               </h3>
@@ -559,8 +639,8 @@ export default function AIPanorama() {
             {/* 行业圈层 */}
             <div>
               <h3
-                className="font-semibold mb-3 px-2"
-                style={{ color: '#333333', fontSize: '16px' }}
+                className="font-semibold mb-3 px-2 relative z-10"
+                style={{ color: '#ffffff', fontSize: '16px' }}
               >
                 行业圈层
               </h3>
@@ -590,8 +670,8 @@ export default function AIPanorama() {
             {/* 产品圈层 */}
             <div>
               <h3
-                className="font-semibold mb-3 px-2"
-                style={{ color: '#333333', fontSize: '16px' }}
+                className="font-semibold mb-3 px-2 relative z-10"
+                style={{ color: '#ffffff', fontSize: '16px' }}
               >
                 产品圈层
               </h3>
