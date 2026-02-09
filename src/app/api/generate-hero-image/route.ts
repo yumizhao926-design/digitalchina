@@ -8,9 +8,9 @@ export async function POST(request: NextRequest) {
     const config = new Config();
     const client = new ImageGenerationClient(config, customHeaders);
 
-    // 生成浅色商务风格背景图片 - 新版本
+    // 生成浅色商务风格背景图片 - 禁止任何文字
     const response = await client.generate({
-      prompt: 'professional business banner with clean minimalist design. Soft gradient background in light gray and white tones. Abstract geometric shapes with subtle red accents (#FF3B30). Modern corporate aesthetic similar to Huawei. High quality photography style. No text, no logo, no branding.',
+      prompt: 'clean minimalist business background with soft gradient in light gray and white tones. Pure abstract geometric shapes with subtle red accents (#FF3B30). Modern corporate aesthetic. Absolutely NO text, NO typography, NO characters, NO words, NO letters, NO numbers, NO writing, NO symbols. Clean abstract design only. Professional photography style.',
       size: '2K',
       watermark: false,
     });
