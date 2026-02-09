@@ -62,14 +62,14 @@ export default function Hero() {
 
         {/* 小圆点装饰 */}
         <div
-          className="absolute top-1/3 right-1/4 w-2 h-2 rounded-full"
+          className="absolute top-1/2 right-1/4 w-2 h-2 rounded-full"
           style={{
             background: 'rgba(255,59,48,0.25)',
             animation: 'pulse 3s ease-in-out infinite',
           }}
         />
         <div
-          className="absolute bottom-1/3 left-1/4 w-1.5 h-1.5 rounded-full"
+          className="absolute bottom-1/4 left-1/4 w-1.5 h-1.5 rounded-full"
           style={{
             background: 'rgba(51,51,51,0.2)',
             animation: 'pulse 4s ease-in-out infinite',
