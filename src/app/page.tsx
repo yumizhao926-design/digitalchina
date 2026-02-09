@@ -9,6 +9,7 @@ import EcosystemPartners from '@/components/ecosystem-partners';
 import NewsUpdates from '@/components/news-updates';
 import FinalCTA from '@/components/final-cta';
 import Footer from '@/components/footer';
+import ChatBot from '@/components/chatbot';
 import AIPanorama from '@/components/ai-panorama';
 import AIPhilosophy from '@/components/ai-philosophy';
 
@@ -159,6 +160,9 @@ export default function Home() {
 
       {/* 页脚 */}
       <Footer />
+
+      {/* 聊天机器人 */}
+      <ChatBot />
     </div>
   );
 }
