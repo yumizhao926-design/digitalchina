@@ -13,8 +13,8 @@ export default function AIPhilosophy() {
     position: '',
   });
 
-  // 固定的背景图片URL
-  const WHITEPAPER_BG_URL = 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_31dac949-ea25-4b48-85f2-198bfe80383c.jpeg?sign=1802162100-56d6a8c77e-0-aff75373fec8b1c35d78d28167a4ca9ecb04f05d4eb6a191a40726da4de2cee8';
+  // 固定的背景图片URL - 无文字的商务背景图
+  const WHITEPAPER_BG_URL = 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_493bc16a-2054-4319-90c0-f803361b42ef.jpeg?sign=1802162376-6d7e2c4320-0-90a109b112b4d0558c5505e5ac6e3719407acce958e321974a9ace73438af129';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -177,8 +177,8 @@ export default function AIPhilosophy() {
               {/* 渐变遮罩，确保文字可读 */}
               <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20"></div>
 
-              {/* 内容 - 文字CTA */}
-              <div className="relative z-10 h-full flex flex-col items-center justify-center p-10 text-center">
+              {/* 内容 - 文字CTA在左下角 */}
+              <div className="relative z-10 h-full flex flex-col items-start justify-end p-10">
                 {/* CTA文字链接 */}
                 <div className="space-y-4">
                   <button
