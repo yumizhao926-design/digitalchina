@@ -261,72 +261,79 @@ export default function IndustrySolutions() {
                   style={{ backgroundImage: `url(${solution.image})` }}
                 />
 
-                {/* 渐变遮罩 - 从上到下 */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/75" />
+                {/* 渐变遮罩 - 更柔和 */}
+                <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/60" />
 
-                {/* 内容叠加 - 顶部对齐 */}
-                <div className="relative z-10 p-6 h-full flex flex-col">
-                  {/* 行业名称 */}
-                  <h3
-                    className="font-semibold mb-2"
-                    style={{
-                      color: '#FFFFFF',
-                      fontSize: '26px',
-                      letterSpacing: '1px',
-                      textShadow: '0 2px 12px rgba(0,0,0,0.4)'
-                    }}
-                  >
-                    {solution.name}
-                  </h3>
+                {/* 内容叠加 - 左右布局 */}
+                <div className="relative z-10 p-6 h-full flex flex-col justify-between">
+                  {/* 上部：行业名称 + 红色横线 */}
+                  <div>
+                    <h3
+                      className="font-bold mb-3"
+                      style={{
+                        color: '#FFFFFF',
+                        fontSize: '28px',
+                        letterSpacing: '0.5px',
+                        textShadow: '0 2px 16px rgba(0,0,0,0.5)'
+                      }}
+                    >
+                      {solution.name}
+                    </h3>
+                    <div
+                      className="w-20 h-0.5 rounded-full"
+                      style={{ backgroundColor: '#FF3B30' }}
+                    />
+                  </div>
 
-                  {/* 红色横线 */}
-                  <div
-                    className="w-16 h-0.5 mb-5"
-                    style={{ backgroundColor: '#FF3B30' }}
-                  />
-
-                  {/* 描述文字 */}
-                  <div className="text-sm font-light mb-auto space-y-2" style={{ color: '#FFFFFF', textShadow: '0 1px 6px rgba(0,0,0,0.4)' }}>
+                  {/* 中部：描述文字 */}
+                  <div className="my-4">
                     {solution.description.split('\n').map((line, index) => (
-                      <p key={index} className="leading-relaxed" style={{ lineHeight: '1.5' }}>
+                      <p
+                        key={index}
+                        className="text-sm font-medium leading-relaxed mb-2"
+                        style={{ 
+                          color: '#FFFFFF',
+                          textShadow: '0 1px 8px rgba(0,0,0,0.5)'
+                        }}
+                      >
                         {line}
                       </p>
                     ))}
                   </div>
 
-                  {/* 底部区域：价值数据 + CTA */}
-                  <div className="mt-6 space-y-4">
-                    {/* 价值数据 - 方框强调 */}
+                  {/* 下部：价值数据 + CTA */}
+                  <div className="flex items-center justify-between">
+                    {/* 价值数据 - 圆形标签 */}
                     <div
-                      className="px-5 py-3 rounded-lg backdrop-blur-md"
+                      className="px-5 py-3 rounded-2xl backdrop-blur-sm"
                       style={{
-                        backgroundColor: 'rgba(255, 59, 48, 0.12)',
-                        border: '1px solid rgba(255, 59, 48, 0.4)'
+                        backgroundColor: 'rgba(255, 59, 48, 0.2)',
+                        border: '2px solid #FF3B30'
                       }}
                     >
                       <p
-                        className="text-lg font-bold text-center"
+                        className="text-base font-bold"
                         style={{ 
                           color: '#FF3B30',
-                          textShadow: '0 1px 8px rgba(0,0,0,0.3)',
-                          letterSpacing: '0.5px'
+                          textShadow: '0 1px 6px rgba(0,0,0,0.3)',
+                          letterSpacing: '0.3px'
                         }}
                       >
                         {solution.value}
                       </p>
                     </div>
 
-                    {/* 详情按钮 - 文字+箭头 */}
+                    {/* CTA按钮 */}
                     <button
-                      className="text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:gap-3 group"
+                      className="text-sm font-semibold flex items-center gap-2 transition-all duration-300 hover:gap-3 hover:scale-105 group"
                       style={{
                         color: '#FFFFFF',
-                        textShadow: '0 1px 6px rgba(0,0,0,0.4)',
+                        textShadow: '0 1px 8px rgba(0,0,0,0.5)',
                         letterSpacing: '0.5px'
                       }}
                     >
                       查看详情
-                      <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform" />
+                      <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
                 </div>
