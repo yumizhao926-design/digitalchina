@@ -1,17 +1,18 @@
-# 背景图片占位文件
 
-请将你的背景图片放到这个位置，文件名为 hero-background.jpg
+This is a placeholder for the background image file.
 
-支持的图片格式：
-- jpg / jpeg
-- png
-- webp
+To add a real background image:
 
-建议尺寸：
-- 桌面端：1920x1080 或更大
-- 移动端：自动适应
+Option 1: Use an online image (uncomment in hero.tsx):
+- https://images.unsplash.com/photo-1497366216548-37526070297c (modern office)
+- https://images.unsplash.com/photo-1486406146926-c627a92ad1ab (corporate building)
+- https://images.unsplash.com/photo-1497215728101-856f4ea42174 (abstract business)
 
-图片要求：
-- 文件大小建议在 500KB 以内
-- 压缩良好以保证加载速度
-- 色彩与整体设计风格一致
+Option 2: Add your own image:
+1. Save your image as hero-background.jpg in this folder
+2. Recommended size: 1920x1080 or larger
+3. Compress to < 500KB for fast loading
+
+Option 3: Use a different format:
+- PNG: hero-background.png
+- WebP: hero-background.webp

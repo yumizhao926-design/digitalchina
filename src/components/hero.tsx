@@ -7,15 +7,15 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url("/hero-background.svg")',
+          backgroundImage: 'url("https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80")',
         }}
       />
 
-      {/* 遮罩层 - 让背景更明显 */}
+      {/* 遮罩层 - 让背景更明显，文字清晰 */}
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(245,245,245,0.5) 100%)',
+          background: 'linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(245,245,245,0.8) 100%)',
         }}
       />
 
