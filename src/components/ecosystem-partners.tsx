@@ -268,40 +268,6 @@ export default function EcosystemPartners() {
               speed={0.4}
               isPaused={isPaused}
             />
-
-            {/* 底部信息 */}
-            <div className="flex items-center justify-between mt-6">
-              <div className="flex gap-8 text-xs" style={{ color: '#999999' }}>
-                <div className="flex items-center gap-2">
-                  <div
-                    style={{
-                      width: '12px',
-                      height: '12px',
-                      border: '1px solid #E60012',
-                      backgroundColor: '#FAFAFA'
-                    }}
-                  />
-                  <span>技术伙伴</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div
-                    style={{
-                      width: '12px',
-                      height: '12px',
-                      border: '1px solid #E5E5E5',
-                      backgroundColor: '#FAFAFA'
-                    }}
-                  />
-                  <span>生态共建伙伴</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 text-xs" style={{ color: '#999999' }}>
-                <span>共 {partners.length} 家合作伙伴</span>
-                <span>•</span>
-                <span>{isPaused ? '滚动暂停' : '自动滚动中'}</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
