@@ -103,7 +103,6 @@ export default function CaseCarousel() {
           {/* 轮播容器 */}
           <div
             className="overflow-hidden rounded-2xl"
-            style={{ backgroundColor: '#FFFFFF' }}
           >
             <div
               className="flex transition-transform duration-500 ease-in-out"
@@ -118,55 +117,66 @@ export default function CaseCarousel() {
                   className="flex-shrink-0 w-full"
                   style={{ width: `${100 / caseStudies.length}%` }}
                 >
-                  <div className="p-8 sm:p-12 h-full">
-                    <div className="flex flex-col h-full gap-6">
-                      {/* 客户LOGO */}
-                      <div className="mb-2">
-                        <img
-                          src={caseStudy.logo}
-                          alt={`${caseStudy.clientName} LOGO`}
-                          className="h-16 object-contain"
-                        />
-                      </div>
+                  <div className="relative h-full overflow-hidden rounded-2xl shadow-lg">
+                    {/* 背景图片 */}
+                    <div
+                      className="absolute inset-0 bg-cover bg-center transition-all duration-700 hover:scale-110"
+                      style={{ backgroundImage: `url(${caseStudy.logo})` }}
+                    />
 
-                      {/* 行业标签 */}
-                      <div
-                        className="inline-block px-3 py-1 rounded-full text-xs font-medium w-fit"
-                        style={{
-                          backgroundColor: '#F0F0F0',
-                          color: '#666666'
-                        }}
-                      >
-                        {caseStudy.industry}
-                      </div>
+                    {/* 渐变遮罩 */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-                      {/* 合作场景 */}
+                    {/* 内容叠加 */}
+                    <div className="relative z-10 p-8 sm:p-12 h-full flex flex-col justify-between min-h-[400px]">
                       <div>
-                        <p
-                          className="text-xs mb-1"
-                          style={{ color: '#999999' }}
+                        {/* 行业标签 */}
+                        <div
+                          className="inline-block px-4 py-2 rounded-full text-sm font-medium mb-4"
+                          style={{
+                            backgroundColor: '#E60012',
+                            color: '#FFFFFF'
+                          }}
                         >
-                          合作场景
-                        </p>
-                        <p
-                          className="font-medium"
-                          style={{ color: '#333333', fontSize: '20px' }}
+                          {caseStudy.industry}
+                        </div>
+
+                        {/* 客户名称 */}
+                        <h3
+                          className="font-bold mb-3"
+                          style={{ color: '#FFFFFF', fontSize: '28px', letterSpacing: '0.5px' }}
                         >
-                          {caseStudy.scenario}
-                        </p>
+                          {caseStudy.clientName}
+                        </h3>
+
+                        {/* 合作场景 */}
+                        <div className="mb-4">
+                          <p
+                            className="text-xs mb-2"
+                            style={{ color: '#FFFFFF', opacity: 0.8 }}
+                          >
+                            合作场景
+                          </p>
+                          <p
+                            className="font-medium"
+                            style={{ color: '#FFFFFF', fontSize: '20px', lineHeight: '1.4' }}
+                          >
+                            {caseStudy.scenario}
+                          </p>
+                        </div>
                       </div>
 
                       {/* 核心成果 */}
-                      <div className="mt-auto">
+                      <div>
                         <p
-                          className="text-xs mb-1"
-                          style={{ color: '#999999' }}
+                          className="text-xs mb-2"
+                          style={{ color: '#FFFFFF', opacity: 0.8 }}
                         >
                           核心成果
                         </p>
                         <p
                           className="font-bold"
-                          style={{ color: '#E60012', fontSize: '24px' }}
+                          style={{ color: '#E60012', fontSize: '32px' }}
                         >
                           {caseStudy.result}
                         </p>
