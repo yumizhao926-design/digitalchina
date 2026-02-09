@@ -6,88 +6,87 @@ import { ArrowRight } from 'lucide-react';
 interface Partner {
   name: string;
   type: 'technical' | 'ecosystem';
-  logo: string;
 }
 
-// 合作伙伴数据 - 使用可靠的CDN URL
+// 合作伙伴数据
 const partners: Partner[] = [
   // 技术伙伴
-  { name: '华为', type: 'technical', logo: 'https://logo.clearbit.com/huawei.com' },
-  { name: '微软', type: 'technical', logo: 'https://logo.clearbit.com/microsoft.com' },
-  { name: '百度', type: 'technical', logo: 'https://logo.clearbit.com/baidu.com' },
-  { name: '阿里巴巴', type: 'technical', logo: 'https://logo.clearbit.com/alibaba.com' },
-  { name: '腾讯', type: 'technical', logo: 'https://logo.clearbit.com/tencent.com' },
-  { name: '字节跳动', type: 'technical', logo: 'https://logo.clearbit.com/bytedance.com' },
-  { name: '科大讯飞', type: 'technical', logo: 'https://logo.clearbit.com/iflytek.com' },
-  { name: '商汤科技', type: 'technical', logo: 'https://logo.clearbit.com/sensetime.com' },
-  { name: '旷视科技', type: 'technical', logo: 'https://logo.clearbit.com/megvii.com' },
-  { name: '云从科技', type: 'technical', logo: 'https://logo.clearbit.com/cloudwalk.com' },
-  { name: '依图科技', type: 'technical', logo: 'https://logo.clearbit.com/yitu.com' },
-  { name: '第四范式', type: 'technical', logo: 'https://logo.clearbit.com/4paradigm.com' },
-  { name: '京东科技', type: 'technical', logo: 'https://logo.clearbit.com/jd.com' },
-  { name: '网易', type: 'technical', logo: 'https://logo.clearbit.com/163.com' },
-  { name: '小米', type: 'technical', logo: 'https://logo.clearbit.com/mi.com' },
-  { name: '滴滴出行', type: 'technical', logo: 'https://logo.clearbit.com/didiglobal.com' },
-  { name: '美团', type: 'technical', logo: 'https://logo.clearbit.com/meituan.com' },
-  { name: '快手', type: 'technical', logo: 'https://logo.clearbit.com/kuaishou.com' },
-  { name: 'B站', type: 'technical', logo: 'https://logo.clearbit.com/bilibili.com' },
-  { name: '小红书', type: 'technical', logo: 'https://logo.clearbit.com/xiaohongshu.com' },
-  { name: '网易有道', type: 'technical', logo: 'https://logo.clearbit.com/youdao.com' },
-  { name: '搜狗', type: 'technical', logo: 'https://logo.clearbit.com/sogou.com' },
-  { name: '搜狐', type: 'technical', logo: 'https://logo.clearbit.com/sohu.com' },
-  { name: '360', type: 'technical', logo: 'https://logo.clearbit.com/360.cn' },
-  { name: '金山云', type: 'technical', logo: 'https://logo.clearbit.com/ksyun.com' },
-  { name: '华为云', type: 'technical', logo: 'https://logo.clearbit.com/huaweicloud.com' },
-  { name: '阿里云', type: 'technical', logo: 'https://logo.clearbit.com/aliyun.com' },
-  { name: '腾讯云', type: 'technical', logo: 'https://logo.clearbit.com/tencentcloud.com' },
-  { name: '百度智能云', type: 'technical', logo: 'https://logo.clearbit.com/bce.baidu.com' },
-  { name: '字节云', type: 'technical', logo: 'https://logo.clearbit.com/volcengine.com' },
-  { name: '火山引擎', type: 'technical', logo: 'https://logo.clearbit.com/volcengine.com' },
-  { name: '阿里达摩院', type: 'technical', logo: 'https://logo.clearbit.com/damo.alibaba.com' },
-  { name: '腾讯AI Lab', type: 'technical', logo: 'https://logo.clearbit.com/ai.tencent.com' },
-  { name: '百度研究院', type: 'technical', logo: 'https://logo.clearbit.com/research.baidu.com' },
+  { name: '华为', type: 'technical' },
+  { name: '微软', type: 'technical' },
+  { name: '百度', type: 'technical' },
+  { name: '阿里巴巴', type: 'technical' },
+  { name: '腾讯', type: 'technical' },
+  { name: '字节跳动', type: 'technical' },
+  { name: '科大讯飞', type: 'technical' },
+  { name: '商汤科技', type: 'technical' },
+  { name: '旷视科技', type: 'technical' },
+  { name: '云从科技', type: 'technical' },
+  { name: '依图科技', type: 'technical' },
+  { name: '第四范式', type: 'technical' },
+  { name: '京东科技', type: 'technical' },
+  { name: '网易', type: 'technical' },
+  { name: '小米', type: 'technical' },
+  { name: '滴滴出行', type: 'technical' },
+  { name: '美团', type: 'technical' },
+  { name: '快手', type: 'technical' },
+  { name: 'B站', type: 'technical' },
+  { name: '小红书', type: 'technical' },
+  { name: '网易有道', type: 'technical' },
+  { name: '搜狗', type: 'technical' },
+  { name: '搜狐', type: 'technical' },
+  { name: '360', type: 'technical' },
+  { name: '金山云', type: 'technical' },
+  { name: '华为云', type: 'technical' },
+  { name: '阿里云', type: 'technical' },
+  { name: '腾讯云', type: 'technical' },
+  { name: '百度智能云', type: 'technical' },
+  { name: '字节云', type: 'technical' },
+  { name: '火山引擎', type: 'technical' },
+  { name: '阿里达摩院', type: 'technical' },
+  { name: '腾讯AI Lab', type: 'technical' },
+  { name: '百度研究院', type: 'technical' },
   
   // 生态共建伙伴
-  { name: '德勤中国', type: 'ecosystem', logo: 'https://logo.clearbit.com/deloitte.com' },
-  { name: '普华永道', type: 'ecosystem', logo: 'https://logo.clearbit.com/pwc.com' },
-  { name: '毕马威', type: 'ecosystem', logo: 'https://logo.clearbit.com/kpmg.com' },
-  { name: '安永', type: 'ecosystem', logo: 'https://logo.clearbit.com/ey.com' },
-  { name: '中国信通院', type: 'ecosystem', logo: 'https://logo.clearbit.com/caict.ac.cn' },
-  { name: '中国电子技术标准化研究院', type: 'ecosystem', logo: 'https://logo.clearbit.com/cesi.cn' },
-  { name: '中国工业互联网研究院', type: 'ecosystem', logo: 'https://logo.clearbit.com/aii.ac.cn' },
-  { name: '中国信息通信研究院', type: 'ecosystem', logo: 'https://logo.clearbit.com/caict.ac.cn' },
-  { name: '中国软件评测中心', type: 'ecosystem', logo: 'https://logo.clearbit.com/cstc.org.cn' },
-  { name: '国家工业信息安全发展研究中心', type: 'ecosystem', logo: 'https://logo.clearbit.com/cict.org.cn' },
-  { name: '中国电子信息产业发展研究院', type: 'ecosystem', logo: 'https://logo.clearbit.com/ccidgroup.com' },
-  { name: '中国电子学会', type: 'ecosystem', logo: 'https://logo.clearbit.com/cie-info.org.cn' },
-  { name: '中国计算机学会', type: 'ecosystem', logo: 'https://logo.clearbit.com/ccf.org.cn' },
-  { name: '中国人工智能学会', type: 'ecosystem', logo: 'https://logo.clearbit.com/caai.cn' },
-  { name: '中国自动化学会', type: 'ecosystem', logo: 'https://logo.clearbit.com/caa.org.cn' },
-  { name: '中国图象图形学学会', type: 'ecosystem', logo: 'https://logo.clearbit.com/sigchina.org.cn' },
-  { name: '中国网络空间安全协会', type: 'ecosystem', logo: 'https://logo.clearbit.com/cybersac.cn' },
-  { name: '中国互联网协会', type: 'ecosystem', logo: 'https://logo.clearbit.com/isc.org.cn' },
-  { name: '中国软件行业协会', type: 'ecosystem', logo: 'https://logo.clearbit.com/sia.org.cn' },
-  { name: '中国电子信息行业联合会', type: 'ecosystem', logo: 'https://logo.clearbit.com/cieia.org.cn' },
-  { name: '中国工业互联网产业联盟', type: 'ecosystem', logo: 'https://logo.clearbit.com/aii-alliance.org' },
-  { name: '中国通信标准化协会', type: 'ecosystem', logo: 'https://logo.clearbit.com/ccsa.org.cn' },
-  { name: '中国信息协会', type: 'ecosystem', logo: 'https://logo.clearbit.com/iiacn.com' },
-  { name: '中国互联网发展基金会', type: 'ecosystem', logo: 'https://logo.clearbit.com/cidf.org.cn' },
-  { name: '中国网络社会组织联合会', type: 'ecosystem', logo: 'https://logo.clearbit.com/cnf.org.cn' },
-  { name: '中国人工智能产业发展联盟', type: 'ecosystem', logo: 'https://logo.clearbit.com/aii-alliance.org' },
-  { name: '中国数字经济百人会', type: 'ecosystem', logo: 'https://logo.clearbit.com/dec100.com' },
-  { name: '中国新一代人工智能发展战略研究院', type: 'ecosystem', logo: 'https://logo.clearbit.com/nai.tju.edu.cn' },
-  { name: '中国移动通信联合会', type: 'ecosystem', logo: 'https://logo.clearbit.com/cmca.org.cn' },
-  { name: '中国电子商会', type: 'ecosystem', logo: 'https://logo.clearbit.com/cecc.org.cn' },
-  { name: '中国工业经济联合会', type: 'ecosystem', logo: 'https://logo.clearbit.com/cfie.org.cn' },
-  { name: '中国企业联合会', type: 'ecosystem', logo: 'https://logo.clearbit.com/cec.gov.cn' },
-  { name: '中国中小企业协会', type: 'ecosystem', logo: 'https://logo.clearbit.com/casme.org.cn' },
-  { name: '中国企业家协会', type: 'ecosystem', logo: 'https://logo.clearbit.com/cea.org.cn' },
-  { name: '中国质量管理协会', type: 'ecosystem', logo: 'https://logo.clearbit.com/caq.org.cn' },
-  { name: '中国标准化协会', type: 'ecosystem', logo: 'https://logo.clearbit.com/cas.org.cn' },
-  { name: '中国物流与采购联合会', type: 'ecosystem', logo: 'https://logo.clearbit.com/cflp.org.cn' },
-  { name: '中国对外经济贸易统计学会', type: 'ecosystem', logo: 'https://logo.clearbit.com/cftes.org.cn' },
-  { name: '中国国际贸易学会', type: 'ecosystem', logo: 'https://logo.clearbit.com/cits.org.cn' },
-  { name: '中国国际商会', type: 'ecosystem', logo: 'https://logo.clearbit.com/ccpicc.org.cn' },
+  { name: '德勤中国', type: 'ecosystem' },
+  { name: '普华永道', type: 'ecosystem' },
+  { name: '毕马威', type: 'ecosystem' },
+  { name: '安永', type: 'ecosystem' },
+  { name: '中国信通院', type: 'ecosystem' },
+  { name: '中国电子技术标准化研究院', type: 'ecosystem' },
+  { name: '中国工业互联网研究院', type: 'ecosystem' },
+  { name: '中国信息通信研究院', type: 'ecosystem' },
+  { name: '中国软件评测中心', type: 'ecosystem' },
+  { name: '国家工业信息安全发展研究中心', type: 'ecosystem' },
+  { name: '中国电子信息产业发展研究院', type: 'ecosystem' },
+  { name: '中国电子学会', type: 'ecosystem' },
+  { name: '中国计算机学会', type: 'ecosystem' },
+  { name: '中国人工智能学会', type: 'ecosystem' },
+  { name: '中国自动化学会', type: 'ecosystem' },
+  { name: '中国图象图形学学会', type: 'ecosystem' },
+  { name: '中国网络空间安全协会', type: 'ecosystem' },
+  { name: '中国互联网协会', type: 'ecosystem' },
+  { name: '中国软件行业协会', type: 'ecosystem' },
+  { name: '中国电子信息行业联合会', type: 'ecosystem' },
+  { name: '中国工业互联网产业联盟', type: 'ecosystem' },
+  { name: '中国通信标准化协会', type: 'ecosystem' },
+  { name: '中国信息协会', type: 'ecosystem' },
+  { name: '中国互联网发展基金会', type: 'ecosystem' },
+  { name: '中国网络社会组织联合会', type: 'ecosystem' },
+  { name: '中国人工智能产业发展联盟', type: 'ecosystem' },
+  { name: '中国数字经济百人会', type: 'ecosystem' },
+  { name: '中国新一代人工智能发展战略研究院', type: 'ecosystem' },
+  { name: '中国移动通信联合会', type: 'ecosystem' },
+  { name: '中国电子商会', type: 'ecosystem' },
+  { name: '中国工业经济联合会', type: 'ecosystem' },
+  { name: '中国企业联合会', type: 'ecosystem' },
+  { name: '中国中小企业协会', type: 'ecosystem' },
+  { name: '中国企业家协会', type: 'ecosystem' },
+  { name: '中国质量管理协会', type: 'ecosystem' },
+  { name: '中国标准化协会', type: 'ecosystem' },
+  { name: '中国物流与采购联合会', type: 'ecosystem' },
+  { name: '中国对外经济贸易统计学会', type: 'ecosystem' },
+  { name: '中国国际贸易学会', type: 'ecosystem' },
+  { name: '中国国际商会', type: 'ecosystem' },
 ];
 
 // 将合作伙伴分成三行
@@ -163,33 +162,23 @@ function LogoRow({ partners, direction, speed = 0.5, isPaused }: LogoRowProps) {
             }}
             title={partner.name}
           >
-            <img
-              src={partner.logo}
-              alt={partner.name}
-              className="max-w-full max-h-full object-contain px-3"
-              onError={(e) => {
-                // 图片加载失败时显示文字
-                e.currentTarget.style.display = 'none';
-                const parent = e.currentTarget.parentElement;
-                if (parent) {
-                  const textDiv = parent.querySelector('div');
-                  if (textDiv) textDiv.style.display = 'block';
-                }
-              }}
-              onLoad={(e) => {
-                // 图片加载成功时隐藏文字
-                const parent = e.currentTarget.parentElement;
-                if (parent) {
-                  const textDiv = parent.querySelector('div');
-                  if (textDiv) textDiv.style.display = 'none';
-                }
-              }}
-            />
-            <div
-              className="text-center truncate w-full px-2"
-              style={{ color: '#666666', fontSize: '12px', fontWeight: 500, display: 'none' }}
-            >
-              {partner.name}
+            {/* 使用SVG文字作为logo */}
+            <div className="text-center px-3 w-full">
+              <p
+                style={{
+                  color: '#666666',
+                  fontSize: '14px',
+                  fontWeight: 600,
+                  lineHeight: '1.3',
+                  wordBreak: 'break-word',
+                  display: '-webkit-box',
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden'
+                }}
+              >
+                {partner.name}
+              </p>
             </div>
           </div>
         ))}
