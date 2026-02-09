@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { X, Download, BookOpen, ArrowRight } from 'lucide-react';
+import { X, Download, ArrowRight, Brain, Zap, Target, Factory, Laptop, TrendingUp } from 'lucide-react';
 
 export default function AIPhilosophy() {
   const [showForm, setShowForm] = useState(false);
@@ -27,245 +27,220 @@ export default function AIPhilosophy() {
     }
   };
 
+  const transformations = [
+    {
+      icon: <Brain className="w-8 h-8" />,
+      title: '流程自动化',
+      description: 'AI驱动端到端业务流程自动流转',
+      color: '#FF3B30',
+    },
+    {
+      icon: <Zap className="w-8 h-8" />,
+      title: '决策智能化',
+      description: '基于实时数据的智能决策支持',
+      color: '#666666',
+    },
+    {
+      icon: <Target className="w-8 h-8" />,
+      title: '价值最大化',
+      description: '从降本增效到业务模式创新',
+      color: '#FF3B30',
+    },
+  ];
+
+  const scenarios = [
+    {
+      icon: <Factory className="w-10 h-10" />,
+      title: '生产流程',
+      subtitle: '智能制造优化',
+      color: '#FF3B30',
+    },
+    {
+      icon: <Laptop className="w-10 h-10" />,
+      title: '办公流程',
+      subtitle: '智能协同提效',
+      color: '#666666',
+    },
+    {
+      icon: <TrendingUp className="w-10 h-10" />,
+      title: '运营流程',
+      subtitle: '数据智能运营',
+      color: '#FF3B30',
+    },
+  ];
+
   return (
     <section id="ai-engine" className="py-24 px-4 sm:px-8 bg-white">
       <div className="container mx-auto max-w-7xl">
-        {/* 主要内容区：左文右图 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mb-12">
-          {/* 左侧文字区 */}
-          <div className="flex flex-col justify-center">
-            {/* 标题 */}
-            <h2
-              className="font-bold mb-6"
-              style={{ color: '#333333', fontSize: '32px' }}
-            >
-              AI FOR PROCESS | 核心理念
-            </h2>
+        {/* 标题区域 */}
+        <div className="text-center mb-16">
+          <h2
+            className="font-bold mb-4"
+            style={{ color: '#333333', fontSize: '32px' }}
+          >
+            AI FOR PROCESS | 核心理念
+          </h2>
+          <p
+            className="max-w-2xl mx-auto"
+            style={{ color: '#666666', fontSize: '18px', lineHeight: '1.8' }}
+          >
+            将AI与企业全层级核心业务流程深度耦合，实现从单一环节优化到全链路智能的质变
+          </p>
+        </div>
 
-            {/* 核心定义 */}
-            <div
-              className="mb-4 pb-4 border-b-2"
-              style={{ borderColor: '#FF3B30' }}
+        {/* 核心定义 */}
+        <div className="mb-20">
+          <div
+            className="border-l-4 pl-8 py-6"
+            style={{ borderColor: '#FF3B30' }}
+          >
+            <h3
+              className="font-semibold mb-3"
+              style={{ color: '#333333', fontSize: '24px' }}
             >
-              <h3
-                className="text-xl font-semibold mb-2"
-                style={{ color: '#333333' }}
-              >
-                从工具级应用到流程级重构
-              </h3>
-            </div>
-
-            {/* 描述 */}
+              从工具级应用到流程级重构
+            </h3>
             <p
-              className="mb-8"
-              style={{ color: '#666666', lineHeight: '1.8', fontSize: '15px' }}
+              style={{ color: '#666666', lineHeight: '1.8', fontSize: '16px' }}
             >
-              将AI与企业L1-L5全层级核心业务流程深度耦合，实现从单一环节优化到全链路智能的质变，
-              让AI成为业务流程的原生能力，驱动企业数智化深水区变革。
+              让AI成为业务流程的原生能力，驱动企业数智化深水区变革，
+              通过智能化的流程编排和决策支持，实现业务价值的持续释放。
+            </p>
+          </div>
+        </div>
+
+        {/* 三大变革 - 图文混排 */}
+        <div className="mb-20">
+          <h3
+            className="font-semibold mb-12 text-center"
+            style={{ color: '#333333', fontSize: '24px' }}
+          >
+            三大变革
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {transformations.map((item, index) => (
+              <div
+                key={index}
+                className="text-center p-8 rounded-xl transition-all duration-300 hover:shadow-lg"
+                style={{ backgroundColor: '#F5F5F5' }}
+              >
+                {/* 图标 */}
+                <div
+                  className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center transition-transform duration-300 hover:scale-110"
+                  style={{ backgroundColor: `${item.color}15` }}
+                >
+                  <span style={{ color: item.color }}>{item.icon}</span>
+                </div>
+
+                {/* 标题 */}
+                <h4
+                  className="font-semibold mb-3"
+                  style={{ color: '#333333', fontSize: '20px' }}
+                >
+                  {item.title}
+                </h4>
+
+                {/* 描述 */}
+                <p
+                  style={{ color: '#666666', lineHeight: '1.7', fontSize: '15px' }}
+                >
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 落地场景 */}
+        <div className="mb-20">
+          <h3
+            className="font-semibold mb-12 text-center"
+            style={{ color: '#333333', fontSize: '24px' }}
+          >
+            落地场景
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {scenarios.map((item, index) => (
+              <div
+                key={index}
+                className="p-8 rounded-xl text-center transition-all duration-300 hover:shadow-lg border border-gray-100"
+              >
+                {/* 图标 */}
+                <div
+                  className="w-16 h-16 rounded-lg mx-auto mb-4 flex items-center justify-center transition-transform duration-300 hover:scale-105"
+                  style={{ backgroundColor: '#F5F5F5' }}
+                >
+                  <span style={{ color: item.color }}>{item.icon}</span>
+                </div>
+
+                {/* 标题 */}
+                <h4
+                  className="font-medium mb-2"
+                  style={{ color: '#333333', fontSize: '18px' }}
+                >
+                  {item.title}
+                </h4>
+
+                {/* 副标题 */}
+                <p
+                  style={{ color: '#666666', fontSize: '14px' }}
+                >
+                  {item.subtitle}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 蓝皮书介绍区 */}
+        <div
+          className="rounded-xl p-10 mb-12 flex flex-col md:flex-row items-center justify-between gap-8"
+          style={{ backgroundColor: '#F5F5F5' }}
+        >
+          {/* 左侧内容 */}
+          <div className="flex-1">
+            <h3
+              className="font-bold mb-3"
+              style={{ color: '#333333', fontSize: '24px' }}
+            >
+              获取完整蓝皮书
+            </h3>
+            <p
+              className="mb-6"
+              style={{ color: '#666666', lineHeight: '1.7', fontSize: '16px' }}
+            >
+              30页深度解读AI for Process方法论，包含企业级应用案例和实施指南
             </p>
 
-            {/* 三大变革 */}
-            <div className="mb-8">
-              <h4
-                className="font-semibold mb-4"
-                style={{ color: '#333333', fontSize: '18px' }}
-              >
-                三大变革
-              </h4>
-              <ul className="space-y-3">
-                <li
-                  className="flex items-start"
-                  style={{ color: '#666666', fontSize: '15px' }}
-                >
-                  <span className="w-2 h-2 rounded-full mt-2 mr-3 flex-shrink-0" style={{ backgroundColor: '#FF3B30' }}></span>
-                  <div>
-                    <span className="font-semibold" style={{ color: '#333333' }}>流程自动化：</span>
-                    AI驱动端到端业务流程自动流转
-                  </div>
-                </li>
-                <li
-                  className="flex items-start"
-                  style={{ color: '#666666', fontSize: '15px' }}
-                >
-                  <span className="w-2 h-2 rounded-full mt-2 mr-3 flex-shrink-0" style={{ backgroundColor: '#FF3B30' }}></span>
-                  <div>
-                    <span className="font-semibold" style={{ color: '#333333' }}>决策智能化：</span>
-                    基于实时数据的智能决策支持
-                  </div>
-                </li>
-                <li
-                  className="flex items-start"
-                  style={{ color: '#666666', fontSize: '15px' }}
-                >
-                  <span className="w-2 h-2 rounded-full mt-2 mr-3 flex-shrink-0" style={{ backgroundColor: '#FF3B30' }}></span>
-                  <div>
-                    <span className="font-semibold" style={{ color: '#333333' }}>价值最大化：</span>
-                    从降本增效到业务模式创新
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            {/* 落地场景 */}
-            <div>
-              <h4
-                className="font-semibold mb-4"
-                style={{ color: '#333333', fontSize: '18px' }}
-              >
-                落地场景
-              </h4>
-              <div className="grid grid-cols-3 gap-4">
-                <div className="text-center">
-                  <div
-                    className="w-12 h-12 rounded-lg mx-auto mb-2 flex items-center justify-center"
-                    style={{ backgroundColor: '#F5F5F5' }}
-                  >
-                    <BookOpen className="w-6 h-6" style={{ color: '#FF3B30' }} />
-                  </div>
-                  <div
-                    className="text-xs font-medium mb-1"
-                    style={{ color: '#333333' }}
-                  >
-                    生产流程
-                  </div>
-                  <div
-                    className="text-xs"
-                    style={{ color: '#666666' }}
-                  >
-                    智能制造优化
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div
-                    className="w-12 h-12 rounded-lg mx-auto mb-2 flex items-center justify-center"
-                    style={{ backgroundColor: '#F5F5F5' }}
-                  >
-                    <BookOpen className="w-6 h-6" style={{ color: '#666666' }} />
-                  </div>
-                  <div
-                    className="text-xs font-medium mb-1"
-                    style={{ color: '#333333' }}
-                  >
-                    办公流程
-                  </div>
-                  <div
-                    className="text-xs"
-                    style={{ color: '#666666' }}
-                  >
-                    智能协同提效
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div
-                    className="w-12 h-12 rounded-lg mx-auto mb-2 flex items-center justify-center"
-                    style={{ backgroundColor: '#F5F5F5' }}
-                  >
-                    <BookOpen className="w-6 h-6" style={{ color: '#FF3B30' }} />
-                  </div>
-                  <div
-                    className="text-xs font-medium mb-1"
-                    style={{ color: '#333333' }}
-                  >
-                    运营流程
-                  </div>
-                  <div
-                    className="text-xs"
-                    style={{ color: '#666666' }}
-                  >
-                    数据智能运营
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* 下载按钮 */}
+            <button
+              onClick={() => setShowForm(true)}
+              className="px-8 py-3 font-medium text-white transition-all duration-300 hover:shadow-md inline-flex items-center gap-2"
+              style={{
+                backgroundColor: '#FF3B30',
+                borderRadius: '6px',
+              }}
+            >
+              <Download className="w-4 h-4" />
+              立即下载
+            </button>
           </div>
 
-          {/* 右侧蓝皮书区 */}
-          <div className="flex flex-col justify-center">
+          {/* 右侧书本图标 */}
+          <div
+            className="flex-shrink-0 relative"
+            style={{ width: '160px', height: '200px' }}
+          >
             <div
-              className="rounded-xl p-8 h-full flex flex-col items-center justify-center text-center"
-              style={{ backgroundColor: '#F5F5F5', borderRadius: '12px' }}
+              className="absolute inset-0 rounded-lg shadow-2xl flex flex-col items-center justify-center"
+              style={{
+                background: 'linear-gradient(135deg, #FF3B30 0%, #E63928 100%)',
+                transform: 'rotateY(-10deg)',
+              }}
             >
-              {/* 蓝皮书封面 - 3D立体效果 */}
-              <div
-                className="relative mb-6 transition-transform duration-300 hover:scale-105"
-                style={{
-                  width: '200px',
-                  height: '260px',
-                  perspective: '1000px',
-                }}
-              >
-                <div
-                  className="absolute inset-0 rounded-lg shadow-2xl"
-                  style={{
-                    background: 'linear-gradient(135deg, #FF3B30 0%, #E63928 100%)',
-                    transform: 'rotateY(-15deg)',
-                    transformOrigin: 'left center',
-                  }}
-                >
-                  <div className="p-6 flex flex-col h-full justify-between">
-                    <div>
-                      <div
-                        className="w-12 h-12 rounded-lg mb-4 mx-auto"
-                        style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }}
-                      >
-                        <BookOpen className="w-6 h-6 text-white mx-auto" />
-                      </div>
-                      <h3
-                        className="text-white font-bold text-lg mb-2"
-                      >
-                        AI for Process
-                      </h3>
-                      <p
-                        className="text-white text-sm"
-                        style={{ opacity: 0.9 }}
-                      >
-                        核心方法论
-                      </p>
-                    </div>
-                    <div className="text-white text-xs" style={{ opacity: 0.8 }}>
-                      2024年度报告
-                    </div>
-                  </div>
-                </div>
-
-                {/* 书脊 */}
-                <div
-                  className="absolute left-0 top-0 bottom-0 w-4 rounded-l-lg"
-                  style={{
-                    background: 'linear-gradient(90deg, #C42520 0%, #E63928 100%)',
-                    transform: 'rotateY(-15deg) translateX(-4px)',
-                  }}
-                />
-              </div>
-
-              {/* 标题 */}
-              <h3
-                className="text-xl font-semibold mb-3"
-                style={{ color: '#333333' }}
-              >
-                获取完整蓝皮书
-              </h3>
-
-              {/* 描述 */}
-              <p
-                className="mb-6"
-                style={{ color: '#666666', fontSize: '14px' }}
-              >
-                30页深度解读AI for Process方法论
-              </p>
-
-              {/* 红色按钮 */}
-              <button
-                onClick={() => setShowForm(true)}
-                className="px-8 py-3 font-medium text-white transition-all duration-300 hover:shadow-md flex items-center gap-2"
-                style={{
-                  backgroundColor: '#FF3B30',
-                  borderRadius: '6px',
-                }}
-              >
-                <Download className="w-4 h-4" />
-                立即下载
-              </button>
+              <Brain className="w-12 h-12 text-white mb-3" />
+              <div className="text-white font-bold text-lg">AI for Process</div>
+              <div className="text-white text-xs mt-2" style={{ opacity: 0.8 }}>蓝皮书</div>
             </div>
           </div>
         </div>
@@ -291,7 +266,7 @@ export default function AIPhilosophy() {
       {/* 表单弹窗 */}
       {showForm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="bg-white rounded-xl max-w-md w-full p-6 sm:p-8 shadow-2xl">
+          <div className="bg-white rounded-xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
             {/* 关闭按钮 */}
             <button
               className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
