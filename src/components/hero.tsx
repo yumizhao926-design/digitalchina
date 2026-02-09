@@ -1,42 +1,17 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-
 export default function Hero() {
-  const [imageUrl, setImageUrl] = useState('');
-
-  useEffect(() => {
-    // 页面加载时生成新的背景图片
-    const generateImage = async () => {
-      try {
-        const response = await fetch('/api/generate-hero-image', {
-          method: 'POST',
-        });
-        const data = await response.json();
-        if (data.success) {
-          setImageUrl(data.imageUrl);
-        }
-      } catch (error) {
-        console.error('Failed to generate image:', error);
-        // 如果生成失败，使用默认图片
-        setImageUrl('https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_2657d651-a7be-414c-a4b0-c90de301389f.jpeg?sign=1802155556-4326f870c9-0-15bac10e048efe30917e8dc41283f71965f64a9cd43e70e5962b0aca2c66815b');
-      }
-    };
-
-    generateImage();
-  }, []);
+  const HERO_IMAGE_URL = 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_3d5c3862-dcc6-43af-9197-3c0db4a39b01.jpeg?sign=1802157031-c8fc9db3db-0-c82504d7516a60a730f6fcafcccffeeee754e6f61d42d9f6bab0b543a87247e5';
 
   return (
     <section className="relative w-full overflow-hidden py-36 sm:py-44 md:py-52">
-      {/* 背景图片层 */}
-      {imageUrl && (
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url("${imageUrl}")`,
-          }}
-        />
-      )}
+      {/* 背景图片层 - 固定图片 */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url("${HERO_IMAGE_URL}")`,
+        }}
+      />
 
       {/* 淡色几何装饰元素 */}
       <div className="absolute inset-0 overflow-hidden">
