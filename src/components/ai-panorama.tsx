@@ -468,7 +468,11 @@ export default function AIPanorama() {
               <g transform="translate(400, 350)">
                 {/* 核心圈层 - 内环 - 科技感渐变边框 */}
                 {showPhase >= 0 && (
-                  <g className="transition-all duration-1000" style={{ opacity: showPhase >= 0 ? 1 : 0 }}>
+                  <g className="transition-all duration-1000" style={{
+                    opacity: showPhase >= 0 ? 1 : 0,
+                    transform: showPhase >= 0 ? 'scale(1)' : 'scale(0)',
+                    transformOrigin: 'center center'
+                  }}>
                     <circle cx="0" cy="0" r="80" fill="none" stroke="url(#coreGradient)" strokeWidth="2" strokeOpacity="0.8" className="glow-effect" />
                   </g>
                 )}
@@ -478,7 +482,11 @@ export default function AIPanorama() {
                   <g
                     transform="translate(0, -35)"
                     className="cursor-pointer transition-all duration-1000"
-                    style={{ opacity: showPhase >= 0 ? 1 : 0 }}
+                    style={{
+                      opacity: showPhase >= 0 ? 1 : 0,
+                      transform: showPhase >= 0 ? 'translate(0, -35) scale(1)' : 'translate(0, -35) scale(0)',
+                      transformOrigin: 'center center'
+                    }}
                     onMouseEnter={() => setHoveredItem(coreItems[0])}
                     onMouseLeave={() => setHoveredItem(null)}
                     onClick={() => handleItemClick(coreItems[0])}
@@ -503,7 +511,11 @@ export default function AIPanorama() {
                   <g
                     transform="translate(0, 35)"
                     className="cursor-pointer transition-all duration-1000"
-                    style={{ opacity: showPhase >= 0 ? 1 : 0 }}
+                    style={{
+                      opacity: showPhase >= 0 ? 1 : 0,
+                      transform: showPhase >= 0 ? 'translate(0, 35) scale(1)' : 'translate(0, 35) scale(0)',
+                      transformOrigin: 'center center'
+                    }}
                     onMouseEnter={() => setHoveredItem(coreItems[1])}
                     onMouseLeave={() => setHoveredItem(null)}
                     onClick={() => handleItemClick(coreItems[1])}
@@ -525,7 +537,11 @@ export default function AIPanorama() {
 
                 {/* 行业圈层 - 中环 - 科技感渐变边框 */}
                 {showPhase >= 1 && (
-                  <g className="transition-all duration-1000" style={{ opacity: showPhase >= 1 ? 1 : 0 }}>
+                  <g className="transition-all duration-1000" style={{
+                    opacity: showPhase >= 1 ? 1 : 0,
+                    transform: showPhase >= 1 ? 'scale(1)' : 'scale(0)',
+                    transformOrigin: 'center center'
+                  }}>
                     <circle cx="0" cy="0" r="160" fill="none" stroke="url(#industryGradient)" strokeWidth="2" strokeOpacity="0.7" className="glow-effect" />
                   </g>
                 )}
@@ -541,7 +557,21 @@ export default function AIPanorama() {
                       key={item.id}
                       transform={`translate(${x}, ${y})`}
                       className="cursor-pointer transition-all duration-1000"
-                      style={{ opacity: showPhase >= 1 ? 1 : 0 }}
+                      style={{
+                        opacity: showPhase >= 2 ? 1 : 0,
+                        transform: showPhase >= 2 ? `translate(${x}, ${y}) scale(1)` : `translate(${x}, ${y}) scale(0)`,
+                        transformOrigin: 'center center'
+                      }}
+                      onMouseEnter={() => setHoveredItem(item)}
+                      onMouseLeave={() => setHoveredItem(null)}
+                      onClick={() => handleItemClick(item)}
+                    >
+                      className="cursor-pointer transition-all duration-1000"
+                      style={{
+                        opacity: showPhase >= 1 ? 1 : 0,
+                        transform: showPhase >= 1 ? `translate(${x}, ${y}) scale(1)` : `translate(${x}, ${y}) scale(0)`,
+                        transformOrigin: 'center center'
+                      }}
                       onMouseEnter={() => setHoveredItem(item)}
                       onMouseLeave={() => setHoveredItem(null)}
                       onClick={() => handleItemClick(item)}
@@ -564,7 +594,11 @@ export default function AIPanorama() {
 
                 {/* 产品圈层 - 外环 - 科技感渐变边框 */}
                 {showPhase >= 2 && (
-                  <g className="transition-all duration-1000" style={{ opacity: showPhase >= 2 ? 1 : 0 }}>
+                  <g className="transition-all duration-1000" style={{
+                    opacity: showPhase >= 2 ? 1 : 0,
+                    transform: showPhase >= 2 ? 'scale(1)' : 'scale(0)',
+                    transformOrigin: 'center center'
+                  }}>
                     <circle cx="0" cy="0" r="260" fill="none" stroke="url(#productGradient)" strokeWidth="2" strokeOpacity="0.6" className="glow-effect" />
                   </g>
                 )}
