@@ -458,13 +458,17 @@ export default function AIPanorama() {
                   </feMerge>
                 </filter>
                 <style>
-                  {`@keyframes flow {
-                    0% { stroke-dashoffset: 100; }
+                  {`@keyframes flowAlongCircle {
+                    0% { stroke-dashoffset: 502; }
                     100% { stroke-dashoffset: 0; }
                   }
-                  @keyframes rotate {
-                    0% { transform: rotate(0deg); }
-                    100% { transform: rotate(360deg); }
+                  @keyframes flowAlongCircleMedium {
+                    0% { stroke-dashoffset: 1005; }
+                    100% { stroke-dashoffset: 0; }
+                  }
+                  @keyframes flowAlongCircleLarge {
+                    0% { stroke-dashoffset: 1634; }
+                    100% { stroke-dashoffset: 0; }
                   }
                   @keyframes pulse {
                     0%, 100% {
@@ -480,13 +484,14 @@ export default function AIPanorama() {
                   .pulse-animation {
                     animation: pulse 2s ease-in-out infinite;
                   }
-                  .flow-ring {
-                    transform-origin: center;
-                    animation: rotate 8s linear infinite;
+                  .core-flow {
+                    animation: flowAlongCircle 3s linear infinite;
                   }
-                  .flow-ring-reverse {
-                    transform-origin: center;
-                    animation: rotate 10s linear infinite reverse;
+                  .industry-flow {
+                    animation: flowAlongCircleMedium 4s linear infinite;
+                  }
+                  .product-flow {
+                    animation: flowAlongCircleLarge 5s linear infinite;
                   }
 `}
                 </style>
@@ -502,23 +507,13 @@ export default function AIPanorama() {
                   <circle
                     cx="0"
                     cy="0"
-                    r="88"
+                    r="80"
                     fill="none"
                     stroke="url(#coreFlowGradient)"
-                    strokeWidth="2"
-                    className="flow-ring"
-                    style={{ opacity: 0.6 }}
-                  />
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="85"
-                    fill="none"
-                    stroke="rgb(215, 0, 29)"
-                    strokeWidth="1"
-                    strokeDasharray="4 4"
-                    className="flow-ring-reverse"
-                    style={{ opacity: 0.3 }}
+                    strokeWidth="3"
+                    strokeDasharray="100 402"
+                    className="core-flow"
+                    style={{ opacity: 0.8 }}
                   />
                   <circle cx="0" cy="0" r="80" fill="rgb(215, 0, 29)" />
                 </g>
@@ -611,23 +606,13 @@ export default function AIPanorama() {
                   <circle
                     cx="0"
                     cy="0"
-                    r="168"
+                    r="160"
                     fill="none"
                     stroke="url(#industryFlowGradient)"
-                    strokeWidth="2"
-                    className="flow-ring-reverse"
-                    style={{ opacity: 0.5 }}
-                  />
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="164"
-                    fill="none"
-                    stroke="#666666"
-                    strokeWidth="1"
-                    strokeDasharray="6 4"
-                    className="flow-ring"
-                    style={{ opacity: 0.25 }}
+                    strokeWidth="2.5"
+                    strokeDasharray="200 805"
+                    className="industry-flow"
+                    style={{ opacity: 0.6 }}
                   />
                   <circle cx="0" cy="0" r="160" fill="#666666" fillOpacity="0.05" />
                 </g>
@@ -676,23 +661,13 @@ export default function AIPanorama() {
                   <circle
                     cx="0"
                     cy="0"
-                    r="268"
+                    r="260"
                     fill="none"
                     stroke="url(#productFlowGradient)"
                     strokeWidth="2"
-                    className="flow-ring"
-                    style={{ opacity: 0.4 }}
-                  />
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="264"
-                    fill="none"
-                    stroke="#999999"
-                    strokeWidth="1"
-                    strokeDasharray="8 4"
-                    className="flow-ring-reverse"
-                    style={{ opacity: 0.2 }}
+                    strokeDasharray="300 1334"
+                    className="product-flow"
+                    style={{ opacity: 0.5 }}
                   />
                   <circle cx="0" cy="0" r="260" fill="#999999" fillOpacity="0.03" />
                 </g>
