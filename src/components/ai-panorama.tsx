@@ -367,7 +367,7 @@ export default function AIPanorama() {
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* 区域标题 */}
         <h2
-          className="font-bold mb-16 text-center relative z-10"
+          className="font-bold mb-6 text-center relative z-10"
           style={{
             color: '#333333',
             fontSize: '32px',
@@ -376,46 +376,6 @@ export default function AIPanorama() {
         >
           AI能力全景图
         </h2>
-
-        {/* 阶段指示器 */}
-        <div className="flex justify-center gap-4 mb-12">
-          <div className="flex items-center gap-2">
-            <div
-              className="w-3 h-3 rounded-full transition-all duration-300"
-              style={{
-                backgroundColor: showPhase >= 0 ? '#FF3B30' : '#e0e0e0',
-                transform: showPhase === 0 ? 'scale(1.2)' : 'scale(1)'
-              }}
-            />
-            <span className="text-sm" style={{ color: showPhase >= 0 ? '#333333' : '#999999' }}>
-              核心层
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div
-              className="w-3 h-3 rounded-full transition-all duration-300"
-              style={{
-                backgroundColor: showPhase >= 1 ? '#666666' : '#e0e0e0',
-                transform: showPhase === 1 ? 'scale(1.2)' : 'scale(1)'
-              }}
-            />
-            <span className="text-sm" style={{ color: showPhase >= 1 ? '#333333' : '#999999' }}>
-              行业层
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div
-              className="w-3 h-3 rounded-full transition-all duration-300"
-              style={{
-                backgroundColor: showPhase >= 2 ? '#999999' : '#e0e0e0',
-                transform: showPhase === 2 ? 'scale(1.2)' : 'scale(1)'
-              }}
-            />
-            <span className="text-sm" style={{ color: showPhase >= 2 ? '#333333' : '#999999' }}>
-              产品层
-            </span>
-          </div>
-        </div>
 
         {/* 桌面端：环形布局 */}
         {!isMobile && (
@@ -632,6 +592,48 @@ export default function AIPanorama() {
                 })}
               </g>
             </svg>
+
+            {/* 阶段指示器 - 右下角 */}
+            <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-3 flex flex-col gap-2 min-w-[100px]">
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center gap-2">
+                  <div
+                    className="w-2.5 h-2.5 rounded-full transition-all duration-300"
+                    style={{
+                      backgroundColor: showPhase >= 0 ? '#FF3B30' : '#e0e0e0',
+                      transform: showPhase === 0 ? 'scale(1.2)' : 'scale(1)'
+                    }}
+                  />
+                  <span className="text-xs" style={{ color: showPhase >= 0 ? '#333333' : '#999999', fontWeight: showPhase >= 0 ? '500' : '400' }}>
+                    核心层
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div
+                    className="w-2.5 h-2.5 rounded-full transition-all duration-300"
+                    style={{
+                      backgroundColor: showPhase >= 1 ? '#666666' : '#e0e0e0',
+                      transform: showPhase === 1 ? 'scale(1.2)' : 'scale(1)'
+                    }}
+                  />
+                  <span className="text-xs" style={{ color: showPhase >= 1 ? '#333333' : '#999999', fontWeight: showPhase >= 1 ? '500' : '400' }}>
+                    行业层
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div
+                    className="w-2.5 h-2.5 rounded-full transition-all duration-300"
+                    style={{
+                      backgroundColor: showPhase >= 2 ? '#999999' : '#e0e0e0',
+                      transform: showPhase === 2 ? 'scale(1.2)' : 'scale(1)'
+                    }}
+                  />
+                  <span className="text-xs" style={{ color: showPhase >= 2 ? '#333333' : '#999999', fontWeight: showPhase >= 2 ? '500' : '400' }}>
+                    产品层
+                  </span>
+                </div>
+              </div>
+            </div>
 
             {/* 悬停关键词显示 */}
             {hoveredItem && (
