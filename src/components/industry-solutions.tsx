@@ -99,23 +99,20 @@ const industrySolutions: IndustrySolution[] = [
   },
   {
     id: 'solution-5',
-    name: '零售流程智能化方案',
-    description: '智能推荐 · 供应链 · 客户洞察',
-    image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&h=900&fit=crop&q=80',
-    value: '转化率+80%',
+    name: '数字金融',
+    description: '智能风控：实时交易风险监测\n投顾AI助手：个性化投资建议\n交易反欺诈：异常行为智能识别',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=900&fit=crop&q=80',
+    value: '风险识别率提升95%',
     detail: {
-      title: '零售智能化解决方案',
+      title: '金融智能风控与服务',
       content: [
-        'AI智能推荐系统，个性化推荐商品提升转化率',
-        '需求预测与智能补货，优化库存周转',
-        '客户画像分析，精准营销提升复购',
-        '智能客服与售后，自动处理订单咨询'
+        '智能风控：实时交易风险监测',
+        '投顾AI助手：个性化投资建议',
+        '交易反欺诈：异常行为智能识别'
       ],
       results: [
-        '页面转化率提升80%',
-        '库存周转天数减少50%',
-        '客户复购率提升45%',
-        '人力成本降低70%'
+        '风险识别率提升95%',
+        '客服效率提升80%'
       ]
     }
   },
