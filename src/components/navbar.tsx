@@ -150,9 +150,9 @@ export default function Navbar() {
                   )}
                 </a>
 
-                {/* 下拉菜单 - 通栏样式 */}
+                {/* 下拉菜单 - 全屏通栏 */}
                 {item.hasDropdown && activeDropdown === item.name && (
-                  <div className="absolute top-full left-0 right-0 mt-0 bg-white border-b border-border shadow-xl z-40 overflow-hidden" style={{ maxWidth: '100%' }}>
+                  <div className="fixed top-16 left-0 right-0 bg-white border-b border-border shadow-xl z-40 overflow-hidden">
                     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-6">
                       <div className="grid grid-cols-4 gap-8">
                         {item.dropdownItems?.map((dropdownItem) => (
