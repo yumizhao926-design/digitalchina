@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, Minimize2, Phone, Calendar } from 'lucide-react';
+import { MessageCircle, X, Send, Minimize2, Phone, Calendar, Lightbulb } from 'lucide-react';
 import { DemoBookingDialog } from '@/components/demo-booking-dialog';
 
 interface Message {
@@ -83,7 +83,7 @@ export default function ChatBot() {
     } else if (lowerMessage.includes('演示') || lowerMessage.includes('预约')) {
       botResponse = '您可以通过点击下方"演示预约"按钮来预约产品演示。我们会安排专业顾问为您详细介绍我们的解决方案。';
     } else if (lowerMessage.includes('技术') || lowerMessage.includes('支持') || lowerMessage.includes('帮助')) {
-      botResponse = '我们的技术支持团队提供7x24小时服务。\n\n📞 电话：400-810-8888\n📧 邮箱：support@digitalchina.com\n\n您也可以选择"技术支持"了解更多信息。';
+      botResponse = '我们的技术支持团队提供7x24小时服务。\n\n电话：400-810-8888\n邮箱：support@digitalchina.com\n\n您也可以选择"技术支持"了解更多信息。';
     } else if (lowerMessage.includes('价格') || lowerMessage.includes('费用') || lowerMessage.includes('报价')) {
       botResponse = '我们的产品方案根据企业规模和需求进行定制。建议您预约产品演示，我们的专业顾问会为您提供详细的方案和报价信息。';
     } else if (lowerMessage.includes('你好') || lowerMessage.includes('hi') || lowerMessage.includes('在吗')) {
@@ -133,7 +133,7 @@ export default function ChatBot() {
         addMessage('我需要技术支持', 'user');
         setIsTyping(true);
         setTimeout(() => {
-          addMessage('我们的技术支持团队提供7x24小时服务。\n\n📞 电话：400-810-8888\n📧 邮箱：support@digitalchina.com\n\n您也可以在工作时间 9:00-18:00 联系我们的在线客服。', 'bot');
+          addMessage('我们的技术支持团队提供7x24小时服务。\n\n电话：400-810-8888\n邮箱：support@digitalchina.com\n\n您也可以在工作时间 9:00-18:00 联系我们的在线客服。', 'bot');
           setIsTyping(false);
         }, 1000);
       }
@@ -170,7 +170,7 @@ export default function ChatBot() {
           }}
         >
           <p className="text-sm font-medium" style={{ color: '#333333' }}>
-            🤖 有什么可以帮您的吗？
+            有什么可以帮您的吗？
           </p>
         </div>
       )}
@@ -216,15 +216,15 @@ export default function ChatBot() {
               {/* 功能列表 */}
               <div className="px-5 py-4 space-y-2">
                 <div className="flex items-center gap-2 px-3 py-2 rounded-lg transition-all hover:bg-gray-50">
-                  <span className="text-lg">💡</span>
+                  <Lightbulb size={18} style={{ color: 'rgb(215, 0, 29)' }} />
                   <span className="text-sm text-gray-700">了解产品信息</span>
                 </div>
                 <div className="flex items-center gap-2 px-3 py-2 rounded-lg transition-all hover:bg-gray-50">
-                  <span className="text-lg">📅</span>
+                  <Calendar size={18} style={{ color: 'rgb(215, 0, 29)' }} />
                   <span className="text-sm text-gray-700">预约产品演示</span>
                 </div>
                 <div className="flex items-center gap-2 px-3 py-2 rounded-lg transition-all hover:bg-gray-50">
-                  <span className="text-lg">🔧</span>
+                  <Phone size={18} style={{ color: 'rgb(215, 0, 29)' }} />
                   <span className="text-sm text-gray-700">获取技术支持</span>
                 </div>
               </div>
