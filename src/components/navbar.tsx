@@ -24,6 +24,29 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // 点击导航项切换下拉菜单
+  const handleNavItemClick = (itemName: string) => {
+    if (itemName !== '首页') {
+      setActiveDropdown(activeDropdown === itemName ? null : itemName);
+    }
+  };
+
+  // 点击外部关闭下拉菜单
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      const navElement = target.closest('nav');
+      if (!navElement) {
+        setActiveDropdown(null);
+      }
+    };
+
+    if (activeDropdown) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [activeDropdown]);
+
   const navItems: NavItem[] = [
     { name: '首页', href: '#' },
     {
@@ -102,102 +125,106 @@ export default function Navbar() {
     },
   ];
 
-  const handleDropdownMouseEnter = (itemName: string) => {
-    if (itemName !== '首页') {
-      setActiveDropdown(itemName);
-    }
-  };
-
-  const handleDropdownMouseLeave = () => {
-    setActiveDropdown(null);
-  };
-
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/80 backdrop-blur-md border-b border-border'
-          : 'bg-white'
-      }`}
+    <nav
+      className={`
+        fixed top-0 left-0 right-0 z-50 transition-all duration-300
+        ${isScrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-md'
+          : 'bg-white shadow-sm'
+        }
+      `}
     >
-      <div className="container mx-auto max-w-7xl h-full px-4 sm:px-8">
-        <div className="flex items-center justify-between h-full">
-          {/* 左侧 Logo */}
-          <div className="flex-shrink-0">
-            <img
-              src="https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2F3.+%E7%A5%9E%E5%B7%9E%E6%95%B0%E7%A0%81%E5%93%81%E7%89%8C%E6%A0%87%E8%AF%86%E2%80%94%E2%80%94%E4%B8%AD%E6%96%87%EF%BC%88%E6%A8%AA%EF%BC%89.png&nonce=66d7f3ab-a620-49ae-9a21-f859e68cc0f2&project_id=7604737481589964809&sign=41a4962f44f68a4185601c35633025e349453649b9a325c157ec590390bc31ae"
-              alt="神州数码"
-              className="h-8 w-auto"
-            />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo 和名称 */}
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
+              <svg
+                className="w-6 h-6 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+            </div>
+            <span className="text-xl font-bold text-gray-900">神州数码 AI 中心</span>
           </div>
 
-          {/* 中间导航项 */}
-          <nav className="hidden md:flex items-center space-x-1 flex-1 relative">
+          {/* 导航菜单 */}
+          <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
-              <div
-                key={item.name}
-                className="relative"
-                onMouseEnter={() => handleDropdownMouseEnter(item.name)}
-                onMouseLeave={handleDropdownMouseLeave}
-              >
-                <a
-                  href={item.href}
-                  className="flex items-center gap-1 px-4 py-2 text-sm text-foreground hover:bg-accent rounded transition-colors duration-200 whitespace-nowrap"
+              <div key={item.name} className="relative">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleNavItemClick(item.name);
+                  }}
+                  className={`
+                    flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors
+                    ${
+                      activeDropdown === item.name
+                        ? 'text-blue-600 bg-blue-50'
+                        : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+                    }
+                  `}
                 >
                   {item.name}
                   {item.hasDropdown && (
-                    <ChevronDown className="w-3 h-3 text-muted-foreground" />
+                    <ChevronDown
+                      className={`ml-1 h-4 w-4 transition-transform ${
+                        activeDropdown === item.name ? 'rotate-180' : ''
+                      }`}
+                    />
                   )}
-                </a>
+                </button>
 
-                {/* 下拉菜单 - 全屏通栏 */}
                 {item.hasDropdown && activeDropdown === item.name && (
-                  <div className="fixed top-16 left-0 right-0 bg-white border-b border-border shadow-xl z-40 overflow-hidden">
-                    <div className="max-w-5xl mx-auto px-4 sm:px-8 py-6">
-                      <div className="grid grid-cols-4 gap-8">
-                        {item.dropdownItems?.map((dropdownItem) => (
-                          <a
-                            key={dropdownItem.name}
-                            href={dropdownItem.href}
-                            className="flex items-center gap-2 px-4 py-3 text-sm text-foreground hover:bg-accent hover:text-red-600 rounded-lg transition-all whitespace-nowrap"
-                          >
-                            <div className="w-1 h-1 rounded-full" style={{ backgroundColor: 'rgb(215, 0, 29)' }}></div>
-                            {dropdownItem.name}
-                          </a>
-                        ))}
-                      </div>
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    className="absolute left-0 mt-2 w-64 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+                  >
+                    <div className="py-2">
+                      {item.dropdownItems?.map((subItem) => (
+                        <a
+                          key={subItem.name}
+                          href={subItem.href}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                        >
+                          {subItem.name}
+                        </a>
+                      ))}
                     </div>
                   </div>
                 )}
               </div>
             ))}
-          </nav>
+          </div>
 
-          {/* 右侧搜索框和CTA按钮 */}
-          <div className="flex items-center space-x-3">
-            {/* AI关键词搜索框 */}
+          {/* 搜索框 */}
+          <div className="hidden md:flex items-center space-x-4">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <input
                 type="text"
-                placeholder="AI关键词搜索"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-9 pr-4 py-2 text-sm border border-border rounded-md w-48 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
-                style={{ backgroundColor: '#F8F9FA' }}
+                placeholder="搜索..."
+                className="w-64 pl-10 pr-4 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
             </div>
-
-            {/* CTA 按钮 */}
-            <button
-              className="px-5 py-2 text-sm font-medium text-white rounded hover:bg-primary/90 transition-colors duration-200"
-              style={{ backgroundColor: 'rgb(215, 0, 29)' }}
-            >
-              预约演示
+            <button className="px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-700 border border-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+              登录
             </button>
           </div>
         </div>
       </div>
-    </header>
+    </nav>
   );
 }
