@@ -147,7 +147,10 @@ export default function Navbar() {
   };
 
   const handleSubItemClick = (itemName: string) => {
-    setActiveSubItem(activeSubItem === itemName ? null : itemName);
+    console.log('handleSubItemClick:', itemName, 'current:', activeSubItem);
+    const newValue = activeSubItem === itemName ? null : itemName;
+    console.log('Setting activeSubItem to:', newValue, 'activeDropdown:', activeDropdown);
+    setActiveSubItem(newValue);
   };
 
   const handleDropdownItemClick = (e: React.MouseEvent, dropdownItemName: string) => {
@@ -158,7 +161,8 @@ export default function Navbar() {
 
   // 点击页面其他区域关闭下拉菜单
   useEffect(() => {
-    const handleClickOutside = () => {
+    const handleClickOutside = (e: MouseEvent) => {
+      console.log('handleClickOutside triggered, target:', e.target);
       setActiveDropdown(null);
       setActiveSubItem(null);
     };
