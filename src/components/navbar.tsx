@@ -1,11 +1,19 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Search } from 'lucide-react';
+import { Search, ChevronDown } from 'lucide-react';
+
+interface NavItem {
+  name: string;
+  href: string;
+  hasDropdown?: boolean;
+  dropdownItems?: { name: string; href: string }[];
+}
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,16 +24,93 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { name: '首页', href: '#' },
-    { name: 'AI核心引擎', href: '#ai-engine' },
-    { name: 'AI+行业', href: '#industry-solutions' },
-    { name: 'AI赋能产品矩阵', href: '#product-cards' },
-    { name: '技术服务与生态', href: '#ecosystem-partners' },
-    { name: '客户案例', href: '#case-carousel' },
-    { name: '关于神州数码', href: '#about' },
-    { name: '售后服务', href: '#service' },
+    {
+      name: 'AI核心引擎',
+      href: '#ai-engine',
+      hasDropdown: true,
+      dropdownItems: [
+        { name: 'AI算力底座', href: '#infrastructure' },
+        { name: 'Agent中台', href: '#agent-platform' },
+      ],
+    },
+    {
+      name: 'AI+行业',
+      href: '#industry-solutions',
+      hasDropdown: true,
+      dropdownItems: [
+        { name: '政务', href: '#industry-government' },
+        { name: '制造', href: '#industry-manufacturing' },
+        { name: '金融', href: '#industry-finance' },
+        { name: '医疗', href: '#industry-healthcare' },
+        { name: '烟草', href: '#industry-tobacco' },
+        { name: '教育', href: '#industry-education' },
+        { name: '能源', href: '#industry-energy' },
+        { name: '交通', href: '#industry-transport' },
+      ],
+    },
+    {
+      name: 'AI赋能产品矩阵',
+      href: '#product-cards',
+      hasDropdown: true,
+      dropdownItems: [
+        { name: '基础层', href: '#layer-infrastructure' },
+        { name: '模型层', href: '#layer-model' },
+        { name: '应用层', href: '#layer-application' },
+      ],
+    },
+    {
+      name: '技术服务与生态',
+      href: '#ecosystem-partners',
+      hasDropdown: true,
+      dropdownItems: [
+        { name: '技术服务', href: '#technical-service' },
+        { name: '生态伙伴', href: '#ecosystem-partners' },
+      ],
+    },
+    {
+      name: '客户案例',
+      href: '#case-carousel',
+      hasDropdown: true,
+      dropdownItems: [
+        { name: '黄冈烟草', href: '#case-huanggang' },
+        { name: '岚图汽车', href: '#case-landvoy' },
+        { name: '天士力', href: '#case-tasly' },
+      ],
+    },
+    {
+      name: '关于神州数码',
+      href: '#about',
+      hasDropdown: true,
+      dropdownItems: [
+        { name: '公司简介', href: '#about-intro' },
+        { name: '发展历程', href: '#about-history' },
+        { name: '企业文化', href: '#about-culture' },
+        { name: '联系我们', href: '#about-contact' },
+      ],
+    },
+    {
+      name: '售后服务',
+      href: '#service',
+      hasDropdown: true,
+      dropdownItems: [
+        { name: '服务支持', href: '#service-support' },
+        { name: '常见问题', href: '#service-faq' },
+        { name: '联系客服', href: '#service-contact' },
+      ],
+    },
   ];
+
+  const handleDropdownMouseEnter = (itemName: string) => {
+    if (itemName !== '首页') {
+      setActiveDropdown(itemName);
+    }
+  };
+
+  const handleDropdownMouseLeave = () => {
+    setActiveDropdown(null);
+  };
 
   return (
     <header
@@ -49,13 +134,42 @@ export default function Navbar() {
           {/* 中间导航项 */}
           <nav className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
-              <a
+              <div
                 key={item.name}
-                href={item.href}
-                className="px-4 py-2 text-sm text-foreground hover:bg-accent rounded transition-colors duration-200 whitespace-nowrap"
+                className="relative"
+                onMouseEnter={() => handleDropdownMouseEnter(item.name)}
+                onMouseLeave={handleDropdownMouseLeave}
               >
-                {item.name}
-              </a>
+                <a
+                  href={item.href}
+                  className="flex items-center gap-1 px-4 py-2 text-sm text-foreground hover:bg-accent rounded transition-colors duration-200 whitespace-nowrap"
+                >
+                  {item.name}
+                  {item.hasDropdown && (
+                    <ChevronDown className="w-3 h-3 text-muted-foreground" />
+                  )}
+                </a>
+
+                {/* 下拉菜单 */}
+                {item.hasDropdown && activeDropdown === item.name && (
+                  <div
+                    className="absolute top-full left-0 mt-1 min-w-[180px] bg-white border border-border rounded-lg shadow-lg overflow-hidden z-50"
+                    style={{ minWidth: 'max-content' }}
+                  >
+                    <div className="py-2">
+                      {item.dropdownItems?.map((dropdownItem) => (
+                        <a
+                          key={dropdownItem.name}
+                          href={dropdownItem.href}
+                          className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-foreground transition-colors whitespace-nowrap"
+                        >
+                          {dropdownItem.name}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
           </nav>
 
