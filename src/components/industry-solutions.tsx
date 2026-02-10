@@ -201,7 +201,7 @@ export default function IndustrySolutions() {
           className="font-bold mb-12 text-center"
           style={{ color: '#333333', fontSize: '32px' }}
         >
-          AI驱动产业升级 重塑商业价值
+          AI驱动产业升级 引领智慧变革
         </h2>
 
         {/* 桌面端横向滚动 */}
