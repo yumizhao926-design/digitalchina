@@ -132,7 +132,7 @@ export default function Navbar() {
           </div>
 
           {/* 中间导航项 */}
-          <nav className="hidden md:flex items-center space-x-1">
+          <nav className="hidden md:flex items-center space-x-1 flex-1 relative">
             {navItems.map((item) => (
               <div
                 key={item.name}
@@ -150,22 +150,22 @@ export default function Navbar() {
                   )}
                 </a>
 
-                {/* 下拉菜单 */}
+                {/* 下拉菜单 - 通栏样式 */}
                 {item.hasDropdown && activeDropdown === item.name && (
-                  <div
-                    className="absolute top-full left-0 mt-1 min-w-[180px] bg-white border border-border rounded-lg shadow-lg overflow-hidden z-50"
-                    style={{ minWidth: 'max-content' }}
-                  >
-                    <div className="py-2">
-                      {item.dropdownItems?.map((dropdownItem) => (
-                        <a
-                          key={dropdownItem.name}
-                          href={dropdownItem.href}
-                          className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-foreground transition-colors whitespace-nowrap"
-                        >
-                          {dropdownItem.name}
-                        </a>
-                      ))}
+                  <div className="absolute top-full left-0 right-0 mt-0 bg-white border-b border-border shadow-xl z-40 overflow-hidden" style={{ maxWidth: '100%' }}>
+                    <div className="container mx-auto max-w-7xl px-4 sm:px-8 py-6">
+                      <div className="grid grid-cols-4 gap-8">
+                        {item.dropdownItems?.map((dropdownItem) => (
+                          <a
+                            key={dropdownItem.name}
+                            href={dropdownItem.href}
+                            className="flex items-center gap-2 px-4 py-3 text-sm text-foreground hover:bg-accent hover:text-red-600 rounded-lg transition-all whitespace-nowrap"
+                          >
+                            <div className="w-1 h-1 rounded-full" style={{ backgroundColor: 'rgb(215, 0, 29)' }}></div>
+                            {dropdownItem.name}
+                          </a>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}
