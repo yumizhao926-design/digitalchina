@@ -5,6 +5,7 @@ import { Search } from 'lucide-react';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,11 +18,13 @@ export default function Navbar() {
 
   const navItems = [
     { name: '首页', href: '#' },
-    { name: '智能平台', href: '#' },
-    { name: '智算底座', href: '#' },
-    { name: '行业方案', href: '#' },
-    { name: '标杆案例', href: '#' },
-    { name: '关于我们', href: '#' },
+    { name: 'AI核心引擎', href: '#ai-engine' },
+    { name: 'AI+行业', href: '#industry-solutions' },
+    { name: 'AI赋能产品矩阵', href: '#product-cards' },
+    { name: '技术服务与生态', href: '#ecosystem-partners' },
+    { name: '客户案例', href: '#case-carousel' },
+    { name: '关于神州数码', href: '#about' },
+    { name: '售后服务', href: '#service' },
   ];
 
   return (
@@ -56,12 +59,20 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* 右侧搜索和CTA按钮 */}
-          <div className="flex items-center space-x-4">
-            {/* 搜索图标 */}
-            <button className="flex items-center justify-center w-8 h-8 text-muted-foreground hover:text-foreground transition-colors">
-              <Search className="w-5 h-5" />
-            </button>
+          {/* 右侧搜索框和CTA按钮 */}
+          <div className="flex items-center space-x-3">
+            {/* AI关键词搜索框 */}
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <input
+                type="text"
+                placeholder="AI关键词搜索"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-9 pr-4 py-2 text-sm border border-border rounded-md w-48 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                style={{ backgroundColor: '#F8F9FA' }}
+              />
+            </div>
 
             {/* CTA 按钮 */}
             <button
