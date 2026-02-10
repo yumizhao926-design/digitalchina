@@ -432,23 +432,23 @@ export default function AIPanorama() {
                   <stop offset="0%" stopColor="#999999" />
                   <stop offset="100%" stopColor="#999999" />
                 </linearGradient>
-                {/* 核心圈流光渐变 */}
+                {/* 核心圈流光渐变 - 最红 */}
                 <linearGradient id="coreFlowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" stopColor="rgba(215, 0, 29, 0)" />
-                  <stop offset="50%" stopColor="rgba(215, 0, 29, 0.8)" />
+                  <stop offset="50%" stopColor="rgba(215, 0, 29, 1)" />
                   <stop offset="100%" stopColor="rgba(215, 0, 29, 0)" />
                 </linearGradient>
-                {/* 行业圈流光渐变 */}
+                {/* 行业圈流光渐变 - 次红 */}
                 <linearGradient id="industryFlowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="rgba(102, 102, 102, 0)" />
-                  <stop offset="50%" stopColor="rgba(102, 102, 102, 0.6)" />
-                  <stop offset="100%" stopColor="rgba(102, 102, 102, 0)" />
+                  <stop offset="0%" stopColor="rgba(215, 0, 29, 0)" />
+                  <stop offset="50%" stopColor="rgba(215, 0, 29, 0.7)" />
+                  <stop offset="100%" stopColor="rgba(215, 0, 29, 0)" />
                 </linearGradient>
-                {/* 产品圈流光渐变 */}
+                {/* 产品圈流光渐变 - 最淡 */}
                 <linearGradient id="productFlowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="rgba(153, 153, 153, 0)" />
-                  <stop offset="50%" stopColor="rgba(153, 153, 153, 0.5)" />
-                  <stop offset="100%" stopColor="rgba(153, 153, 153, 0)" />
+                  <stop offset="0%" stopColor="rgba(215, 0, 29, 0)" />
+                  <stop offset="50%" stopColor="rgba(215, 0, 29, 0.4)" />
+                  <stop offset="100%" stopColor="rgba(215, 0, 29, 0)" />
                 </linearGradient>
                 <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
                   <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
@@ -513,7 +513,7 @@ export default function AIPanorama() {
                     strokeWidth="3"
                     strokeDasharray="100 402"
                     className="core-flow"
-                    style={{ opacity: 0.8 }}
+                    style={{ opacity: 1 }}
                   />
                   <circle cx="0" cy="0" r="80" fill="rgb(215, 0, 29)" />
                 </g>
@@ -612,7 +612,7 @@ export default function AIPanorama() {
                     strokeWidth="2.5"
                     strokeDasharray="200 805"
                     className="industry-flow"
-                    style={{ opacity: 0.6 }}
+                    style={{ opacity: 0.8 }}
                   />
                   <circle cx="0" cy="0" r="160" fill="#666666" fillOpacity="0.05" />
                 </g>
@@ -667,7 +667,7 @@ export default function AIPanorama() {
                     strokeWidth="2"
                     strokeDasharray="300 1334"
                     className="product-flow"
-                    style={{ opacity: 0.5 }}
+                    style={{ opacity: 0.6 }}
                   />
                   <circle cx="0" cy="0" r="260" fill="#999999" fillOpacity="0.03" />
                 </g>
