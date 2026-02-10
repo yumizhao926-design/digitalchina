@@ -67,35 +67,13 @@ export default function CaseCarousel() {
     <section className="py-24 px-4 sm:px-8" style={{ backgroundColor: '#F8F9FA' }}>
       <div className="container mx-auto max-w-7xl">
         {/* 标题区域 */}
-        <div className="flex items-end justify-between mb-12">
-          <div>
-            <h2
-              className="font-bold mb-2"
-              style={{ color: '#333333', fontSize: '32px' }}
-            >
-              客户案例
-            </h2>
-            <p
-              className="text-sm"
-              style={{ color: '#666666' }}
-            >
-              AI赋能各行各业，创造真实价值
-            </p>
-          </div>
-
-          {/* 次CTA按钮 - 轮廓样式 */}
-          <button
-            className="hidden sm:flex items-center gap-2 px-6 py-2.5 text-sm font-medium transition-all duration-300 hover:gap-3"
-            style={{
-              border: '1px solid rgb(215, 0, 29)',
-              color: 'rgb(215, 0, 29)',
-              backgroundColor: 'transparent',
-              borderRadius: '6px'
-            }}
+        <div className="text-center mb-12">
+          <h2
+            className="font-bold mb-2"
+            style={{ color: '#333333', fontSize: '32px' }}
           >
-            查看全部案例
-            <ArrowRight size={16} />
-          </button>
+            AI赋能各行各业 创造真实价值
+          </h2>
         </div>
 
         {/* 轮播区域 */}
