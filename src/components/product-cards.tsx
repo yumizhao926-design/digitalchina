@@ -8,7 +8,7 @@ export default function ProductCards() {
       <div className="container mx-auto max-w-7xl">
         {/* 区域标题 */}
         <h2
-          className="font-bold mb-6 sm:mb-8 md:mb-12 lg:mb-16 text-center text-2xl sm:text-3xl md:text-4xl lg:text-[44px]"
+          className="font-bold mb-6 sm:mb-8 md:mb-12 lg:mb-16 text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl"
           style={{ color: '#333333', letterSpacing: '1px' }}
         >
           AI for Process 技术支撑

@@ -198,7 +198,7 @@ export default function IndustrySolutions() {
       <div className="max-w-7xl mx-auto">
         {/* 标题 */}
         <h2
-          className="font-bold mb-6 sm:mb-8 md:mb-12 text-center text-2xl sm:text-3xl md:text-4xl lg:text-[44px]"
+          className="font-bold mb-6 sm:mb-8 md:mb-12 text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl"
           style={{ color: '#333333', letterSpacing: '1px' }}
         >
           AI驱动产业升级 引领智慧变革

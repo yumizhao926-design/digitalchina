@@ -404,7 +404,7 @@ export default function AIPanorama() {
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* 区域标题 */}
         <h2
-          className="font-bold mb-6 sm:mb-8 md:mb-12 text-center relative z-10 text-2xl sm:text-3xl md:text-4xl lg:text-[44px]"
+          className="font-bold mb-6 sm:mb-8 md:mb-12 text-center relative z-10 text-xl sm:text-2xl md:text-3xl lg:text-4xl"
           style={{
             color: '#333333',
             letterSpacing: '1px'

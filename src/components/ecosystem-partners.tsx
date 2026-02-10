@@ -191,12 +191,12 @@ export default function EcosystemPartners() {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section className="py-24 px-4 sm:px-8" style={{ backgroundColor: '#F5F5F5' }}>
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-8" style={{ backgroundColor: '#F5F5F5' }}>
       <div className="container mx-auto max-w-7xl">
         {/* 标题区域 */}
         <h2
-          className="font-bold mb-16 text-center"
-          style={{ color: '#333333', fontSize: '32px' }}
+          className="font-bold mb-8 sm:mb-12 md:mb-16 text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl"
+          style={{ color: '#333333', letterSpacing: '1px' }}
         >
           共筑AI for Process产业未来
         </h2>

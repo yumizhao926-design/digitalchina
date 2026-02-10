@@ -17,7 +17,7 @@ export default function Hero() {
       <div className="relative z-10 text-center px-4 sm:px-8 max-w-5xl mx-auto">
         {/* 主标题 */}
         <h1
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-bold leading-tight mb-4 sm:mb-6 md:mb-8 animate-fade-in-up"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-4 sm:mb-6 md:mb-8 animate-fade-in-up"
           style={{
             color: '#333333',
             letterSpacing: '1px',
@@ -29,7 +29,7 @@ export default function Hero() {
 
         {/* 副标题 */}
         <p
-          className="text-sm sm:text-base md:text-lg lg:text-xl font-normal mb-6 sm:mb-8 md:mb-10 leading-relaxed max-w-3xl mx-auto animate-fade-in-up"
+          className="text-xs sm:text-sm md:text-base lg:text-lg font-normal mb-6 sm:mb-8 md:mb-10 leading-relaxed max-w-3xl mx-auto animate-fade-in-up"
           style={{
             color: '#666666',
             animationDelay: '0.2s',
