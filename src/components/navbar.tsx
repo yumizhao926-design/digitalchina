@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Search, ChevronDown, X } from 'lucide-react';
 import {
   Dialog,
@@ -31,7 +31,9 @@ export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSubItem, setActiveSubItem] = useState<string | null>(null);
+  const [subMenuPosition, setSubMenuPosition] = useState({ top: 0, left: 0 });
   const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
+  const dropdownItemRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   // 表单状态
   const [formData, setFormData] = useState({
@@ -147,8 +149,6 @@ export default function Navbar() {
   };
 
   const handleSubItemClick = (itemName: string) => {
-    console.log('handleSubItemClick called with:', itemName);
-    console.log('Current activeSubItem:', activeSubItem);
     setActiveSubItem(activeSubItem === itemName ? null : itemName);
   };
 
@@ -170,6 +170,20 @@ export default function Navbar() {
       return () => document.removeEventListener('click', handleClickOutside);
     }
   }, [activeDropdown]);
+
+  // 更新子菜单位置
+  useEffect(() => {
+    if (activeSubItem) {
+      const ref = dropdownItemRefs.current[activeSubItem];
+      if (ref) {
+        const rect = ref.getBoundingClientRect();
+        setSubMenuPosition({
+          top: rect.bottom,
+          left: rect.left
+        });
+      }
+    }
+  }, [activeSubItem]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -254,7 +268,7 @@ export default function Navbar() {
                 {/* 下拉菜单 - 全屏通栏 */}
                 {item.hasDropdown && activeDropdown === item.name && (
                   <div
-                    className="fixed top-16 left-0 right-0 bg-white border-b border-border shadow-lg z-40 overflow-hidden"
+                    className="fixed top-16 left-0 right-0 bg-white border-b border-border shadow-lg z-40"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-6">
@@ -262,7 +276,10 @@ export default function Navbar() {
                         {item.dropdownItems?.map((dropdownItem) => (
                           <div key={dropdownItem.name} className="relative">
                             {dropdownItem.hasSubItems ? (
-                              <div className="relative">
+                              <div
+                                ref={(el) => dropdownItemRefs.current[dropdownItem.name] = el}
+                                className="relative"
+                              >
                                 <div
                                   className={`inline-flex items-center gap-2 text-sm transition-colors whitespace-nowrap cursor-pointer ${
                                     activeSubItem === dropdownItem.name
@@ -272,11 +289,8 @@ export default function Navbar() {
                                   onClick={(e) => {
                                     e.preventDefault();
                                     e.stopPropagation();
-                                    console.log('生态伙伴 clicked!', dropdownItem.name);
                                     handleSubItemClick(dropdownItem.name);
-                                    console.log('After click, activeSubItem will be:', activeSubItem === dropdownItem.name ? null : dropdownItem.name);
                                   }}
-                                  style={{ position: 'relative', zIndex: 60 }}
                                 >
                                   <div className="w-1 h-1 rounded-full bg-red-600"></div>
                                   {dropdownItem.name}
@@ -284,29 +298,6 @@ export default function Navbar() {
                                     activeSubItem === dropdownItem.name ? 'rotate-180' : ''
                                   }`} />
                                 </div>
-                                {/* 二级菜单 */}
-                                {dropdownItem.subItems && (
-                                  <div
-                                    className={`absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden ${
-                                      activeSubItem === dropdownItem.name ? 'block' : 'hidden'
-                                    }`}
-                                    style={{ zIndex: 100 }}
-                                  >
-                                    {dropdownItem.subItems.map((subItem) => (
-                                      <a
-                                        key={subItem.name}
-                                        href={subItem.href}
-                                        className="block px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-red-600 transition-colors whitespace-nowrap"
-                                        onClick={(e) => {
-                                          e.stopPropagation();
-                                          handleDropdownItemClick(e, subItem.name);
-                                        }}
-                                      >
-                                        {subItem.name}
-                                      </a>
-                                    ))}
-                                  </div>
-                                )}
                               </div>
                             ) : (
                               <a
@@ -464,6 +455,40 @@ export default function Navbar() {
           </form>
         </DialogContent>
       </Dialog>
+
+      {/* 二级菜单 - 独立容器 */}
+      {activeSubItem && navItems.find(item => item.dropdownItems?.find(di => di.name === activeSubItem)) && (
+        <div
+          className="fixed bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden"
+          style={{
+            top: subMenuPosition.top,
+            left: subMenuPosition.left,
+            width: '220px',
+            zIndex: 9999
+          }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {(() => {
+            const activeItem = navItems
+              .find(item => item.dropdownItems?.find(di => di.name === activeSubItem))
+              ?.dropdownItems?.find(di => di.name === activeSubItem);
+
+            return activeItem?.subItems?.map((subItem) => (
+              <a
+                key={subItem.name}
+                href={subItem.href}
+                className="block px-5 py-3.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors whitespace-nowrap border-b border-gray-100 last:border-b-0"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleDropdownItemClick(e, subItem.name);
+                }}
+              >
+                {subItem.name}
+              </a>
+            ));
+          })()}
+        </div>
+      )}
     </header>
   );
 }
