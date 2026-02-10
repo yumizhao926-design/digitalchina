@@ -4,12 +4,12 @@ import { Brain, Server, ArrowRight } from 'lucide-react';
 
 export default function ProductCards() {
   return (
-    <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-8" style={{ backgroundColor: '#FFFFFF' }}>
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-8" style={{ backgroundColor: '#FFFFFF' }}>
       <div className="container mx-auto max-w-7xl">
         {/* 区域标题 */}
         <h2
-          className="font-bold mb-8 sm:mb-12 md:mb-16 text-center"
-          style={{ color: '#333333', fontSize: '24px sm:text-28px md:text-32px' }}
+          className="font-bold mb-6 sm:mb-8 md:mb-12 lg:mb-16 text-center text-2xl sm:text-3xl md:text-4xl lg:text-[44px]"
+          style={{ color: '#333333', letterSpacing: '1px' }}
         >
           AI for Process 技术支撑
         </h2>
