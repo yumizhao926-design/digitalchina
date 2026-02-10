@@ -181,28 +181,62 @@ export default function ChatBot() {
           {/* 鼠标停留时的提示框 */}
           {isHovering && (
             <div
-              className="fixed bottom-6 right-24 z-50 px-4 py-3 rounded-xl shadow-2xl animate-fade-in"
+              className="fixed bottom-6 right-24 z-50 rounded-2xl shadow-2xl animate-fade-in overflow-hidden"
               style={{
                 backgroundColor: '#FFFFFF',
                 border: '2px solid rgb(215, 0, 29)',
                 animation: 'fadeIn 0.3s ease-out',
-                maxWidth: '280px'
+                minWidth: '320px',
+                maxWidth: '360px'
               }}
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
             >
-              <p className="text-sm font-semibold mb-2" style={{ color: '#333333' }}>
-                🤖 神州数码AI助理
-              </p>
-              <p className="text-xs mb-3 leading-relaxed" style={{ color: '#666666' }}>
-                我可以帮您：
-                <br />• 了解产品信息
-                <br />• 预约产品演示
-                <br />• 获取技术支持
-              </p>
-              <div className="flex gap-2">
-                <input
-                  type="text"
-                  placeholder="快速提问..."
-                  className="flex-1 px-3 py-2 text-xs rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+              {/* 标题栏 */}
+              <div
+                className="px-5 py-4"
+                style={{
+                  background: 'linear-gradient(135deg, rgb(215, 0, 29) 0%, #CC0000 100%)'
+                }}
+              >
+                <div className="flex items-center gap-3">
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }}
+                  >
+                    <MessageCircle className="text-white" size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-bold text-base">神州数码AI助理</h4>
+                    <p className="text-white/80 text-xs">智能客服 · 7×24小时在线</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 功能列表 */}
+              <div className="px-5 py-4 space-y-2">
+                <div className="flex items-center gap-2 px-3 py-2 rounded-lg transition-all hover:bg-gray-50">
+                  <span className="text-lg">💡</span>
+                  <span className="text-sm text-gray-700">了解产品信息</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-2 rounded-lg transition-all hover:bg-gray-50">
+                  <span className="text-lg">📅</span>
+                  <span className="text-sm text-gray-700">预约产品演示</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-2 rounded-lg transition-all hover:bg-gray-50">
+                  <span className="text-lg">🔧</span>
+                  <span className="text-sm text-gray-700">获取技术支持</span>
+                </div>
+              </div>
+
+              {/* 快速提问 */}
+              <div className="px-5 pb-5">
+                <div
+                  className="flex items-center gap-2 px-4 py-3 rounded-xl border-2 transition-all cursor-pointer"
+                  style={{
+                    backgroundColor: '#F8F9FA',
+                    borderColor: isHovering ? 'rgb(215, 0, 29)' : '#E5E7EB'
+                  }}
                   onClick={(e) => {
                     e.stopPropagation();
                     setIsOpen(true);
@@ -211,7 +245,15 @@ export default function ChatBot() {
                       inputRef.current?.focus();
                     }, 100);
                   }}
-                />
+                >
+                  <input
+                    type="text"
+                    placeholder="快速提问..."
+                    className="flex-1 bg-transparent text-sm focus:outline-none"
+                    readOnly
+                  />
+                  <Send size={16} style={{ color: 'rgb(215, 0, 29)' }} />
+                </div>
               </div>
             </div>
           )}
