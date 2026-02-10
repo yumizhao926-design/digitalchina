@@ -81,10 +81,13 @@ export default function Navbar() {
       ],
     },
     {
-      name: 'ICT合作伙伴',
+      name: '技术服务与生态',
       href: '#ecosystem-partners',
       hasDropdown: true,
       dropdownItems: [
+        { name: '技术服务', href: '#technical-service' },
+        { name: '生态伙伴', href: '#ecosystem-partners' },
+        { name: 'ICT合作伙伴', href: '#ecosystem-ict' },
         { name: '数字中国服务联盟', href: '#ecosystem-alliance' },
         { name: '千帆计划', href: '#ecosystem-qianfan' },
         { name: '伙伴学院', href: '#ecosystem-academy' },
