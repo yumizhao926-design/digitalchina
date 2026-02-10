@@ -23,7 +23,7 @@ interface DropdownItem {
   name: string;
   href: string;
   hasSubItems?: boolean;
-  subItems?: { name: string; href: string }[];
+  subItems?: DropdownItem[];
 }
 
 export default function Navbar() {
@@ -31,6 +31,7 @@ export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSubItem, setActiveSubItem] = useState<string | null>(null);
+  const [activeSubSubItem, setActiveSubSubItem] = useState<string | null>(null);
   const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
   const dropdownContainerRef = useRef<HTMLDivElement>(null);
 
@@ -119,9 +120,37 @@ export default function Navbar() {
       hasDropdown: true,
       dropdownItems: [
         { name: '公司简介', href: '#about-intro' },
-        { name: '发展历程', href: '#about-history' },
+        { name: '投资者关系', href: '#about-investor' },
+        {
+          name: '新闻与活动',
+          href: '#about-news',
+          hasSubItems: true,
+          subItems: [
+            { name: '资讯', href: '#about-news-info' },
+            {
+              name: '活动',
+              href: '#about-events',
+              hasSubItems: true,
+              subItems: [
+                { name: 'IP活动：数云原力', href: '#about-events-ip' },
+                { name: '日常线下活动', href: '#about-events-daily' }
+              ]
+            }
+          ]
+        },
+        { name: 'ESG可持续发展', href: '#about-esg' },
         { name: '企业文化', href: '#about-culture' },
-        { name: '联系我们', href: '#about-contact' },
+        {
+          name: '理念著作',
+          href: '#about-books',
+          hasSubItems: true,
+          subItems: [
+            { name: 'AI for Process', href: '#about-books-ai' },
+            { name: '数字化的力量', href: '#about-books-digital' },
+            { name: '时间的力量', href: '#about-books-time' }
+          ]
+        },
+        { name: '加入我们', href: '#about-join' },
       ],
     },
     {
@@ -149,6 +178,11 @@ export default function Navbar() {
 
   const handleSubItemClick = (itemName: string) => {
     setActiveSubItem(activeSubItem === itemName ? null : itemName);
+    setActiveSubSubItem(null); // 重置三级菜单
+  };
+
+  const handleSubSubItemClick = (itemName: string) => {
+    setActiveSubSubItem(activeSubSubItem === itemName ? null : itemName);
   };
 
   const handleDropdownItemClick = (e: React.MouseEvent, dropdownItemName: string) => {
@@ -293,19 +327,60 @@ export default function Navbar() {
                                 </div>
                                 {/* 二级菜单 - 内嵌展开 */}
                                 {dropdownItem.subItems && activeSubItem === dropdownItem.name && (
-                                  <div className="mt-3 py-2 px-3 bg-white rounded-lg border border-gray-200">
+                                  <div className="mt-3 py-2 px-3 bg-white rounded-lg">
                                     {dropdownItem.subItems.map((subItem) => (
-                                      <a
-                                        key={subItem.name}
-                                        href={subItem.href}
-                                        className="block py-2 px-3 text-sm text-gray-600 hover:text-red-600 transition-colors whitespace-nowrap rounded hover:bg-gray-50"
-                                        onClick={(e) => {
-                                          e.stopPropagation();
-                                          handleDropdownItemClick(e, subItem.name);
-                                        }}
-                                      >
-                                        • {subItem.name}
-                                      </a>
+                                      <div key={subItem.name}>
+                                        {subItem.hasSubItems ? (
+                                          <div className="relative">
+                                            <div
+                                              className={`flex items-center gap-2 py-2 px-3 text-sm transition-colors whitespace-nowrap cursor-pointer rounded ${
+                                                activeSubSubItem === subItem.name
+                                                  ? 'text-red-600 bg-gray-50'
+                                                  : 'text-gray-600 hover:text-red-600 hover:bg-gray-50'
+                                              }`}
+                                              onClick={(e) => {
+                                                e.stopPropagation();
+                                                handleSubSubItemClick(subItem.name);
+                                              }}
+                                            >
+                                              {subItem.name}
+                                              <ChevronDown className={`w-2 h-2 transition-transform duration-200 ml-auto ${
+                                                activeSubSubItem === subItem.name ? 'rotate-180' : ''
+                                              }`} />
+                                            </div>
+                                            {/* 三级菜单 - 内嵌展开 */}
+                                            {subItem.subItems && activeSubSubItem === subItem.name && (
+                                              <div className="mt-1 py-1 px-3 ml-3 border-l-2 border-gray-200">
+                                                {subItem.subItems.map((subSubItem) => (
+                                                  <a
+                                                    key={subSubItem.name}
+                                                    href={subSubItem.href}
+                                                    className="block py-1.5 px-2 text-sm text-gray-600 hover:text-red-600 transition-colors whitespace-nowrap rounded hover:bg-gray-50"
+                                                    onClick={(e) => {
+                                                      e.stopPropagation();
+                                                      handleDropdownItemClick(e, subSubItem.name);
+                                                    }}
+                                                  >
+                                                    • {subSubItem.name}
+                                                  </a>
+                                                ))}
+                                              </div>
+                                            )}
+                                          </div>
+                                        ) : (
+                                          <a
+                                            key={subItem.name}
+                                            href={subItem.href}
+                                            className="block py-2 px-3 text-sm text-gray-600 hover:text-red-600 transition-colors whitespace-nowrap rounded hover:bg-gray-50"
+                                            onClick={(e) => {
+                                              e.stopPropagation();
+                                              handleDropdownItemClick(e, subItem.name);
+                                            }}
+                                          >
+                                            • {subItem.name}
+                                          </a>
+                                        )}
+                                      </div>
                                     ))}
                                   </div>
                                 )}
