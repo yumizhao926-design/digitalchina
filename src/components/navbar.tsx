@@ -102,15 +102,28 @@ export default function Navbar() {
     },
   ];
 
-  const handleDropdownMouseEnter = (itemName: string) => {
+  const handleDropdownClick = (itemName: string) => {
     if (itemName !== '首页') {
-      setActiveDropdown(itemName);
+      setActiveDropdown(activeDropdown === itemName ? null : itemName);
     }
   };
 
-  const handleDropdownMouseLeave = () => {
+  const handleDropdownItemClick = (e: React.MouseEvent, dropdownItemName: string) => {
+    e.stopPropagation();
     setActiveDropdown(null);
   };
+
+  // 点击页面其他区域关闭下拉菜单
+  useEffect(() => {
+    const handleClickOutside = () => {
+      setActiveDropdown(null);
+    };
+
+    if (activeDropdown) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [activeDropdown]);
 
   return (
     <header
@@ -137,22 +150,37 @@ export default function Navbar() {
               <div
                 key={item.name}
                 className="relative"
-                onMouseEnter={() => handleDropdownMouseEnter(item.name)}
-                onMouseLeave={handleDropdownMouseLeave}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleDropdownClick(item.name);
+                }}
               >
                 <a
                   href={item.href}
-                  className="flex items-center gap-1 px-4 py-2 text-sm text-foreground hover:bg-accent rounded transition-colors duration-200 whitespace-nowrap"
+                  className={`flex items-center gap-1 px-4 py-2 text-sm text-foreground hover:bg-accent rounded transition-colors duration-200 whitespace-nowrap ${
+                    activeDropdown === item.name ? 'bg-accent' : ''
+                  }`}
+                  onClick={(e) => {
+                    if (!item.hasDropdown) return;
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleDropdownClick(item.name);
+                  }}
                 >
                   {item.name}
                   {item.hasDropdown && (
-                    <ChevronDown className="w-3 h-3 text-muted-foreground" />
+                    <ChevronDown className={`w-3 h-3 text-muted-foreground transition-transform duration-200 ${
+                      activeDropdown === item.name ? 'rotate-180' : ''
+                    }`} />
                   )}
                 </a>
 
                 {/* 下拉菜单 - 全屏通栏 */}
                 {item.hasDropdown && activeDropdown === item.name && (
-                  <div className="fixed top-16 left-0 right-0 bg-white border-b border-border shadow-xl z-40 overflow-hidden">
+                  <div
+                    className="fixed top-16 left-0 right-0 bg-white border-b border-border shadow-xl z-40 overflow-hidden"
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-6">
                       <div className="grid grid-cols-4 gap-8">
                         {item.dropdownItems?.map((dropdownItem) => (
@@ -160,6 +188,7 @@ export default function Navbar() {
                             key={dropdownItem.name}
                             href={dropdownItem.href}
                             className="flex items-center gap-2 px-4 py-3 text-sm text-foreground hover:bg-accent hover:text-red-600 rounded-lg transition-all whitespace-nowrap"
+                            onClick={(e) => handleDropdownItemClick(e, dropdownItem.name)}
                           >
                             <div className="w-1 h-1 rounded-full" style={{ backgroundColor: 'rgb(215, 0, 29)' }}></div>
                             {dropdownItem.name}
