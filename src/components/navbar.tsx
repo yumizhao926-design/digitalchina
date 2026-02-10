@@ -257,8 +257,7 @@ export default function Navbar() {
                           <div key={dropdownItem.name} className="relative">
                             {dropdownItem.hasSubItems ? (
                               <div className="relative">
-                                <a
-                                  href={dropdownItem.href}
+                                <div
                                   className={`inline-flex items-center gap-2 text-sm transition-colors whitespace-nowrap cursor-pointer ${
                                     activeSubItem === dropdownItem.name
                                       ? 'text-red-600'
@@ -275,7 +274,7 @@ export default function Navbar() {
                                   <ChevronDown className={`w-2.5 h-2.5 transition-transform duration-200 ${
                                     activeSubItem === dropdownItem.name ? 'rotate-180' : ''
                                   }`} />
-                                </a>
+                                </div>
                                 {/* 二级菜单 */}
                                 {dropdownItem.subItems && activeSubItem === dropdownItem.name && (
                                   <div className="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50">
