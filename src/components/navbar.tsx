@@ -24,10 +24,10 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // 点击导航项切换下拉菜单
-  const handleNavItemClick = (itemName: string) => {
+  // 鼠标悬停时显示下拉菜单
+  const handleMouseEnter = (itemName: string) => {
     if (itemName !== '首页') {
-      setActiveDropdown(activeDropdown === itemName ? null : itemName);
+      setActiveDropdown(itemName);
     }
   };
 
@@ -160,18 +160,18 @@ export default function Navbar() {
           {/* 导航菜单 */}
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
-              <div key={item.name} className="relative">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleNavItemClick(item.name);
-                  }}
+              <div
+                key={item.name}
+                className="relative"
+                onMouseEnter={() => handleMouseEnter(item.name)}
+              >
+                <a
+                  href={item.href}
                   className={`
                     flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors
-                    ${
-                      activeDropdown === item.name
-                        ? 'text-blue-600 bg-blue-50'
-                        : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+                    ${activeDropdown === item.name
+                      ? 'text-blue-600 bg-blue-50'
+                      : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
                     }
                   `}
                 >
@@ -183,7 +183,7 @@ export default function Navbar() {
                       }`}
                     />
                   )}
-                </button>
+                </a>
 
                 {item.hasDropdown && activeDropdown === item.name && (
                   <div
