@@ -293,12 +293,12 @@ export default function Navbar() {
                                 </div>
                                 {/* 二级菜单 - 内嵌展开 */}
                                 {dropdownItem.subItems && activeSubItem === dropdownItem.name && (
-                                  <div className="mt-3 py-2 px-3 bg-gray-50 rounded-lg">
+                                  <div className="mt-3 py-2 px-3 bg-white rounded-lg border border-gray-200">
                                     {dropdownItem.subItems.map((subItem) => (
                                       <a
                                         key={subItem.name}
                                         href={subItem.href}
-                                        className="block py-2 px-3 text-sm text-gray-600 hover:text-red-600 transition-colors whitespace-nowrap rounded hover:bg-gray-100"
+                                        className="block py-2 px-3 text-sm text-gray-600 hover:text-red-600 transition-colors whitespace-nowrap rounded hover:bg-gray-50"
                                         onClick={(e) => {
                                           e.stopPropagation();
                                           handleDropdownItemClick(e, subItem.name);
