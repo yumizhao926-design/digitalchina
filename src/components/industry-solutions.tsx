@@ -192,24 +192,24 @@ export default function IndustrySolutions() {
 
   return (
     <section
-      className="px-4 sm:px-6 lg:px-24 py-12 sm:py-16 md:py-20"
+      className="px-6 lg:px-24 py-20"
       style={{ backgroundColor: '#FFFFFF' }}
     >
       <div className="max-w-7xl mx-auto">
         {/* 标题 */}
         <h2
-          className="font-bold mb-6 sm:mb-8 md:mb-12 text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl"
-          style={{ color: '#333333', letterSpacing: '1px' }}
+          className="font-bold mb-12 text-center"
+          style={{ color: '#333333', fontSize: '32px' }}
         >
           AI驱动产业升级 引领智慧变革
         </h2>
 
-        {/* 横向滚动 */}
-        <div className="relative">
+        {/* 桌面端横向滚动 */}
+        <div className="hidden md:block relative">
           {/* 左右导航按钮 */}
           <button
             onClick={handlePrev}
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 items-center justify-center hover:scale-110"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center hover:scale-110"
             style={{ left: '-40px' }}
           >
             <ChevronLeft size={20} className="text-gray-700" />
@@ -217,7 +217,7 @@ export default function IndustrySolutions() {
 
           <button
             onClick={handleNext}
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 items-center justify-center hover:scale-110"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center hover:scale-110"
             style={{ right: '-40px' }}
           >
             <ChevronRight size={20} className="text-gray-700" />
@@ -226,15 +226,15 @@ export default function IndustrySolutions() {
           {/* 卡片容器 */}
           <div
             ref={containerRef}
-            className="flex gap-4 sm:gap-6 overflow-x-auto md:overflow-hidden pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar"
+            className="flex gap-6 overflow-hidden"
             style={{ scrollBehavior: 'smooth' }}
           >
             {industrySolutions.map((solution) => (
               <div
                 key={solution.id}
                 onClick={() => handleCardClick(solution)}
-                className="flex-shrink-0 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-3 transition-all duration-500 cursor-pointer relative overflow-hidden"
-                style={{ width: '280px sm:w-340px md:w-380px', height: '350px sm:height-400px md:height-480px' }}
+                className="flex-shrink-0 rounded-xl shadow-sm hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 cursor-pointer relative overflow-hidden"
+                style={{ width: '380px', height: '480px' }}
               >
                 {/* 背景图片 */}
                 <div
@@ -311,19 +311,75 @@ export default function IndustrySolutions() {
               />
             ))}
           </div>
+        </div>
 
-          {/* 指示器 */}
-          <div className="flex justify-center gap-2 sm:gap-3 mt-6 sm:mt-8">
-            {industrySolutions.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => handleDotClick(index)}
-                className="w-2 h-2 rounded-full transition-all duration-300 hover:scale-125"
-                style={{
-                  backgroundColor: index === currentIndex ? 'rgb(215, 0, 29)' : '#D1D5DB',
-                  width: index === currentIndex ? '24px sm:32px' : '8px'
-                }}
-              />
+        {/* 移动端垂直滑动 */}
+        <div className="md:hidden">
+          <div className="space-y-6">
+            {industrySolutions.map((solution) => (
+              <div
+                key={solution.id}
+                onClick={() => handleCardClick(solution)}
+                className="rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer relative overflow-hidden"
+                style={{ height: '400px' }}
+              >
+                {/* 背景图片 */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-all duration-700 hover:scale-110"
+                  style={{ backgroundImage: `url(${solution.image})` }}
+                />
+
+                {/* 渐变遮罩 */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+                {/* 内容叠加 */}
+                <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                  {/* 红色数据标签 */}
+                  <div
+                    className="inline-block px-4 py-2 rounded-full mb-3 text-sm font-semibold"
+                    style={{
+                      backgroundColor: 'rgb(215, 0, 29)',
+                      color: '#FFFFFF',
+                      width: 'fit-content'
+                    }}
+                  >
+                    {solution.value}
+                  </div>
+
+                  {/* 方案名称 */}
+                  <h3
+                    className="font-semibold mb-2"
+                    style={{
+                      color: '#FFFFFF',
+                      fontSize: '22px',
+                      letterSpacing: '0.3px',
+                      textShadow: '0 2px 8px rgba(0,0,0,0.3)'
+                    }}
+                  >
+                    {solution.name}
+                  </h3>
+
+                  <p
+                    className="text-sm font-light mb-4"
+                    style={{
+                      color: '#FFFFFF',
+                      lineHeight: '1.5',
+                      textShadow: '0 1px 4px rgba(0,0,0,0.3)'
+                    }}
+                  >
+                    {solution.description}
+                  </p>
+
+                  {/* 详情文字链接 */}
+                  <div
+                    className="flex items-center gap-2 text-sm font-medium transition-all duration-300 hover:gap-3 cursor-pointer"
+                    style={{ color: '#FFFFFF', opacity: 0.9 }}
+                  >
+                    查看详情
+                    <ArrowRight size={14} />
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>

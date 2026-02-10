@@ -4,7 +4,7 @@ export default function Hero() {
   const HERO_IMAGE_URL = 'https://coze-coding-project.tos.coze.site/coze_storage_7604743735447978010/image/generate_image_79ad0d41-78c7-43f9-86bc-47b96c1ee090.jpeg?sign=1802158024-26f883cea3-0-11ed9b328a181779c39698ff5c439259110eb9cab1548a497dafc2f231fe76cc';
 
   return (
-    <section className="relative w-full overflow-hidden py-24 sm:py-32 md:py-36 lg:py-44">
+    <section className="relative w-full overflow-hidden py-36 sm:py-44 md:py-52">
       {/* 背景图片层 - 固定图片 */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -17,19 +17,19 @@ export default function Hero() {
       <div className="relative z-10 text-center px-4 sm:px-8 max-w-5xl mx-auto">
         {/* 主标题 */}
         <h1
-          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-4 sm:mb-6 md:mb-8 animate-fade-in-up"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-bold leading-tight mb-6 sm:mb-8 animate-fade-in-up"
           style={{
             color: '#333333',
-            letterSpacing: '1px',
+            letterSpacing: '2px',
             animationDelay: '0s',
           }}
         >
-          AI for Process<br className="sm:hidden" /> 用AI重塑企业核心流程
+          AI for Process 用AI重塑企业核心流程
         </h1>
 
         {/* 副标题 */}
         <p
-          className="text-xs sm:text-sm md:text-base lg:text-lg font-normal mb-6 sm:mb-8 md:mb-10 leading-relaxed max-w-3xl mx-auto animate-fade-in-up"
+          className="text-base sm:text-lg md:text-xl font-normal mb-8 sm:mb-10 leading-relaxed max-w-3xl mx-auto animate-fade-in-up"
           style={{
             color: '#666666',
             animationDelay: '0.2s',
@@ -42,7 +42,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
           {/* 按钮1 */}
           <button
-            className="px-5 py-2.5 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg border"
+            className="px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg border"
             style={{
               backgroundColor: 'transparent',
               borderColor: 'rgb(215, 0, 29)',
@@ -63,7 +63,7 @@ export default function Hero() {
 
           {/* 按钮2 */}
           <button
-            className="px-5 py-2.5 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg border"
+            className="px-6 py-2 sm:px-8 sm:py-2.5 text-xs sm:text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg border"
             style={{
               backgroundColor: 'transparent',
               borderColor: 'rgb(215, 0, 29)',

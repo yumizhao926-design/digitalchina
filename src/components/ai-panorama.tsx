@@ -369,7 +369,7 @@ export default function AIPanorama() {
   return (
     <section
       id="ai-panorama"
-      className="py-12 sm:py-16 md:py-20 px-4 sm:px-8 relative overflow-hidden"
+      className="py-16 px-4 sm:px-8 relative overflow-hidden"
       style={{ backgroundColor: '#FFFFFF' }}
     >
       {/* 科技感装饰背景 */}
@@ -404,17 +404,19 @@ export default function AIPanorama() {
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* 区域标题 */}
         <h2
-          className="font-bold mb-6 sm:mb-8 md:mb-12 text-center relative z-10 text-xl sm:text-2xl md:text-3xl lg:text-4xl"
+          className="font-bold mb-4 text-center relative z-10"
           style={{
             color: '#333333',
-            letterSpacing: '1px'
+            fontSize: '32px',
+            letterSpacing: '0.5px'
           }}
         >
           AI能力全景图
         </h2>
 
-        {/* 环形布局 */}
-        <div className="relative" style={{ height: '600px' }}>
+        {/* 桌面端：环形布局 */}
+        {!isMobile && (
+          <div className="relative" style={{ height: '600px' }}>
             <svg viewBox="0 0 800 700" className="w-full h-full">
               {/* 定义流光动画和科技感效果 */}
               <defs>
@@ -786,9 +788,87 @@ export default function AIPanorama() {
               </div>
             )}
           </div>
-        </div>
+        )}
 
-        {/* 详情弹窗 */}
+        {/* 移动端：横排小字 */}
+        {isMobile && (
+          <div className="space-y-3">
+            {/* 核心圈层 */}
+            <div className="px-2">
+              <div className="flex items-center gap-2 overflow-x-auto py-2" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                <span className="text-xs font-medium flex-shrink-0" style={{ color: '#999999' }}>核心</span>
+                <div className="flex items-center gap-2">
+                  {coreItems.map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => handleItemClick(item)}
+                      className="flex items-center gap-1 transition-all duration-300 active:scale-95"
+                    >
+                      <span className="text-xs" style={{ color: '#666666' }}>•</span>
+                      <span
+                        className="text-xs font-medium whitespace-nowrap"
+                        style={{ color: '#333333' }}
+                      >
+                        {item.label}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* 行业圈层 */}
+            <div className="px-2">
+              <div className="flex items-center gap-2 overflow-x-auto py-2" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                <span className="text-xs font-medium flex-shrink-0" style={{ color: '#999999' }}>行业</span>
+                <div className="flex items-center gap-2">
+                  {industryItems.map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => handleItemClick(item)}
+                      className="flex items-center gap-1 transition-all duration-300 active:scale-95"
+                    >
+                      <span className="text-xs" style={{ color: '#666666' }}>•</span>
+                      <span
+                        className="text-xs font-medium whitespace-nowrap"
+                        style={{ color: '#333333' }}
+                      >
+                        {item.label}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* 产品圈层 */}
+            <div className="px-2">
+              <div className="flex items-center gap-2 overflow-x-auto py-2" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                <span className="text-xs font-medium flex-shrink-0" style={{ color: '#999999' }}>产品</span>
+                <div className="flex items-center gap-2">
+                  {productItems.map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => handleItemClick(item)}
+                      className="flex items-center gap-1 transition-all duration-300 active:scale-95"
+                    >
+                      <span className="text-xs" style={{ color: '#666666' }}>•</span>
+                      <span
+                        className="text-xs font-medium whitespace-nowrap"
+                        style={{ color: '#333333' }}
+                      >
+                        {item.label}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* 详情弹窗 */}
       {selectedItem && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
