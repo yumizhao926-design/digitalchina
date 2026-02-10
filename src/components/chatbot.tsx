@@ -162,11 +162,12 @@ export default function ChatBot() {
       {/* 首次进入提示 */}
       {showFirstTimeAnimation && !isOpen && (
         <div
-          className="fixed bottom-6 right-24 z-40 px-4 py-3 rounded-xl shadow-lg animate-fade-in-out"
+          className="fixed bottom-20 right-4 sm:right-24 z-40 px-4 py-3 rounded-xl shadow-lg animate-fade-in-out"
           style={{
             backgroundColor: '#FFFFFF',
             border: '2px solid rgb(215, 0, 29)',
-            animation: 'fadeInOut 4s ease-in-out forwards'
+            animation: 'fadeInOut 4s ease-in-out forwards',
+            maxWidth: 'calc(100vw - 32px)'
           }}
         >
           <p className="text-sm font-medium" style={{ color: '#333333' }}>
@@ -181,13 +182,14 @@ export default function ChatBot() {
           {/* 鼠标停留时的提示框 */}
           {isHovering && (
             <div
-              className="fixed bottom-6 right-24 z-50 rounded-2xl shadow-2xl animate-fade-in overflow-hidden"
+              className="fixed bottom-20 right-4 sm:bottom-6 sm:right-24 z-50 rounded-2xl shadow-2xl animate-fade-in overflow-hidden"
               style={{
                 backgroundColor: '#FFFFFF',
                 border: '2px solid rgb(215, 0, 29)',
                 animation: 'fadeIn 0.3s ease-out',
-                minWidth: '320px',
-                maxWidth: '360px'
+                minWidth: '280px',
+                maxWidth: 'calc(100vw - 48px)',
+                width: '320px'
               }}
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
@@ -265,14 +267,14 @@ export default function ChatBot() {
             }}
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
-            className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110"
+            className="fixed bottom-6 right-6 z-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110"
             style={{
               background: 'linear-gradient(135deg, rgb(215, 0, 29) 0%, #CC0000 100%)',
               boxShadow: '0 8px 32px rgba(230, 0, 18, 0.4)',
               animation: showFirstTimeAnimation ? 'bounceIn 0.8s ease-out, float 3s ease-in-out infinite 0.8s' : 'float 3s ease-in-out infinite'
             }}
           >
-            <MessageCircle className="text-white" size={28} />
+            <MessageCircle className="text-white" size={24} />
             <span
               className="absolute -top-1 -right-1 w-4 h-4 bg-white rounded-full animate-ping"
               style={{ backgroundColor: '#FFFFFF' }}
@@ -288,11 +290,11 @@ export default function ChatBot() {
       {/* 聊天窗口 */}
       {isOpen && (
         <div
-          className="fixed bottom-6 right-6 z-50 w-[380px] sm:w-[420px] rounded-2xl shadow-2xl flex flex-col transition-all duration-300"
+          className="fixed bottom-0 sm:bottom-6 right-0 sm:right-6 z-50 w-full sm:w-[380px] rounded-none sm:rounded-2xl shadow-2xl flex flex-col transition-all duration-300"
           style={{
             backgroundColor: '#FFFFFF',
-            height: isMinimized ? 'auto' : '600px',
-            maxHeight: 'calc(100vh - 120px)',
+            height: isMinimized ? 'auto' : '100vh sm:600px',
+            maxHeight: 'calc(100vh - 48px) sm:calc(100vh - 120px)',
             animation: 'slideUp 0.3s ease-out'
           }}
         >

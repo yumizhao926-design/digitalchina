@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Search, ChevronDown, X } from 'lucide-react';
+import { Search, ChevronDown, X, Menu, ChevronRight } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -33,6 +33,10 @@ export default function Navbar() {
   const [activeSubItem, setActiveSubItem] = useState<string | null>(null);
   const [activeSubSubItem, setActiveSubSubItem] = useState<string | null>(null);
   const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileActiveDropdown, setMobileActiveDropdown] = useState<string | null>(null);
+  const [mobileActiveSubItem, setMobileActiveSubItem] = useState<string | null>(null);
+  const [mobileActiveSubSubItem, setMobileActiveSubSubItem] = useState<string | null>(null);
   const dropdownContainerRef = useRef<HTMLDivElement>(null);
 
   // 表单状态
@@ -408,8 +412,16 @@ export default function Navbar() {
 
           {/* 右侧搜索框和CTA按钮 */}
           <div className="flex items-center space-x-3">
-            {/* AI关键词搜索框 */}
-            <div className="relative">
+            {/* 移动端菜单按钮 */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden p-2 rounded-md hover:bg-accent transition-colors"
+            >
+              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+
+            {/* AI关键词搜索框 - 移动端隐藏 */}
+            <div className="hidden sm:block relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <input
                 type="text"
@@ -424,7 +436,7 @@ export default function Navbar() {
             {/* CTA 按钮 */}
             <button
               onClick={() => setIsBookingDialogOpen(true)}
-              className="px-5 py-2 text-sm font-medium text-white whitespace-nowrap rounded hover:bg-primary/90 transition-colors duration-200"
+              className="hidden sm:block px-5 py-2 text-sm font-medium text-white whitespace-nowrap rounded hover:bg-primary/90 transition-colors duration-200"
               style={{ backgroundColor: 'rgb(215, 0, 29)' }}
             >
               预约演示
@@ -432,6 +444,143 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+
+      {/* 移动端菜单 */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white border-t border-border shadow-lg">
+          <div className="container mx-auto max-w-7xl px-4 py-4">
+            {/* 移动端CTA按钮 */}
+            <div className="mb-4">
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsBookingDialogOpen(true);
+                }}
+                className="w-full px-5 py-3 text-sm font-medium text-white rounded transition-colors duration-200"
+                style={{ backgroundColor: 'rgb(215, 0, 29)' }}
+              >
+                预约演示
+              </button>
+            </div>
+
+            {/* 移动端导航项 */}
+            <nav className="space-y-1">
+              {navItems.map((item) => (
+                <div key={item.name}>
+                  {/* 一级菜单项 */}
+                  <div className="border-b border-gray-100">
+                    {item.hasDropdown ? (
+                      <button
+                        onClick={() => setMobileActiveDropdown(mobileActiveDropdown === item.name ? null : item.name)}
+                        className="w-full flex items-center justify-between px-4 py-3 text-sm text-foreground hover:bg-gray-50 transition-colors"
+                      >
+                        <span>{item.name}</span>
+                        <ChevronRight
+                          className={`w-4 h-4 transition-transform duration-200 ${
+                            mobileActiveDropdown === item.name ? 'rotate-90' : ''
+                          }`}
+                        />
+                      </button>
+                    ) : (
+                      <a
+                        href={item.href}
+                        className="block px-4 py-3 text-sm text-foreground hover:bg-gray-50 transition-colors"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {item.name}
+                      </a>
+                    )}
+
+                    {/* 二级菜单 */}
+                    {item.hasDropdown && mobileActiveDropdown === item.name && (
+                      <div className="bg-gray-50">
+                        {item.dropdownItems?.map((dropdownItem) => (
+                          <div key={dropdownItem.name} className="border-b border-gray-100">
+                            {dropdownItem.hasSubItems ? (
+                              <div>
+                                <button
+                                  onClick={() => setMobileActiveSubItem(mobileActiveSubItem === dropdownItem.name ? null : dropdownItem.name)}
+                                  className="w-full flex items-center justify-between px-6 py-3 text-sm text-gray-600 hover:text-red-600 hover:bg-gray-100 transition-colors"
+                                >
+                                  <span>{dropdownItem.name}</span>
+                                  <ChevronRight
+                                    className={`w-4 h-4 transition-transform duration-200 ${
+                                      mobileActiveSubItem === dropdownItem.name ? 'rotate-90' : ''
+                                    }`}
+                                  />
+                                </button>
+
+                                {/* 三级菜单 */}
+                                {dropdownItem.subItems && mobileActiveSubItem === dropdownItem.name && (
+                                  <div className="bg-gray-100">
+                                    {dropdownItem.subItems.map((subItem) => (
+                                      <div key={subItem.name}>
+                                        {subItem.hasSubItems ? (
+                                          <div>
+                                            <button
+                                              onClick={() => setMobileActiveSubSubItem(mobileActiveSubSubItem === subItem.name ? null : subItem.name)}
+                                              className="w-full flex items-center justify-between px-8 py-3 text-sm text-gray-600 hover:text-red-600 hover:bg-gray-200 transition-colors"
+                                            >
+                                              <span>{subItem.name}</span>
+                                              <ChevronRight
+                                                className={`w-4 h-4 transition-transform duration-200 ${
+                                                  mobileActiveSubSubItem === subItem.name ? 'rotate-90' : ''
+                                                }`}
+                                              />
+                                            </button>
+
+                                            {/* 四级菜单 */}
+                                            {subItem.subItems && mobileActiveSubSubItem === subItem.name && (
+                                              <div className="bg-gray-200">
+                                                {subItem.subItems.map((subSubItem) => (
+                                                  <a
+                                                    key={subSubItem.name}
+                                                    href={subSubItem.href}
+                                                    className="block px-10 py-3 text-sm text-gray-600 hover:text-red-600 hover:bg-gray-300 transition-colors"
+                                                    onClick={() => setIsMobileMenuOpen(false)}
+                                                  >
+                                                    {subSubItem.name}
+                                                  </a>
+                                                ))}
+                                              </div>
+                                            )}
+                                          </div>
+                                        ) : (
+                                          <a
+                                            key={subItem.name}
+                                            href={subItem.href}
+                                            className="block px-8 py-3 text-sm text-gray-600 hover:text-red-600 hover:bg-gray-200 transition-colors"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                          >
+                                            {subItem.name}
+                                          </a>
+                                        )}
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            ) : (
+                              <a
+                                key={dropdownItem.name}
+                                href={dropdownItem.href}
+                                className="block px-6 py-3 text-sm text-gray-600 hover:text-red-600 hover:bg-gray-100 transition-colors"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                {dropdownItem.name}
+                              </a>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </nav>
+          </div>
+        </div>
+      )}
 
       {/* 预约演示对话框 */}
       <Dialog open={isBookingDialogOpen} onOpenChange={setIsBookingDialogOpen}>

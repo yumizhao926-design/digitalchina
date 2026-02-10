@@ -36,11 +36,12 @@ export default function DataStats() {
   return (
     <section className="py-12 sm:py-14 md:py-16" style={{ backgroundColor: '#F5F5F5' }}>
       <div className="container mx-auto max-w-7xl px-4 sm:px-8">
-        <div className="flex justify-center items-center gap-4 sm:gap-6 md:gap-8">
+        {/* 移动端横向滚动容器 */}
+        <div className="flex overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 sm:pb-0 gap-4 sm:gap-6 md:gap-8 no-scrollbar">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center text-center px-3 sm:px-4"
+              className="flex flex-col items-center justify-center text-center flex-shrink-0 px-4 sm:px-6"
             >
               {/* 数字 - 渐变效果 */}
               <div
@@ -57,7 +58,7 @@ export default function DataStats() {
 
               {/* 标签 */}
               <div
-                className="text-[9px] sm:text-[10px] md:text-xs leading-tight opacity-80 whitespace-nowrap"
+                className="text-[10px] sm:text-[10px] md:text-xs leading-tight opacity-80 whitespace-nowrap"
                 style={{
                   color: '#666666',
                 }}
