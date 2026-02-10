@@ -137,12 +137,18 @@ export default function Navbar() {
 
   const handleDropdownClick = (itemName: string) => {
     if (itemName !== '首页') {
-      setActiveDropdown(activeDropdown === itemName ? null : itemName);
+      if (activeDropdown === itemName) {
+        setActiveDropdown(null);
+      } else {
+        setActiveDropdown(itemName);
+      }
       setActiveSubItem(null);
     }
   };
 
   const handleSubItemClick = (itemName: string) => {
+    console.log('handleSubItemClick called with:', itemName);
+    console.log('Current activeSubItem:', activeSubItem);
     setActiveSubItem(activeSubItem === itemName ? null : itemName);
   };
 
@@ -266,8 +272,11 @@ export default function Navbar() {
                                   onClick={(e) => {
                                     e.preventDefault();
                                     e.stopPropagation();
+                                    console.log('生态伙伴 clicked!', dropdownItem.name);
                                     handleSubItemClick(dropdownItem.name);
+                                    console.log('After click, activeSubItem will be:', activeSubItem === dropdownItem.name ? null : dropdownItem.name);
                                   }}
+                                  style={{ position: 'relative', zIndex: 60 }}
                                 >
                                   <div className="w-1 h-1 rounded-full bg-red-600"></div>
                                   {dropdownItem.name}
@@ -276,8 +285,13 @@ export default function Navbar() {
                                   }`} />
                                 </div>
                                 {/* 二级菜单 */}
-                                {dropdownItem.subItems && activeSubItem === dropdownItem.name && (
-                                  <div className="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50">
+                                {dropdownItem.subItems && (
+                                  <div
+                                    className={`absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden ${
+                                      activeSubItem === dropdownItem.name ? 'block' : 'hidden'
+                                    }`}
+                                    style={{ zIndex: 100 }}
+                                  >
                                     {dropdownItem.subItems.map((subItem) => (
                                       <a
                                         key={subItem.name}
