@@ -256,13 +256,13 @@ export default function Navbar() {
                     onClick={(e) => e.stopPropagation()}
                   >
                     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-6">
-                      <div className="flex flex-wrap gap-x-12 gap-y-3">
+                      <div className="grid grid-cols-4 gap-4">
                         {item.dropdownItems?.map((dropdownItem) => (
                           <div key={dropdownItem.name} className="relative">
                             {dropdownItem.hasSubItems ? (
                               <div className="relative">
                                 <div
-                                  className={`inline-flex items-center gap-2 text-sm transition-colors whitespace-nowrap cursor-pointer ${
+                                  className={`flex items-center gap-2 text-sm transition-colors whitespace-nowrap cursor-pointer ${
                                     activeSubItem === dropdownItem.name
                                       ? 'text-red-600'
                                       : 'text-gray-600 hover:text-red-600'
@@ -275,18 +275,18 @@ export default function Navbar() {
                                 >
                                   <div className="w-1 h-1 rounded-full bg-red-600"></div>
                                   {dropdownItem.name}
-                                  <ChevronDown className={`w-2.5 h-2.5 transition-transform duration-200 ${
+                                  <ChevronDown className={`w-2.5 h-2.5 transition-transform duration-200 ml-auto ${
                                     activeSubItem === dropdownItem.name ? 'rotate-180' : ''
                                   }`} />
                                 </div>
                                 {/* 二级菜单 - 内嵌展开 */}
                                 {dropdownItem.subItems && activeSubItem === dropdownItem.name && (
-                                  <div className="mt-2 ml-5 py-2 px-3 bg-gray-50 rounded-lg">
+                                  <div className="mt-3 py-2 px-3 bg-gray-50 rounded-lg">
                                     {dropdownItem.subItems.map((subItem) => (
                                       <a
                                         key={subItem.name}
                                         href={subItem.href}
-                                        className="block py-2 px-3 text-sm text-gray-600 hover:text-red-600 transition-colors whitespace-nowrap"
+                                        className="block py-2 px-3 text-sm text-gray-600 hover:text-red-600 transition-colors whitespace-nowrap rounded hover:bg-gray-100"
                                         onClick={(e) => {
                                           e.stopPropagation();
                                           handleDropdownItemClick(e, subItem.name);
@@ -302,7 +302,7 @@ export default function Navbar() {
                               <a
                                 key={dropdownItem.name}
                                 href={dropdownItem.href}
-                                className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-red-600 transition-colors whitespace-nowrap"
+                                className="flex items-center gap-2 text-sm text-gray-600 hover:text-red-600 transition-colors whitespace-nowrap"
                                 onClick={(e) => handleDropdownItemClick(e, dropdownItem.name)}
                               >
                                 <div className="w-1 h-1 rounded-full bg-red-600"></div>
