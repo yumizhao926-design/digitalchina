@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Search, ChevronDown, X } from 'lucide-react';
 import {
   Dialog,
@@ -32,6 +32,7 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSubItem, setActiveSubItem] = useState<string | null>(null);
   const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
+  const dropdownContainerRef = useRef<HTMLDivElement>(null);
 
   // 表单状态
   const [formData, setFormData] = useState({
@@ -147,10 +148,7 @@ export default function Navbar() {
   };
 
   const handleSubItemClick = (itemName: string) => {
-    console.log('handleSubItemClick:', itemName, 'current:', activeSubItem);
-    const newValue = activeSubItem === itemName ? null : itemName;
-    console.log('Setting activeSubItem to:', newValue, 'activeDropdown:', activeDropdown);
-    setActiveSubItem(newValue);
+    setActiveSubItem(activeSubItem === itemName ? null : itemName);
   };
 
   const handleDropdownItemClick = (e: React.MouseEvent, dropdownItemName: string) => {
@@ -162,7 +160,16 @@ export default function Navbar() {
   // 点击页面其他区域关闭下拉菜单
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      console.log('handleClickOutside triggered, target:', e.target);
+      const target = e.target as HTMLElement;
+      // 检查点击是否在下拉菜单容器内
+      if (dropdownContainerRef.current?.contains(target)) {
+        return;
+      }
+      // 检查点击是否在导航栏内
+      if (target.closest('nav')) {
+        return;
+      }
+      // 否则关闭下拉菜单
       setActiveDropdown(null);
       setActiveSubItem(null);
     };
@@ -256,6 +263,7 @@ export default function Navbar() {
                 {/* 下拉菜单 - 全屏通栏 */}
                 {item.hasDropdown && activeDropdown === item.name && (
                   <div
+                    ref={dropdownContainerRef}
                     className="fixed top-16 left-0 right-0 bg-white border-b border-border shadow-lg z-40"
                     onClick={(e) => e.stopPropagation()}
                   >
