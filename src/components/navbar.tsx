@@ -178,20 +178,22 @@ export default function Navbar() {
                 {/* 下拉菜单 - 全屏通栏 */}
                 {item.hasDropdown && activeDropdown === item.name && (
                   <div
-                    className="fixed top-16 left-0 right-0 bg-white border-b border-border shadow-xl z-40 overflow-hidden"
+                    className="fixed top-16 left-0 right-0 bg-gradient-to-b from-white to-gray-50 border-b border-border shadow-2xl z-40 overflow-hidden"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <div className="max-w-5xl mx-auto px-4 sm:px-8 py-6">
-                      <div className="grid grid-cols-4 gap-8">
+                    <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8">
+                      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         {item.dropdownItems?.map((dropdownItem) => (
                           <a
                             key={dropdownItem.name}
                             href={dropdownItem.href}
-                            className="flex items-center gap-2 px-4 py-3 text-sm text-foreground hover:bg-accent hover:text-red-600 rounded-lg transition-all whitespace-nowrap"
+                            className="group flex flex-col items-start gap-2 p-4 bg-white rounded-lg hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 border border-transparent hover:border-red-100"
                             onClick={(e) => handleDropdownItemClick(e, dropdownItem.name)}
                           >
-                            <div className="w-1 h-1 rounded-full" style={{ backgroundColor: 'rgb(215, 0, 29)' }}></div>
-                            {dropdownItem.name}
+                            <div className="w-2 h-2 rounded-full bg-red-600 group-hover:scale-125 transition-transform duration-200"></div>
+                            <span className="text-sm font-medium text-gray-700 group-hover:text-red-600 transition-colors">
+                              {dropdownItem.name}
+                            </span>
                           </a>
                         ))}
                       </div>
