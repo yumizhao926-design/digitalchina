@@ -519,7 +519,7 @@ export default function AIPanorama() {
                 </g>
 
                 {/* 核心项1 - AI算力底座 */}
-                <g transform="translate(-20, -20)">
+                <g transform="translate(-10, -20)">
                   <g
                     className="cursor-pointer"
                     style={{
@@ -547,7 +547,7 @@ export default function AIPanorama() {
                 )}
 
                 {/* 核心项2 - Agent中台 */}
-                <g transform="translate(-20, 20)">
+                <g transform="translate(-10, 20)">
                   <g
                     className="cursor-pointer"
                     style={{
