@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Search, ChevronDown, X } from 'lucide-react';
 import {
   Dialog,
@@ -31,10 +31,7 @@ export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSubItem, setActiveSubItem] = useState<string | null>(null);
-  const [subMenuPosition, setSubMenuPosition] = useState({ top: 0, left: 0 });
   const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
-  const dropdownItemRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-  const dropdownContainerRef = useRef<HTMLDivElement | null>(null);
 
   // 表单状态
   const [formData, setFormData] = useState({
@@ -150,28 +147,7 @@ export default function Navbar() {
   };
 
   const handleSubItemClick = (itemName: string) => {
-    console.log('handleSubItemClick called:', itemName);
-    const newValue = activeSubItem === itemName ? null : itemName;
-    setActiveSubItem(newValue);
-    console.log('Setting activeSubItem to:', newValue);
-    
-    // 使用 setTimeout 确保在下一个渲染周期后获取位置
-    if (newValue) {
-      setTimeout(() => {
-        const ref = dropdownItemRefs.current[itemName];
-        console.log('Ref for', itemName, ':', ref);
-        if (ref) {
-          const rect = ref.getBoundingClientRect();
-          console.log('Element position:', rect);
-          setSubMenuPosition({
-            top: rect.bottom,
-            left: rect.left
-          });
-        } else {
-          console.log('Ref is null after timeout');
-        }
-      }, 0);
-    }
+    setActiveSubItem(activeSubItem === itemName ? null : itemName);
   };
 
   const handleDropdownItemClick = (e: React.MouseEvent, dropdownItemName: string) => {
@@ -182,53 +158,16 @@ export default function Navbar() {
 
   // 点击页面其他区域关闭下拉菜单
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      
-      // 检查点击是否在下拉菜单容器内
-      if (dropdownContainerRef.current?.contains(target)) {
-        return;
-      }
-      
-      // 检查点击是否在二级菜单内
-      const isInsideSubMenu = activeSubItem && navItems.some(item =>
-        item.dropdownItems?.some(di =>
-          di.name === activeSubItem && di.subItems?.some(si =>
-            target.closest(`a[href="${si.href}"]`)
-          )
-        )
-      );
-      
-      if (!isInsideSubMenu) {
-        setActiveDropdown(null);
-        setActiveSubItem(null);
-      }
+    const handleClickOutside = () => {
+      setActiveDropdown(null);
+      setActiveSubItem(null);
     };
 
     if (activeDropdown) {
-      document.addEventListener('click', handleClickOutside, true);
-      return () => document.removeEventListener('click', handleClickOutside, true);
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
     }
-  }, [activeDropdown, activeSubItem]);
-
-  // 更新子菜单位置
-  useEffect(() => {
-    console.log('activeSubItem changed to:', activeSubItem);
-    if (activeSubItem) {
-      const ref = dropdownItemRefs.current[activeSubItem];
-      console.log('Ref for activeSubItem:', ref);
-      if (ref) {
-        const rect = ref.getBoundingClientRect();
-        console.log('Calculated position:', { top: rect.bottom, left: rect.left });
-        setSubMenuPosition({
-          top: rect.bottom,
-          left: rect.left
-        });
-      } else {
-        console.log('Ref is null, waiting...');
-      }
-    }
-  }, [activeSubItem]);
+  }, [activeDropdown]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -313,18 +252,15 @@ export default function Navbar() {
                 {/* 下拉菜单 - 全屏通栏 */}
                 {item.hasDropdown && activeDropdown === item.name && (
                   <div
-                    ref={dropdownContainerRef}
                     className="fixed top-16 left-0 right-0 bg-white border-b border-border shadow-lg z-40"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-6">
                       <div className="flex flex-wrap gap-x-12 gap-y-3">
                         {item.dropdownItems?.map((dropdownItem) => (
                           <div key={dropdownItem.name} className="relative">
                             {dropdownItem.hasSubItems ? (
-                              <div
-                                ref={(el) => dropdownItemRefs.current[dropdownItem.name] = el}
-                                className="relative"
-                              >
+                              <div className="relative">
                                 <div
                                   className={`inline-flex items-center gap-2 text-sm transition-colors whitespace-nowrap cursor-pointer ${
                                     activeSubItem === dropdownItem.name
@@ -343,6 +279,24 @@ export default function Navbar() {
                                     activeSubItem === dropdownItem.name ? 'rotate-180' : ''
                                   }`} />
                                 </div>
+                                {/* 二级菜单 - 内嵌展开 */}
+                                {dropdownItem.subItems && activeSubItem === dropdownItem.name && (
+                                  <div className="mt-2 ml-5 py-2 px-3 bg-gray-50 rounded-lg">
+                                    {dropdownItem.subItems.map((subItem) => (
+                                      <a
+                                        key={subItem.name}
+                                        href={subItem.href}
+                                        className="block py-2 px-3 text-sm text-gray-600 hover:text-red-600 transition-colors whitespace-nowrap"
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          handleDropdownItemClick(e, subItem.name);
+                                        }}
+                                      >
+                                        • {subItem.name}
+                                      </a>
+                                    ))}
+                                  </div>
+                                )}
                               </div>
                             ) : (
                               <a
@@ -500,43 +454,6 @@ export default function Navbar() {
           </form>
         </DialogContent>
       </Dialog>
-
-      {/* 二级菜单 - 独立容器 */}
-      {(() => {
-        console.log('Rendering sub-menu check:', { activeSubItem, hasMatch: navItems.find(item => item.dropdownItems?.find(di => di.name === activeSubItem)) });
-        return activeSubItem && navItems.find(item => item.dropdownItems?.find(di => di.name === activeSubItem));
-      })() && (
-        <div
-          className="fixed bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden"
-          style={{
-            top: subMenuPosition.top,
-            left: subMenuPosition.left,
-            width: '220px',
-            zIndex: 9999
-          }}
-          onClick={(e) => e.stopPropagation()}
-        >
-          {(() => {
-            const activeItem = navItems
-              .find(item => item.dropdownItems?.find(di => di.name === activeSubItem))
-              ?.dropdownItems?.find(di => di.name === activeSubItem);
-
-            return activeItem?.subItems?.map((subItem) => (
-              <a
-                key={subItem.name}
-                href={subItem.href}
-                className="block px-5 py-3.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors whitespace-nowrap border-b border-gray-100 last:border-b-0"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleDropdownItemClick(e, subItem.name);
-                }}
-              >
-                {subItem.name}
-              </a>
-            ));
-          })()}
-        </div>
-      )}
     </header>
   );
 }
