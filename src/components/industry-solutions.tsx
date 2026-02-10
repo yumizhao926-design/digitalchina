@@ -152,7 +152,7 @@ export default function IndustrySolutions() {
 
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % industrySolutions.length);
-    }, 8000);
+    }, 3000);
 
     return () => clearInterval(timer);
   }, [isAutoPlaying, selectedSolution]);
@@ -201,7 +201,7 @@ export default function IndustrySolutions() {
           className="font-bold mb-12 text-center"
           style={{ color: '#333333', fontSize: '32px' }}
         >
-          行业AI解决方案
+          AI驱动产业升级 重塑商业价值
         </h2>
 
         {/* 桌面端横向滚动 */}
