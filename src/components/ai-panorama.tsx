@@ -518,8 +518,8 @@ export default function AIPanorama() {
                   <circle cx="0" cy="0" r="80" fill="rgb(215, 0, 29)" />
                 </g>
 
-                {/* 核心项1 */}
-                <g transform="translate(0, -45)">
+                {/* 核心项1 - AI算力底座 */}
+                <g transform="translate(0, -20)">
                   <g
                     className="cursor-pointer"
                     style={{
@@ -546,8 +546,8 @@ export default function AIPanorama() {
                   </g>
                 )}
 
-                {/* 核心项2 */}
-                <g transform="translate(0, 45)">
+                {/* 核心项2 - Agent中台 */}
+                <g transform="translate(0, 20)">
                   <g
                     className="cursor-pointer"
                     style={{
