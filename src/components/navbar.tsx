@@ -219,7 +219,7 @@ export default function Navbar() {
 
             {/* CTA 按钮 */}
             <button
-              className="px-5 py-2 text-sm font-medium text-white rounded hover:bg-primary/90 transition-colors duration-200"
+              className="px-5 py-2 text-sm font-medium text-white whitespace-nowrap rounded hover:bg-primary/90 transition-colors duration-200"
               style={{ backgroundColor: 'rgb(215, 0, 29)' }}
             >
               预约演示
