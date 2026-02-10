@@ -173,6 +173,7 @@ export default function Navbar() {
         setActiveDropdown(itemName);
       }
       setActiveSubItem(null);
+      setActiveSubSubItem(null); // 重置三级菜单
     }
   };
 
@@ -189,6 +190,7 @@ export default function Navbar() {
     e.stopPropagation();
     setActiveDropdown(null);
     setActiveSubItem(null);
+    setActiveSubSubItem(null);
   };
 
   // 点击页面其他区域关闭下拉菜单
@@ -206,6 +208,7 @@ export default function Navbar() {
       // 否则关闭下拉菜单
       setActiveDropdown(null);
       setActiveSubItem(null);
+      setActiveSubSubItem(null);
     };
 
     if (activeDropdown) {

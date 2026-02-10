@@ -518,61 +518,34 @@ export default function AIPanorama() {
                   <circle cx="0" cy="0" r="80" fill="rgb(215, 0, 29)" />
                 </g>
 
-                {/* 核心项1 - AI算力底座 */}
-                <g transform="translate(-10, -20)">
-                  <g
-                    className="cursor-pointer"
-                    style={{
-                      opacity: coreState.opacity,
-                      transition: 'opacity 1s ease-out'
-                    }}
-                      onMouseEnter={() => setHoveredItem(coreItems[0])}
-                      onMouseLeave={() => setHoveredItem(null)}
-                      onClick={() => handleItemClick(coreItems[0])}
+                {/* 核心项 */}
+                {coreItems.map((item, index) => (
+                  <g key={item.id} transform={`translate(-10, ${index === 0 ? -20 : 20})`}>
+                    <g
+                      className="cursor-pointer"
+                      style={{
+                        opacity: coreState.opacity,
+                        transition: 'opacity 1s ease-out'
+                      }}
+                        onMouseEnter={() => setHoveredItem(item)}
+                        onMouseLeave={() => setHoveredItem(null)}
+                        onClick={() => handleItemClick(item)}
                     >
                       <foreignObject x="-55" y="-15" width="120" height="30">
                         <div className="w-full h-full flex items-center justify-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
-                          transform: hoveredItem?.id === coreItems[0].id ? 'scale(1.1)' : 'scale(1)',
+                          transform: hoveredItem?.id === item.id ? 'scale(1.1)' : 'scale(1)',
                         }}>
                           <div className="pulse-animation" style={{ color: '#FFFFFF' }}>
-                            {coreItems[0].icon}
+                            {item.icon}
                           </div>
                           <span style={{ color: '#FFFFFF', fontSize: '13px', fontWeight: '500' }}>
-                            {coreItems[0].label}
+                            {item.label}
                           </span>
                         </div>
                       </foreignObject>
                     </g>
                   </g>
-                )}
-
-                {/* 核心项2 - Agent中台 */}
-                <g transform="translate(-10, 20)">
-                  <g
-                    className="cursor-pointer"
-                    style={{
-                      opacity: coreState.opacity,
-                      transition: 'opacity 1s ease-out'
-                    }}
-                      onMouseEnter={() => setHoveredItem(coreItems[1])}
-                      onMouseLeave={() => setHoveredItem(null)}
-                      onClick={() => handleItemClick(coreItems[1])}
-                    >
-                      <foreignObject x="-55" y="-15" width="120" height="30">
-                        <div className="w-full h-full flex items-center justify-center gap-2 transition-all duration-300 relative whitespace-nowrap" style={{
-                          transform: hoveredItem?.id === coreItems[1].id ? 'scale(1.1)' : 'scale(1)',
-                        }}>
-                          <div className="pulse-animation" style={{ color: '#FFFFFF' }}>
-                            {coreItems[1].icon}
-                          </div>
-                          <span style={{ color: '#FFFFFF', fontSize: '13px', fontWeight: '500' }}>
-                            {coreItems[1].label}
-                          </span>
-                        </div>
-                      </foreignObject>
-                    </g>
-                  </g>
-                )}
+                ))}
 
                 {/* 首次访问提示 */}
                 {showHint && (
