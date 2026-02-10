@@ -26,6 +26,7 @@ export default function ChatBot() {
   const [isTyping, setIsTyping] = useState(false);
   const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
   const [showFirstTimeAnimation, setShowFirstTimeAnimation] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -176,28 +177,70 @@ export default function ChatBot() {
 
       {/* 悬浮按钮 */}
       {!isOpen && (
-        <button
-          onClick={() => {
-            setIsOpen(true);
-            setShowFirstTimeAnimation(false);
-          }}
-          className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110"
-          style={{
-            background: 'linear-gradient(135deg, rgb(215, 0, 29) 0%, #CC0000 100%)',
-            boxShadow: '0 8px 32px rgba(230, 0, 18, 0.4)',
-            animation: showFirstTimeAnimation ? 'bounceIn 0.8s ease-out, float 3s ease-in-out infinite 0.8s' : 'float 3s ease-in-out infinite'
-          }}
-        >
-          <MessageCircle className="text-white" size={28} />
-          <span
-            className="absolute -top-1 -right-1 w-4 h-4 bg-white rounded-full animate-ping"
-            style={{ backgroundColor: '#FFFFFF' }}
-          />
-          <span
-            className="absolute -top-1 -right-1 w-4 h-4 bg-white rounded-full"
-            style={{ backgroundColor: '#FFFFFF' }}
-          />
-        </button>
+        <>
+          {/* 鼠标停留时的提示框 */}
+          {isHovering && (
+            <div
+              className="fixed bottom-6 right-24 z-50 px-4 py-3 rounded-xl shadow-2xl animate-fade-in"
+              style={{
+                backgroundColor: '#FFFFFF',
+                border: '2px solid rgb(215, 0, 29)',
+                animation: 'fadeIn 0.3s ease-out',
+                maxWidth: '280px'
+              }}
+            >
+              <p className="text-sm font-semibold mb-2" style={{ color: '#333333' }}>
+                🤖 神州数码AI助理
+              </p>
+              <p className="text-xs mb-3 leading-relaxed" style={{ color: '#666666' }}>
+                我可以帮您：
+                <br />• 了解产品信息
+                <br />• 预约产品演示
+                <br />• 获取技术支持
+              </p>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  placeholder="快速提问..."
+                  className="flex-1 px-3 py-2 text-xs rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsOpen(true);
+                    setIsHovering(false);
+                    setTimeout(() => {
+                      inputRef.current?.focus();
+                    }, 100);
+                  }}
+                />
+              </div>
+            </div>
+          )}
+
+          <button
+            onClick={() => {
+              setIsOpen(true);
+              setShowFirstTimeAnimation(false);
+            }}
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
+            className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110"
+            style={{
+              background: 'linear-gradient(135deg, rgb(215, 0, 29) 0%, #CC0000 100%)',
+              boxShadow: '0 8px 32px rgba(230, 0, 18, 0.4)',
+              animation: showFirstTimeAnimation ? 'bounceIn 0.8s ease-out, float 3s ease-in-out infinite 0.8s' : 'float 3s ease-in-out infinite'
+            }}
+          >
+            <MessageCircle className="text-white" size={28} />
+            <span
+              className="absolute -top-1 -right-1 w-4 h-4 bg-white rounded-full animate-ping"
+              style={{ backgroundColor: '#FFFFFF' }}
+            />
+            <span
+              className="absolute -top-1 -right-1 w-4 h-4 bg-white rounded-full"
+              style={{ backgroundColor: '#FFFFFF' }}
+            />
+          </button>
+        </>
       )}
 
       {/* 聊天窗口 */}
