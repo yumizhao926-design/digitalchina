@@ -135,10 +135,10 @@ export default function Navbar() {
         }
       `}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo 和名称 */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 flex-shrink-0">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
               <svg
                 className="w-6 h-6 text-white"
@@ -154,21 +154,21 @@ export default function Navbar() {
                 />
               </svg>
             </div>
-            <span className="text-xl font-bold text-gray-900">神州数码 AI 中心</span>
+            <span className="text-xl font-bold text-gray-900 whitespace-nowrap">神州数码 AI 中心</span>
           </div>
 
           {/* 导航菜单 */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden xl:flex items-center space-x-0.5 overflow-hidden">
             {navItems.map((item) => (
               <div
                 key={item.name}
-                className="relative"
+                className="relative flex-shrink-0"
                 onMouseEnter={() => handleMouseEnter(item.name)}
               >
                 <a
                   href={item.href}
                   className={`
-                    flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors
+                    flex items-center px-2 py-2 text-sm font-medium rounded-lg transition-colors whitespace-nowrap
                     ${activeDropdown === item.name
                       ? 'text-blue-600 bg-blue-50'
                       : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
@@ -178,7 +178,7 @@ export default function Navbar() {
                   {item.name}
                   {item.hasDropdown && (
                     <ChevronDown
-                      className={`ml-1 h-4 w-4 transition-transform ${
+                      className={`ml-1 h-4 w-4 transition-transform flex-shrink-0 ${
                         activeDropdown === item.name ? 'rotate-180' : ''
                       }`}
                     />
@@ -208,18 +208,18 @@ export default function Navbar() {
           </div>
 
           {/* 搜索框 */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden xl:flex items-center space-x-3 flex-shrink-0">
             <div className="relative">
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="搜索..."
-                className="w-64 pl-10 pr-4 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-48 pl-8 pr-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
             </div>
-            <button className="px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-700 border border-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+            <button className="px-3 py-1.5 text-sm font-medium text-blue-600 hover:text-blue-700 border border-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
               登录
             </button>
           </div>
