@@ -14,7 +14,7 @@ export default function FinalCTA() {
     >
       <div className="container mx-auto max-w-7xl text-center">
         {/* 主标题 */}
-        <h1
+        <h2
           className="font-bold mb-6"
           style={{
             color: '#333333',
@@ -23,7 +23,7 @@ export default function FinalCTA() {
           }}
         >
           开启企业流程数智化转型之旅
-        </h1>
+        </h2>
 
         {/* 副标题 */}
         <p
