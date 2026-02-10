@@ -16,13 +16,21 @@ interface NavItem {
   name: string;
   href: string;
   hasDropdown?: boolean;
-  dropdownItems?: { name: string; href: string }[];
+  dropdownItems?: DropdownItem[];
+}
+
+interface DropdownItem {
+  name: string;
+  href: string;
+  hasSubItems?: boolean;
+  subItems?: { name: string; href: string }[];
 }
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeSubItem, setActiveSubItem] = useState<string | null>(null);
   const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
 
   // 表单状态
@@ -86,11 +94,12 @@ export default function Navbar() {
       hasDropdown: true,
       dropdownItems: [
         { name: '技术服务', href: '#technical-service' },
-        { name: '生态伙伴', href: '#ecosystem-partners' },
-        { name: 'ICT合作伙伴', href: '#ecosystem-ict' },
-        { name: '数字中国服务联盟', href: '#ecosystem-alliance' },
-        { name: '千帆计划', href: '#ecosystem-qianfan' },
-        { name: '伙伴学院', href: '#ecosystem-academy' },
+        { name: '生态伙伴', href: '#ecosystem-partners', hasSubItems: true, subItems: [
+          { name: 'ICT合作伙伴', href: '#ecosystem-ict' },
+          { name: '数字中国服务联盟', href: '#ecosystem-alliance' },
+          { name: '千帆计划', href: '#ecosystem-qianfan' },
+          { name: '伙伴学院', href: '#ecosystem-academy' },
+        ]},
       ],
     },
     {
@@ -129,18 +138,25 @@ export default function Navbar() {
   const handleDropdownClick = (itemName: string) => {
     if (itemName !== '首页') {
       setActiveDropdown(activeDropdown === itemName ? null : itemName);
+      setActiveSubItem(null);
     }
+  };
+
+  const handleSubItemClick = (itemName: string) => {
+    setActiveSubItem(activeSubItem === itemName ? null : itemName);
   };
 
   const handleDropdownItemClick = (e: React.MouseEvent, dropdownItemName: string) => {
     e.stopPropagation();
     setActiveDropdown(null);
+    setActiveSubItem(null);
   };
 
   // 点击页面其他区域关闭下拉菜单
   useEffect(() => {
     const handleClickOutside = () => {
       setActiveDropdown(null);
+      setActiveSubItem(null);
     };
 
     if (activeDropdown) {
@@ -238,15 +254,59 @@ export default function Navbar() {
                     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-6">
                       <div className="flex flex-wrap gap-x-12 gap-y-3">
                         {item.dropdownItems?.map((dropdownItem) => (
-                          <a
-                            key={dropdownItem.name}
-                            href={dropdownItem.href}
-                            className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-red-600 transition-colors whitespace-nowrap"
-                            onClick={(e) => handleDropdownItemClick(e, dropdownItem.name)}
-                          >
-                            <div className="w-1 h-1 rounded-full bg-red-600"></div>
-                            {dropdownItem.name}
-                          </a>
+                          <div key={dropdownItem.name} className="relative">
+                            {dropdownItem.hasSubItems ? (
+                              <div className="relative">
+                                <a
+                                  href={dropdownItem.href}
+                                  className={`inline-flex items-center gap-2 text-sm transition-colors whitespace-nowrap cursor-pointer ${
+                                    activeSubItem === dropdownItem.name
+                                      ? 'text-red-600'
+                                      : 'text-gray-600 hover:text-red-600'
+                                  }`}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    handleSubItemClick(dropdownItem.name);
+                                  }}
+                                >
+                                  <div className="w-1 h-1 rounded-full bg-red-600"></div>
+                                  {dropdownItem.name}
+                                  <ChevronDown className={`w-2.5 h-2.5 transition-transform duration-200 ${
+                                    activeSubItem === dropdownItem.name ? 'rotate-180' : ''
+                                  }`} />
+                                </a>
+                                {/* 二级菜单 */}
+                                {dropdownItem.subItems && activeSubItem === dropdownItem.name && (
+                                  <div className="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50">
+                                    {dropdownItem.subItems.map((subItem) => (
+                                      <a
+                                        key={subItem.name}
+                                        href={subItem.href}
+                                        className="block px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-red-600 transition-colors whitespace-nowrap"
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          handleDropdownItemClick(e, subItem.name);
+                                        }}
+                                      >
+                                        {subItem.name}
+                                      </a>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            ) : (
+                              <a
+                                key={dropdownItem.name}
+                                href={dropdownItem.href}
+                                className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-red-600 transition-colors whitespace-nowrap"
+                                onClick={(e) => handleDropdownItemClick(e, dropdownItem.name)}
+                              >
+                                <div className="w-1 h-1 rounded-full bg-red-600"></div>
+                                {dropdownItem.name}
+                              </a>
+                            )}
+                          </div>
                         ))}
                       </div>
                     </div>
